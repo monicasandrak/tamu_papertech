@@ -142,9 +142,11 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
+            LOKASI YANG STRATEGIS
+            Berada di Spanyol, Indonesia dan China, lokasi papermills kami secara strategis berlokasi dekat dengan sumber bahan baku dan juga dekat dengan pelanggan kami. Produksi tahunan kami setara dengan sekitar 300.000 ton coreboard.
+
+            100% DAUR ULANG
+            Semua produk kami terbuat dari 100% kertas daur ulang.  Dengan terus berinvestasi dalam teknologi terkini dalam pembuatan kertas, kami dapat menghasilkan kertas daur ulang dengan kualitas yang lebih tinggi.
             </p>
             <a href="#" class="btn-learn-more">Learn More</a>
           </div>
