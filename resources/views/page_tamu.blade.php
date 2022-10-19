@@ -50,11 +50,8 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Form Visitor</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="getstarted scrollto" href="#contact">Silahkan Isi Form</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -71,7 +68,7 @@
           <h1>Welcome to Our Website</h1>
           <h2>Website ini diperuntukan untuk tamu yang mempunyai keperluan ke PT. Papertech Indonesia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#contact" class="btn-get-started scrollto">Silahkan Isi Form</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -198,13 +195,25 @@
 
   </main><!-- End #main -->
 
+  <footer id="footer">
+
+<div class="footer-newsletter">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+      <h3>LOCATION AND CONTACT</h3>
+            
+      </div>
+    </div>
+  </div>
+</div>
  
     <div class="footer-top">
       <div class="container">
         <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Location</h3>
+            <h4>Location</h4>
             <p>
               Jl. Raya Cipeundeuy Km. 1, Desa Cipeundeuy <br>
               Kecamatan Cipeundeuy, Kabupaten Subang<br>
@@ -213,7 +222,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Contact</h3>
+            <h4>Contact</h4>
             <p>
               <strong>Phone:</strong> +62-260 - 710-645<br>
               <strong>Fax:</strong> +62-260 - 710-644<br>
@@ -221,33 +230,6 @@
               <strong>Website:</strong> www.papertech.com<br>
             </p>
           </div>
-
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
