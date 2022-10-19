@@ -98,7 +98,7 @@
         </div>
 
   
-
+        <div class="d-flex h-100 justify-content-center align-items-center">
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
@@ -158,26 +158,20 @@
 
     <div class="row content">
       <div class="col-lg-6">
+        <h5>Introduction</h5>
+        <br>
         <p>
         Terletak di Jawa Barat – Indonesia, papermill Subang memiliki kapasitas 100.000 ton 
         dan difokuskan untuk memberikan produk dengan spesifikasi yang tinggi dan berkualitas, 
-        yang dibutuhkan untuk industri paper core / paper tube.
-        </p> 
-        <p> 
-        Papermill Subang adalah unit yang sangat spesial di grup kami 
-        karena diciptakan 100% oleh tim teknis kami, 
-        menggunakan instalasi terbaru dan teknologi modern.  
-        Saat ini papermill Subang adalah pemimpin di pasar domestik  
-        dan telah mengekspor ke negara-negara lain dalam jumlah besar, 
-        dikenal karena kualitas produk dan layanan yang tinggi.
-        </p>
-        
+        yang dibutuhkan untuk industri paper core / paper tube. </p> 
+        <p>
+        Papermill Subang adalah unit yang sangat spesial di grup kami karena diciptakan 100% oleh tim teknis kami, menggunakan instalasi terbaru dan teknologi modern. Saat ini papermill Subang adalah pemimpin di pasar domestik  dan telah mengekspor ke negara-negara lain dalam jumlah besar, dikenal karena kualitas produk dan layanan yang tinggi.</p>
       </div>
-      <div class="col-lg-6 pt-4 pt-lg-0">
+      <div class="col-lg-6">
         <h5>Produk</h5>
-
-        <br> Coreboard for different applications: </br>
-
+        <br> 
+          Papertech memproduksi berbagai macam produk kertas dari yang paling sederhana sampai yang paling canggih dan dapat membuat board yang sesuai dengan kebutuhan bisnis Anda. Departemen penelitian dan pengembangan kami selalu berusaha untuk meningkatkan spesifikasi fisik dari semua produk board kami, dari produk standar sampai produk yang membutuhkan teknologi tertinggi.
+        <br> Coreboard for different applications:
 <br> - Industrial cores 
 <br> - Edge protectors
 <br> - Laminates
