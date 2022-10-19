@@ -23,3 +23,7 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('layout/v_template');
 });
+
+Route::get('/kelola_tamu', function () {
+    return view('security/v_kelola_tamu');
+});

@@ -1,9 +1,9 @@
 @section('title')
 Kelola Data Tamu
 @endsection
-@extends('layout/v_template_tables')
+@extends('layout/v_template_table')
 @section('page')
-Halaman Dosen
+Kelola Data Tamu
 @endsection
 @section('content')
 <div class="card">
