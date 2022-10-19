@@ -21,5 +21,5 @@ Route::get('/login', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('nav');
+    return view('layout/v_nav');
 });
