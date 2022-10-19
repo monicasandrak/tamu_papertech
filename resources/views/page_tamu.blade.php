@@ -53,8 +53,8 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Form Visitor</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+          <li><a class="getstarted scrollto" href="#contact">Isi Form Tamu</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -71,7 +71,7 @@
           <h1>Welcome to Our Website</h1>
           <h2>Website ini diperuntukan untuk tamu yang mempunyai keperluan ke PT. Papertech Indonesia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#contact" class="btn-get-started scrollto">Isi Form Tamu</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -87,50 +87,7 @@
     <!-- ======= Clients Section ======= -->
     
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>About Us</h2>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>
-            Terletak di Jawa Barat – Indonesia, papermill Subang memiliki kapasitas 100.000 ton 
-            dan difokuskan untuk memberikan produk dengan spesifikasi yang tinggi dan berkualitas, 
-            yang dibutuhkan untuk industri paper core / paper tube.
-            </p> 
-            <p> 
-            Papermill Subang adalah unit yang sangat spesial di grup kami 
-            karena diciptakan 100% oleh tim teknis kami, 
-            menggunakan instalasi terbaru dan teknologi modern.  
-            Saat ini papermill Subang adalah pemimpin di pasar domestik  
-            dan telah mengekspor ke negara-negara lain dalam jumlah besar, 
-            dikenal karena kualitas produk dan layanan yang tinggi.
-            </p>
-            
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <h5>Produk</h5>
-
-            <br> Coreboard for different applications: </br>
-
-<br> - Industrial cores 
-<br> - Edge protectors
-<br> - Laminates
-<br> - Composite cans
-<br> - Dividers 
-<br> - Honeycomb 
-
-            
-            
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Us Section -->
+   
 
     
 
@@ -195,7 +152,50 @@
 
       </div>
     </section><!-- End Contact Section -->
+ <!-- ======= About Us Section ======= -->
+ <section id="about" class="about">
+  <div class="container" data-aos="fade-up">
 
+    <div class="section-title">
+      <h2>About Us</h2>
+    </div>
+
+    <div class="row content">
+      <div class="col-lg-6">
+        <p>
+        Terletak di Jawa Barat – Indonesia, papermill Subang memiliki kapasitas 100.000 ton 
+        dan difokuskan untuk memberikan produk dengan spesifikasi yang tinggi dan berkualitas, 
+        yang dibutuhkan untuk industri paper core / paper tube.
+        </p> 
+        <p> 
+        Papermill Subang adalah unit yang sangat spesial di grup kami 
+        karena diciptakan 100% oleh tim teknis kami, 
+        menggunakan instalasi terbaru dan teknologi modern.  
+        Saat ini papermill Subang adalah pemimpin di pasar domestik  
+        dan telah mengekspor ke negara-negara lain dalam jumlah besar, 
+        dikenal karena kualitas produk dan layanan yang tinggi.
+        </p>
+        
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0">
+        <h5>Produk</h5>
+
+        <br> Coreboard for different applications: </br>
+
+<br> - Industrial cores 
+<br> - Edge protectors
+<br> - Laminates
+<br> - Composite cans
+<br> - Dividers 
+<br> - Honeycomb 
+
+        
+        
+      </div>
+    </div>
+
+  </div>
+</section><!-- End About Us Section -->
   </main><!-- End #main -->
 
  
