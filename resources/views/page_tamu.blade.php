@@ -116,6 +116,10 @@
                 <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" required>
               </div>
               <div class="form-group">
+                <label for="keperluan">Keperluan</label>
+                <input type="text" class="form-control" name="keperluan" id="keperluan" required>
+              </div>
+              <div class="form-group">
                 <label for="bertemu_dengan">Bertemu Dengan</label>
                 <input type="text" class="form-control" name="bertemu_dengan" id="bertemu_dengan" required>
               </div>
