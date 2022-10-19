@@ -14,7 +14,7 @@
     <title>Login</title>
 
     <!-- Fontfaces CSS-->
-    <link href="{{asset('template2')}}/{{asset('template2')}}/css/font-face.css" rel="stylesheet" media="all">
+    <link href="{{asset('template2')}}/css/font-face.css" rel="stylesheet" media="all">
     <link href="{{asset('template2')}}/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="{{asset('template2')}}/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="{{asset('template2')}}vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
