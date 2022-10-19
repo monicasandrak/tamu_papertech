@@ -53,8 +53,7 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Form Visitor</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="getstarted scrollto" href="#contact">Silahkan Isi Form</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -71,7 +70,7 @@
           <h1>Welcome to Our Website</h1>
           <h2>Website ini diperuntukan untuk tamu yang mempunyai keperluan ke PT. Papertech Indonesia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#contact" class="btn-get-started scrollto">Silahkan Isi Form</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
