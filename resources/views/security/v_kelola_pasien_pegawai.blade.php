@@ -2,7 +2,7 @@
 Kelola Pasien Pegawai
 @endsection
 
-@extends('layout/v_template')
+@extends('layout/v_template_pasien')
 @section('page')
 Kelola Pasien Pegawai
 @endsection
