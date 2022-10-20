@@ -1,6 +1,9 @@
 @section('title')
 Tambah Data Tamu
 @endsection
+<br>
+<br>
+<br>
 @extends('layout/v_template')
 @section('page')
 Tambah Data Tamu
@@ -9,18 +12,20 @@ Tambah Data Tamu
 <div class="container-fluid">
     <div class="row">
       <!-- left column -->
+      
       <div class="col-md-6">
 
      <!-- general form elements -->
-     <div class="d-flex h-100 justify-content-center align-items-center">
+     
      <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Form Add</h3>
+          <h3 class="card-title">Form Tambah Data Tamu</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
         <form action="/tamu/insert" method="POST" enctype="multipart/form-data">
           @csrf
+
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID Tamu</label>

@@ -22,9 +22,12 @@ Route::get('/login', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('layout/v_template');
+    return view('security/v_dashboard');
 });
 
+Route::get('/laporan', function () {
+    return view('security/v_laporan');
+});
 // Route::get('/kelola_tamu', function () {
 //     return view('security/v_kelola_tamu');
 // });

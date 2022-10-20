@@ -10,18 +10,18 @@
                     <li class="nav-item">
        
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="/dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             
                         </li>
                         
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Kelola Data Pengunjung</a>
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="/kelola_tamu">
+                                <i class="fas fa-copy"></i>Kelola Tamu</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>Laporan Pengunjung</a>
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="/laporan">
+                                <i class="fas fa-desktop"></i>Laporan</a>
                             
                             </ul>
                         </li>

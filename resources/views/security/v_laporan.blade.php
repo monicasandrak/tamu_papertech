@@ -1,9 +1,9 @@
 @section('title')
-Dashboard
+Laporan
 @endsection
 @extends('layout/v_template')
 @section('page')
-Dashboard
+Laporan
 @endsection
 @section('content')
 @endsection
