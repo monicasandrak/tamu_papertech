@@ -59,11 +59,12 @@
          
 
         <!-- MENU SIDEBAR-->
-        
+        @include('layout/v_nav')
         <!-- END MENU SIDEBAR-->
-        @yield('content')
+       
         <!-- PAGE CONTAINER-->
         <div class="page-container">
+        @yield('content')
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
@@ -129,7 +130,7 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <div class="main-content">
+            {{-- <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         
@@ -151,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
