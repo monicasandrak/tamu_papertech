@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\c_kelola_tamu;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::get('/dashboard', function () {
     return view('layout/v_template');
 });
 
-Route::get('/kelola_tamu', function () {
-    return view('security/v_kelola_tamu');
-});
+// Route::get('/kelola_tamu', function () {
+//     return view('security/v_kelola_tamu');
+// });
+
+Route::get('/kelola_tamu', [c_kelola_tamu::class,'index']);
+Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
+Route::post('/tamu/insert', [c_kelola_tamu::class,'insert']);

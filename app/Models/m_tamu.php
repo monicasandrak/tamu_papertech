@@ -12,7 +12,7 @@ class m_tamu extends Model
     {
         return DB::table('tamu')->get();
     }
- 
+
     public function detailData($id_tamu)
     {
      return DB::table('tamu')->where('id_tamu', $id_tamu)->first();

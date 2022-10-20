@@ -1,7 +1,6 @@
 @section('title')
 Kelola Data Tamu
 @endsection
-
 @extends('layout/v_template')
 @section('page')
 Kelola Data Tamu
@@ -9,7 +8,7 @@ Kelola Data Tamu
 @section('content')
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">DataTable with default features</h3>
+      <h3 class="card-title">Data Tamu</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -22,7 +21,7 @@ Kelola Data Tamu
         </div>
         @endif
         <div align="right">
-            <a href="/dosen/add" class="btn btn-sm btn-primary">Add Data</a><br>
+            <a href="/tamu/add" class="btn btn-sm btn-primary">Add Data</a><br>
             <br>
         </div>
         <thead>
@@ -48,7 +47,7 @@ Kelola Data Tamu
         <?php $no=1;?>
         <tr>
             <td>{{$no++}}</td>
-            <td>{{$tanggal}}</td>
+            <td>{{$data->tanggal}}</td>
             <td>{{$data->id_tamu}}</td>
             <td>{{$data->nama_tamu}}</td>
             <td>{{$data->alamat}}</td>
@@ -62,9 +61,9 @@ Kelola Data Tamu
 
             </td>
             <td>
-              <a href="/tamu/detail/{{$data->id_dosen}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/dosen/edit/{{$data->id_dosen}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_dosen}}">
+              <a href="/tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
+              <a href="/tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
                   Delete
               </button>
           </td>
@@ -89,11 +88,11 @@ Kelola Data Tamu
         </tfoot>
       </table>
       @foreach ($tamu as $data)
-      <div class="modal fade" id="delete{{$data->id_dosen}}">
+      <div class="modal fade" id="delete{{$data->id_tamu}}">
         <div class="modal-dialog modal-sm">
           <div class="modal-content bg-danger">
             <div class="modal-header">
-              <h6 class="modal-title">{{$data->nama_dosen}}</h6>
+              <h6 class="modal-title">{{$data->nama_tamu}}</h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -102,7 +101,7 @@ Kelola Data Tamu
               <p>Apakah anda ingin menghapus data ini ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <a href="/dosen/delete/{{$data->id_dosen}}" class="btn btn-outline-light">Yes</a>
+                <a href="/tamu/delete/{{$data->id_tamu}}" class="btn btn-outline-light">Yes</a>
                 <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
               </div>
           </div>

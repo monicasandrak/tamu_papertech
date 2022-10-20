@@ -8,11 +8,16 @@ use App\Models\m_tamu;
 
 class c_kelola_tamu extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+        $this->m_tamu = new m_tamu();
+    }
     public function index() 
     {
         $data = ['tamu' => $this->m_tamu->allData()
     ];
-    return view('v_kelola_tamu', $data);
+    return view('security/v_kelola_tamu', $data);
     }
 
     public function detail($id_tamu)
@@ -28,7 +33,7 @@ class c_kelola_tamu extends Controller
     public function add()
     {
         $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
-        return view('v_addtamu', $id_baru);
+        return view('security/v_addtamu', $id_baru);
     }
 
     public function insert()
@@ -56,6 +61,22 @@ class c_kelola_tamu extends Controller
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
+        $file = Request()->foto_ktp;
+        $fileName = Request()->nama .'.'. $file->extension();
+        $file->move(public_path('foto_ktp'),$fileName);
+
+        $data = [
+            'id_tamu' => Request()->id_tamu,
+            'tanggal' => Request()->tanggal,
+            'nama_tamu' => Request()->nama_tamu,
+            'alamat' => Request()->alamat,
+            'keperluan' => Request()->keperluan,
+            'bertemu_dengan' => Request()->bertemu_dengan,
+            'no_ktp' => Request()->no_ktp,
+            'foto_dosen' => $fileName,
+            'no_kendaraan' => Request()->no_kendaraan,
+            'jam_masuk' => Request()->jam_masuk,
+        ];
         $this->m_tamu->addData($data);
         return redirect()->route('tamu')->with('pesan', 'Data berhasil ditambahkan !');
     }
