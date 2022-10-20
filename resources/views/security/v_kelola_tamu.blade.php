@@ -1,12 +1,7 @@
 @section('title')
 Kelola Data Tamu
 @endsection
-<<<<<<< HEAD
-@include('layout/v_nav')
-@extends('layout/v_template_table')
-=======
 @extends('layout/v_template')
->>>>>>> ccb28b9c89f4c121ab6c6d9e4e6c809682675da0
 @section('page')
 Kelola Data Tamu
 @endsection
@@ -90,11 +85,6 @@ Kelola Data Tamu
           <th>Nomor Kendaraan</th>
           <th>Jam Masuk</th>
         </tr>
-<<<<<<< HEAD
-        </thead>
-        <tbody>
-
-=======
         </tfoot>
       </table>
       @foreach ($tamu as $data)
@@ -120,7 +110,6 @@ Kelola Data Tamu
         <!-- /.modal-dialog -->
       </div>
       @endforeach --}}
->>>>>>> ccb28b9c89f4c121ab6c6d9e4e6c809682675da0
 
     </div>
     <!-- /.card-body -->
