@@ -27,3 +27,7 @@ Route::get('/dashboard', function () {
 Route::get('/kelola_tamu', function () {
     return view('security/v_kelola_tamu');
 });
+
+Route::get('/kelola_pasien_pegawai', function () {
+        return view('security/v_kelola_pasien_pegawai');
+});
