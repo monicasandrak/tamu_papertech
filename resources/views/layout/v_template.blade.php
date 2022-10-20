@@ -64,6 +64,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
+            @yield('content')
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
@@ -129,35 +130,35 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        
-                        
-                            
-                            
-                            
-                            
-                        
-                    
-                        
-                       
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © Rissa and Monica 2022. All rights reserved. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
 
     </div>
-
+    {{-- <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                
+                
+                    
+                    
+                    
+                    
+                
+            
+                
+               
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>Copyright © Rissa and Monica 2022. All rights reserved. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
     <!-- Jquery JS-->
     <script src="{{asset('template2')}}/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
