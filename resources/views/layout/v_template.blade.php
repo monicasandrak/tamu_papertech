@@ -43,7 +43,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="{{asset('template2')}}/images/icon/logo.png" alt="CoolAdmin" />
+                            <img src="{{asset('template2')}}/images/icon/logo_papertech.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -59,9 +59,9 @@
          
 
         <!-- MENU SIDEBAR-->
-        @include('layout/v_nav')
+        
         <!-- END MENU SIDEBAR-->
-
+        @yield('content')
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->

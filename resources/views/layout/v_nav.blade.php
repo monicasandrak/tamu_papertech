@@ -17,11 +17,11 @@
                         
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Kelola Tamu</a>
+                                <i class="fas fa-copy"></i>Kelola Data Pengunjung</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>Laporan</a>
+                                <i class="fas fa-desktop"></i>Laporan Pengunjung</a>
                             
                             </ul>
                         </li>
