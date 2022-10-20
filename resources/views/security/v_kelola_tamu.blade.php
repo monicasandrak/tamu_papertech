@@ -26,20 +26,23 @@ Kelola Data Tamu
         <thead>
         <tr>
           <th>No</th>
-          <th>ID Dosen</th>
-          <th>NIP</th>
-          <th>Nama Dosen</th>
-          <th>Mata Kuliah</th>
-          <th>Foto Dosen</th>
-          <th>Action</th>
+          <th>Tanggal</th>
+          <th>ID Tamu</th>
+          <th>Alamat</th>
+          <th>Pekerjaan</th>
+          <th>Keperluan</th>
+          <th>Bertemu Dengan</th>
+          <th>No KTP</th>
+          <th>Foto KTP</th>
+          <th>Nomor Kendaraan</th>
+          <th>Jam Masuk</th>
         </tr>
         </thead>
         <tbody>
         <?php $no=1;?>
-        @foreach ($dosen as $data)
         <tr>
             <td>{{$no++}}</td>
-            <td>{{$data->id_dosen}}</td>
+            <td>{{18}}</td>
             <td>{{$data->nip}}</td>
             <td>{{$data->nama_dosen}}</td>
             <td>{{$data->mata_kuliah}}</td>
