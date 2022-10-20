@@ -48,6 +48,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
+            @yield('content')
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">

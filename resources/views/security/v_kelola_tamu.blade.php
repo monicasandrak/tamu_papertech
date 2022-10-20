@@ -1,8 +1,12 @@
 @section('title')
 Kelola Data Tamu
 @endsection
+<<<<<<< HEAD
 @include('layout/v_nav')
 @extends('layout/v_template_table')
+=======
+@extends('layout/v_template')
+>>>>>>> ccb28b9c89f4c121ab6c6d9e4e6c809682675da0
 @section('page')
 Kelola Data Tamu
 @endsection
@@ -23,12 +27,60 @@ Kelola Data Tamu
         @endif
         <div align="right">
             <a href="/dosen/add" class="btn btn-sm btn-primary">Add Data</a><br>
+            <br>
         </div>
         <thead>
         <tr>
           <th>No</th>
           <th>Tanggal</th>
           <th>ID Tamu</th>
+          <th>Nama Lengkap</th>
+          <th>Alamat</th>
+          <th>Pekerjaan</th>
+          <th>Keperluan</th>
+          <th>Bertemu Dengan</th>
+          <th>No KTP</th>
+          <th>Foto KTP</th>
+          <th>Nomor Kendaraan</th>
+          <th>Jam Masuk</th>
+          <th>Hasil Swab</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+         {{-- @foreach ($tamu as $data)  
+        <?php $no=1;?>
+        <tr>
+            <td>{{$no++}}</td>
+            <td>{{$tanggal}}</td>
+            <td>{{$data->id_tamu}}</td>
+            <td>{{$data->nama_tamu}}</td>
+            <td>{{$data->alamat}}</td>
+            <td>{{$data->pekerjaan}}</td>
+            <td>{{$data->keperluan}}</td>
+            <td>{{$data->bertemu_dengan}}</td>
+            <td>{{$data->no_ktp}}</td>
+            <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
+            <td>{{$data->no_kendaraan}}</td>
+            <td>{{$data->jam_masuk}}</td>
+
+            </td>
+            <td>
+              <a href="/tamu/detail/{{$data->id_dosen}}" class="btn btn-sm btn-success">Detail</a>
+              <a href="/dosen/edit/{{$data->id_dosen}}" class="btn btn-sm btn-warning">Edit</a>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_dosen}}">
+                  Delete
+              </button>
+          </td>
+        </tr>
+        @endforeach
+        </tbody>
+        <tfoot>
+        <tr>
+          <th>No</th>
+          <th>Tanggal</th>
+          <th>ID Tamu</th>
+          <th>Nama Lengkap</th>
           <th>Alamat</th>
           <th>Pekerjaan</th>
           <th>Keperluan</th>
@@ -38,9 +90,37 @@ Kelola Data Tamu
           <th>Nomor Kendaraan</th>
           <th>Jam Masuk</th>
         </tr>
+<<<<<<< HEAD
         </thead>
         <tbody>
 
+=======
+        </tfoot>
+      </table>
+      @foreach ($tamu as $data)
+      <div class="modal fade" id="delete{{$data->id_dosen}}">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content bg-danger">
+            <div class="modal-header">
+              <h6 class="modal-title">{{$data->nama_dosen}}</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Apakah anda ingin menghapus data ini ?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <a href="/dosen/delete/{{$data->id_dosen}}" class="btn btn-outline-light">Yes</a>
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
+              </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      @endforeach --}}
+>>>>>>> ccb28b9c89f4c121ab6c6d9e4e6c809682675da0
 
     </div>
     <!-- /.card-body -->
@@ -49,4 +129,3 @@ Kelola Data Tamu
   </div>
 @endsection
 
-html` `
