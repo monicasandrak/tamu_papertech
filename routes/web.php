@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\c_kelola_tamu;
 use App\Http\Controllers\c_user;
+use App\Http\Controllers\c_kelola_pasien;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,11 @@ Route::get('/laporan', function () {
 // Route::get('/kelola_tamu', function () {
 //     return view('security/v_kelola_tamu');
 // });
+// Route::get('/kelola_pasien', function () {
+//     return view('klinik/v_kelola_pasien');
+// });
 
+Route::get('/kelola_pasien', [c_kelola_pasien::class,'index']);
 Route::get('/kelola_tamu', [c_kelola_tamu::class,'index']);
 Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
 Route::post('/tamu/insert', [c_kelola_tamu::class,'insert']);
