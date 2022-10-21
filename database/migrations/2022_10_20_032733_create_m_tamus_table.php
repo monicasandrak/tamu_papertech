@@ -21,10 +21,11 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->string('keperluan');
             $table->string('bertemu_dengan');
-            $table->integer('no_ktp' ,16);
+            $table->integer('no_ktp');
             $table->string('foto_ktp');
             $table->string('no_kendaraan');
             $table->time('jam_masuk');
+            $table->time('hasil_swab');
             $table->timestamps();
         });
     }
