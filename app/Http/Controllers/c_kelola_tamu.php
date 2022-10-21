@@ -78,7 +78,7 @@ class c_kelola_tamu extends Controller
             'jam_masuk' => Request()->jam_masuk,
         ];
         $this->m_tamu->addData($data);
-        return redirect()->route('tamu')->with('pesan', 'Data berhasil ditambahkan !');
+        return redirect()->route('tamu.index')->with('pesan', 'Data berhasil ditambahkan !');
     }
     
     public function edit($id_tamu)

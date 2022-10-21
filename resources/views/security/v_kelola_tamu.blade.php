@@ -43,7 +43,7 @@ Kelola Data Tamu
         </tr>
         </thead>
         <tbody>
-         {{-- @foreach ($tamu as $data)  
+         @foreach ($tamu as $data)  
         <?php $no=1;?>
         <tr>
             <td>{{$no++}}</td>
@@ -58,7 +58,7 @@ Kelola Data Tamu
             <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
             <td>{{$data->no_kendaraan}}</td>
             <td>{{$data->jam_masuk}}</td>
-
+            <td>{{$data->hasil_swab}}</td>
             </td>
             <td>
               <a href="/tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
@@ -84,6 +84,7 @@ Kelola Data Tamu
           <th>Foto KTP</th>
           <th>Nomor Kendaraan</th>
           <th>Jam Masuk</th>
+          <th>Hasil Swab</th>
         </tr>
         </tfoot>
       </table>
@@ -109,7 +110,7 @@ Kelola Data Tamu
         </div>
         <!-- /.modal-dialog -->
       </div>
-      @endforeach --}}
+      @endforeach
 
     </div>
     <!-- /.card-body -->
