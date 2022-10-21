@@ -89,7 +89,7 @@ class c_kelola_tamu extends Controller
 
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
         ];
-        return view('v_edittamu',$data);
+        return view('security/v_edittamu',$data);
     }
 
     public function update($id_tamu)
