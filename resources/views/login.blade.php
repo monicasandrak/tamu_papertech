@@ -48,25 +48,38 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="{{route('login.action')}}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <label>Username</label>
                                     <input class="au-input au-input--full" type="username" name="username" placeholder="Username">
+                                @error('username')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>  
+                                @enderror                   
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>  
+                                @enderror
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember">Remember Me
+                                        <input type="checkbox" name="remember" {{old ('remember') ? 'checked' : '' }}>Remember Me
                                     </label>
                                     <label>
-                                        <a href="#">Forgotten Password?</a>
+                                        @if (Route::has('password.request'))
+                                        <a href="{route ('password.request') }}">Forgotten Password?</a>
+                                        @endif
                                     </label>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
-                              
+                               
                             </form>
                             
                         </div>
