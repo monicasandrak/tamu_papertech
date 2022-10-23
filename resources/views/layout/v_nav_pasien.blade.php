@@ -10,23 +10,23 @@
                     <li class="nav-item">
        
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="/dashboardklinik">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             
                         </li>
                         
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="/kelola_tamu">
                                 <i class="fas fa-copy"></i>Kelola Data Pengunjung</a>
                         </li>
 
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="/kelola_pasien">
                                 <i class="fas fa-copy"></i>Kelola Pasien Pegawai</a>
                         </li>
 
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="/laporan_klinik">
                                 <i class="fas fa-desktop"></i>Laporan Klinik</a>
                             
                             </ul>

@@ -27,6 +27,10 @@ Route::get('/dashboard', function () {
     return view('security/v_dashboard');
 });
 
+Route::get('/dashboardklinik', function () {
+    return view('klinik/v_dashboard_klinik');
+});
+
 Route::get('/laporan', function () {
     return view('security/v_laporan');
 });
@@ -38,6 +42,9 @@ Route::get('/laporan', function () {
 // });
 
 Route::get('/kelola_pasien', [c_kelola_pasien::class,'index']);
+Route::get('/pasien/add', [c_kelola_pasien::class,'add']);
+Route::post('/pasien/insert', [c_kelola_pasien::class,'insert'])->name('insert_pasien');
+
 Route::get('/kelola_tamu', [c_kelola_tamu::class,'index']);
 Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
 Route::post('/tamu/insert', [c_kelola_tamu::class,'insert'])->name('insert_tamu');
