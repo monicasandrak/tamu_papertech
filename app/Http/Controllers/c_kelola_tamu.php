@@ -42,6 +42,7 @@ class c_kelola_tamu extends Controller
             'tanggal' => 'required',
             'nama_tamu' => 'required',
             'alamat' => 'required',
+            'pekerjaan' => 'required',
             'keperluan' => 'required',
             'bertemu_dengan' => 'required',
             'no_ktp' => 'required',
@@ -52,6 +53,7 @@ class c_kelola_tamu extends Controller
             'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
+            'pekerjaan.required' => 'Pekerjaan wajib diisi !',
             'keperluan.required' => 'Keperluan wajib diisi !',
             'bertemu_dengan' => 'Bertemu dengan wajib diisi !',
             'no_ktp.required' => 'No KTP wajib diisi !',
@@ -70,12 +72,14 @@ class c_kelola_tamu extends Controller
             'tanggal' => Request()->tanggal,
             'nama_tamu' => Request()->nama_tamu,
             'alamat' => Request()->alamat,
+            'pekerjaan' => Request()->pekerjaan,
             'keperluan' => Request()->keperluan,
             'bertemu_dengan' => Request()->bertemu_dengan,
             'no_ktp' => Request()->no_ktp,
-            'foto_dosen' => $fileName,
+            'foto_ktp' => $fileName,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
+            'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
         return redirect()->route('tamu.index')->with('pesan', 'Data berhasil ditambahkan !');
@@ -98,6 +102,7 @@ class c_kelola_tamu extends Controller
             'tanggal' => 'required',
             'nama_tamu' => 'required',
             'alamat' => 'required',
+            'pekerjaan' => 'required',
             'keperluan' => 'required',
             'bertemu_dengan' => 'required',
             'no_ktp' => 'required',
@@ -108,6 +113,7 @@ class c_kelola_tamu extends Controller
             'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
+            'pekerjaan.required' => 'Pekerjaan wajib diisi !',
             'keperluan.required' => 'Keperluan wajib diisi !',
             'bertemu_dengan' => 'Bertemu dengan wajib diisi !',
             'no_ktp.required' => 'No KTP wajib diisi !',
@@ -118,7 +124,7 @@ class c_kelola_tamu extends Controller
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
         $this->m_tamu->editData($id_tamu);
-        return redirect()->route('tamu')->with('pesan', 'Data berhasil diupdate !');
+        return redirect()->route('tamu.index')->with('pesan', 'Data berhasil diupdate !');
 
     }
 
