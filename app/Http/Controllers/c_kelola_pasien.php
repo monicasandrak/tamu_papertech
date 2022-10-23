@@ -3,38 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\m_pasien;
 
 class c_kelola_pasien extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->M_kelola_pasien_pegawai = new M_kelola_pasien_pegawai();
+        // $this->middleware('auth');
+        $this->m_pasien = new m_pasien();
     }
 
     public function index()
     {
 
         $data = [
-            'pasien' => $this->M_kelola_pasien_pegawai->allData()
+            'pasien' => $this->m_pasien->allData()
         ];
-        return view('v_kelola_pasien_pegawai', $data);
+        return view('klinik/v_kelola_pasien', $data);
     }
 
     public function detail($id_dosen)
     {
-        if (!$this->M_kelola_pasien_pegawai->detailData($id_pasien)) {
+        if (!$this->m_pasien->detailData($id_pasien)) {
             abort(404);
         }
         $data = [
-            'pasien' => $this->M_kelola_pasien_pegawai->detailData($id_pasien)
+            'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
         return view('v_detailpasienpegawai', $data);
     }
 
     public function add()
     {
-        $id_baru = ['id_baru' => $this->M_kelola_pasien_pegawai->id_baru()];
+        $id_baru = ['id_baru' => $this->m_pasien->id_baru()];
         //$id_baru2 = implode(" ",$id_baru);
         //echo $id_baru2;
         return view('v_addpasien', $id_baru);
@@ -75,19 +76,19 @@ class c_kelola_pasien extends Controller
             'diagnosa' => Request()->diagnosa,
             'obat' => Request()->obat,
         ];
-        $this->M_kelola_pasien_pegawai->addData($data);
+        $this->m_pasien->addData($data);
         return redirect()->route('pasien')->with('pesan', 'Data berhasil ditambahkan !');
     }
 
 
     public function edit($id_pasien)
     {
-        if (!$this->M_kelola_pasien_pegaawai->detailData($id_pasien)) {
+        if (!$this->m_pasien->detailData($id_pasien)) {
             abort(404);
         }
 
         $data = [
-            'pasien' => $this->M_kelola_pasien_pegawai->detailData($id_pasien)
+            'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
         return view('v_editpasien', $data);
     }
@@ -146,7 +147,7 @@ class c_kelola_pasien extends Controller
         // if ($dosen->foto_dosen <> "") {
         //     unlink(public_path('foto_dosen') . '/' . $dosen->foto_dosen);
         // }
-        $this->M_kelola_pasien_pegawai->deleteData($id_pasien);
+        $this->m_pegawai->deleteData($id_pasien);
         return redirect()->route('pasien')->with('pesan', 'Data berhasil dihapus !');
     }
 
