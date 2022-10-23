@@ -52,9 +52,9 @@ Kelola Pasien Pegawai
 
             </td>
             <td>
-              <a href="/pasien/detail/{{$data->id_dosen}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/dosen/edit/{{$data->id_dosen}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_dosen}}">
+              <a href="/pasien/detail/{{$data->id_pasien}}" class="btn btn-sm btn-success">Detail</a>
+              <a href="/passien/edit/{{$data->id_pasien}}" class="btn btn-sm btn-warning">Edit</a>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_pasien}}">
                   Delete
               </button>
           </td>
