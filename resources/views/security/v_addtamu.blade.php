@@ -23,10 +23,20 @@ Tambah Data Tamu
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="/tamu/insert" method="POST" enctype="multipart/form-data">
+        <form action="{{route('insert_tamu')}}" method="POST" enctype="multipart/form-data">
           @csrf
-
             <div class="card-body">
+            @if(session('success'))
+        <p class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">{{session('success')}} &times;</a></p>
+        @endif
+        @if (session('error'))
+        <div class="alert alert-danger alert-dissmissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>a</strong>{{ session('error') }}</div>
+        @endif
+        @if($errors->any())
+        @foreach($errors->all() as $err)
+        <p class="alert alert-danger">{{ $err }}</p>
+        @endforeach
+        @endif
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID Tamu</label>
                     <input type="text" name="id_tamu" class="form-control" id="exampleInputEmail1" value="{{ $id_baru }}" readonly>
@@ -60,6 +70,15 @@ Tambah Data Tamu
                 <input type="text" name="alamat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Alamat" value="{{ old('alamat')}}">
                 <div class="text-danger">
                     @error('alamat')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Pekerjaan</label>
+                <input type="text" name="pekerjaan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Pekerjaan" value="{{ old('pekerjaan')}}">
+                <div class="text-danger">
+                    @error('pekerjaan')
                         {{ $message}}
                     @enderror
                 </div>
@@ -110,6 +129,15 @@ Tambah Data Tamu
               </div>
             </div>
             <div class="form-group">
+                <label for="exampleInputEmail1">Nomor Kendaraan</label>
+                <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nomor Kendaraan" value="{{ old('no_kendaraan')}}">
+                <div class="text-danger">
+                    @error('no_kendaraan')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Jam Masuk</label>
                 <input type="text" name="jam_masuk" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jam Masuk" value="{{ old('jam_masuk')}}">
                 <div class="text-danger">
@@ -118,10 +146,20 @@ Tambah Data Tamu
                     @enderror
                 </div>
             </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Hasil Swab</label>
+                <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{ old('hasil_swab')}}">
+                <div class="text-danger">
+                    @error('hasil_swab')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
           </div>
           <!-- /.card-body -->
 
           <div class="card-footer">
+            <a class="btn btn-danger" href="{{ route('tamu') }}">Back</a>
             <button type="submit" class="btn btn-primary">Insert</button>
           </div>
         </form>

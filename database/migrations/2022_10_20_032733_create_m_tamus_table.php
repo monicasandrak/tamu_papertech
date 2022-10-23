@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('tamu', function (Blueprint $table) {
             $table->increments('id_tamu');
-            $table->dateTime('tanggal');
-            $table->string('nama');
+            $table->string('tanggal');
+            $table->string('nama_tamu');
             $table->string('alamat');
             $table->string('pekerjaan');
             $table->string('keperluan');
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->integer('no_ktp');
             $table->string('foto_ktp');
             $table->string('no_kendaraan');
-            $table->time('jam_masuk');
-            $table->time('hasil_swab');
+            $table->string('jam_masuk');
+            $table->string('hasil_swab');
             $table->timestamps();
         });
     }

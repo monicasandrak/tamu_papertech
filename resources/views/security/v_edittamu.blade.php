@@ -1,5 +1,5 @@
 @section('title')
-Tambah Data Tamu
+Edit Data Tamu
 @endsection
 <br>
 <br>
@@ -23,7 +23,7 @@ Tambah Data Tamu
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="/tamu/update{{$tamu->id_tamu}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('update_tamu')}}" method="POST" enctype="multipart/form-data">
           @csrf
 
             <div class="card-body">
@@ -60,6 +60,15 @@ Tambah Data Tamu
                 <input type="text" name="alamat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Alamat" value="{{$tamu->alamat}}">
                 <div class="text-danger">
                     @error('alamat')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Pekerjaan</label>
+                <input type="text" name="pekerjaan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Pekerjaan" value="{{$tamu->pekerjaan}}">
+                <div class="text-danger">
+                    @error('pekerjaan')
                         {{ $message}}
                     @enderror
                 </div>
@@ -113,6 +122,15 @@ Tambah Data Tamu
             </div>
             </div>
             <div class="form-group">
+                <label for="exampleInputEmail1">Nomor Kendaraan</label>
+                <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nomor Kendaraan" value="{{$tamu->no_kendaraan}}" readonly>
+                <div class="text-danger">
+                    @error('no_kendaraan')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Jam Masuk</label>
                 <input type="text" name="jam_masuk" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jam Masuk" value="{{$tamu->jam_masuk}}">
                 <div class="text-danger">
@@ -121,14 +139,27 @@ Tambah Data Tamu
                     @enderror
                 </div>
             </div>
-          </div>
-          <!-- /.card-body -->
-
-          <div class="card-footer">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Hasil Swab</label>
+                <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{$tamu->hasil_swab}}">
+                <div class="text-danger">
+                    @error('hasil_swab')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="card-footer">
+            <a class="btn btn-danger" href="{{ route('tamu') }}">Back</a>
             <button type="submit" class="btn btn-primary">Update</button>
+            
           </div>
         </form>
       </div>
+          </div>
+        
+          <!-- /.card-body -->
+         
+        
       <!-- /.card -->
       </div>
     </div>
