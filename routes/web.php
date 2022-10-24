@@ -45,6 +45,9 @@ Route::get('/kelola_pasien', [c_kelola_pasien::class,'index'])->name('pasien');
 Route::get('/pasien/add', [c_kelola_pasien::class,'add']);
 Route::post('/pasien/insert', [c_kelola_pasien::class,'insert'])->name('insert_pasien');
 
+Route::get('/form_tamu', [c_user::class,'index'])->name('form_tamu');
+Route::post('/form_tamu/insert', [c_user::class,'insert'])->name('insert_form_tamu');
+
 Route::get('/kelola_tamu', [c_kelola_tamu::class,'index'])->name('tamu');
 Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
 Route::post('/tamu/insert', [c_kelola_tamu::class,'insert'])->name('insert_tamu');

@@ -27,7 +27,7 @@ class c_kelola_tamu extends Controller
         }
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
     ];
-    return view('v_detailtamu',$data);
+    return view('security/v_detailtamu',$data);
     }
 
     public function add()
