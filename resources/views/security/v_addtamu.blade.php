@@ -102,8 +102,8 @@ Tambah Data Tamu
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Nomor KTP</label>
-                <input type="text" name="no_ktp" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nomor KTP" value="{{ old('no_ktp')}}">
+                <label for="exampleInputEmail1">Nomor KTP/No Identitas</label>
+                <input type="text" name="no_ktp" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nomor KTP atau Nomor Identitas" value="{{ old('no_ktp')}}">
                 <div class="text-danger">
                     @error('no_ktp')
                         {{ $message}}

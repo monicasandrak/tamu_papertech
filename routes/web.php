@@ -49,12 +49,16 @@ Route::get('/pasien/detail/{id_pasien}', [c_kelola_pasien::class, 'detail']);
 Route::get('/pasien/edit/{id_pasien}', [c_kelola_pasien::class, 'edit']);
 Route::post('/pasien/update/{id_pasien}', [c_kelola_pasien::class, 'update']);
 
+Route::get('/form_tamu', [c_user::class,'index'])->name('form_tamu');
+Route::post('/form_tamu/insert', [c_user::class,'insert'])->name('insert_form_tamu');
+
 Route::get('/kelola_tamu', [c_kelola_tamu::class,'index'])->name('tamu');
 Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
 Route::post('/tamu/insert', [c_kelola_tamu::class,'insert'])->name('insert_tamu');
 Route::get('/tamu/edit/{id_tamu}', [c_kelola_tamu::class,'edit']);
-Route::post('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update_tamu');
-
+Route::post('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update');
+Route::get('/tamu/delete/{id_tamu}', [c_kelola_tamu::class,'delete']);
+Route::get('/tamu/detail/{id_tamu}', [c_kelola_tamu::class,'detail']);
 Route::get('/login', [c_user::class, 'login'])->name('login');
 Route::post('/login', [c_user::class, 'login_action'])->name('login_action');
 Auth::routes();
