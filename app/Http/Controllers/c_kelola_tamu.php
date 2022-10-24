@@ -123,7 +123,7 @@ class c_kelola_tamu extends Controller
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
-        $this->m_tamu->editData($id_tamu);
+        $this->m_tamu->editData($id_tamu, $data);
         return redirect()->route('tamu.index')->with('pesan', 'Data berhasil diupdate !');
 
     }
