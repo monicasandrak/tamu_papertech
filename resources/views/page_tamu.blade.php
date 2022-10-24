@@ -124,7 +124,7 @@
                     </div>
                   </div> -->
            
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>
               <input type="text" name="tanggal" class="form-control" id="exampleInputEmail1" placeholder="Masukan Tanggal" value="{{ old('tanggal')}}">
               <div class="text-danger">
@@ -194,10 +194,10 @@
                   <input type="file" name="foto_ktp" class="custom-file-input" id="exampleInputFile">
                   <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                 </div>
-                <!-- <div class="input-group-append">
+                <-- <div class="input-group-append">
                   <span class="input-group-text">Upload</span>
                 </div> -->
-                <br>
+                <!-- <br>
                 <div class="text-danger">
                     @error('foto_ktp')
                         {{ $message}}
@@ -222,66 +222,149 @@
                         {{ $message}}
                     @enderror
                 </div>
-            </div>
-            <!-- <form action="{{route('insert_form_tamu')}}" method="post" role="form" class="php-email-form">
-              <div class="row">
+            </div> --> 
+             <!-- <form action="{{route('insert_form_tamu')}}" method="post" role="form" class="php-email-form"> -->
+              
+             
+             <div class="row">
                 <div class="form-group">
-                  <label for="name">Nama</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  <label for="tanggal">Tanggal</label>
+                  <input type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Masukan Tanggal" value="{{old('tanggal')}}">
+                  <div class="text-danger">
+                    @error('tanggal')
+                        {{ $message}}
+                    @enderror
+              </div>
                 </div>
+              <br>
+              <br>
+              <br>
+                <div class="form-group">
+                  <label for="nama_tamu">Nama</label>
+                  <input type="text" name="nama_tamu" class="form-control" id="nama_tamu" placeholder="Masukan Nama Tamu" value="{{old('nama_tamu')}}">
+                  <div class="text-danger">
+                    @error('nama_tamu')
+                        {{ $message}}
+                    @enderror
+              </div>
+                </div>
+              <br>
+              <br>
+              <br>
+            
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
-                  <input type="text" class="form-control" name="email" id="alamat" required>
-                </div>
+                  <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukan Alamat" value="{{old('alamat')}}">
+                  <div class="text-danger">
+                    @error('alamat')
+                        {{ $message}}
+                    @enderror
               </div>
+                </div>
+                <br>
+              <br>
+              <br>
+             
               <div class="form-group">
                 <label for="pekerjaan">Pekerjaan</label>
-                <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" required>
+                <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" placeholder="Masukan Pekerjaan" value="{{old('pekerjaan')}}">
+                <div class="text-danger">
+                    @error('pekerjaan')
+                        {{ $message}}
+                    @enderror
               </div>
+              </div>
+              <br>
+              <br>
+              <br>
               <div class="form-group">
                 <label for="keperluan">Keperluan</label>
-                <input type="text" class="form-control" name="keperluan" id="keperluan" required>
+                <input type="text" class="form-control" name="keperluan" id="keperluan" placeholder="Masukan Keperluan" value="{{old('keperluan')}}">
+                <div class="text-danger">
+                    @error('keperluan')
+                        {{ $message}}
+                    @enderror
               </div>
+              </div>
+              <br>
+              <br>
+              <br>
               <div class="form-group">
                 <label for="bertemu_dengan">Bertemu Dengan</label>
-                <input type="text" class="form-control" name="bertemu_dengan" id="bertemu_dengan" required>
+                <input type="text" class="form-control" name="bertemu_dengan" id="bertemu_dengan" placeholder="Masukan Bertemu Dengan" value="{{old('bertemu_dengan')}}">
+                <div class="text-danger">
+                    @error('bertemu_dengan')
+                        {{ $message}}
+                    @enderror
               </div>
+              </div>
+              <br>
+              <br>
+              <br>
               <div class="form-group">
-                <label for="no_ktp">No KTP</label>
-                <input type="text" class="form-control" name="no_ktp" id="no_ktp" required>
+                <label for="no_ktp">Nomor KTP/Nomor Identitas</label>
+                <input type="text" class="form-control" name="no_ktp" id="no_ktp" placeholder="Masukan Nomor KTP/Identitas" value="{{old('no_ktp')}}">
+                <div class="text-danger">
+                    @error('nomor_ktp')
+                        {{ $message}}
+                    @enderror
               </div>
+              </div>
+              <br>
+              <br>
+              <br>
               <div class="form-group">
               <label for="exampleInputFile">Foto KTP</label>
               <div class="input-group">
                 <div class="custom-file">
                   <input type="file" name="foto_ktp" class="custom-file-input" id="exampleInputFile">
-                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                  <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
                 </div>
-                <div class="input-group-append">
+                <!-- <div class="input-group-append">
                   <span class="input-group-text">Upload</span>
-                </div>
-                <br>
+                </div> 
+                <br> -->
                 <div class="text-danger">
                     @error('foto_ktp')
                         {{ $message}}
                     @enderror
-                    </div>
+                </div>
               </div>
             </div>
+            <br>
+              <br>
+              <br>
               <div class="form-group">
                 <label for="no_kendaraan">Nomor Kendaraan</label>
-                <input type="text" class="form-control" name="no_kendaraan" id="no_kendaraan" required>
+                <input type="text" class="form-control" name="no_kendaraan" id="no_kendaraan" placeholder="Masukan Nomor Kendaraan" value="{{old('nomor_kendaraan')}}">
+                <div class="text-danger">
+                    @error('no_kendaraan')
+                        {{ $message}}
+                    @enderror
               </div>
+              </div>
+              <br>
+              <br>
+              <br>
               <div class="form-group">
                 <label for="jam_masuk">Jam Masuk</label>
-                <input type="text" class="form-control" name="jam_masuk" id="jam_masuk" required>
+                <input type="text" class="form-control" name="jam_masuk" id="jam_masuk" placeholder="Masukan Jam Masuk" value="{{old('jam_masuk')}}">
+                <div class="text-danger">
+                    @error('jam_masuk')
+                        {{ $message}}
+                    @enderror
               </div>
-              <div class="my-3">
+              </div>
+              <br>
+              <br>
+              <br>
+              <!-- <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div> -->
-              <div class="text-center"><button type="submit">Submit</button></div>
+              </div>  -->
+              <div class="text-center"><button type="submit" class="btn btn-primary">Submit</button></div>
+              <!-- <button type="submit" class="btn btn-primary">Update</button> -->
             </form> 
           </div>
 
