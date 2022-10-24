@@ -47,7 +47,8 @@ Route::post('/pasien/insert', [c_kelola_pasien::class,'insert'])->name('insert_p
 Route::get('/pasien/delete/{id_pasien}', [c_kelola_pasien::class, 'delete']);
 Route::get('/pasien/detail/{id_pasien}', [c_kelola_pasien::class, 'detail']);
 Route::get('/pasien/edit/{id_pasien}', [c_kelola_pasien::class, 'edit']);
-Route::post('/pasien/update/{id_pasien}', [c_kelola_pasien::class, 'update']);
+// Route::post('/pasien/update/{id_pasien}', [c_kelola_pasien::class, 'update']);
+Route::put('/pasien/update/{id_pasien}', [c_kelola_pasien::class,'update'])->name('update_pasien');
 
 Route::get('/form_tamu', [c_user::class,'index'])->name('form_tamu');
 Route::post('/form_tamu/insert', [c_user::class,'insert'])->name('insert_form_tamu');
