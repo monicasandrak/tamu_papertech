@@ -36,9 +36,7 @@ class c_kelola_pasien extends Controller
     public function add()
     {
         $id_baru = ['id_baru' => $this->m_pasien->id_baru()];
-        //$id_baru2 = implode(" ",$id_baru);
-        //echo $id_baru2;
-        return view('v_addpasien', $id_baru);
+        return view('klinik.v_add_pasien', $id_baru);
     }
 
     public function insert()
@@ -77,7 +75,7 @@ class c_kelola_pasien extends Controller
             'obat' => Request()->obat,
         ];
         $this->m_pasien->addData($data);
-        return redirect()->route('pasien')->with('pesan', 'Data berhasil ditambahkan !');
+        return redirect()->route('pasien.index')->with('pesan', 'Data berhasil ditambahkan !');
     }
 
 

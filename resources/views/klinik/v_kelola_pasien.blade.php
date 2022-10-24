@@ -22,7 +22,7 @@ Kelola Pasien Pegawai
         </div>
         @endif
         <div align="right">
-            <a href="/dosen/add" class="btn btn-sm btn-primary">Add Data</a><br>
+            <a href="/pasien/add" class="btn btn-sm btn-primary">Add Data</a><br>
             <br>
         </div>
         <thead>
@@ -33,30 +33,26 @@ Kelola Pasien Pegawai
           <th>Nama Lengkap</th>
           <th>Departement</th>
           <th>Keluhan</th>
-          <th>DIagnosa</th>
+          <th>Diagnosa</th>
           <th>Obat</th>
         </tr>
         </thead>
         <tbody>
-         {{-- @foreach ($tamu as $data)  
+         @foreach ($pasien as $data)  
         <?php $no=1;?>
         <tr>
             <td>{{$no++}}</td>
             <td>{{$tanggal}}</td>
-            <td>{{$data->id_tamu}}</td>
-            <td>{{$data->nama_tamu}}</td>
-            <td>{{$data->alamat}}</td>
-            <td>{{$data->pekerjaan}}</td>
-            <td>{{$data->keperluan}}</td>
-            <td>{{$data->bertemu_dengan}}</td>
-            <td>{{$data->no_ktp}}</td>
-            <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
-            <td>{{$data->no_kendaraan}}</td>
-            <td>{{$data->jam_masuk}}</td>
+            <td>{{$data->id_pasien}}</td>
+            <td>{{$data->nama_pasien}}</td>
+            <td>{{$data->departement}}</td>
+            <td>{{$data->keluhan}}</td>
+            <td>{{$data->diagnosa}}</td>
+            <td>{{$data->obat}}</td>
 
             </td>
             <td>
-              <a href="/tamu/detail/{{$data->id_dosen}}" class="btn btn-sm btn-success">Detail</a>
+              <a href="/pasien/detail/{{$data->id_dosen}}" class="btn btn-sm btn-success">Detail</a>
               <a href="/dosen/edit/{{$data->id_dosen}}" class="btn btn-sm btn-warning">Edit</a>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_dosen}}">
                   Delete
@@ -69,21 +65,17 @@ Kelola Pasien Pegawai
         <tr>
           <th>No</th>
           <th>Tanggal</th>
-          <th>ID Tamu</th>
+          <th>ID Pasien</th>
           <th>Nama Lengkap</th>
-          <th>Alamat</th>
-          <th>Pekerjaan</th>
-          <th>Keperluan</th>
-          <th>Bertemu Dengan</th>
-          <th>No KTP</th>
-          <th>Foto KTP</th>
-          <th>Nomor Kendaraan</th>
-          <th>Jam Masuk</th>
+          <th>Departement</th>
+          <th>Keluhan</th>
+          <th>Diagnosa</th>
+          <th>Obat</th>
         </tr>
         </tfoot>
       </table>
-      @foreach ($tamu as $data)
-      <div class="modal fade" id="delete{{$data->id_dosen}}">
+      @foreach ($pasien as $data)
+      <div class="modal fade" id="delete{{$data->id_pasien}}">
         <div class="modal-dialog modal-sm">
           <div class="modal-content bg-danger">
             <div class="modal-header">
@@ -104,7 +96,7 @@ Kelola Pasien Pegawai
         </div>
         <!-- /.modal-dialog -->
       </div>
-      @endforeach --}}
+      @endforeach
 
     </div>
     <!-- /.card-body -->
