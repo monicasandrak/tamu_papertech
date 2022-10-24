@@ -36,7 +36,7 @@ class c_user extends Controller
             'pekerjaan' => 'required',
             'keperluan' => 'required',
             'bertemu_dengan' => 'required',
-            'no_ktp' => 'required',
+            'no_ktp' => 'required|min:10|max:16',
             'foto_ktp' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
@@ -47,9 +47,9 @@ class c_user extends Controller
             'pekerjaan.required' => 'Pekerjaan wajib diisi !',
             'keperluan.required' => 'Keperluan wajib diisi !',
             'bertemu_dengan' => 'Bertemu dengan wajib diisi !',
-            'no_ktp.required' => 'No KTP wajib diisi !',
-            'no_ktp.min' => 'No KTP harus 16 karakter !',
-            'no_ktp.max' => 'No KTP harus 16 karakter !',
+            'no_ktp.required' => 'Nomor KTP atau Nomor Identitas wajib diisi !',
+            'no_ktp.min' => 'Nomor KTP atau Nomor Identias minimal 16 karakter !',
+            'no_ktp.max' => 'Nomor KTP atau Nomor Identitas maksimal 16 karakter !',
             'foto_ktp.required' => 'Foto KTP wajib diisi !',
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
@@ -73,7 +73,7 @@ class c_user extends Controller
             'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
-        return redirect()->route('form_tamu')->with('pesan', 'Data berhasil ditambahkan !');
+        return redirect()->route('form_tamu')->with('pesan', 'Anda berhasil mengisi form tamu !');
     }
 
     public function login()
