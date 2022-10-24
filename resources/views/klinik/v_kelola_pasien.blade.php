@@ -42,7 +42,7 @@ Kelola Pasien Pegawai
         <?php $no=1;?>
         <tr>
             <td>{{$no++}}</td>
-            <td>{{$tanggal}}</td>
+            <td>{{$data->tanggal}}</td>
             <td>{{$data->id_pasien}}</td>
             <td>{{$data->nama_pasien}}</td>
             <td>{{$data->departement}}</td>
@@ -79,7 +79,7 @@ Kelola Pasien Pegawai
         <div class="modal-dialog modal-sm">
           <div class="modal-content bg-danger">
             <div class="modal-header">
-              <h6 class="modal-title">{{$data->nama_dosen}}</h6>
+              <h6 class="modal-title">{{$data->nama_pasien}}</h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -88,7 +88,7 @@ Kelola Pasien Pegawai
               <p>Apakah anda ingin menghapus data ini ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <a href="/dosen/delete/{{$data->id_dosen}}" class="btn btn-outline-light">Yes</a>
+                <a href="/pasien/delete/{{$data->id_pasien}}" class="btn btn-outline-light">Yes</a>
                 <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
               </div>
           </div>

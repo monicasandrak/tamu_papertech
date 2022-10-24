@@ -37,7 +37,7 @@ class m_pasien extends Model
      {
          $id_pasienmax = DB::table('pasien')->max('id_pasien');
          $addNol = '';
-         $id_pasienmax = str_replace("PEG", "", $id_pasienmax);
+        //  $id_pasienmax = str_replace("PEG", "", $id_pasienmax);
          $id_pasienmax = (int) $id_pasienmax + 1;
          $incrementKode = $id_pasienmax;
  
@@ -49,7 +49,7 @@ class m_pasien extends Model
              $addNol = "0";
          }
  
-         $id_pasienbaru = "PEG".$addNol.$incrementKode;
+         $id_pasienbaru = $addNol.$incrementKode;
          return $id_pasienbaru;
      }   
     // use HasFactory;

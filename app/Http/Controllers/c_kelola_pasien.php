@@ -49,7 +49,7 @@ class c_kelola_pasien extends Controller
             'keluhan' => 'required',
             'diagnosa' => 'required',
             'obat' => 'required',
-        ], [ //ini adalah konversi keterangan validasi form NIP dalam bahasa indonesia
+        ], [ 
             'id_pasien.required' => 'ID wajib di isi !',
             'id_pasien.unique' => 'ID ini sudah terdaftar di database !',
             'id_pasien.max' => 'ID maksimal 11 karakter',
@@ -59,11 +59,6 @@ class c_kelola_pasien extends Controller
             'diagnosa.required' => 'Diagnosa wajib di isi !',
             'Obat.required' => 'Obat wajib di isi !',
         ]);
-        //jika validasi tidak ada maka lakukan simpan data
-        //upload gambar/foto
-        // $file = Request()->foto_dosen;
-        // $fileName = Request()->nip . '.' . $file->extension();
-        // $file->move(public_path('foto_dosen'), $fileName);
 
         $data = [
             'id_pasien' => Request()->id_pasien,
