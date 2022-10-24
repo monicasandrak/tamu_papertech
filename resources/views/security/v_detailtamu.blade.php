@@ -1,5 +1,5 @@
 @section('title')
-Tambah Data Tamu
+Detail Data Tamu
 @endsection
 <br>
 <br>
@@ -77,7 +77,6 @@ Tambah Data Tamu
 
           <div class="card-footer">
             <a class="btn btn-danger" href="{{ route('tamu') }}">Back</a>
-            <button type="submit" class="btn btn-primary">Insert</button>
           </div>
         </form>
       </div>

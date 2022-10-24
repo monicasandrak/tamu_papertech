@@ -54,6 +54,7 @@ Route::post('/tamu/insert', [c_kelola_tamu::class,'insert'])->name('insert_tamu'
 Route::get('/tamu/edit/{id_tamu}', [c_kelola_tamu::class,'edit']);
 Route::post('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update');
 Route::get('/tamu/delete/{id_tamu}', [c_kelola_tamu::class,'delete']);
+Route::get('/tamu/detail/{id_tamu}', [c_kelola_tamu::class,'detail']);
 Route::get('/login', [c_user::class, 'login'])->name('login');
 Route::post('/login', [c_user::class, 'login_action'])->name('login_action');
 Auth::routes();
