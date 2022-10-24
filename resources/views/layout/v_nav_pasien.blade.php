@@ -16,8 +16,8 @@
                         </li>
                         
                         <li class="has-sub">
-                            <a class="js-arrow" href="/kelola_tamu">
-                                <i class="fas fa-copy"></i>Kelola Data Pengunjung</a>
+                            <a class="js-arrow" href="/kelola_pasien_tamu">
+                                <i class="fas fa-copy"></i>Kelola Pasien Tamu</a>
                         </li>
 
                         <li class="has-sub">
