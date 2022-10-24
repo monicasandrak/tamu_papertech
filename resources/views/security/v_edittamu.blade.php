@@ -23,9 +23,9 @@ Tambah Data Tamu
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-            <form action="{{route('update', $tamu->id_tamu)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('update_tamu', $tamu->id_tamu)}}" method="POST" enctype="multipart/form-data">
           @csrf
-          @method('POST')
+         
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID Tamu</label>

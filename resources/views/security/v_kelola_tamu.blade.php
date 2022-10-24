@@ -43,8 +43,9 @@ Kelola Data Tamu
         </tr>
         </thead>
         <tbody>
-         @foreach ($tamu as $data)  
         <?php $no=1;?>
+        @foreach ($tamu as $data)  
+        
         <tr>
             <td>{{$no++}}</td>
             <td>{{$data->tanggal}}</td>
