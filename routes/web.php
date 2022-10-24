@@ -44,6 +44,10 @@ Route::get('/laporan', function () {
 Route::get('/kelola_pasien', [c_kelola_pasien::class,'index'])->name('pasien');
 Route::get('/pasien/add', [c_kelola_pasien::class,'add']);
 Route::post('/pasien/insert', [c_kelola_pasien::class,'insert'])->name('insert_pasien');
+Route::get('/pasien/delete/{id_pasien}', [c_kelola_pasien::class, 'delete']);
+Route::get('/pasien/detail/{id_pasien}', [c_kelola_pasien::class, 'detail']);
+Route::get('/pasien/edit/{id_pasien}', [c_kelola_pasien::class, 'edit']);
+Route::post('/pasien/update/{id_pasien}', [c_kelola_pasien::class, 'update']);
 
 Route::get('/kelola_tamu', [c_kelola_tamu::class,'index'])->name('tamu');
 Route::get('/tamu/add', [c_kelola_tamu::class,'add']);

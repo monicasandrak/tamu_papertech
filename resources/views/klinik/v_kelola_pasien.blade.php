@@ -35,11 +35,13 @@ Kelola Pasien Pegawai
           <th>Keluhan</th>
           <th>Diagnosa</th>
           <th>Obat</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
+          <?php $no=1;?>
          @foreach ($pasien as $data)  
-        <?php $no=1;?>
+        
         <tr>
             <td>{{$no++}}</td>
             <td>{{$data->tanggal}}</td>
@@ -53,7 +55,7 @@ Kelola Pasien Pegawai
             </td>
             <td>
               <a href="/pasien/detail/{{$data->id_pasien}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/passien/edit/{{$data->id_pasien}}" class="btn btn-sm btn-warning">Edit</a>
+              <a href="/pasien/edit/{{$data->id_pasien}}" class="btn btn-sm btn-warning">Edit</a>
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_pasien}}">
                   Delete
               </button>
@@ -71,6 +73,7 @@ Kelola Pasien Pegawai
           <th>Keluhan</th>
           <th>Diagnosa</th>
           <th>Obat</th>
+          <th>Action</th>
         </tr>
         </tfoot>
       </table>

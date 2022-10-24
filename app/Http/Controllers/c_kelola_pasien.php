@@ -22,7 +22,7 @@ class c_kelola_pasien extends Controller
         return view('klinik/v_kelola_pasien', $data);
     }
 
-    public function detail($id_dosen)
+    public function detail($id_pasien)
     {
         if (!$this->m_pasien->detailData($id_pasien)) {
             abort(404);
@@ -30,7 +30,7 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
-        return view('v_detailpasienpegawai', $data);
+        return view('klinik/v_detail_pasien', $data);
     }
 
     public function add()
@@ -42,22 +42,19 @@ class c_kelola_pasien extends Controller
     public function insert()
     {
         Request()->validate([
-            'id_pasien' => 'required|unique:pasien,id_pasien|max:11',
             'tanggal' => 'required',
             'nama_pasien' => 'required',
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
-            'obat' => 'required',
-        ], [ 
-            'id_pasien.required' => 'ID wajib di isi !',
-            'id_pasien.unique' => 'ID ini sudah terdaftar di database !',
-            'id_pasien.max' => 'ID maksimal 11 karakter',
-            'nama_pasien.required' => 'Nama Pasien wajib di isi !',
-            'departement.required' => 'Nama Departement wajib di isi !',
-            'keluhan.required' => 'Keluhan wajib di isi !',
-            'diagnosa.required' => 'Diagnosa wajib di isi !',
-            'Obat.required' => 'Obat wajib di isi !',
+            'obat' => 'required', 
+        ],[
+            'tanggal.required' => 'Tanggal wajib diisi !',
+            'nama_pasien.required' => 'Nama pasien wajib diisi !',
+            'departement.required' => 'Departement wajib diisi !',
+            'keluhan.required' => 'Keluhan wajib diisi !',
+            'diagnosa.required' => 'Diagnosa wajib diisi !',
+            'obat' => 'Obat wajib diisi !',
         ]);
 
         $data = [
@@ -70,7 +67,7 @@ class c_kelola_pasien extends Controller
             'obat' => Request()->obat,
         ];
         $this->m_pasien->addData($data);
-        return redirect()->route('pasien.index')->with('pesan', 'Data berhasil ditambahkan !');
+        return redirect()->route('pasien')->with('pesan', 'Data berhasil ditambahkan !');
     }
 
 
@@ -83,52 +80,26 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
-        return view('v_editpasien', $data);
+        return view('klinik/v_edit_pasien', $data);
     }
 
     public function update($id_pasien)
     {
         Request()->validate([
-            'id_pasien' => 'required|unique:pasien,id_pasien|max:11',
             'tanggal' => 'required',
             'nama_pasien' => 'required',
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
             'obat' => 'required',
-        ], [ //ini adalah konversi keterangan validasi form NIP dalam bahasa indonesia
-            'id_pasien.required' => 'ID wajib di isi !',
-            'id_pasien.unique' => 'ID ini sudah terdaftar di database !',
-            'id_pasien.max' => 'ID maksimal 11 karakter',
+        ], [ 
+            'tanggal.required' => 'Tanggal wajib di isi !',
             'nama_pasien.required' => 'Nama Pasien wajib di isi !',
             'departement.required' => 'Nama Departement wajib di isi !',
             'keluhan.required' => 'Keluhan wajib di isi !',
             'diagnosa.required' => 'Diagnosa wajib di isi !',
             'Obat.required' => 'Obat wajib di isi !',
         ]);
-        //jika validasi tidak ada maka lakukan simpan data
-        // if (Request()->foto_dosen <> "") {
-        //     //jika ganti gambar/foto
-        //     $file = Request()->foto_dosen;
-        //     $fileName = Request()->nip . '.' . $file->extension();
-        //     $file->move(public_path('foto_dosen'), $fileName);
-
-        //     $data = [
-        //         'nip' => Request()->nip,
-        //         'nama_dosen' => Request()->nama_dosen,
-        //         'mata_kuliah' => Request()->mata_kuliah,
-        //         'foto_dosen' => $fileName,
-        //     ];
-        //     $this->M_Dosen->editData($id_dosen, $data);
-        // } else {
-        //     //jika tidak ganti gambar/foto
-        //     $data = [
-        //         'nip' => Request()->nip,
-        //         'nama_dosen' => Request()->nama_dosen,
-        //         'mata_kuliah' => Request()->mata_kuliah,
-        //     ];
-        //     $this->M_Dosen->editData($id_dosen, $data);
-        // }
 
         return redirect()->route('pasien')->with('pesan', 'Data berhasil diupdate !');
     }
@@ -140,7 +111,7 @@ class c_kelola_pasien extends Controller
         // if ($dosen->foto_dosen <> "") {
         //     unlink(public_path('foto_dosen') . '/' . $dosen->foto_dosen);
         // }
-        $this->m_pegawai->deleteData($id_pasien);
+        $this->m_pasien->deleteData($id_pasien);
         return redirect()->route('pasien')->with('pesan', 'Data berhasil dihapus !');
     }
 

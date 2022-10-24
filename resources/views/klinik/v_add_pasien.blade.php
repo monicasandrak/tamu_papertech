@@ -76,7 +76,7 @@ Tambah Data Pasien Pegawai
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Keluhan</label>
-                <input type="text" name="Keluhan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Keluhan" value="{{ old('Keluhan')}}">
+                <input type="text" name="keluhan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Keluhan" value="{{ old('keluhan')}}">
                 <div class="text-danger">
                     @error('keluhan')
                         {{ $message}}

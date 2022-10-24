@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nama_pasien');
             $table->string('departement');
             $table->string('keluhan');
+            $table->string('diagnosa');
             $table->string('obat');
             $table->timestamps();
         });
