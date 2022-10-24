@@ -38,8 +38,8 @@ Route::get('/laporan', function () {
 // });
 
 Route::get('/kelola_pasien', [c_kelola_pasien::class,'index']);
-Route::get('/kelola_tamu', [c_kelola_tamu::class,'index']);
-Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
+Route::get('/kelola_tamu', [c_kelola_tamu::class,'index'])->name('tamu');
+Route::get('/tamu/add', [c_kelola_tamu::class,'add'])->name('add_tamu');
 Route::post('/tamu/insert', [c_kelola_tamu::class,'insert'])->name('insert_tamu');
 Route::get('/tamu/edit/{id_tamu}', [c_kelola_tamu::class,'edit']);
 Route::post('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update_tamu');
