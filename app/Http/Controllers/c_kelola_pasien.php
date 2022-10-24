@@ -83,7 +83,7 @@ class c_kelola_pasien extends Controller
         return view('klinik/v_edit_pasien', $data);
     }
 
-    public function update($id_pasien)
+    public function update(Request $request, $id_pasien)
     {
         Request()->validate([
             'tanggal' => 'required',
@@ -91,17 +91,28 @@ class c_kelola_pasien extends Controller
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
-            'obat' => 'required',
-        ], [ 
-            'tanggal.required' => 'Tanggal wajib di isi !',
-            'nama_pasien.required' => 'Nama Pasien wajib di isi !',
-            'departement.required' => 'Nama Departement wajib di isi !',
-            'keluhan.required' => 'Keluhan wajib di isi !',
-            'diagnosa.required' => 'Diagnosa wajib di isi !',
-            'Obat.required' => 'Obat wajib di isi !',
+            'obat' => 'required', 
+        ], [
+            'tanggal.required' => 'Tanggal wajib diisi !',
+            'nama_pasien.required' => 'Nama pasien wajib diisi !',
+            'departement.required' => 'Departement wajib diisi !',
+            'keluhan.required' => 'Keluhan wajib diisi !',
+            'diagnosa.required' => 'Diagnosa wajib diisi !',
+            'obat.required' => 'Obat wajib diisi !',
         ]);
-
+            $data = [
+            'id_pasien' => Request()->id_pasien,
+            'tanggal' => Request()->tanggal,
+            'nama_pasien' => Request()->nama_pasien,
+            'departement' => Request()->departement,
+            'keluhan' => Request()->keluhan,
+            'diagnosa' => Request()->diagnosa,
+            'obat' => Request()->obat,
+            ];
+            $this->m_pasien->editData($id_pasien,$data);
+        
         return redirect()->route('pasien')->with('pesan', 'Data berhasil diupdate !');
+
     }
 
     public function delete($id_pasien)
