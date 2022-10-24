@@ -105,7 +105,7 @@ Tambah Data Pasien Pegawai
           <!-- /.card-body -->
 
           <div class="card-footer">
-            <a class="btn btn-danger" href="{{ route('insert_pasien') }}">Back</a>
+            <a class="btn btn-danger" href="{{ route('pasien') }}">Back</a>
             <button type="submit" class="btn btn-primary">Insert</button>
           </div>
         </form>
