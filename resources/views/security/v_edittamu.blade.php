@@ -23,8 +23,11 @@ Tambah Data Tamu
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-            <form action="{{route('update_tamu', $tamu->id_tamu)}}" method="POST" enctype="multipart/form-data">
+            <form action="/tamu/update/{{$tamu->id_tamu}}" method="POST" enctype="multipart/form-data"> 
+            <!-- <form action="{{route('update_tamu', $tamu->id_tamu)}}" method="post" enctype="multipart/form-data"> -->
           @csrf
+          @method('put')
+          <!-- @method('PUT') -->
          
             <div class="card-body">
                 <div class="form-group">
@@ -148,6 +151,7 @@ Tambah Data Tamu
                     @enderror
                 </div>
             </div>
+            
             <div class="card-footer">
             <a class="btn btn-danger" href="{{ route('tamu') }}">Back</a>
             <button type="submit" class="btn btn-primary">Update</button>
