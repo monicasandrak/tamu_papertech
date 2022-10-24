@@ -82,7 +82,7 @@ class c_kelola_tamu extends Controller
             'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
-        return redirect()->route('tamu.index')->with('pesan', 'Data berhasil ditambahkan !');
+        return redirect()->route('tamu')->with('pesan', 'Data berhasil ditambahkan !');
     }
     
     public function edit($id_tamu)
@@ -96,7 +96,7 @@ class c_kelola_tamu extends Controller
         return view('security/v_edittamu',$data);
     }
 
-    public function update($id_tamu)
+    public function update(Request $request, $id_tamu)
     {
         Request()->validate([
             'tanggal' => 'required',
@@ -123,16 +123,60 @@ class c_kelola_tamu extends Controller
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
-        $this->m_tamu->editData($id_tamu, $data);
-        return redirect()->route('tamu.index')->with('pesan', 'Data berhasil diupdate !');
+        //jika validasi tidak ada maka lakukan simpan data
+        if (Request()->foto_ktp <> "") {
+            //jika ganti gambar/foto
+            $file = Request()->foto_ktp;
+            $fileName = Request()->id_tamu .'.'. $file->extension();
+            $file->move(public_path('foto_ktp'),$fileName);
+
+            $data = [
+            'id_tamu' => Request()->id_tamu,
+            'tanggal' => Request()->tanggal,
+            'nama_tamu' => Request()->nama_tamu,
+            'alamat' => Request()->alamat,
+            'pekerjaan' => Request()->pekerjaan,
+            'keperluan' => Request()->keperluan,
+            'bertemu_dengan' => Request()->bertemu_dengan,
+            'no_ktp' => Request()->no_ktp,
+            'foto_ktp' => $fileName,
+            'no_kendaraan' => Request()->no_kendaraan,
+            'jam_masuk' => Request()->jam_masuk,
+            'hasil_swab' => Request()->hasil_swab,
+            ];
+            $this->m_tamu->editData($id_tamu,$data);
+        }
+        else {
+            //jika tidak ganti gambar/foto
+            $data = [
+            'id_tamu' => Request()->id_tamu,
+            'tanggal' => Request()->tanggal,
+            'nama_tamu' => Request()->nama_tamu,
+            'alamat' => Request()->alamat,
+            'pekerjaan' => Request()->pekerjaan,
+            'keperluan' => Request()->keperluan,
+            'bertemu_dengan' => Request()->bertemu_dengan,
+            'no_ktp' => Request()->no_ktp,
+            'no_kendaraan' => Request()->no_kendaraan,
+            'jam_masuk' => Request()->jam_masuk,
+            'hasil_swab' => Request()->hasil_swab,
+            ];
+            $this->m_tamu->editData($id_tamu,$data);
+        }
+        
+        return redirect()->route('tamu')->with('pesan', 'Data berhasil diupdate !');
 
     }
 
     public function delete($id_tamu)
     {
-        
+        //hapus atau delete foto
+        $tamu = $this->m_tamu->detailData($id_tamu);
+        if ($tamu->foto_ktp <> "") {
+            unlink(public_path('foto_ktp'). '/' . $tamu->foto_ktp);
+        }
         $this->m_tamu->deleteData($id_tamu);
-        return redirect()->route('v_kelola_tamu')->with('pesan','Data berhasil dihapus !');
+        return redirect()->route('tamu')->with('pesan','Data berhasil dihapus !');
     }
 
 }
