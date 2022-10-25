@@ -145,10 +145,12 @@ Tambah Data Tamu
             
             <div class="form-group">
                 <label for="exampleInputEmail1">Status</label>
-                <select name="status" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown as $row)
-            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+                <select name="status" class="form-control" value="{{$tamu->status}}">
+            <option disabled selected>
+            {{$tamu->status}}
+            </option>
+            @foreach ($dropdown as $status)
+            <option value="{{$tamu->status}}">{{Str::ucfirst($status)}}</option> <!-- php ucfirst() -->
             @endforeach
           </select>
                 <div class="text-danger">

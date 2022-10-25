@@ -154,7 +154,10 @@ Edit Data Pasien Tamu
             <div class="form-group">
                 <label for="exampleInputEmail1">Hasil Swab</label>
                 <select name="hasil_swab" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
+            <option disabled selected>
+            ---Pilih--- 
+            <!-- {{$tamu->hasil_swab}}  -->
+            </option>
             @foreach ($dropdown2 as $row)
             <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
             @endforeach
@@ -176,7 +179,7 @@ Edit Data Pasien Tamu
             </div> -->
             
             <div class="card-footer">
-            <a class="btn btn-danger" href="{{ route('tamu') }}">Back</a>
+            <a class="btn btn-danger" href="{{ route('pasien_tamu') }}">Back</a>
             <button type="submit" class="btn btn-primary">Update</button>
             
           </div>
