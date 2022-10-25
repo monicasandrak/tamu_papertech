@@ -38,6 +38,7 @@ Kelola Data Pasien Tamu
           <th>Foto KTP</th>
           <th>Nomor Kendaraan</th>
           <th>Jam Masuk</th>
+          <th>Status</th>
           <th>Hasil Swab</th>
           <th>Action</th>
         </tr>
@@ -59,14 +60,15 @@ Kelola Data Pasien Tamu
             <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
             <td>{{$data->no_kendaraan}}</td>
             <td>{{$data->jam_masuk}}</td>
+            <td>{{$data->status}}</td>
             <td>{{$data->hasil_swab}}</td>
             </td>
             <td>
               <a href="/tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
               <a href="/pasien_tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
+              <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
                   Delete
-              </button>
+              </button> -->
           </td>
         </tr>
         @endforeach
@@ -85,6 +87,7 @@ Kelola Data Pasien Tamu
           <th>Foto KTP</th>
           <th>Nomor Kendaraan</th>
           <th>Jam Masuk</th>
+          <th>Status</th>
           <th>Hasil Swab</th>
         </tr>
         </tfoot>
