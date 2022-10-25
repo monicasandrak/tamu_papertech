@@ -34,7 +34,8 @@ class c_kelola_tamu extends Controller
     {
         $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
         $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
-        return view('security/v_addtamu', $id_baru, compact(['dropdown']));
+        $dropdown2 = ['Negatif','Positif'];
+        return view('security/v_addtamu', $id_baru, compact(['dropdown',['dropdown2']]));
     }
 
     public function insert()
@@ -49,6 +50,7 @@ class c_kelola_tamu extends Controller
             'no_ktp' => 'required',
             'foto_ktp' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
             'no_kendaraan' => 'required',
+            'status'=>'required',
             'jam_masuk' => 'required',  
         ],[
             'tanggal.required' => 'Tanggal wajib diisi !',
@@ -63,11 +65,12 @@ class c_kelola_tamu extends Controller
             'foto_ktp.required' => 'Foto KTP wajib diisi !',
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
+            'status.required' => 'Status wajib diisi !',
         ]);
         $file = Request()->foto_ktp;
         $fileName = Request()->nama .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
-        $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
+        // $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
         $data = [
             'id_tamu' => Request()->id_tamu,
@@ -81,7 +84,7 @@ class c_kelola_tamu extends Controller
             'foto_ktp' => $fileName,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
-            'status' => $dropdown,
+            'status' => Request()->status,
             'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
@@ -96,10 +99,11 @@ class c_kelola_tamu extends Controller
 
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)];
         $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
-        return view('security/v_edittamu',$data, compact(['dropdown']));
+        $dropdown2 = ['Negatif','Positif'];
+        return view('security/v_edittamu',$data, compact(['dropdown','dropdown2']));
     }
 
-    public function update(Request $request, $id_tamu)
+    public function update($id_tamu)
     {
         Request()->validate([
             'tanggal' => 'required',
@@ -163,6 +167,7 @@ class c_kelola_tamu extends Controller
             'no_ktp' => Request()->no_ktp,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
+            'status'=> Request()->status,
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);

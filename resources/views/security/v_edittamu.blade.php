@@ -120,10 +120,10 @@ Tambah Data Tamu
                     @enderror
                     </div>
               </div>
-              </div>
+              
               <img src="{{url('foto_ktp/'.$tamu->foto_ktp)}}" width="100px">
             </div>
-            </div>
+           
             <div class="form-group">
                 <label for="exampleInputEmail1">Nomor Kendaraan</label>
                 <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nomor Kendaraan" value="{{$tamu->no_kendaraan}}" readonly>
@@ -145,7 +145,7 @@ Tambah Data Tamu
             
             <div class="form-group">
                 <label for="exampleInputEmail1">Status</label>
-                <select name="nama_bulan" class="form-control">
+                <select name="status" class="form-control">
             <option disabled selected>--- Pilih ---</option>
             @foreach ($dropdown as $row)
             <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
@@ -159,7 +159,7 @@ Tambah Data Tamu
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Hasil Swab</label>
-                <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{$tamu->hasil_swab}}">
+                <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{$tamu->hasil_swab}}" readonly>
                 <div class="text-danger">
                     @error('hasil_swab')
                         {{ $message}}

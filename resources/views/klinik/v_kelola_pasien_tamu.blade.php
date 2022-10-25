@@ -64,7 +64,7 @@ Kelola Data Pasien Tamu
             <td>{{$data->hasil_swab}}</td>
             </td>
             <td>
-              <a href="/tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
+              <a href="/pasien_tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
               <a href="/pasien_tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
               <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
                   Delete
@@ -92,7 +92,7 @@ Kelola Data Pasien Tamu
         </tr>
         </tfoot>
       </table>
-      @foreach ($tamu as $data)
+      <!-- @foreach ($tamu as $data)
       <div class="modal fade" id="delete{{$data->id_tamu}}">
         <div class="modal-dialog modal-sm">
           <div class="modal-content bg-danger">
@@ -114,7 +114,7 @@ Kelola Data Pasien Tamu
         </div>
         <!-- /.modal-dialog -->
       </div>
-      @endforeach
+      @endforeach -->
 
     </div>
     <!-- /.card-body -->

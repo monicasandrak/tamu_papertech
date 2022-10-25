@@ -27,7 +27,7 @@ class c_kelola_tamu2 extends Controller
         }
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
     ];
-    return view('klinik/v_detailpasientamu',$data);
+    return view('klinik/v_detail_pasien_tamu',$data);
     }
 
     public function add()
@@ -46,7 +46,7 @@ class c_kelola_tamu2 extends Controller
             'keperluan' => 'required',
             'bertemu_dengan' => 'required',
             'no_ktp' => 'required',
-            'foto_ktp' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
+            'foto_ktp' => '|mimes:jpg,png,jpeg,bmp|max:1024',
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
         ],[
@@ -59,7 +59,7 @@ class c_kelola_tamu2 extends Controller
             'no_ktp.required' => 'No KTP wajib diisi !',
             'no_ktp.min' => 'No KTP harus 16 karakter !',
             'no_ktp.max' => 'No KTP harus 16 karakter !',
-            'foto_ktp.required' => 'Foto KTP wajib diisi !',
+            // 'foto_ktp.required' => 'Foto KTP wajib diisi !',
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
@@ -93,7 +93,8 @@ class c_kelola_tamu2 extends Controller
 
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
         ];
-        return view('klinik/v_edit_pasien_tamu',$data);
+        $dropdown2 = ['Negatif','Positif'];
+        return view('klinik/v_edit_pasien_tamu',$data, compact(['dropdown2']));
     }
 
     public function update(Request $request, $id_tamu)
@@ -106,9 +107,10 @@ class c_kelola_tamu2 extends Controller
             'keperluan' => 'required',
             'bertemu_dengan' => 'required',
             'no_ktp' => 'required',
-            'foto_ktp' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
+            'foto_ktp' => '|mimes:jpg,png,jpeg,bmp|max:1024',
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
+            
         ], [
             'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
@@ -119,7 +121,7 @@ class c_kelola_tamu2 extends Controller
             'no_ktp.required' => 'No KTP wajib diisi !',
             'no_ktp.min' => 'No KTP harus 16 karakter !',
             'no_ktp.max' => 'No KTP harus 16 karakter !',
-            'foto_ktp.required' => 'Foto KTP wajib diisi !',
+            // 'foto_ktp.required' => 'Foto KTP wajib diisi !',
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
@@ -129,6 +131,7 @@ class c_kelola_tamu2 extends Controller
             $file = Request()->foto_ktp;
             $fileName = Request()->id_tamu .'.'. $file->extension();
             $file->move(public_path('foto_ktp'),$fileName);
+            $dropdown2 = ['Negatif','Positif'];
 
             $data = [
             'id_tamu' => Request()->id_tamu,
