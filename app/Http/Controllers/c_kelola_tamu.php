@@ -67,6 +67,7 @@ class c_kelola_tamu extends Controller
         $file = Request()->foto_ktp;
         $fileName = Request()->nama .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
+        $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
         $data = [
             'id_tamu' => Request()->id_tamu,
@@ -80,7 +81,7 @@ class c_kelola_tamu extends Controller
             'foto_ktp' => $fileName,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
-            'status' => $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'],
+            'status' => $dropdown,
             'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
@@ -108,7 +109,7 @@ class c_kelola_tamu extends Controller
             'keperluan' => 'required',
             'bertemu_dengan' => 'required',
             'no_ktp' => 'required',
-            'foto_ktp' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
+            'foto_ktp' => '|mimes:jpg,png,jpeg,bmp|max:1024',
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
         ], [
@@ -121,7 +122,6 @@ class c_kelola_tamu extends Controller
             'no_ktp.required' => 'No KTP wajib diisi !',
             'no_ktp.min' => 'No KTP harus 16 karakter !',
             'no_ktp.max' => 'No KTP harus 16 karakter !',
-            'foto_ktp.required' => 'Foto KTP wajib diisi !',
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
@@ -131,6 +131,7 @@ class c_kelola_tamu extends Controller
             $file = Request()->foto_ktp;
             $fileName = Request()->id_tamu .'.'. $file->extension();
             $file->move(public_path('foto_ktp'),$fileName);
+            $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
             $data = [
             'id_tamu' => Request()->id_tamu,
@@ -144,7 +145,7 @@ class c_kelola_tamu extends Controller
             'foto_ktp' => $fileName,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
-            'status' => $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'],
+            'status' => $dropdown,
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);
