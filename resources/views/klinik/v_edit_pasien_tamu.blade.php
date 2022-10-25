@@ -142,6 +142,20 @@ Edit Data Pasien Tamu
                     @enderror
                 </div>
             </div>
+            <!-- <div class="form-group">
+                <label for="exampleInputEmail1">Status</label>
+                <select name="nama_bulan" class="form-control">
+            <option disabled selected>--- Pilih ---</option>
+            @foreach ($dropdown as $row)
+            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
+                <div class="text-danger">
+                    @error('status')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div> -->
             <div class="form-group">
                 <label for="exampleInputEmail1">Hasil Swab</label>
                 <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{$tamu->hasil_swab}}" >

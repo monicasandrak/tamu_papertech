@@ -33,7 +33,8 @@ class c_kelola_tamu extends Controller
     public function add()
     {
         $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
-        return view('security/v_addtamu', $id_baru);
+        $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
+        return view('security/v_addtamu', $id_baru, compact(['dropdown']));
     }
 
     public function insert()
@@ -79,6 +80,7 @@ class c_kelola_tamu extends Controller
             'foto_ktp' => $fileName,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
+            'status' => $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'],
             'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
@@ -91,9 +93,9 @@ class c_kelola_tamu extends Controller
         {abort(404);
         }
 
-        $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
-        ];
-        return view('security/v_edittamu',$data);
+        $data = ['tamu' => $this->m_tamu->detailData($id_tamu)];
+        $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
+        return view('security/v_edittamu',$data, compact(['dropdown']));
     }
 
     public function update(Request $request, $id_tamu)
@@ -142,6 +144,7 @@ class c_kelola_tamu extends Controller
             'foto_ktp' => $fileName,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
+            'status' => $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'],
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);
@@ -177,6 +180,18 @@ class c_kelola_tamu extends Controller
         }
         $this->m_tamu->deleteData($id_tamu);
         return redirect()->route('tamu')->with('pesan','Data berhasil dihapus !');
+    }
+
+    public function status($id_tamu)
+    {
+        //hapus atau delete foto
+
+        $tamu = $this->m_tamu->detailData($id_tamu);
+        if ($tamu->foto_ktp <> "") {
+            unlink(public_path('foto_ktp'). '/' . $tamu->foto_ktp);
+        }
+        $this->m_tamu->deleteData($id_tamu);
+        return redirect()->route('tamu')->with('pesan','Data berhasil disetujui !');
     }
 
 }
