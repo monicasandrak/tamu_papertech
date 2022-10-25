@@ -61,7 +61,7 @@ Edit Data Obat
             <div class="form-group">
                 <label for="exampleInputEmail1">Satuan</label>
                 <select name="satuan" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
+            <option>{{$obat->satuan}}</option>
             @foreach ($dropdown as $row)
             <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
             @endforeach
