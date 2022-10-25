@@ -64,9 +64,6 @@ Kelola Data Pasien Tamu
             <td>
               <a href="/tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
               <a href="/pasien_tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
-                  Delete
-              </button>
           </td>
         </tr>
         @endforeach
@@ -86,32 +83,11 @@ Kelola Data Pasien Tamu
           <th>Nomor Kendaraan</th>
           <th>Jam Masuk</th>
           <th>Hasil Swab</th>
+          <th>Action</th>
         </tr>
         </tfoot>
       </table>
-      @foreach ($tamu as $data)
-      <div class="modal fade" id="delete{{$data->id_tamu}}">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h6 class="modal-title">{{$data->nama_tamu}}</h6>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Apakah anda ingin menghapus data ini ?</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <a href="/tamu/delete/{{$data->id_tamu}}" class="btn btn-outline-light">Yes</a>
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
-              </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      @endforeach
+     
 
     </div>
     <!-- /.card-body -->

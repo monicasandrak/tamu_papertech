@@ -26,6 +26,11 @@
                         </li>
 
                         <li class="has-sub">
+                            <a class="js-arrow" href="/kelola_obat">
+                                <i class="fas fa-copy"></i>Kelola Obat</a>
+                        </li>
+
+                        <li class="has-sub">
                             <a class="js-arrow" href="/laporan_klinik">
                                 <i class="fas fa-desktop"></i>Laporan Klinik</a>
                             
