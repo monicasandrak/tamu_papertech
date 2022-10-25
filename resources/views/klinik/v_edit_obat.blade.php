@@ -1,12 +1,12 @@
 @section('title')
-Tambah Data Obat
+Edit Data Obat
 @endsection
 <br>
 <br>
 <br>
 @extends('layout/v_template_pasien')
 @section('page')
-Tambah Data Obat
+Edit Data Obat
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -19,45 +19,39 @@ Tambah Data Obat
      
      <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Form Tambah Data Obat</h3>
+          <h3 class="card-title">Form Edit Data Obat</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{route('insert_obat')}}" method="POST" enctype="multipart/form-data">
+            <form action="/obat/update/{{$obat->id_obat}}" method="POST" enctype="multipart/form-data"> 
+            <!-- <form action="{{route('update_obat', $obat->id_obat)}}" method="post" enctype="multipart/form-data"> -->
           @csrf
+          @method('put')
+          <!-- @method('PUT') -->
+         
             <div class="card-body">
-            @if(session('success'))
-        <p class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">{{session('success')}} &times;</a></p>
-        @endif
-        @if (session('error'))
-        <div class="alert alert-danger alert-dissmissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>a</strong>{{ session('error') }}</div>
-        @endif
-        @if($errors->any())
-        @foreach($errors->all() as $err)
-        <p class="alert alert-danger">{{ $err }}</p>
-        @endforeach
-        @endif
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID Obat</label>
-                    <input type="text" name="id_obat" class="form-control" id="exampleInputEmail1" value="{{ $id_baru }}" readonly>
+                    <input type="text" name="id_obat" class="form-control" id="exampleInputEmail1"  value="{{$obat->id_obat}}" readonly>
                     <div class="text-danger">
                           @error('id_obat')
                               {{ $message}}
                           @enderror
                     </div>
                   </div>
+           
             <div class="form-group">
-                <label for="exampleInputEmail1">Nama Obat</label>
-                <input type="text" name="nama_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Obat" value="{{ old('nama_obat')}}">
-                <div class="text-danger">
+              <label for="exampleInputEmail1">Nama Obat</label>
+              <input type="text" name="nama_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Obat" value="{{$obat->nama_obat}}">
+              <div class="text-danger">
                     @error('nama_obat')
                         {{ $message}}
                     @enderror
-                </div>
+              </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Jenis Obat</label>
-                <input type="text" name="jenis_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jenis Obat" value="{{ old('jenis_obat')}}">
+                <input type="text" name="jenis_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jenis Obat" value="{{$obat->jenis_obat}}">
                 <div class="text-danger">
                     @error('jenis_obat')
                         {{ $message}}
@@ -80,31 +74,25 @@ Tambah Data Obat
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Jumlah</label>
-                <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah" value="{{ old('jumlah')}}">
+                <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah" value="{{$obat->jumlah}}">
                 <div class="text-danger">
                     @error('jumlah')
                         {{ $message}}
                     @enderror
                 </div>
             </div>
-            <!-- <div class="form-group">
-                <label for="exampleInputEmail1">Hasil Swab</label>
-                <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{ old('hasil_swab')}}" readonly>
-                <div class="text-danger">
-                    @error('hasil_swab')
-                        {{ $message}}
-                    @enderror
-                </div>
-            </div> -->
-          </div>
-          <!-- /.card-body -->
-
-          <div class="card-footer">
+            <div class="card-footer">
             <a class="btn btn-danger" href="{{ route('obat') }}">Back</a>
-            <button type="submit" class="btn btn-primary">Insert</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+            
           </div>
         </form>
       </div>
+          </div>
+        
+          <!-- /.card-body -->
+         
+        
       <!-- /.card -->
       </div>
     </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\c_kelola_tamu;
 use App\Http\Controllers\c_kelola_tamu2;
 use App\Http\Controllers\c_user;
 use App\Http\Controllers\c_kelola_pasien;
+use App\Http\Controllers\c_kelola_obat;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,12 +49,18 @@ Route::post('/pasien/insert', [c_kelola_pasien::class,'insert'])->name('insert_p
 Route::get('/pasien/delete/{id_pasien}', [c_kelola_pasien::class, 'delete']);
 Route::get('/pasien/detail/{id_pasien}', [c_kelola_pasien::class, 'detail']);
 Route::get('/pasien/edit/{id_pasien}', [c_kelola_pasien::class, 'edit']);
-// Route::post('/pasien/update/{id_pasien}', [c_kelola_pasien::class, 'update']);
 Route::put('/pasien/update/{id_pasien}', [c_kelola_pasien::class,'update'])->name('update_pasien');
 Route::get('/kelola_pasien_tamu', [c_kelola_tamu2::class,'index'])->name('pasien_tamu');
 Route::get('/pasien_tamu/edit/{id_tamu}', [c_kelola_tamu2::class, 'edit']);
 Route::put('/pasien_tamu/update/{id_tamu}', [c_kelola_tamu2::class,'update'])->name('update_tamu');
 Route::get('/pasien_tamu/detail/{id_pasien}', [c_kelola_tamu2::class, 'detail']);
+Route::get('/kelola_obat', [c_kelola_obat::class,'index'])->name('obat');
+Route::get('/obat/add', [c_kelola_obat::class,'add']);
+Route::post('/obat/insert', [c_kelola_obat::class,'insert'])->name('insert_obat');
+Route::get('/obat/delete/{id_obat}', [c_kelola_obat::class, 'delete']);
+Route::get('/obat/detail/{id_obat}', [c_kelola_pasien::class, 'detail']);
+Route::get('/obat/edit/{id_obat}', [c_kelola_obat::class, 'edit']);
+Route::put('/obat/update/{id_obat}', [c_kelola_obat::class,'update'])->name('update_obat');
 
 Route::get('/form_tamu', [c_user::class,'index'])->name('form_tamu');
 Route::post('/form_tamu/insert', [c_user::class,'insert'])->name('insert_form_tamu');
