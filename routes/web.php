@@ -53,6 +53,7 @@ Route::put('/pasien/update/{id_pasien}', [c_kelola_pasien::class,'update'])->nam
 Route::get('/kelola_pasien_tamu', [c_kelola_tamu2::class,'index'])->name('pasien_tamu');
 Route::get('/pasien_tamu/edit/{id_tamu}', [c_kelola_tamu2::class, 'edit']);
 Route::put('/pasien_tamu/update/{id_tamu}', [c_kelola_tamu2::class,'update'])->name('update_tamu');
+Route::get('/pasien_tamu/detail/{id_pasien}', [c_kelola_tamu2::class, 'detail']);
 
 Route::get('/form_tamu', [c_user::class,'index'])->name('form_tamu');
 Route::post('/form_tamu/insert', [c_user::class,'insert'])->name('insert_form_tamu');

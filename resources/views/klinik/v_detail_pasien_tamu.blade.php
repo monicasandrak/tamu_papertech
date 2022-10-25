@@ -1,12 +1,12 @@
 @section('title')
-Detail Data Tamu
+Detail Data Pasien Tamu
 @endsection
 <br>
 <br>
 <br>
-@extends('layout/v_template')
+@extends('layout/v_template_pasien')
 @section('page')
-Tambah Data Tamu
+Detail Data Pasien Tamu
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -19,7 +19,7 @@ Tambah Data Tamu
      
      <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Detail Data Tamu</h3>
+          <h3 class="card-title">Detail Data Pasien Tamu</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -85,7 +85,7 @@ Tambah Data Tamu
           <!-- /.card-body -->
 
           <div class="card-footer">
-            <a class="btn btn-danger" href="{{ route('tamu') }}">Back</a>
+            <a class="btn btn-danger" href="{{ route('pasien_tamu') }}">Back</a>
           </div>
         </form>
       </div>

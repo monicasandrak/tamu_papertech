@@ -105,14 +105,14 @@ Edit Data Pasien Tamu
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Foto KTP</label>
-              <div class="input-group">
-                <div class="custom-file">
+              <div class="input-group" readonly>
+                <!-- <div class="custom-file" readonly>
                   <input type="file" name="foto_ktp" class="custom-file-input" id="exampleInputFile" readonly>
                   <label class="custom-file-label" for="exampleInputFile" readonly>Choose file</label>
                 </div>
-                <div class="input-group-append">
-                  <span class="input-group-text">Upload</span>
-                </div>
+                <div class="input-group-append" readonly>
+                  <span class="input-group-text" readonly>Upload</span>
+                </div> -->
                 <br>
                 <div class="text-danger">
                     @error('foto_ktp')
@@ -120,10 +120,10 @@ Edit Data Pasien Tamu
                     @enderror
                     </div>
               </div>
-              </div>
+              
               <img src="{{url('foto_ktp/'.$tamu->foto_ktp)}}" width="100px">
             </div>
-            </div>
+           
             <div class="form-group">
                 <label for="exampleInputEmail1">Nomor Kendaraan</label>
                 <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nomor Kendaraan" value="{{$tamu->no_kendaraan}}" readonly>
@@ -143,6 +143,29 @@ Edit Data Pasien Tamu
                 </div>
             </div>
             <div class="form-group">
+                <label for="exampleInputEmail1">Status</label>
+                <input type="text" name="status" class="form-control" id="exampleInputEmail1" placeholder="Masukan Status" value="{{$tamu->status}}" readonly>
+                <div class="text-danger">
+                    @error('status')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Hasil Swab</label>
+                <select name="hasil_swab" class="form-control">
+            <option disabled selected>--- Pilih ---</option>
+            @foreach ($dropdown2 as $row)
+            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
+                <div class="text-danger">
+                    @error('hasil_swab')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <!-- <div class="form-group">
                 <label for="exampleInputEmail1">Hasil Swab</label>
                 <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{$tamu->hasil_swab}}" >
                 <div class="text-danger">
@@ -150,7 +173,7 @@ Edit Data Pasien Tamu
                         {{ $message}}
                     @enderror
                 </div>
-            </div>
+            </div> -->
             
             <div class="card-footer">
             <a class="btn btn-danger" href="{{ route('tamu') }}">Back</a>
@@ -160,6 +183,7 @@ Edit Data Pasien Tamu
         </form>
       </div>
           </div>
+        
         
           <!-- /.card-body -->
          
