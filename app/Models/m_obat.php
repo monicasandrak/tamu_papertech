@@ -10,32 +10,32 @@ class m_obat extends Model
 {
     public function allData()
     {
-        return DB::table('obat')->get();
+        return DB::table('obats')->get();
     }
 
     public function detailData($id_obat)
     {
-     return DB::table('obat')->where('id_obat', $id_obat)->first();
+     return DB::table('obats')->where('id_obat', $id_obat)->first();
     }
- 
+    
     public function addData($data)
     {
-     DB::table('obat')->insert($data);
+     DB::table('obats')->insert($data);
     }
  
     public function editData($id_obat, $data)
     {
-     DB::table('obat')->where('id_obat', $id_obat)->update($data);
+     DB::table('obats')->where('id_obat', $id_obat)->update($data);
     }
  
     public function deleteData($id_obat)
     {
-     DB::table('obat')->where('id_obat', $id_obat)->delete();
+     DB::table('obats')->where('id_obat', $id_obat)->delete();
     }
  
     public static function id_baru()
     {
-    	$id_obatmax = DB::table('obat')->max('id_obat');
+    	$id_obatmax = DB::table('obats')->max('id_obat');
     	$addNol = '';
     	$id_obatmax = str_replace("OBAT", "", $id_obatmax);
     	$id_obatmax = (int) $id_obatmax + 1;

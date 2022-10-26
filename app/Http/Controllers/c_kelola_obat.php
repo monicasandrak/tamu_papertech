@@ -17,7 +17,7 @@ class c_kelola_obat extends Controller
     {
 
         $data = [
-            'obat' => $this->m_obat->allData()
+            'obats' => $this->m_obat->allData()
         ];
         return view('klinik/v_kelola_obat', $data);
     }
@@ -28,7 +28,7 @@ class c_kelola_obat extends Controller
             abort(404);
         }
         $data = [
-            'obat' => $this->m_obat->detailData($id_obat)
+            'obats' => $this->m_obat->detailData($id_obat)
         ];
         return view('klinik/v_detail_obat', $data);
     }
@@ -75,9 +75,9 @@ class c_kelola_obat extends Controller
         }
 
         $data = [
-            'obat' => $this->m_obat->detailData($id_obat)
+            'obats' => $this->m_obat->detailData($id_obat)
         ];
-        $data = ['obat' => $this->m_obat->detailData($id_obat)];
+        $data = ['obats' => $this->m_obat->detailData($id_obat)];
         $dropdown = ['Kapsul','Tablet','Sirup'];
         return view('klinik/v_edit_obat', $data, compact(['dropdown']));
     }

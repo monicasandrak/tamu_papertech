@@ -17,7 +17,7 @@ class m_pasien extends Model
     {
      return DB::table('pasien')->where('id_pasien', $id_pasien)->first();
     }
- 
+    
     public function addData($data)
     {
      DB::table('pasien')->insert($data);
@@ -52,6 +52,7 @@ class m_pasien extends Model
     	$id_pasienbaru = "PAS".$addNol.$incrementKode;
     	return $id_pasienbaru;
     }  
+
     // use HasFactory;
     // protected $table = 'pasien';
     // protected $primaryKey = 'id_pasien';

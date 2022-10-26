@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\m_pasien;
+use App\Models\obat;
 
 class c_kelola_pasien extends Controller
 {
@@ -36,10 +37,11 @@ class c_kelola_pasien extends Controller
     public function add()
     {
         $id_baru = ['id_baru' => $this->m_pasien->id_baru()];
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment'];
-        return view('klinik.v_add_pasien', $id_baru, compact(['dropdown']));
+        $obat = obat::all();
+        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
+        return view('klinik.v_add_pasien', $id_baru, compact(['dropdown','obat']));
     }
-
+    
     public function insert()
     {
         Request()->validate([
@@ -57,7 +59,8 @@ class c_kelola_pasien extends Controller
             'diagnosa.required' => 'Diagnosa wajib diisi !',
             'obat' => 'Obat wajib diisi !',
         ]);
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment'];
+        $obat = obat::all();
+        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
         $data = [
             'id_pasien' => Request()->id_pasien,
             'tanggal' => Request()->tanggal,
@@ -68,7 +71,8 @@ class c_kelola_pasien extends Controller
             'obat' => Request()->obat,
         ];
         $this->m_pasien->addData($data);
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment'];
+        $obat = obat::all();
+        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
         return redirect()->route('pasien')->with('pesan', 'Data berhasil ditambahkan !');
     }
 
@@ -82,7 +86,7 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment'];
+        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
         return view('klinik/v_edit_pasien', $data, compact(['dropdown']));
     }
 

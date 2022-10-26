@@ -70,7 +70,7 @@ Tambah Data Pasien Pegawai
                 <select name="departement" class="form-control">
             <option disabled selected>--- Pilih ---</option>
             @foreach ($dropdown as $row)
-            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            <option value="{{$row}}"{{ old('departement') == $row ? 'selected' : null }}>{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
             @endforeach
           </select>
                 <div class="text-danger">
@@ -98,13 +98,19 @@ Tambah Data Pasien Pegawai
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Obat</label>
-                <input type="text" name="obat" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Obat" value="{{ old('obat')}}">
+                <label for="Obat">Obat</label>
+                <select class="form-control" id="position-option" name="obat">
+                    <option disabled selected>--- Pilih ---</option>
+                   @foreach ($obat as $obat)
+                      <option value="{{ $obat->nama_obat }}"{{ old('obat') == $obat->id_obat ? 'selected' : null }}>{{ $obat->nama_obat }}</option>
+                   @endforeach
+                </select>
                 <div class="text-danger">
                     @error('obat')
                         {{ $message}}
                     @enderror
                 </div>
+             </div>
             </div>
           </div>
           <!-- /.card-body -->
