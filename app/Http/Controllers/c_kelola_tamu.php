@@ -116,6 +116,7 @@ class c_kelola_tamu extends Controller
             'foto_ktp' => '|mimes:jpg,png,jpeg,bmp|max:1024',
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
+            // 'status' => 'required',
         ], [
             'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
@@ -128,13 +129,17 @@ class c_kelola_tamu extends Controller
             'no_ktp.max' => 'No KTP harus 16 karakter !',
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
+            // 'status' => 'Status wajib diisi !',
         ]);
         //jika validasi tidak ada maka lakukan simpan data
-        if (Request()->foto_ktp <> "") {
+        if (Request()->foto_ktp  <> "") {
             //jika ganti gambar/foto
             $file = Request()->foto_ktp;
             $fileName = Request()->id_tamu .'.'. $file->extension();
             $file->move(public_path('foto_ktp'),$fileName);
+            $file2 = Request()->status;
+            $fileStatus = Request()->id_tamu.'.'. $file2->extension();
+            $file2->move(public_path('status'),$fileStatus);
             $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
             $data = [
@@ -149,7 +154,7 @@ class c_kelola_tamu extends Controller
             'foto_ktp' => $fileName,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
-            'status' => $dropdown,
+            'status' => Request()->status,
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);
@@ -167,10 +172,11 @@ class c_kelola_tamu extends Controller
             'no_ktp' => Request()->no_ktp,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
-            'status'=> Request()->status,
             'hasil_swab' => Request()->hasil_swab,
+            // 'status' => Request()->status,
             ];
             $this->m_tamu->editData($id_tamu,$data);
+        
         }
         
         return redirect()->route('tamu')->with('pesan', 'Data berhasil diupdate !');
