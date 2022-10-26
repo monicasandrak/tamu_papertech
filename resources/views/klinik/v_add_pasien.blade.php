@@ -39,7 +39,7 @@ Tambah Data Pasien Pegawai
         @endif
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID pasien</label>
-                    <input type="text" name="id_pasien" class="form-control" id="exampleInputEmail1" value="{{ $id_baru }}" readonly>
+                    <input type="text" name="id_pasien" class="form-control" id="exampleInputEmail1" value="{{ $id_baru}}" readonly>
                     <div class="text-danger">
                           @error('id_pasien')
                               {{ $message}}
@@ -67,7 +67,12 @@ Tambah Data Pasien Pegawai
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Departement</label>
-                <input type="text" name="departement" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Departement" value="{{ old('departement')}}">
+                <select name="departement" class="form-control">
+            <option disabled selected>--- Pilih ---</option>
+            @foreach ($dropdown as $row)
+            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
                 <div class="text-danger">
                     @error('departement')
                         {{ $message}}

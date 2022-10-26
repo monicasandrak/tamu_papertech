@@ -34,24 +34,24 @@ class m_pasien extends Model
     }
  
     public static function id_baru()
-     {
-         $id_pasienmax = DB::table('pasien')->max('id_pasien');
-         $addNol = '';
-        //  $id_pasienmax = str_replace("PEG", "", $id_pasienmax);
-         $id_pasienmax = (int) $id_pasienmax + 1;
-         $incrementKode = $id_pasienmax;
- 
-         if (strlen($id_pasienmax) == 1) {
-             $addNol = "000";
-         } elseif (strlen($id_pasienmax) == 2) {
-             $addNol = "00";
-         } elseif (strlen($id_pasienmax == 3)) {
-             $addNol = "0";
-         }
- 
-         $id_pasienbaru = $addNol.$incrementKode;
-         return $id_pasienbaru;
-     }   
+    {
+    	$id_pasienmax = DB::table('pasien')->max('id_pasien');
+    	$addNol = '';
+    	$id_pasienmax = str_replace("PAS", "", $id_pasienmax);
+    	$id_pasienmax = (int) $id_pasienmax + 1;
+        $incrementKode = $id_pasienmax;
+
+    	if (strlen($id_pasienmax) == 1) {
+    		$addNol = "000";
+    	} elseif (strlen($id_pasienmax) == 2) {
+    		$addNol = "00";
+    	} elseif (strlen($id_pasienmax == 3)) {
+    		$addNol = "0";
+    	}
+
+    	$id_pasienbaru = "PAS".$addNol.$incrementKode;
+    	return $id_pasienbaru;
+    }  
     // use HasFactory;
     // protected $table = 'pasien';
     // protected $primaryKey = 'id_pasien';

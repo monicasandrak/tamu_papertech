@@ -66,9 +66,6 @@ Kelola Data Pasien Tamu
             <td>
               <a href="/pasien_tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
               <a href="/pasien_tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
-                  Delete
-              </button>
           </td>
         </tr>
         @endforeach
@@ -103,13 +100,6 @@ Kelola Data Pasien Tamu
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <p>Apakah anda ingin menghapus data ini ?</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <a href="/tamu/delete/{{$data->id_tamu}}" class="btn btn-outline-light">Yes</a>
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
-              </div>
           </div>
           <!-- /.modal-content -->
         </div>

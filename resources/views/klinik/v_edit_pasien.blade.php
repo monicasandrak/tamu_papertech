@@ -60,7 +60,12 @@ Tambah Data Pasien
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Departement</label>
-                <input type="text" name="departement" class="form-control" id="exampleInputEmail1" placeholder="Masukan Departement" value="{{$pasien->departement}}">
+                <select name="departement" class="form-control">
+            <option>{{$pasien->departement}}</option>
+            @foreach ($dropdown as $row)
+            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
                 <div class="text-danger">
                     @error('departement')
                         {{ $message}}
