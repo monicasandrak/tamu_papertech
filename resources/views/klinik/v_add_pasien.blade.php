@@ -49,7 +49,7 @@ Tambah Data Pasien Pegawai
            
             <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>
-              <input type="text" name="tanggal" class="form-control" id="exampleInputEmail1" placeholder="Masukan Tanggal" value="{{ old('tanggal')}}">
+              <input type="date" name="tanggal" class="form-control" id="exampleInputEmail1" placeholder="Masukan Tanggal" value="{{ old('tanggal')}}">
               <div class="text-danger">
                     @error('tanggal')
                         {{ $message}}
