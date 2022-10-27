@@ -1,16 +1,16 @@
 <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{{asset('template2')}}/images/icon/logo.png" alt="Cool Admin" />
+                    <img src="{{asset('template2')}}/images/icon/logo_papertech.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                     <li class="nav-item">
-       
+       @if (auth()->user()->level == "klinik")
                         <li class="active has-sub">
-                            <a class="js-arrow" href="/dashboardklinik">
+                            <a class="js-arrow" href="/dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             
                         </li>
@@ -36,6 +36,7 @@
                             
                             </ul>
                         </li>
+                        @endif
                     </ul>
                 </nav>
             </div>

@@ -2,11 +2,25 @@
 Kelola Pasien Pegawai
 @endsection
 
-@extends('layout/v_template_pasien')
+@extends('layout/v_template')
 @section('page')
-Kelola Pasien Pegawai
+
+Kelola Pasien Pegawai<br>
+
 @endsection
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 @section('content')
+
 <div class="card">
     <div class="card-header">
       <h3 class="card-title">DataTable with default features</h3>

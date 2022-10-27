@@ -16,10 +16,17 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+
+        User::create([
+            'username' => 'rissasria',
+            'level' => 'security',
+            'password' => bcrypt ('123'),
+            'remember_token' => Str::random(60),
+        ]);
+
         User::create([
             'username' => 'monicasandrak',
-            'level' => 'security',
+            'level' => 'klinik',
             'password' => bcrypt ('123'),
             'remember_token' => Str::random(60),
         ]);

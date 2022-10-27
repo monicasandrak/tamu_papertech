@@ -27,8 +27,8 @@ Route::get('/', function () {
 
 
 
-Route::get('/dashboardklinik', function () {
-    return view('klinik/v_dashboard_klinik');
+Route::get('/dashboard', function () {
+    return view('security/v_dashboard');
 });
 
 Route::get('/laporan', function () {

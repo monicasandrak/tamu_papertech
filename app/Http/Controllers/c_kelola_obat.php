@@ -53,6 +53,7 @@ class c_kelola_obat extends Controller
             'satuan.required' => 'Satuan wajib diisi !',
             'jumlah.required' => 'Jumlah wajib diisi !',
         ]);
+       
         $dropdown = ['Kapsul','Tablet','Sirup'];
 
         $data = [
@@ -118,16 +119,18 @@ class c_kelola_obat extends Controller
         $this->m_obat->deleteData($id_obat);
         return redirect()->route('obat')->with('pesan', 'Data berhasil dihapus !');
     }
-
-    public function print()
-    {
-        //mengambil data dan tampilan dari halaman laporan_pdf
-        //data di bawah ini bisa kalian ganti nantinya dengan data dari database
-        $data = PDF::loadview('v_print', [
-            'data' => 'Laporan Data Dosen ' . date('d F Y'),
-            'dosen' => $this->M_Dosen->allData()
-        ])->setPaper('a4', 'landscape');
-        //mendownload laporan.pdf
-        return $data->download('laporan.pdf');
-    }
 }
+
+//     public function print()
+//     {
+//         //mengambil data dan tampilan dari halaman laporan_pdf
+//         //data di bawah ini bisa kalian ganti nantinya dengan data dari database
+// //         $data = PDF::loadview('v_print', [
+// //             'data' => 'Laporan Data Dosen ' . date('d F Y'),
+// //             'dosen' => $this->M_Dosen->allData()
+// //         ])->setPaper('a4', 'landscape');
+// //         //mendownload laporan.pdf
+// //         return $data->download('laporan.pdf');
+// //     }
+// // }
+//     }}

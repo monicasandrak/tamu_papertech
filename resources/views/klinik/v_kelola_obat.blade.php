@@ -2,7 +2,7 @@
 Kelola Obat
 @endsection
 
-@extends('layout/v_template_pasien')
+@extends('layout/v_template')
 @section('page')
 Kelola Obat
 @endsection

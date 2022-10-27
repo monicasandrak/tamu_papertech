@@ -59,6 +59,7 @@ class c_kelola_pasien extends Controller
             'diagnosa.required' => 'Diagnosa wajib diisi !',
             'obat' => 'Obat wajib diisi !',
         ]);
+        $datetime = date("d-m-Y");
         $obat = obat::all();
         $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
         $data = [
@@ -133,17 +134,17 @@ class c_kelola_pasien extends Controller
         return redirect()->route('pasien')->with('pesan', 'Data berhasil dihapus !');
     }
 
-    public function print()
-    {
-        //mengambil data dan tampilan dari halaman laporan_pdf
-        //data di bawah ini bisa kalian ganti nantinya dengan data dari database
-        $data = PDF::loadview('v_print', [
-            'data' => 'Laporan Data Dosen ' . date('d F Y'),
-            'dosen' => $this->M_Dosen->allData()
-        ])->setPaper('a4', 'landscape');
-        //mendownload laporan.pdf
-        return $data->download('laporan.pdf');
-    }
+    // public function print()
+    // {
+    //     //mengambil data dan tampilan dari halaman laporan_pdf
+    //     //data di bawah ini bisa kalian ganti nantinya dengan data dari database
+    //     $data = PDF::loadview('v_print', [
+    //         'data' => 'Laporan Data Dosen ' . date('d F Y'),
+    //         'dosen' => $this->M_Dosen->allData()
+    //     ])->setPaper('a4', 'landscape');
+    //     //mendownload laporan.pdf
+    //     return $data->download('laporan.pdf');
+    // }
 
     
 }
