@@ -48,7 +48,7 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="{{route('login')}}" method="post">
+                            <form action="{{route('auth.login')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
