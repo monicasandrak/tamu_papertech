@@ -1,7 +1,7 @@
 @section('title')
 Dashboard
 @endsection
-@extends('layout/v_template')
+@extends('layout/v_template2')
 @section('page')
 Dashboard
 @endsection

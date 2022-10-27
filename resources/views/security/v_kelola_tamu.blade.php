@@ -6,9 +6,16 @@ Kelola Data Tamu
 Kelola Data Tamu
 @endsection
 @section('content')
+
+<script type="text/javascript" src="{{asset('scripts.js')}}"></script>
+<script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
+
+<br>
+<br>
+<br>
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Data Tamu</h3>
+      <h3 class="card-title">Kelola Data Tamu</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -24,6 +31,8 @@ Kelola Data Tamu
             <a href="/tamu/add" class="btn btn-sm btn-primary">Add Data</a><br>
             <br>
         </div>
+        <div class="card-body">
+        <table class="table table-bordered" id="datatablesSimple">
         <thead>
         <tr>
           <th>No</th>
@@ -42,7 +51,7 @@ Kelola Data Tamu
           <th>Hasil Swab</th>
           <th>Action</th>
         </tr>
-        </thead>
+      </thead>
         <tbody>
         <?php $no=1;?>
         @foreach ($tamu as $data)  
@@ -65,16 +74,18 @@ Kelola Data Tamu
             <td>{{$data->hasil_swab}}</td>
             
             <td>
-              <a href="/tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
-                  Delete
+              <a href="/tamu/detail/{{$data->id_tamu}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
+              <a href="/tamu/edit/{{$data->id_tamu}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+              <button type="button" data-toggle="modal" data-target="#delete{{$data->id_tamu}}" class="text-danger">
+              <i class="fa fa-trash">&#xE872;</i>
               </button>
           </td>
         </tr>
         @endforeach
         </tbody>
-        <tfoot>
+        </table>
+</div>
+        <!-- <tfoot>
         <tr>
           <th>No</th>
           <th>Tanggal</th>
@@ -90,9 +101,10 @@ Kelola Data Tamu
           <th>Jam Masuk</th>
           <th>Status</th>
           <th>Hasil Swab</th>
+          <th>Action</th>
         </tr>
-        </tfoot>
-      </table>
+        </tfoot> -->
+      <!-- </table> -->
       @foreach ($tamu as $data)
       <div class="modal fade" id="delete{{$data->id_tamu}}">
         <div class="modal-dialog modal-sm">
@@ -161,15 +173,16 @@ Kelola Data Tamu
               </div>
           </div>
           <!-- /.modal-content -->
-        </div>
+        <!-- </div>
         <!-- /.modal-dialog -->
       </div>
-      @endforeach -->
+      <!-- @endforeach  --> 
 
     </div>
     <!-- /.card-body -->
-  </div>
+  <!-- </div>
   <!-- /.card -->
-  </div>
-@endsection
+  
+</div>
+  @endsection
 

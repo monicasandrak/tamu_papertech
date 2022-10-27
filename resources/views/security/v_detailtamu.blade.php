@@ -4,7 +4,7 @@ Detail Data Tamu
 <br>
 <br>
 <br>
-@extends('layout/v_template')
+@extends('layout/v_template2')
 @section('page')
 Tambah Data Tamu
 @endsection

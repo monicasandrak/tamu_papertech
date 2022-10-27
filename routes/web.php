@@ -6,6 +6,7 @@ use App\Http\Controllers\c_kelola_tamu2;
 use App\Http\Controllers\c_user;
 use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
+use App\Http\Controllers\c_laporan_tamu;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,7 @@ Route::get('/dashboardklinik', function () {
     return view('klinik/v_dashboard_klinik');
 });
 
-Route::get('/laporan', function () {
-    return view('security/v_laporan');
-});
+
 // Route::get('/kelola_tamu', function () {
 //     return view('security/v_kelola_tamu');
 // });
@@ -72,6 +71,8 @@ Route::get('/tamu/edit/{id_tamu}', [c_kelola_tamu::class,'edit']);
 Route::put('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update_tamu');
 Route::get('/tamu/delete/{id_tamu}', [c_kelola_tamu::class,'delete']);
 Route::get('/tamu/detail/{id_tamu}', [c_kelola_tamu::class,'detail']);
+Route::get('/laporan', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
+Route::get('/laporan/print_laporan', [c_laporan_tamu::class, 'laporan'])->name('lihat_laporan_tamu');
 Route::get('/login', [c_user::class, 'login'])->name('login');
 Route::post('/login', [c_user::class, 'login_action'])->name('login_action');
 Auth::routes();

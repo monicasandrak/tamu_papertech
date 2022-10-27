@@ -1,7 +1,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{{asset('template2')}}/images/icon/logo.png" alt="Cool Admin" />
+                    <img src="{{asset('template2')}}/images/icon/logo_papertech.png" alt="PT. Papertech Indonesia" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">

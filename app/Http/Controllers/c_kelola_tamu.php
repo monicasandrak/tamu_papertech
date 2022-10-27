@@ -41,7 +41,7 @@ class c_kelola_tamu extends Controller
     public function insert()
     {
         Request()->validate([
-            'tanggal' => 'required',
+            // 'tanggal' => 'required',
             'nama_tamu' => 'required',
             'alamat' => 'required',
             'pekerjaan' => 'required',
@@ -53,7 +53,7 @@ class c_kelola_tamu extends Controller
             'status'=>'required',
             'jam_masuk' => 'required',  
         ],[
-            'tanggal.required' => 'Tanggal wajib diisi !',
+            // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
             'pekerjaan.required' => 'Pekerjaan wajib diisi !',
@@ -68,13 +68,14 @@ class c_kelola_tamu extends Controller
             'status.required' => 'Status wajib diisi !',
         ]);
         $file = Request()->foto_ktp;
-        $fileName = Request()->nama .'.'. $file->extension();
+        $fileName = Request()->id_tamu .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
+        $datetime = date("Y-m-d");
         // $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
         $data = [
             'id_tamu' => Request()->id_tamu,
-            'tanggal' => Request()->tanggal,
+            'tanggal' => $datetime,
             'nama_tamu' => Request()->nama_tamu,
             'alamat' => Request()->alamat,
             'pekerjaan' => Request()->pekerjaan,
@@ -106,7 +107,7 @@ class c_kelola_tamu extends Controller
     public function update($id_tamu)
     {
         Request()->validate([
-            'tanggal' => 'required',
+            // 'tanggal' => 'required',
             'nama_tamu' => 'required',
             'alamat' => 'required',
             'pekerjaan' => 'required',
@@ -118,7 +119,7 @@ class c_kelola_tamu extends Controller
             'jam_masuk' => 'required',  
             // 'status' => 'required',
         ], [
-            'tanggal.required' => 'Tanggal wajib diisi !',
+            // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
             'pekerjaan.required' => 'Pekerjaan wajib diisi !',
@@ -141,10 +142,11 @@ class c_kelola_tamu extends Controller
             $fileStatus = Request()->id_tamu.'.'. $file2->extension();
             $file2->move(public_path('status'),$fileStatus);
             $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
+            $datetime = date("Y-m-d");
 
             $data = [
             'id_tamu' => Request()->id_tamu,
-            'tanggal' => Request()->tanggal,
+            'tanggal' => $datetime,
             'nama_tamu' => Request()->nama_tamu,
             'alamat' => Request()->alamat,
             'pekerjaan' => Request()->pekerjaan,
@@ -163,7 +165,7 @@ class c_kelola_tamu extends Controller
             //jika tidak ganti gambar/foto
             $data = [
             'id_tamu' => Request()->id_tamu,
-            'tanggal' => Request()->tanggal,
+            // 'tanggal' => Request()->tanggal,
             'nama_tamu' => Request()->nama_tamu,
             'alamat' => Request()->alamat,
             'pekerjaan' => Request()->pekerjaan,
@@ -188,7 +190,7 @@ class c_kelola_tamu extends Controller
         //hapus atau delete foto
         $tamu = $this->m_tamu->detailData($id_tamu);
         if ($tamu->foto_ktp <> "") {
-            unlink(public_path('foto_ktp'). '/' . $tamu->foto_ktp);
+        unlink(public_path('foto_ktp'). '/' . $tamu->foto_ktp);
         }
         $this->m_tamu->deleteData($id_tamu);
         return redirect()->route('tamu')->with('pesan','Data berhasil dihapus !');
