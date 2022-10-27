@@ -37,10 +37,10 @@ class m_tamu extends Model
      {
          $id_tamumax = DB::table('tamu')->max('id_tamu');
          $addNol = '';
-        //  $id_tamumax = str_replace("TAMU", "", $id_tamumax);
+         $id_tamumax = str_replace("TAMU", "", $id_tamumax);
          $id_tamumax = (int) $id_tamumax + 1;
          $incrementKode = $id_tamumax;
- 
+
          if (strlen($id_tamumax) == 1) {
              $addNol = "000";
          } elseif (strlen($id_tamumax) == 2) {
@@ -49,7 +49,7 @@ class m_tamu extends Model
              $addNol = "0";
          }
  
-         $id_tamubaru = "" .$addNol.$incrementKode;
+         $id_tamubaru = "TAMU" .$addNol.$incrementKode;
          return $id_tamubaru;
      }   
     // use HasFactory;
