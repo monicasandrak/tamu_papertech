@@ -57,7 +57,7 @@ Route::get('/kelola_obat', [c_kelola_obat::class,'index'])->name('obat');
 Route::get('/obat/add', [c_kelola_obat::class,'add']);
 Route::post('/obat/insert', [c_kelola_obat::class,'insert'])->name('insert_obat');
 Route::get('/obat/delete/{id_obat}', [c_kelola_obat::class, 'delete']);
-Route::get('/obat/detail/{id_obat}', [c_kelola_pasien::class, 'detail']);
+Route::get('/obat/detail/{id_obat}', [c_kelola_obat::class, 'detail']);
 Route::get('/obat/edit/{id_obat}', [c_kelola_obat::class, 'edit']);
 Route::put('/obat/update/{id_obat}', [c_kelola_obat::class,'update'])->name('update_obat');
 

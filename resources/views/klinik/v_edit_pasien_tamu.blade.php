@@ -154,9 +154,8 @@ Edit Data Pasien Tamu
             <div class="form-group">
                 <label for="exampleInputEmail1">Hasil Swab</label>
                 <select name="hasil_swab" class="form-control">
-            <option disabled selected>
-            ---Pilih--- 
-            <!-- {{$tamu->hasil_swab}}  -->
+            <option>
+                {{$tamu->hasil_swab}}
             </option>
             @foreach ($dropdown2 as $row)
             <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->

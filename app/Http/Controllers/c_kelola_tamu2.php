@@ -33,7 +33,9 @@ class c_kelola_tamu2 extends Controller
     public function add()
     {
         $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
-        return view('security/v_addtamu', $id_baru);
+        $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
+        $dropdown2 = ['Negatif','Positif'];
+        return view('security/v_addtamu', $id_baru, compact(['dropdown',['dropdown2']]));
     }
 
     public function insert()
@@ -94,8 +96,9 @@ class c_kelola_tamu2 extends Controller
 
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
         ];
+        $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
         $dropdown2 = ['Negatif','Positif'];
-        return view('klinik/v_edit_pasien_tamu',$data, compact(['dropdown2']));
+        return view('klinik/v_edit_pasien_tamu',$data, compact(['dropdown', 'dropdown2']));
     }
 
     public function update(Request $request, $id_tamu)
@@ -181,6 +184,17 @@ class c_kelola_tamu2 extends Controller
         }
         $this->m_tamu->deleteData($id_tamu);
         return redirect()->route('tamu')->with('pesan','Data berhasil dihapus !');
+    }
+    public function status($id_tamu)
+    {
+        //hapus atau delete foto
+
+        $tamu = $this->m_tamu->detailData($id_tamu);
+        if ($tamu->foto_ktp <> "") {
+            unlink(public_path('foto_ktp'). '/' . $tamu->foto_ktp);
+        }
+        $this->m_tamu->deleteData($id_tamu);
+        return redirect()->route('tamu')->with('pesan','Data berhasil disetujui !');
     }
 
 }

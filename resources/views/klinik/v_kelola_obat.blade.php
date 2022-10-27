@@ -38,7 +38,7 @@ Kelola Obat
         </thead>
         <tbody>
           <?php $no=1;?>
-         @foreach ($obat as $data)  
+         @foreach ($obats as $data)  
         
         <tr>
             <td>{{$no++}}</td>
@@ -70,7 +70,7 @@ Kelola Obat
         </tr>
         </tfoot>
       </table>
-      @foreach ($obat as $data)
+      @foreach ($obats as $data)
       <div class="modal fade" id="delete{{$data->id_obat}}">
         <div class="modal-dialog modal-sm">
           <div class="modal-content bg-danger">
