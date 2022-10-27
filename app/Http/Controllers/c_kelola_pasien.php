@@ -59,7 +59,7 @@ class c_kelola_pasien extends Controller
             'diagnosa.required' => 'Diagnosa wajib diisi !',
             'obat' => 'Obat wajib diisi !',
         ]);
-        $datetime = date("d-m-Y");
+        $date = date("d-m-Y");
         $obat = obat::all();
         $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
         $data = [
