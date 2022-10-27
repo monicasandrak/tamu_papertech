@@ -41,7 +41,7 @@ class c_kelola_tamu2 extends Controller
     public function insert()
     {
         Request()->validate([
-            'tanggal' => 'required',
+            // 'tanggal' => 'required',
             'nama_tamu' => 'required',
             'alamat' => 'required',
             'pekerjaan' => 'required',
@@ -52,7 +52,7 @@ class c_kelola_tamu2 extends Controller
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
         ],[
-            'tanggal.required' => 'Tanggal wajib diisi !',
+            // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
             'pekerjaan.required' => 'Pekerjaan wajib diisi !',
@@ -68,10 +68,11 @@ class c_kelola_tamu2 extends Controller
         $file = Request()->foto_ktp;
         $fileName = Request()->nama .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
+        $datetime = date("Y-m-d");
 
         $data = [
             'id_tamu' => Request()->id_tamu,
-            'tanggal' => Request()->tanggal,
+            'tanggal' => $datetime,
             'nama_tamu' => Request()->nama_tamu,
             'alamat' => Request()->alamat,
             'pekerjaan' => Request()->pekerjaan,

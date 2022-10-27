@@ -227,18 +227,19 @@
               
              
              <div class="row">
-                <div class="form-group">
+             
+                <!-- <div class="form-group">
                   <label for="tanggal">Tanggal</label>
-                  <input type="text" name="tanggal" class="form-control" id="tanggal" placeholder="Masukan Tanggal" value="{{old('tanggal')}}">
+                  <input type="date" name="tanggal" class="form-control" id="tanggal" placeholder="Masukan Tanggal" value="{{old('tanggal')}}">
                   <div class="text-danger">
                     @error('tanggal')
                         {{ $message}}
                     @enderror
               </div>
-                </div>
+                </div> -->
+              <!-- <br>
               <br>
-              <br>
-              <br>
+              <br> -->
                 <div class="form-group">
                   <label for="nama_tamu">Nama</label>
                   <input type="text" name="nama_tamu" class="form-control" id="nama_tamu" placeholder="Masukan Nama Tamu" value="{{old('nama_tamu')}}">

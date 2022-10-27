@@ -4,7 +4,7 @@ Edit Data Tamu
 <br>
 <br>
 <br>
-@extends('layout/v_template')
+@extends('layout/v_template2')
 @section('page')
 Tambah Data Tamu
 @endsection
@@ -40,7 +40,7 @@ Tambah Data Tamu
                     </div>
                   </div>
            
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>
               <input type="text" name="tanggal" class="form-control" id="exampleInputEmail1" placeholder="Masukan Tanggal" value="{{$tamu->tanggal}}">
               <div class="text-danger">
@@ -48,7 +48,7 @@ Tambah Data Tamu
                         {{ $message}}
                     @enderror
               </div>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label for="exampleInputEmail1">Nama Tamu</label>
                 <input type="text" name="nama_tamu" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Tamu" value="{{$tamu->nama_tamu}}">

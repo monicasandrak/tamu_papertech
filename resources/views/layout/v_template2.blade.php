@@ -33,14 +33,14 @@
     <!-- Main CSS-->
     <link href="{{asset('template2')}}/css/theme.css" rel="stylesheet" media="all">
      <!-- Link CSS public/css-->
-	<link rel="stylesheet" href="{{asset('styles.css')}}"> 
+	<!-- <link rel="stylesheet" href="{{asset('styles.css')}}">  -->
 		 <!-- Link javascript public/scripts.js-->
-<script type="text/javascript" src="{{asset('scripts.js')}}"></script> 
+<!-- <script type="text/javascript" src="{{asset('scripts.js')}}"></script>  -->
 						 <!-- Link javascript public/datatables-simple-demo.js-->
-<script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  -->
 
 </head>
 
@@ -128,7 +128,7 @@
                                                 
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="{{route('logout')}}">
+                                                <a href="#">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
