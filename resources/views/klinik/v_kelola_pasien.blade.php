@@ -1,29 +1,20 @@
 @section('title')
-Kelola Pasien Pegawai
+Kelola Data Tamu
 @endsection
-
 @extends('layout/v_template')
 @section('page')
-
-Kelola Pasien Pegawai<br>
-
+Kelola Data Tamu
 @endsection
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 @section('content')
 
+<script type="text/javascript" src="{{asset('scripts.js')}}"></script>
+<script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
+<br>
+<br>
+<br>
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">DataTable with default features</h3>
+      <h3 class="card-title">Kelola Data Tamu</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -39,6 +30,8 @@ Kelola Pasien Pegawai<br>
             <a href="/pasien/add" class="btn btn-sm btn-primary">Add Data</a><br>
             <br>
         </div>
+        <div class="card-body">
+          <table class="table table-bordered" id="datatablesSimple">
         <thead>
         <tr>
           <th>No</th>
@@ -68,10 +61,10 @@ Kelola Pasien Pegawai<br>
 
             </td>
             <td>
-              <a href="/pasien/detail/{{$data->id_pasien}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/pasien/edit/{{$data->id_pasien}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_pasien}}">
-                  Delete
+              <a href="/pasien/detail/{{$data->id_pasien}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
+              <a href="/pasien/edit/{{$data->id_pasien}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+              <button type="button" data-toggle="modal" data-target="#delete{{$data->id_pasien}}" class="text-danger">
+              <i class="fa fa-trash">&#xE872;</i>
               </button>
           </td>
         </tr>
