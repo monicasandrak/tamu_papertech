@@ -26,6 +26,7 @@ Kelola Data Tamu
     <!-- <div class="card-header"> -->
     <div id="btnprint" class="container mt-3">
       <h3 class="card-title">Laporan Data Tamu</h3>
+      <p class="text-secondary">Dari Tanggal: {{date('d-M-Y',strtotime($datefrom))}} s/d {{date('d-M-Y',strtotime($datecurrent))}} </p>
     
     <!-- /.card-header -->
     <div class="card-body">
@@ -72,7 +73,7 @@ Kelola Data Tamu
         
         <tr>
             <td>{{$no++}}</td>
-            <td>{{$data->tanggal}}</td>
+            <td>{{date('d-M-Y', strtotime($data->tanggal))}}</td>
             <td>{{$data->id_tamu}}</td>
             <td>{{$data->nama_tamu}}</td>
             <td>{{$data->alamat}}</td>

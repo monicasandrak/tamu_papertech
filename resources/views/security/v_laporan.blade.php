@@ -35,7 +35,7 @@ Laporan
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" name="btnLaporan" class="btn btn-primary">Lihat Laporan</button>
+            <button type="submit" name="laporan" class="btn btn-primary">Lihat Laporan</button>
         </div>
     </form>
 

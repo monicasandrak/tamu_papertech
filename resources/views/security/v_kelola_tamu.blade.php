@@ -58,7 +58,7 @@ Kelola Data Tamu
         
         <tr>
             <td>{{$no++}}</td>
-            <td>{{$data->tanggal}}</td>
+            <td>{{date('d-M-Y',strtotime($data->tanggal))}}</td>
             <td>{{$data->id_tamu}}</td>
             <td>{{$data->nama_tamu}}</td>
             <td>{{$data->alamat}}</td>

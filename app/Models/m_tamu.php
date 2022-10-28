@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class m_tamu extends Model
 {
+    use HasFactory;
     public function allData()
     {
         return DB::table('tamu')->get();
@@ -52,21 +53,4 @@ class m_tamu extends Model
          $id_tamubaru = "TAMU" .$addNol.$incrementKode;
          return $id_tamubaru;
      }   
-    // use HasFactory;
-    // protected $table = 'tamu';
-    // protected $primaryKey = 'id_tamu';
-
-    // protected $fillable = [
-    //     'tanggal',
-    //     'nama_tamu',
-    //     'alamat',
-    //     'keperluan',
-    //     'bertemu_dengan',
-    //     'no_ktp',
-    //     'foto_ktp',
-    //     'no_kendaraan',
-    //     'jam_masuk',
-    //     'hasil_swab',
-    
-    // ];
 }

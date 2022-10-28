@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\m_tamu;
+use App\Models\m_user;
 use App\Http\Controllers\Auth;
 
 class c_user extends Controller
@@ -12,96 +11,112 @@ class c_user extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
-        $this->m_tamu = new m_tamu();
+        $this->m_user = new m_user();
     }
     public function index() 
     {
-        $data = ['tamu' => $this->m_tamu->allData()
+        $data = ['user' => $this->m_user->allData()
     ];
-    return view('page_tamu', $data);
+    return view('user/v_kelola_user', $data);
+    }
+
+    public function detail($id)
+    {
+        if(!$this->m_user->detailData($id))
+        {abort(404);
+        }
+        $data = ['user' => $this->m_user->detailData($id)
+    ];
+    return view('user/v_detailuser',$data);
     }
 
     public function add()
     {
-        $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
-        // $datetime = date("Y-m-d");
-        return view('page_tamu', $id_baru);
+        $id_baru = [ 'id_baru' => $this->m_user->id_baru()];
+        $dropdown3 = ['security','klinik','admin'];
+        return view('user/v_add_user', $id_baru, compact(['dropdown3']));
     }
-
 
     public function insert()
     {
         Request()->validate([
-            // 'tanggal' => 'required',
-            'nama_tamu' => 'required',
-            'alamat' => 'required',
-            'pekerjaan' => 'required',
-            'keperluan' => 'required',
-            'bertemu_dengan' => 'required',
-            'no_ktp' => 'required',
-            'foto_ktp' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
-            'no_kendaraan' => 'required',
-           
-              
+            'username' => 'required',
+            'level' => 'required',
+            'password' => 'required', 
         ],[
-            // 'tanggal.required' => 'Tanggal wajib diisi !',
-            'nama_tamu.required' => 'Nama tamu wajib diisi !',
-            'alamat.required' => 'Alamat wajib diisi !',
-            'pekerjaan.required' => 'Pekerjaan wajib diisi !',
-            'keperluan.required' => 'Keperluan wajib diisi !',
-            'bertemu_dengan' => 'Bertemu dengan wajib diisi !',
-            'no_ktp.required' => 'No KTP wajib diisi !',
-            'no_ktp.min' => 'No KTP harus 16 karakter !',
-            'no_ktp.max' => 'No KTP harus 16 karakter !',
-            'foto_ktp.required' => 'Foto KTP wajib diisi !',
-            'no_kendaraan.required' => 'No kendaraan wajib diisi !',
-            
+            'username.required' => 'Username wajib diisi !',
+            'level.required' => 'level wajib diisi !',
+            'password.required' => 'password wajib diisi !',
         ]);
-        $file = Request()->foto_ktp;
-        $fileName = Request()->id_tamu .'.'. $file->extension();
-        $file->move(public_path('foto_ktp'),$fileName);
-        $datetime = date("Y-m-d");
-        // $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
+
+        $dropdown3 = ['security','klinik','admin'];
 
         $data = [
-            'id_tamu' => Request()->id_tamu,
-            'tanggal' => $datetime,
-            'nama_tamu' => Request()->nama_tamu,
-            'alamat' => Request()->alamat,
-            'pekerjaan' => Request()->pekerjaan,
-            'keperluan' => Request()->keperluan,
-            'bertemu_dengan' => Request()->bertemu_dengan,
-            'no_ktp' => Request()->no_ktp,
-            'foto_ktp' => $fileName,
-            'no_kendaraan' => Request()->no_kendaraan,
-            'jam_masuk' => Request()->jam_masuk,
-            
+            'id' => Request()->id,
+            'username' => Request()->username,
+            'level' => Request()->level,
+            'password' => Request()->password,
         ];
-        $this->m_tamu->addData($data);
-        return redirect()->route('tamu')->with('pesan', 'Data berhasil ditambahkan !');
+        $this->m_user->addData($data);
+        $dropdown3 = ['security','klinik','admin'];
+        return redirect()->route('user')->with('pesan', 'Data berhasil ditambahkan !');
     }
-
-    public function login()
+    
+    public function edit($id)
     {
-        $data['title'] = 'Login';
-        return view('/login', $data);
-    }
-
-    public function login_action(Request $request)
-    {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ],[
-            'username.required' => 'Username tidak boleh kosong',
-            'password.required' => 'Password tidak boleh kosong',
-        ]);
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            $request->session()->regenerate();
-            return redirect()->intended('/')->with('success','You are now logged in');
+        if(!$this->m_user->detailData($id))
+        {abort(404);
         }
-        return back()->withErrors([
-            'password' => 'Username atau Password salah',
-        ]);
+
+        $data = ['user' => $this->m_user->detailData($id)];
+        $dropdown3 = ['security','klinik','admin'];
+        return view('user/v_edit_user',$data, compact(['dropdown3']));
     }
+
+    public function update(Request $request, $id)
+    {
+        Request()->validate([
+            'username' => 'required',
+            'level' => 'required',
+            'password' => 'required',
+        ], [
+            'username.required' => 'Username wajib diisi !',
+            'level.required' => 'level wajib diisi !',
+            'password.required' => 'password wajib diisi !',
+        ]);
+
+            $data = [
+            'id' => Request()->id,
+            'username' => Request()->username,
+            'level' => Request()->level,
+            'password' => Request()->password,
+            ];
+            $this->m_user->editData($id,$data);
+
+        return redirect()->route('user')->with('pesan', 'Data berhasil diupdate !');
+
+    }
+
+    public function delete($id)
+    {
+        //hapus atau delete foto
+        // $user = $this->m_user->detailData($id);
+        // if ($user->foto_ktp <> "") {
+        // unlink(public_path('foto_ktp'). '/' . $user->foto_ktp);
+        // }
+        $this->m_user->deleteData($id);
+        return redirect()->route('user')->with('pesan','Data berhasil dihapus !');
+    }
+
+    // public function status($id)
+    // {
+    //     //hapus atau delete foto
+
+    //     $user = $this->m_user->detailData($id);
+    //     if ($user->foto_ktp <> "") {
+    //         unlink(public_path('foto_ktp'). '/' . $user->foto_ktp);
+    //     }
+    //     $this->m_user->deleteData($id);
+    //     return redirect()->route('user')->with('pesan','Data berhasil disetujui !');
+    // }
 }

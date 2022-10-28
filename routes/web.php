@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\c_kelola_tamu;
 use App\Http\Controllers\c_kelola_tamu2;
 use App\Http\Controllers\c_user;
+// use App\Http\Controllers\c_kelola_user;
 use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
 use App\Http\Controllers\c_laporan_tamu;
@@ -68,6 +69,14 @@ Route::get('/laporan', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
 Route::get('/laporan/print_laporan', [c_laporan_tamu::class, 'laporan'])->name('lihat_laporan_tamu');
 Route::get('/login', [c_user::class, 'login'])->name('login');
 Route::post('/login', [c_user::class, 'login_action'])->name('login_action');
+
+Route::get('/kelola_user', [c_user::class,'index'])->name('user');
+Route::get('/user/add', [c_user::class,'add']);
+Route::post('/user/insert', [c_user::class,'insert'])->name('insert_user');
+Route::get('/user/edit/{id_user}', [c_user::class,'edit']);
+Route::put('/user/update/{id_user}', [c_user::class,'update'])->name('update_user');
+Route::get('/user/delete/{id_user}', [c_user::class,'delete']);
+Route::get('/user/detail/{id_user}', [c_user::class,'detail']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
