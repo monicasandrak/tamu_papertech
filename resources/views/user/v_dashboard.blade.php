@@ -10,7 +10,6 @@ Dashboard
 <br>
 <br>
 @if (auth()->user()->level == "security")
-<h3>Selamat Datang di Halaman Security</h3>
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c3">
@@ -72,7 +71,6 @@ Dashboard
                             </div>
                             @endif
                             @if (auth()->user()->level == "klinik")
-                            <h3>Selamat Datang di Halaman Pegawai Klinik</h3>
                             <div class="row m-t-25">
                                 <div class="col-sm-6 col-lg-3">
                                     <div class="overview-item overview-item--c3">
@@ -178,7 +176,6 @@ Dashboard
                               <br>
                               
                         </div>
-                        @endif
                        
 @endsection
 
