@@ -56,10 +56,10 @@ Kelola Data Obat
             <td>{{$data->jumlah}}</td>
             </td>
             <td>
-              <a href="/obat/detail/{{$data->id_obat}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/obat/edit/{{$data->id_obat}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_obat}}">
-                  Delete
+              <a href="/obat/detail/{{$data->id_obat}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
+              <a href="/obat/edit/{{$data->id_obat}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+              <button type="button" data-toggle="modal" data-target="#delete{{$data->id_obat}}" class="text-danger">
+              <i class="fa fa-trash">&#xE872;</i>
               </button>
           </td>
         </tr>

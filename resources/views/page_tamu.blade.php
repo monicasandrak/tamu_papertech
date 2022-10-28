@@ -240,7 +240,7 @@
               <!-- <br>
               <br>
               <br> -->
-              <div class="form-group">
+              {{-- <div class="form-group">
                     <label for="exampleInputEmail1">ID Tamu</label>
                     <input type="text" name="id_tamu" class="form-control" id="exampleInputEmail1" value="{{ $id_baru }}" readonly>
                     <div class="text-danger">
@@ -248,7 +248,7 @@
                               {{ $message}}
                           @enderror
                     </div>
-                  </div>
+                  </div> --}}
                 <div class="form-group">
                   <label for="nama_tamu">Nama</label>
                   <input type="text" name="nama_tamu" class="form-control" id="nama_tamu" placeholder="Masukan Nama Tamu" value="{{old('nama_tamu')}}">
