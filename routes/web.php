@@ -87,7 +87,7 @@ Route::get('/login', [c_login::class, 'login'])->name('login');
 Route::post('/postlogin', [c_login::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [c_login::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth', 'ceklevel:security,klinik']], function(){
+Route::group(['middleware' => ['auth', 'ceklevel:security,klinik,admin']], function(){
     Route::get('/dashboard', function () { 
         return view('security/v_dashboard');
     });

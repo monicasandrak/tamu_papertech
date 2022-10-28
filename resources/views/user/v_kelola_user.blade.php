@@ -28,7 +28,7 @@ Kelola User
         </div>
         @endif
         <div align="right">
-            <a href="/tamu/add" class="btn btn-sm btn-primary">Add Data</a><br>
+            <a href="/user/add" class="btn btn-sm btn-primary">Add Data</a><br>
             <br>
         </div>
         <div class="card-body">

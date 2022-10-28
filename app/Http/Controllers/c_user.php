@@ -27,7 +27,7 @@ class c_user extends Controller
         }
         $data = ['user' => $this->m_user->detailData($id)
     ];
-    return view('user/v_detailuser',$data);
+    return view('user/v_detail_user',$data);
     }
 
     public function add()
@@ -77,7 +77,7 @@ class c_user extends Controller
     {
         Request()->validate([
             'username' => 'required',
-            'level' => 'required',
+            // 'level' => 'required',
             'password' => 'required',
         ], [
             'username.required' => 'Username wajib diisi !',
@@ -88,7 +88,7 @@ class c_user extends Controller
             $data = [
             'id' => Request()->id,
             'username' => Request()->username,
-            'level' => Request()->level,
+            // 'level' => Request()->level,
             'password' => Request()->password,
             ];
             $this->m_user->editData($id,$data);
