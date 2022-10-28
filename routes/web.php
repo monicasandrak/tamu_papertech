@@ -8,6 +8,9 @@ use App\Http\Controllers\c_user;
 use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
 use App\Http\Controllers\c_laporan_tamu;
+use App\Http\Controllers\c_laporan_klinik;
+use App\Http\Controllers\c_laporan_pegawai;
+use App\Http\Controllers\c_laporan_obat;
 use App\Http\Controllers\c_login;
 use Illuminate\Routing\RouteGroup;
 
@@ -54,6 +57,10 @@ Route::get('/obat/delete/{id_obat}', [c_kelola_obat::class, 'delete']);
 Route::get('/obat/detail/{id_obat}', [c_kelola_obat::class, 'detail']);
 Route::get('/obat/edit/{id_obat}', [c_kelola_obat::class, 'edit']);
 Route::put('/obat/update/{id_obat}', [c_kelola_obat::class,'update'])->name('update_obat');
+Route::get('/laporan_klinik', [c_laporan_klinik::class, 'index'])->name('laporan_klinik');
+Route::get('/laporan/print_laporan_tamu', [c_laporan_klinik::class, 'laporan'])->name('lihat_laporan_tamu');
+Route::get('/laporan/print_laporan_pegawai', [c_laporan_pegawai::class, 'laporan'])->name('lihat_laporan_pegawai');
+Route::get('/laporan/print_laporan_obat', [c_laporan_obat::class, 'laporan'])->name('lihat_laporan_obat');
 
 Route::get('/form_tamu', [c_user::class,'index'])->name('form_tamu');
 Route::post('/form_tamu/insert', [c_user::class,'insert'])->name('insert_form_tamu');
@@ -87,7 +94,7 @@ Route::get('/login', [c_login::class, 'login'])->name('login');
 Route::post('/postlogin', [c_login::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [c_login::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth', 'ceklevel:security,klinik']], function(){
+Route::group(['middleware' => ['auth', 'ceklevel:security,klinik,admin']], function(){
     Route::get('/dashboard', function () { 
         return view('security/v_dashboard');
     });

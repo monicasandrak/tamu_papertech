@@ -1,9 +1,9 @@
 @section('title')
-Kelola Data Tamu
+Kelola Data Pasien
 @endsection
 @extends('layout/v_template')
 @section('page')
-Kelola Data Tamu
+Kelola Data Pasien
 @endsection
 @section('content')
 
@@ -14,7 +14,7 @@ Kelola Data Tamu
 <br>
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Kelola Data Tamu</h3>
+      <h3 class="card-title">Kelola Data Pasien</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
