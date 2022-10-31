@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('foto_ktp');
             $table->string('no_kendaraan');
             $table->string('jam_masuk');
+            $table->string('status');
             $table->string('hasil_swab');
             $table->timestamps();
         });

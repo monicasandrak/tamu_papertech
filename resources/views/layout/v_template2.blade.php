@@ -100,7 +100,15 @@
                                             <img src="{{asset('template2')}}/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                        @if(Auth::user()->level == 'security')
+                                                    <a class="username">{{Auth::user()->username}}</a>
+                                                @endif
+                                                @if(Auth::user()->level == 'klinik')
+                                                    <a class="username">{{Auth::user()->username}}</a>
+                                                @endif
+                                                @if(Auth::user()->level == 'admin')
+                                                    <a class="js-acc-btn">{{Auth::user()->username}}</a>
+                                                @endif  
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -110,20 +118,25 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">john doe</a>
-                                                    </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                @if(Auth::user()->level == 'security')
+                                                    <span class="username">{{Auth::user()->username}}</span>
+                                                @endif
+                                                @if(Auth::user()->level == 'klinik')
+                                                    <span class="username">{{Auth::user()->username}}</span>
+                                                @endif
+                                                @if(Auth::user()->level == 'admin')
+                                                    <span class="username">{{Auth::user()->username}}</span>
+                                                @endif
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="{{route('account')}}">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
+                                                    <a href="{{route('password')}}">
+                                                        <i class="zmdi zmdi-key"></i>Change Password</a>
                                                 </div>
                                                 
                                             </div>

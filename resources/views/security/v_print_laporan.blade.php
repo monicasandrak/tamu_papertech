@@ -68,7 +68,7 @@ Kelola Data Tamu
         </tr>
       </thead>
         <tbody>
-        <?php $no=1;?>
+        @php $no=1; @endphp
         @foreach ($tamu as $data)  
         
         <tr>

@@ -78,6 +78,12 @@ Route::put('/user/update/{id_user}', [c_user::class,'update'])->name('update_use
 Route::get('/user/delete/{id_user}', [c_user::class,'delete']);
 Route::get('/user/detail/{id_user}', [c_user::class,'detail']);
 
+Route::get('/password', [c_user::class, 'password'])->name('password');
+Route::get('/account', [c_user::class, 'account'])->name('account');
+Route::post('/password', [c_user::class, 'password_action'])->name('password.action');
+Route::put('/account', [c_user::class,'account_action'])->name('account.action');
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -87,8 +93,13 @@ Route::get('/login', [c_login::class, 'login'])->name('login');
 Route::post('/postlogin', [c_login::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [c_login::class, 'logout'])->name('logout');
 
+// Route::group(['middleware' => ['auth', 'ceklevel:security,klinik,admin']], function(){
+//     Route::get('/dashboard', function () { 
+//         return view('security/v_dashboard');
+//     });
+// });
+
 Route::group(['middleware' => ['auth', 'ceklevel:security,klinik,admin']], function(){
-    Route::get('/dashboard', function () { 
-        return view('security/v_dashboard');
-    });
+    Route::get('/dashboard', [c_user::class, 'dashboard'])->name('dashboard'); 
+        
 });

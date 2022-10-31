@@ -17,29 +17,28 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        // User::create([
-        //     'username' => 'rissasria',
-        //     'level' => 'security',
-        //     'password' => bcrypt ('123'),
-        //     'remember_token' => Str::random(60),
-        // ]);
-
-        // User::create([
-        //     'username' => 'monicasandrak',
-        //     'level' => 'klinik',
-        //     'password' => bcrypt ('123'),
-        //     'remember_token' => Str::random(60),
-        // ]);
-
-        // User::create([
-        //     'username' => 'rissasria',
-        //     'level' => 'security',
-        //     'password' => bcrypt ('123'),
-        //     'remember_token' => Str::random(60),
-        // ]);
+        User::create([
+        'username' => 'rissasria',
+        'level' => 'security',
+        'password' => bcrypt ('123'),
+        'remember_token' => Str::random(60),
+        ]);
 
         User::create([
-            'username' => 'admin123',
+        'username' => 'monicasandrak',
+        'level' => 'klinik',
+        'password' => bcrypt ('123'),
+        'remember_token' => Str::random(60),
+        ]);
+
+        User::create([
+            'username' => 'admin1',
+            'level' => 'admin',
+            'password' => bcrypt ('123'),
+            'remember_token' => Str::random(60),
+        ]);
+        User::create([
+            'username' => 'admin2',
             'level' => 'admin',
             'password' => bcrypt ('123'),
             'remember_token' => Str::random(60),
