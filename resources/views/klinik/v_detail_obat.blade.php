@@ -23,15 +23,16 @@ Halaman Detail Obat
           {{$obats->nama_obat}}
         </div>
         <div class="form-group">
-          <label for="exampleInputFile">Jenis Obat : </label>
-          {{$obats->jenis_obat}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Satuan : </label>
+          <label for="exampleInputFile">Bentuk Sediaan : </label>
           {{$obats->satuan}}
         </div>
         <div class="form-group">
-          <label for="exampleInputFile">Jumlah : </label>
+          <label for="exampleInputFile">Kegunaan Obat : </label>
+          {{$obats->jenis_obat}}
+        </div>
+        
+        <div class="form-group">
+          <label for="exampleInputFile">Stok : </label>
           {{$obats->jumlah}}
         </div>
       </div>

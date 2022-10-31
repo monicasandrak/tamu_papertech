@@ -72,11 +72,11 @@ Kelola Data Pasien
             <td>{{$data->hasil_swab}}</td>
             </td>
             <td>
-              <a href="/pasien_tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/pasien_tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
-              <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
-                  Delete
-              </button> -->
+              <a href="/pasien_tamu/detail/{{$data->id_tamu}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
+              <a href="/pasien_tamu/edit/{{$data->id_tamu}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+              {{-- <button type="button" data-toggle="modal" data-target="#delete{{$data->id_tamu}}" class="text-danger"> --}}
+              {{-- <i class="fa fa-trash">&#xE872;</i> --}}
+              </button>
           </td>
         </tr>
         @endforeach

@@ -36,7 +36,7 @@ class c_kelola_obat extends Controller
     public function add()
     {
         $id_baru = ['id_baru' => $this->m_obat->id_baru()];
-        $dropdown = ['Kapsul','Tablet','Sirup'];
+        $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
         return view('klinik.v_add_obat', $id_baru, compact(['dropdown']));
     }
 
@@ -54,7 +54,7 @@ class c_kelola_obat extends Controller
             'jumlah.required' => 'Jumlah wajib diisi !',
         ]);
        
-        $dropdown = ['Kapsul','Tablet','Sirup'];
+        $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
 
         $data = [
             'id_obat' => Request()->id_obat,
@@ -64,7 +64,7 @@ class c_kelola_obat extends Controller
             'jumlah' => Request()->jumlah,
         ];
         $this->m_obat->addData($data);
-        $dropdown = ['Kapsul','Tablet','Sirup'];
+        $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
         return redirect()->route('obat')->with('pesan', 'Data berhasil ditambahkan !');
     }
 
@@ -79,7 +79,7 @@ class c_kelola_obat extends Controller
             'obats' => $this->m_obat->detailData($id_obat)
         ];
         $data = ['obats' => $this->m_obat->detailData($id_obat)];
-        $dropdown = ['Kapsul','Tablet','Sirup'];
+        $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
         return view('klinik/v_edit_obat', $data, compact(['dropdown']));
     }
 

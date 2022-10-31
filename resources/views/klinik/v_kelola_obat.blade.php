@@ -37,9 +37,9 @@ Kelola Data Obat
           <th>No</th>
           <th>ID Obat</th>
           <th>Nama Obat</th>
-          <th>Jenis Obat</th>
-          <th>Satuan</th>
-          <th>Jumlah</th>
+          <th>Bentuk Sediaan</th>
+          <th>Kegunaan Obat</th>
+          <th>Stok</th>
           <th>Action</th>
         </tr>
         </thead>
@@ -70,9 +70,9 @@ Kelola Data Obat
           <th>No</th>
           <th>ID Obat</th>
           <th>Nama Obat</th>
-          <th>Jenis Obat</th>
-          <th>Satuan</th>
-          <th>Jumlah</th>
+          <th>Bentuk Sediaan</th>
+          <th>Kegunaan Obat</th>
+          <th>Stok</th>
           <th>Action</th>
         </tr>
         </tfoot>
