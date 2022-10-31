@@ -1,15 +1,20 @@
 @section('title')
-Kelola Obat
+Kelola Data Obat
 @endsection
-
 @extends('layout/v_template')
 @section('page')
-Kelola Obat
+Kelola Data Obat
 @endsection
 @section('content')
+
+<script type="text/javascript" src="{{asset('scripts.js')}}"></script>
+<script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
+<br>
+<br>
+<br>
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">DataTable with default features</h3>
+      <h3 class="card-title">Kelola Data Obat</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -25,6 +30,8 @@ Kelola Obat
             <a href="/obat/add" class="btn btn-sm btn-primary">Add Data</a><br>
             <br>
         </div>
+        <div class="card-body">
+          <table class="table table-bordered" id="datatablesSimple">
         <thead>
         <tr>
           <th>No</th>
@@ -49,10 +56,10 @@ Kelola Obat
             <td>{{$data->jumlah}}</td>
             </td>
             <td>
-              <a href="/obat/detail/{{$data->id_obat}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/obat/edit/{{$data->id_obat}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_obat}}">
-                  Delete
+              <a href="/obat/detail/{{$data->id_obat}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
+              <a href="/obat/edit/{{$data->id_obat}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+              <button type="button" data-toggle="modal" data-target="#delete{{$data->id_obat}}" class="text-danger">
+              <i class="fa fa-trash">&#xE872;</i>
               </button>
           </td>
         </tr>

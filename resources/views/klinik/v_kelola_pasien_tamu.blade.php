@@ -1,14 +1,20 @@
 @section('title')
-Kelola Data Pasien Tamu
+Kelola Data Pasien
 @endsection
 @extends('layout/v_template')
 @section('page')
-Kelola Data Pasien Tamu
+Kelola Data Pasien
 @endsection
 @section('content')
+
+<script type="text/javascript" src="{{asset('scripts.js')}}"></script>
+<script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
+<br>
+<br>
+<br>
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Data Pasien Tamu</h3>
+      <h3 class="card-title">Kelola Data Pasien</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -24,6 +30,8 @@ Kelola Data Pasien Tamu
             <!-- <a href="/tamu/add" class="btn btn-sm btn-primary">Add Data</a><br> -->
             <br>
         </div>
+        <div class="card-body">
+          <table class="table table-bordered" id="datatablesSimple">
         <thead>
         <tr>
           <th>No</th>
@@ -49,7 +57,7 @@ Kelola Data Pasien Tamu
         
         <tr>
             <td>{{$no++}}</td>
-            <td>{{$data->tanggal}}</td>
+            <td>{{date('d-m-Y',strtotime($data->tanggal))}}</td>
             <td>{{$data->id_tamu}}</td>
             <td>{{$data->nama_tamu}}</td>
             <td>{{$data->alamat}}</td>

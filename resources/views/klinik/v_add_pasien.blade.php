@@ -47,7 +47,7 @@ Tambah Data Pasien Pegawai
                     </div>
                   </div>
            
-            <div class="form-group">
+            {{-- <div class="form-group">
               <label for="exampleInputEmail1">Tanggal</label>
               <input type="date" name="tanggal" class="form-control" id="exampleInputEmail1" placeholder="Masukan Tanggal" value="{{ old('tanggal')}}">
               <div class="text-danger">
@@ -55,7 +55,7 @@ Tambah Data Pasien Pegawai
                         {{ $message}}
                     @enderror
               </div>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label for="exampleInputEmail1">Nama pasien</label>
                 <input type="text" name="nama_pasien" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama pasien" value="{{ old('nama_pasien')}}">

@@ -152,6 +152,7 @@ Dashboard
                                 </div>
                                 </div>
                                 @endif
+<<<<<<< HEAD
                         @if (auth()->user()->level == "admin")
                         <h3 class="card-title">Selamat Datang di Halaman Admin</h3>
                         <div class="row m-t-25">
@@ -173,6 +174,8 @@ Dashboard
                                     </div>
                                 </div>
                             </div>
+=======
+>>>>>>> 5fc44dc45361d34fd9c32e3291b01b3193a4acca
                             <br>
                             <br>
                             <br>
@@ -199,7 +202,7 @@ Dashboard
                               <br>
                               
                         </div>
-                        @endif
+                   
                        
 @endsection
 

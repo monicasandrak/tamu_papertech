@@ -38,33 +38,57 @@ class c_kelola_pasien extends Controller
     {
         $id_baru = ['id_baru' => $this->m_pasien->id_baru()];
         $obat = obat::all();
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
+        $dropdown = [
+            'Management',
+            'Marketing',
+            'Accounting',
+            'Teknik',
+            'Logistik',
+            'HRGA (Human Resources and General Affair)',
+            'Papcor',
+            'HSE (Human Safety Environment)',
+            'Quality Control',
+            'Produksi',
+            'Lainnya'
+        ];
         return view('klinik.v_add_pasien', $id_baru, compact(['dropdown','obat']));
     }
     
     public function insert()
     {
         Request()->validate([
-            'tanggal' => 'required',
+            // 'tanggal' => 'required',
             'nama_pasien' => 'required',
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
             'obat' => 'required', 
         ],[
-            'tanggal.required' => 'Tanggal wajib diisi !',
+            // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_pasien.required' => 'Nama pasien wajib diisi !',
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
             'obat' => 'Obat wajib diisi !',
         ]);
-        $date = date("d-m-Y");
+        $datetime = date("d-m-Y");
         $obat = obat::all();
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
+        $dropdown = [
+            'Management',
+            'Marketing',
+            'Accounting',
+            'Teknik',
+            'Logistik',
+            'HRGA (Human Resources and General Affair)',
+            'Papcor',
+            'HSE (Human Safety Environment)',
+            'Quality Control',
+            'Produksi',
+            'Lainnya'
+        ];
         $data = [
             'id_pasien' => Request()->id_pasien,
-            'tanggal' => Request()->tanggal,
+            'tanggal' => $datetime,
             'nama_pasien' => Request()->nama_pasien,
             'departement' => Request()->departement,
             'keluhan' => Request()->keluhan,
@@ -73,7 +97,19 @@ class c_kelola_pasien extends Controller
         ];
         $this->m_pasien->addData($data);
         $obat = obat::all();
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
+        $dropdown = [
+            'Management',
+            'Marketing',
+            'Accounting',
+            'Teknik',
+            'Logistik',
+            'HRGA (Human Resources and General Affair)',
+            'Papcor',
+            'HSE (Human Safety Environment)',
+            'Quality Control',
+            'Produksi',
+            'Lainnya'
+        ];
         return redirect()->route('pasien')->with('pesan', 'Data berhasil ditambahkan !');
     }
 
@@ -87,30 +123,43 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
-        $dropdown = ['HRGA (Human Resource and General Affair)','Teknik','Produksi','Logistik','HSE (Human Safety Environment)'];
+        $dropdown = [
+            'Management',
+            'Marketing',
+            'Accounting',
+            'Teknik',
+            'Logistik',
+            'HRGA (Human Resources and General Affair)',
+            'Papcor',
+            'HSE (Human Safety Environment)',
+            'Quality Control',
+            'Produksi',
+            'Lainnya'
+        ];
         return view('klinik/v_edit_pasien', $data, compact(['dropdown']));
     }
 
     public function update(Request $request, $id_pasien)
     {
         Request()->validate([
-            'tanggal' => 'required',
+            // 'tanggal' => 'required',
             'nama_pasien' => 'required',
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
             'obat' => 'required', 
         ], [
-            'tanggal.required' => 'Tanggal wajib diisi !',
+            // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_pasien.required' => 'Nama pasien wajib diisi !',
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
             'obat.required' => 'Obat wajib diisi !',
         ]);
+        $datetime = date("Y-m-d");
             $data = [
             'id_pasien' => Request()->id_pasien,
-            'tanggal' => Request()->tanggal,
+            'tanggal' => $datetime,
             'nama_pasien' => Request()->nama_pasien,
             'departement' => Request()->departement,
             'keluhan' => Request()->keluhan,
