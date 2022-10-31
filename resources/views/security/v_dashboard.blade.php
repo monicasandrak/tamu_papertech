@@ -10,7 +10,7 @@ Dashboard
 <br>
 <br>
 @if (auth()->user()->level == "security")
-<h3>Selamat Datang di Halaman Security</h3>
+<h3 class="card-title">Selamat Datang di Halaman Security</h3>
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c3">
@@ -152,6 +152,30 @@ Dashboard
                                 </div>
                                 </div>
                                 @endif
+<<<<<<< HEAD
+                        @if (auth()->user()->level == "admin")
+                        <h3 class="card-title">Selamat Datang di Halaman Admin</h3>
+                        <div class="row m-t-25">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c3">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-calendar-note"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>1,086</h2>
+                                                <span>Jumlah User</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart3"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+=======
+>>>>>>> 5fc44dc45361d34fd9c32e3291b01b3193a4acca
                             <br>
                             <br>
                             <br>

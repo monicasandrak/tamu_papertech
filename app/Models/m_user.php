@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
+use Laravel\Sanctum\HasApiTokens;
 
 class m_user extends Model
 {
@@ -37,7 +44,7 @@ class m_user extends Model
      {
          $id_usermax = DB::table('users')->max('id');
          $addNol = '';
-         $id_usermax = str_replace("USER", "", $id_usermax);
+        //  $id_usermax = str_replace("USER", "", $id_usermax);
          $id_usermax = (int) $id_usermax + 1;
          $incrementKode = $id_usermax;
 
@@ -49,7 +56,7 @@ class m_user extends Model
              $addNol = "0";
          }
  
-         $id_userbaru = "USER" .$addNol.$incrementKode;
+         $id_userbaru = "" .$addNol.$incrementKode;
          return $id_userbaru;
      }   
 }

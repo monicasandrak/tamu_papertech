@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use DB;
 
 class c_login extends Controller
 {
@@ -13,11 +16,23 @@ class c_login extends Controller
          return view('login'); //mengarahkan ke view form login
     }
 
-    public function postlogin(Request $request){
+    public function postlogin(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+            ],[
+            'username.required' => 'Username tidak boleh kosong',
+            'password.required' => 'Password tidak boleh kosong',
+            ]);
+
         if (Auth::attempt($request-> only ('username', 'password'))){
-            return redirect ('/dashboard');
+        return redirect()->route('dashboard')->with('success','You are now logged in');
         }
-        return redirect ('/login');
+        return back()->withErrors([
+        'password' => 'Username atau Password salah',
+        ]);
+        // return redirect ('/login');
     }
 
     public function logout(){
