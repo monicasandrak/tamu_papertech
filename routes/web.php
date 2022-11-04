@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\c_kelola_tamu;
 use App\Http\Controllers\c_kelola_tamu2;
 use App\Http\Controllers\c_user;
-// use App\Http\Controllers\c_kelola_user;
+use App\Http\Controllers\c_kelola_security;
 use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
 use App\Http\Controllers\c_laporan_tamu;
@@ -12,6 +12,7 @@ use App\Http\Controllers\c_laporan_klinik;
 use App\Http\Controllers\c_laporan_pegawai;
 use App\Http\Controllers\c_laporan_obat;
 use App\Http\Controllers\c_login;
+use App\Http\Controllers\c_tamu;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -25,9 +26,9 @@ use Illuminate\Routing\RouteGroup;
 |
 */
 
-Route::get('/', function () {
-    return view('page_tamu');
-});
+// Route::get('/', function () {
+//     return view('page_tamu');
+// });
 
 
 
@@ -62,8 +63,9 @@ Route::get('/laporan/print_laporan_tamu', [c_laporan_klinik::class, 'laporan'])-
 Route::get('/laporan/print_laporan_pegawai', [c_laporan_pegawai::class, 'laporan'])->name('lihat_laporan_pegawai');
 Route::get('/laporan/print_laporan_obat', [c_laporan_obat::class, 'laporan'])->name('lihat_laporan_obat');
 
-Route::get('/form_tamu', [c_user::class,'index'])->name('form_tamu');
-Route::post('/form_tamu/insert', [c_user::class,'insert'])->name('insert_form_tamu');
+Route::get('/', [c_tamu::class,'index'])->name('form_tamu');
+Route::get('/form_tamu/add', [c_tamu::class,'add'])->name('add_form_tamu');
+Route::post('/form_tamu/insert', [c_tamu::class,'insert'])->name('insert_form_tamu');
 
 Route::get('/kelola_tamu', [c_kelola_tamu::class,'index'])->name('tamu');
 Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
@@ -72,6 +74,15 @@ Route::get('/tamu/edit/{id_tamu}', [c_kelola_tamu::class,'edit']);
 Route::put('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update_tamu');
 Route::get('/tamu/delete/{id_tamu}', [c_kelola_tamu::class,'delete']);
 Route::get('/tamu/detail/{id_tamu}', [c_kelola_tamu::class,'detail']);
+
+Route::get('/kelola_security', [c_kelola_security::class,'index'])->name('security');
+Route::get('/security/add', [c_kelola_security::class,'add']);
+Route::post('/security/insert', [c_kelola_security::class,'insert'])->name('insert_security');
+Route::get('/security/edit/{id_security}', [c_kelola_security::class,'edit']);
+Route::put('/security/update/{id_security}', [c_kelola_security::class,'update'])->name('update_security');
+Route::get('/security/delete/{id_security}', [c_kelola_security::class,'delete']);
+Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']);
+
 Route::get('/laporan', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
 Route::get('/laporan/print_laporan', [c_laporan_tamu::class, 'laporan'])->name('lihat_laporan_tamu');
 Route::get('/login', [c_user::class, 'login'])->name('login');

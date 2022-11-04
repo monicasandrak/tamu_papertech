@@ -130,8 +130,9 @@ class c_user extends Controller
     public function password_action(Request $request)
     {
         $request->validate([
-            'old_password' => 'required|current_password',
-            'new_password' => 'required|confirmed|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+            // 'username' => 'string|min:3|max:100',
+            'old_password' => '|current_password',
+            'new_password' => '|confirmed|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
             
         ],[
             'old_password.required' => 'Masukkan Password Lama',
@@ -141,11 +142,12 @@ class c_user extends Controller
             'new_password.min' => 'Password atau Konfirmasi Password minimal 8 karakter',
             'new_password.regex' => "Konfirmasi Password gabungan dari huruf A-z, angka 0-9 dan setidaknya memiliki salah satu karakter # ? ! @ $ % ^ & * - _ + = : ; } {  ] [ \ /> < , . | ` ~",
         ]);
+        
         $user = User::find(Auth::id());
         $user->password = Hash::make($request->new_password);
         $user->save();
         $request->session()->regenerate();
-        return back()->with('success', 'Password changed!');
+        return back()->with('success', 'Password berhasil diubah!');
     }
 
     public function account() 

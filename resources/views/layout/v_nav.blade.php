@@ -19,10 +19,18 @@
                             <a class="js-arrow" href="/kelola_tamu">
                                 <i class="fas fa-copy"></i>Kelola Tamu</a>
                         </li>
+
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="/kelola_security">
+                                <i class="fas fa-copy"></i>Kelola Security</a>
+                        </li>
+
                         <li class="active has-sub">
                             <a class="js-arrow" href="/laporan">
                                 <i class="fas fa-desktop"></i>Laporan</a>
-                                @endif
+                        </li>
+
+                        @endif
                                 @if (auth()->user()->level == "klinik")
                                 <li class="active has-sub">
                                     <a class="js-arrow" href="/dashboard">

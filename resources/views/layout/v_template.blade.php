@@ -140,7 +140,7 @@
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="{{route('password')}}">
-                                                        <i class="zmdi zmdi-key"></i>Change Password</a>
+                                                        <i class="zmdi zmdi-key"></i>Edit Password</a>
                                                 </div>
                                                 
                                             </div>

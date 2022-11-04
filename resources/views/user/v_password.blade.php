@@ -11,7 +11,7 @@ Edit Password
 @section('content')
 @auth
 <div class="container-fluid">
-    <h1 class="mt-4">Ganti Password</h1>
+    <h1 class="mt-4">Edit Password</h1>
     <!-- <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Ganti Password</li>
     </ol> -->

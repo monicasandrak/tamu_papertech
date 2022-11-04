@@ -12,6 +12,7 @@ Account
 @auth
 <div class="container-fluid">
     <h3 class="mt-4">Account</h3>
+    <br>
     <!-- <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Account</li>
     </ol> -->
@@ -39,7 +40,7 @@ Account
             </div>
             <div class="mb-3">
                 <label>Username</label>
-                <input class="form-control" type="text" value="{{old('name',Auth::user()->username)}}" name="username"/>
+                <input class="form-control" type="text" value="{{old('name',Auth::user()->username)}}" name="username" />
             </div>
             <div class="text-danger">
                 @error('username')
@@ -54,6 +55,16 @@ Account
                 @error('level')
                     {{ $message }}
                 @enderror
+            </div>
+            <div class="mb-3">
+                <label>Password</label>
+                <input class="form-control" type="text" value="{{old('password',Auth::user()->password)}}" name="password" readonly/>
+            </div>
+            <div class="text-danger">
+                @error('password')
+                    {{ $message }}
+                @enderror
+            </div>
             <div class="mb-3">
                 <button class="btn btn-primary">Ubah</button>
                 <a class="btn btn-danger" href="{{ route('dashboard') }}">Back</a>

@@ -71,7 +71,7 @@ Tambah Data User
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Password</label>
-                <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" value="{{ old('password')}}">
+                <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" value="{{ old('password')}}">
                 <div class="text-danger">
                     @error('password')
                         {{ $message}}

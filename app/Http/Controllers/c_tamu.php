@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\m_tamu;
 use App\Http\Controllers\Auth;
 
-class c_user extends Controller
+class c_tamu extends Controller
 {
     public function __construct()
     {
@@ -25,7 +25,7 @@ class c_user extends Controller
     {
         $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
 
-        return view('page_tamu', $id_baru);
+        return view('page_tamu2', $id_baru);
     }
 
 
@@ -61,6 +61,7 @@ class c_user extends Controller
         $fileName = Request()->id_tamu .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
         $datetime = date("d-M-Y");
+        $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
         // $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
         $data = [
@@ -78,7 +79,7 @@ class c_user extends Controller
             
         ];
         $this->m_tamu->addData($data);
-        return redirect()->route('tamu')->with('pesan', 'Data berhasil ditambahkan !');
+        return redirect()->route('form_tamu')->with('pesan', 'Anda berhasil mengisi form tamu !');
     }
 
     

@@ -142,7 +142,7 @@ class c_kelola_tamu extends Controller
             $fileStatus = Request()->id_tamu.'.'. $file2->extension();
             $file2->move(public_path('status'),$fileStatus);
             $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
-            $datetime = date("Y-m-d");
+            $datetime = date("d-m-Y");
 
             $data = [
             'id_tamu' => Request()->id_tamu,
@@ -196,17 +196,17 @@ class c_kelola_tamu extends Controller
         return redirect()->route('tamu')->with('pesan','Data berhasil dihapus !');
     }
 
-    public function status($id_tamu)
-    {
-        //hapus atau delete foto
+    // public function status($id_tamu)
+    // {
+    //     //hapus atau delete foto
 
-        $tamu = $this->m_tamu->detailData($id_tamu);
-        if ($tamu->foto_ktp <> "") {
-            unlink(public_path('foto_ktp'). '/' . $tamu->foto_ktp);
-        }
-        $this->m_tamu->deleteData($id_tamu);
-        return redirect()->route('tamu')->with('pesan','Data berhasil disetujui !');
-    }
+    //     $tamu = $this->m_tamu->detailData($id_tamu);
+    //     if ($tamu->foto_ktp <> "") {
+    //         unlink(public_path('foto_ktp'). '/' . $tamu->foto_ktp);
+    //     }
+    //     $this->m_tamu->deleteData($id_tamu);
+    //     return redirect()->route('tamu')->with('pesan','Data berhasil disetujui !');
+    // }
 
 }
 
