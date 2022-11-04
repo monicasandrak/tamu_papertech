@@ -4,7 +4,7 @@ Edit Data Tamu
 <br>
 <br>
 <br>
-@extends('layout/v_template_pasien')
+@extends('layout/v_template2')
 @section('page')
 Edit Data Pasien Tamu
 @endsection

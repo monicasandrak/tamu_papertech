@@ -1,7 +1,7 @@
 @section('title')
 Kelola Data Pasien
 @endsection
-@extends('layout/v_template')
+@extends('layout/v_template2')
 @section('page')
 Kelola Data Pasien
 @endsection

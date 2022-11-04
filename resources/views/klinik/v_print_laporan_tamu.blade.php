@@ -1,7 +1,7 @@
 @section('title')
 Kelola Data Tamu
 @endsection
-@extends('layout/v_template')
+@extends('layout/v_template2')
 @section('page')
 Kelola Data Tamu
 @endsection

@@ -5,6 +5,8 @@ use App\Http\Controllers\c_kelola_tamu;
 use App\Http\Controllers\c_kelola_tamu2;
 use App\Http\Controllers\c_user;
 use App\Http\Controllers\c_kelola_security;
+use App\Http\Controllers\c_kelola_perawat;
+use App\Http\Controllers\c_kelola_dokter;
 use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
 use App\Http\Controllers\c_laporan_tamu;
@@ -62,6 +64,22 @@ Route::get('/laporan_klinik', [c_laporan_klinik::class, 'index'])->name('laporan
 Route::get('/laporan/print_laporan_tamu', [c_laporan_klinik::class, 'laporan'])->name('lihat_laporan_tamu');
 Route::get('/laporan/print_laporan_pegawai', [c_laporan_pegawai::class, 'laporan'])->name('lihat_laporan_pegawai');
 Route::get('/laporan/print_laporan_obat', [c_laporan_obat::class, 'laporan'])->name('lihat_laporan_obat');
+
+Route::get('/kelola_perawat', [c_kelola_perawat::class,'index'])->name('perawat');
+Route::get('/perawat/add', [c_kelola_perawat::class,'add']);
+Route::post('/perawat/insert', [c_kelola_perawat::class,'insert'])->name('insert_perawat');
+Route::get('/perawat/edit/{id_perawat}', [c_kelola_perawat::class,'edit']);
+Route::put('/perawat/update/{id_perawat}', [c_kelola_perawat::class,'update'])->name('update_perawat');
+Route::get('/perawat/delete/{id_perawat}', [c_kelola_perawat::class,'delete']);
+Route::get('/perawat/detail/{id_perawat}', [c_kelola_perawat::class,'detail']);
+
+Route::get('/kelola_dokter', [c_kelola_dokter::class,'index'])->name('dokter');
+Route::get('/dokter/add', [c_kelola_dokter::class,'add']);
+Route::post('/dokter/insert', [c_kelola_dokter::class,'insert'])->name('insert_dokter');
+Route::get('/dokter/edit/{id_dokter}', [c_kelola_dokter::class,'edit']);
+Route::put('/dokter/update/{id_dokter}', [c_kelola_dokter::class,'update'])->name('update_dokter');
+Route::get('/dokter/delete/{id_dokter}', [c_kelola_dokter::class,'delete']);
+Route::get('/dokter/detail/{id_dokter}', [c_kelola_dokter::class,'detail']);
 
 Route::get('/', [c_tamu::class,'index'])->name('form_tamu');
 Route::get('/form_tamu/add', [c_tamu::class,'add'])->name('add_form_tamu');

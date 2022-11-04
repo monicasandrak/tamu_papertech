@@ -1,12 +1,12 @@
 @section('title')
-Tambah Data Pasien
+Tambah Data Dokter
 @endsection
 <br>
 <br>
 <br>
 @extends('layout/v_template2')
 @section('page')
-Tambah Data Pasien Pegawai
+Tambah Data Dokter
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -16,14 +16,13 @@ Tambah Data Pasien Pegawai
       <div class="col-md-6">
 
      <!-- general form elements -->
-     
      <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Form Tambah Data Pasien Pegawai</h3>
+          <h3 class="card-title">Form Tambah Data Dokter</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{route('insert_pasien')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('insert_dokter')}}" method="POST" enctype="multipart/form-data">
           @csrf
             <div class="card-body">
             @if(session('success'))
@@ -38,10 +37,10 @@ Tambah Data Pasien Pegawai
         @endforeach
         @endif
                 <div class="form-group">
-                    <label for="exampleInputEmail1">ID pasien</label>
-                    <input type="text" name="id_pasien" class="form-control" id="exampleInputEmail1" value="{{ $id_baru}}" readonly>
+                    <label for="exampleInputEmail1">ID Dokter</label>
+                    <input type="text" name="id_dokter" class="form-control" id="exampleInputEmail1" value="{{ $id_baru}}" readonly>
                     <div class="text-danger">
-                          @error('id_pasien')
+                          @error('id_dokter')
                               {{ $message}}
                           @enderror
                     </div>
@@ -57,19 +56,28 @@ Tambah Data Pasien Pegawai
               </div>
             </div> --}}
             <div class="form-group">
-                <label for="exampleInputEmail1">Nama Pasien</label>
-                <input type="text" name="nama_pasien" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama pasien" value="{{ old('nama_pasien')}}">
+                <label for="exampleInputEmail1">Nama Dokter</label>
+                <input type="text" name="nama_dokter" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Dokter" value="{{ old('nama_dokter')}}">
                 <div class="text-danger">
-                    @error('nama_pasien')
+                    @error('nama_dokter')
                         {{ $message}}
                     @enderror
                 </div>
             </div>
             <div class="form-group">
+              <label for="exampleInputEmail1">Tanggal Lahir</label>
+              <input type="date" name="tanggal_lahir" class="form-control" id="exampleInputEmail1" placeholder="Masukan Tanggal Lahir Dokter" value="{{ old('tanggal_lahir')}}">
+              <div class="text-danger">
+                  @error('tanggal_lahir')
+                      {{ $message}}
+                  @enderror
+              </div>
+          </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Jenis Kelamin</label>
                 <select name="jenis_kelamin" class="form-control">
             <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown1 as $row)
+            @foreach ($dropdown as $row)
             <option value="{{$row}}"{{ old('jenis_kelamin') == $row ? 'selected' : null }}>{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
             @endforeach
           </select>
@@ -80,66 +88,59 @@ Tambah Data Pasien Pegawai
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Umur</label>
-                <input type="text" name="umur" class="form-control" id="exampleInputEmail1" placeholder="Masukan Umur" value="{{ old('umur')}}">
+                <label for="exampleInputEmail1">Alamat</label>
+                <input type="text" name="alamat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Alamat" value="{{ old('alamat')}}">
                 <div class="text-danger">
-                    @error('umur')
+                    @error('alamat')
                         {{ $message}}
                     @enderror
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Departement</label>
-                <select name="departement" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown as $row)
-            <option value="{{$row}}"{{ old('departement') == $row ? 'selected' : null }}>{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
-            @endforeach
-          </select>
+              <label for="exampleInputFile">Foto Dokter</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" name="foto_dokter" class="custom-file-input" id="exampleInputFile">
+                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
+                <div class="input-group-append">
+                  <span class="input-group-text">Upload</span>
+                </div>
+                <br>
                 <div class="text-danger">
-                    @error('departement')
+                    @error('foto_dokter')
                         {{ $message}}
                     @enderror
-                </div>
+                    </div>
+              </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Keluhan</label>
-                <input type="text" name="keluhan" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Keluhan" value="{{ old('keluhan')}}">
-                <div class="text-danger">
-                    @error('keluhan')
-                        {{ $message}}
-                    @enderror
-                </div>
+              <label for="exampleInputEmail1">Keahlian</label>
+              <input type="text" name="keahlian" class="form-control" id="exampleInputEmail1" placeholder="Masukan Keahlian" value="{{ old('keahlian')}}">
+              <div class="text-danger">
+                  @error('keahlian')
+                      {{ $message}}
+                  @enderror
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Jadwal Kerja</label>
+            <input type="text" name="jk" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jadwal Kerja" value="{{ old('jk')}}">
+            <div class="text-danger">
+                @error('jk')
+                    {{ $message}}
+                @enderror
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Diagnosa</label>
-                <input type="text" name="diagnosa" class="form-control" id="exampleInputEmail1" placeholder="Masukan Diagnosa" value="{{ old('diagnosa')}}">
-                <div class="text-danger">
-                    @error('diagnosa')
-                        {{ $message}}
-                    @enderror
-                </div>
+        </div>
+
             </div>
-            <div class="form-group">
-                <label for="Obat">Obat</label>
-                <select class="form-control" id="position-option" name="obat">
-                    <option disabled selected>--- Pilih ---</option>
-                   @foreach ($obat as $obat)
-                      <option value="{{ $obat->nama_obat }}"{{ old('obat') == $obat->id_obat ? 'selected' : null }}>{{ $obat->nama_obat }}</option>
-                   @endforeach
-                </select>
-                <div class="text-danger">
-                    @error('obat')
-                        {{ $message}}
-                    @enderror
-                </div>
              </div>
             </div>
           </div>
           <!-- /.card-body -->
 
           <div class="card-footer">
-            <a class="btn btn-danger" href="{{ route('pasien') }}">Back</a>
+            <a class="btn btn-danger" href="{{ route('dokter') }}">Back</a>
             <button type="submit" class="btn btn-primary">Insert</button>
           </div>
         </form>

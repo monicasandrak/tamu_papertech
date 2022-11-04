@@ -52,6 +52,14 @@
                                     <a class="js-arrow" href="/kelola_obat">
                                         <i class="fas fa-copy"></i>Kelola Obat</a>
                                 </li>
+                                <li class="has-sub">
+                                    <a class="js-arrow" href="/kelola_perawat">
+                                        <i class="fas fa-copy"></i>Kelola Perawat</a>
+                                </li>
+                                <li class="has-sub">
+                                    <a class="js-arrow" href="/kelola_dokter">
+                                        <i class="fas fa-copy"></i>Kelola Dokter</a>
+                                </li>
         
                                 <li class="has-sub">
                                     <a class="js-arrow" href="/laporan_klinik">

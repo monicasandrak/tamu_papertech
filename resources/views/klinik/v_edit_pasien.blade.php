@@ -4,7 +4,7 @@ Edit Data pPsien
 <br>
 <br>
 <br>
-@extends('layout/v_template_pasien')
+@extends('layout/v_template2')
 @section('page')
 Tambah Data Pasien
 @endsection

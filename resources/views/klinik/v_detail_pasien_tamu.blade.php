@@ -4,7 +4,7 @@ Detail Data Pasien Tamu
 <br>
 <br>
 <br>
-@extends('layout/v_template_pasien')
+@extends('layout/v_template2')
 @section('page')
 Detail Data Pasien Tamu
 @endsection

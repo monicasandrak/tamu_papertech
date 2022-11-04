@@ -1,7 +1,7 @@
 @section('title')
 Pasien
 @endsection
-@extends('layout/v_template_pasien')
+@extends('layout/v_template2')
 @section('page')
 Halaman Detail Pasien
 @endsection

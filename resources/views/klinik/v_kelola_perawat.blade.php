@@ -1,20 +1,21 @@
 @section('title')
-Kelola Data Obat
+Kelola Data Perawat
 @endsection
-@extends('layout/v_template2')
+@extends('layout/v_template')
 @section('page')
-Kelola Data Obat
+Kelola Data Perawat
 @endsection
 @section('content')
 
 <script type="text/javascript" src="{{asset('scripts.js')}}"></script>
 <script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
+
 <br>
 <br>
 <br>
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Kelola Data Obat</h3>
+      <h3 class="card-title">Kelola Data Perawat</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -27,62 +28,56 @@ Kelola Data Obat
         </div>
         @endif
         <div align="right">
-            <a href="/obat/add" class="btn btn-sm btn-primary">Add Data</a><br>
+            <a href="/perawat/add" class="btn btn-sm btn-primary">Add Data</a><br>
             <br>
         </div>
         <div class="card-body">
-          <table class="table table-bordered" id="datatablesSimple">
+        <table class="table table-bordered" id="datatablesSimple">
         <thead>
         <tr>
           <th>No</th>
-          <th>ID Obat</th>
-          <th>Nama Obat</th>
-          <th>Bentuk Sediaan</th>
-          <th>Kegunaan Obat</th>
-          <th>Stok</th>
+          <th>ID Perawat</th>
+          <th>Nama Lengkap</th>
+          <th>Tanggal Lahir</th>
+          <th>Jenis Kelamin</th>
+          <th>Alamat</th>
+          <th>Foto Perawat</th>
+          <th>Jadwal Kerja</th>
           <th>Action</th>
         </tr>
-        </thead>
+      </thead>
         <tbody>
-          <?php $no=1;?>
-         @foreach ($obats as $data)  
+        <?php $no=1;?>
+        @foreach ($perawat as $data)  
         
         <tr>
             <td>{{$no++}}</td>
-            <td>{{$data->id_obat}}</td>
-            <td>{{$data->nama_obat}}</td>
-            <td>{{$data->jenis_obat}}</td>
-            <td>{{$data->satuan}}</td>
-            <td>{{$data->jumlah}}</td>
-            </td>
+            <td>{{$data->id_perawat}}</td>
+            <td>{{$data->nama_perawat}}</td>
+            <td>{{$data->tanggal_lahir}}</td>
+            <td>{{$data->jenis_kelamin}}</td>
+            <td>{{$data->alamat}}</td>
+            <td>{{$data->jk}}</td>
+            <td><img src="{{url('foto_perawat/'.$data->foto_perawat)}}" width="100px">
             <td>
-              <a href="/obat/detail/{{$data->id_obat}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
-              <a href="/obat/edit/{{$data->id_obat}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
-              <button type="button" data-toggle="modal" data-target="#delete{{$data->id_obat}}" class="text-danger">
+              <a href="/perawat/detail/{{$data->id_perawat}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
+              <a href="/perawat/edit/{{$data->id_perawat}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+              <button type="button" data-toggle="modal" data-target="#delete{{$data->id_perawat}}" class="text-danger">
               <i class="fa fa-trash">&#xE872;</i>
               </button>
           </td>
         </tr>
         @endforeach
         </tbody>
-        <tfoot>
-        <tr>
-          <th>No</th>
-          <th>ID Obat</th>
-          <th>Nama Obat</th>
-          <th>Bentuk Sediaan</th>
-          <th>Kegunaan Obat</th>
-          <th>Stok</th>
-          <th>Action</th>
-        </tr>
-        </tfoot>
-      </table>
-      @foreach ($obats as $data)
-      <div class="modal fade" id="delete{{$data->id_obat}}">
+        </table>
+</div>
+       
+      @foreach ($perawat as $data)
+      <div class="modal fade" id="delete{{$data->id_perawat}}">
         <div class="modal-dialog modal-sm">
           <div class="modal-content bg-danger">
             <div class="modal-header">
-              <h6 class="modal-title">{{$data->nama_obat}}</h6>
+              <h6 class="modal-title">{{$data->nama_perawat}}</h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -91,7 +86,7 @@ Kelola Data Obat
               <p>Apakah anda ingin menghapus data ini ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <a href="/obat/delete/{{$data->id_obat}}" class="btn btn-outline-light">Yes</a>
+                <a href="/perawat/delete/{{$data->id_perawat}}" class="btn btn-outline-light">Yes</a>
                 <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
               </div>
           </div>
@@ -101,10 +96,15 @@ Kelola Data Obat
       </div>
       @endforeach
 
+      
+      </div>
+      
+
     </div>
     <!-- /.card-body -->
-  </div>
+  <!-- </div>
   <!-- /.card -->
-  </div>
-@endsection
+  
+</div>
+  @endsection
 
