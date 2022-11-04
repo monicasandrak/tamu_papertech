@@ -6,7 +6,7 @@ Detail Data Tamu
 <br>
 @extends('layout/v_template2')
 @section('page')
-Tambah Data Tamu
+Detail Data Tamu
 @endsection
 @section('content')
 <div class="container-fluid">
