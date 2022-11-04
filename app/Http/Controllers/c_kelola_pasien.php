@@ -51,7 +51,10 @@ class c_kelola_pasien extends Controller
             'Produksi',
             'Lainnya'
         ];
-        return view('klinik.v_add_pasien', $id_baru, compact(['dropdown','obat']));
+        $dropdown1 = [
+            'Perempuan','Laki - Laki'
+        ];
+        return view('klinik.v_add_pasien', $id_baru, compact(['dropdown','obat', 'dropdown1']));
     }
     
     public function insert()
@@ -59,6 +62,8 @@ class c_kelola_pasien extends Controller
         Request()->validate([
             // 'tanggal' => 'required',
             'nama_pasien' => 'required',
+            'jenis_kelamin' => 'required',
+            'umur' => 'required',
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
@@ -66,6 +71,8 @@ class c_kelola_pasien extends Controller
         ],[
             // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_pasien.required' => 'Nama pasien wajib diisi !',
+            'jenis_kelamin.required' => 'Jenis kelamin wajib diisi !',
+            'umur.required' => 'Umur wajib diisi !',
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
@@ -86,10 +93,15 @@ class c_kelola_pasien extends Controller
             'Produksi',
             'Lainnya'
         ];
+        $dropdown1 = [
+            'Perempuan','Laki - Laki'
+        ];
         $data = [
             'id_pasien' => Request()->id_pasien,
             'tanggal' => $datetime,
             'nama_pasien' => Request()->nama_pasien,
+            'jenis_kelamin' => Request()->jenis_kelamin,
+            'umur' => Request()->umur,
             'departement' => Request()->departement,
             'keluhan' => Request()->keluhan,
             'diagnosa' => Request()->diagnosa,
@@ -110,6 +122,9 @@ class c_kelola_pasien extends Controller
             'Produksi',
             'Lainnya'
         ];
+        $dropdown1 = [
+            'Perempuan','Laki - Laki'
+        ];
         return redirect()->route('pasien')->with('pesan', 'Data berhasil ditambahkan !');
     }
 
@@ -123,6 +138,7 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
+        $obat = obat::all();
         $dropdown = [
             'Management',
             'Marketing',
@@ -136,7 +152,10 @@ class c_kelola_pasien extends Controller
             'Produksi',
             'Lainnya'
         ];
-        return view('klinik/v_edit_pasien', $data, compact(['dropdown']));
+        $dropdown1 = [
+            'Perempuan','Laki - Laki'
+        ];
+        return view('klinik/v_edit_pasien', $data, compact(['dropdown', 'dropdown1', 'obat']));
     }
 
     public function update(Request $request, $id_pasien)
@@ -144,6 +163,8 @@ class c_kelola_pasien extends Controller
         Request()->validate([
             // 'tanggal' => 'required',
             'nama_pasien' => 'required',
+            'jenis_kelamin' => 'required',
+            'umur' => 'required',
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
@@ -151,6 +172,8 @@ class c_kelola_pasien extends Controller
         ], [
             // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_pasien.required' => 'Nama pasien wajib diisi !',
+            'jenis_kelamin.required' => 'Jenis kelamin wajib diisi !',
+            'umur.required' => 'Umur wajib diisi !',
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
@@ -161,6 +184,8 @@ class c_kelola_pasien extends Controller
             'id_pasien' => Request()->id_pasien,
             'tanggal' => $datetime,
             'nama_pasien' => Request()->nama_pasien,
+            'jenis_kelamin' => Request()->jenis_kelamin,
+            'umur' => Request()->umur,
             'departement' => Request()->departement,
             'keluhan' => Request()->keluhan,
             'diagnosa' => Request()->diagnosa,

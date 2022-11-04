@@ -59,6 +59,29 @@ Tambah Data Pasien
                 </div>
             </div>
             <div class="form-group">
+                <label for="exampleInputEmail1">Jenis Kelamin</label>
+                <select name="jenis_kelamin" class="form-control">
+            <option>{{$pasien->jenis_kelamin}}</option>
+            @foreach ($dropdown1 as $row)
+            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
+                <div class="text-danger">
+                    @error('jenis_kelamin')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Umur</label>
+                <input type="text" name="umur" class="form-control" id="exampleInputEmail1" placeholder="Masukan Umur" value="{{$pasien->umur}}">
+                <div class="text-danger">
+                    @error('umur')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Departement</label>
                 <select name="departement" class="form-control">
             <option>{{$pasien->departement}}</option>
@@ -91,14 +114,19 @@ Tambah Data Pasien
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Obat</label>
-                <input type="text" name="obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Obat" value="{{$pasien->obat}}">
+                <label for="Obat">Obat</label>
+                <select class="form-control" id="position-option" name="obat">
+                    <option>{{$pasien->obat}}</option>
+                   @foreach ($obat as $obat)
+                      <option value="{{ $obat->nama_obat }}"{{ old('obat') == $obat->id_obat ? 'selected' : null }}>{{ $obat->nama_obat }}</option>
+                   @endforeach
+                </select>
                 <div class="text-danger">
                     @error('obat')
                         {{ $message}}
                     @enderror
                 </div>
-            </div>
+             </div>
             <div class="card-footer">
             <a class="btn btn-danger" href="{{ route('pasien') }}">Back</a>
             <button type="submit" class="btn btn-primary">Update</button>

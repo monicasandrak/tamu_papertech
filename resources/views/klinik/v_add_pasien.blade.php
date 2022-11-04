@@ -57,10 +57,33 @@ Tambah Data Pasien Pegawai
               </div>
             </div> --}}
             <div class="form-group">
-                <label for="exampleInputEmail1">Nama pasien</label>
+                <label for="exampleInputEmail1">Nama Pasien</label>
                 <input type="text" name="nama_pasien" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama pasien" value="{{ old('nama_pasien')}}">
                 <div class="text-danger">
                     @error('nama_pasien')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Jenis Kelamin</label>
+                <select name="jenis_kelamin" class="form-control">
+            <option disabled selected>--- Pilih ---</option>
+            @foreach ($dropdown1 as $row)
+            <option value="{{$row}}"{{ old('jenis_kelamin') == $row ? 'selected' : null }}>{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
+                <div class="text-danger">
+                    @error('jenis_kelamin')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Umur</label>
+                <input type="text" name="umur" class="form-control" id="exampleInputEmail1" placeholder="Masukan Umur" value="{{ old('umur')}}">
+                <div class="text-danger">
+                    @error('umur')
                         {{ $message}}
                     @enderror
                 </div>

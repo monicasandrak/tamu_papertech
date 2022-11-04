@@ -38,6 +38,8 @@ Kelola Data Pasien
           <th>Tanggal</th>
           <th>ID Pasien</th>
           <th>Nama Lengkap</th>
+          <th>Jenis Kelamin</th>
+          <th>Umur</th>
           <th>Departement</th>
           <th>Keluhan</th>
           <th>Diagnosa</th>
@@ -54,6 +56,8 @@ Kelola Data Pasien
             <td>{{$data->tanggal}}</td>
             <td>{{$data->id_pasien}}</td>
             <td>{{$data->nama_pasien}}</td>
+            <td>{{$data->jenis_kelamin}}</td>
+            <td>{{$data->umur}}</td>
             <td>{{$data->departement}}</td>
             <td>{{$data->keluhan}}</td>
             <td>{{$data->diagnosa}}</td>
@@ -76,6 +80,8 @@ Kelola Data Pasien
           <th>Tanggal</th>
           <th>ID Pasien</th>
           <th>Nama Lengkap</th>
+          <th>Jenis Kelamin</th>
+          <th>Umur</th>
           <th>Departement</th>
           <th>Keluhan</th>
           <th>Diagnosa</th>

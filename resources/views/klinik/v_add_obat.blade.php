@@ -56,16 +56,7 @@ Tambah Data Obat
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Jenis Obat</label>
-                <input type="text" name="jenis_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jenis Obat" value="{{ old('jenis_obat')}}">
-                <div class="text-danger">
-                    @error('jenis_obat')
-                        {{ $message}}
-                    @enderror
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Satuan</label>
+                <label for="exampleInputEmail1">Bentuk Sediaan</label>
                 <select name="satuan" class="form-control">
             <option disabled selected>--- Pilih ---</option>
             @foreach ($dropdown as $row)
@@ -79,7 +70,17 @@ Tambah Data Obat
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Jumlah</label>
+                <label for="exampleInputEmail1">Kegunaan Obat</label>
+                <input type="text" name="jenis_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jenis Obat" value="{{ old('jenis_obat')}}">
+                <div class="text-danger">
+                    @error('jenis_obat')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputEmail1">Stok</label>
                 <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah" value="{{ old('jumlah')}}">
                 <div class="text-danger">
                     @error('jumlah')
