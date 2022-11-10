@@ -36,7 +36,8 @@ class c_kelola_security extends Controller
     {
         $id_baru = [ 'id_baru' => $this->m_security->id_baru()];
         $dropdown = ['Laki-laki', 'Perempuan'];
-        return view('security/v_addsecurity', $id_baru, compact(['dropdown']));
+        $dropdown2 = ['Produksi', 'Gudang', 'Pengecekan', 'Logistik'];
+        return view('security/v_addsecurity', $id_baru, compact(['dropdown', 'dropdown2']));
     }
 
     public function insert()
@@ -47,6 +48,7 @@ class c_kelola_security extends Controller
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
             'jk' => 'required',
+            'bagian' => 'required',
             'foto_security' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
         ],[
             // 'tanggal.required' => 'Tanggal wajib diisi !',
@@ -54,6 +56,7 @@ class c_kelola_security extends Controller
             'tanggal_lahir.required' => 'Tanggal lahir wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
             'jk.required' => 'Jenis Kelamin wajib diisi !',
+            'bagian' => 'Bagian wajib diisi !',
             'foto_security.required' => 'Foto wajib diisi !',
         ]);
         $file = Request()->foto_security;
@@ -68,6 +71,7 @@ class c_kelola_security extends Controller
             'tanggal_lahir' => Request()->tanggal_lahir,
             'alamat' => Request()->alamat,
             'jk' => Request()->jk,
+            'bagian' => Request()->bagian,
             'foto_security' => $fileName,
         ];
         $this->m_security->addData($data);
@@ -82,7 +86,8 @@ class c_kelola_security extends Controller
 
         $data = ['security' => $this->m_security->detailData($id_security)];
         $dropdown = ['Laki-laki','Perempuan'];
-        return view('security/v_editsecurity',$data, compact(['dropdown']));
+        $dropdown2 = ['Produksi', 'Gudang', 'Pengecekan', 'Logistik'];
+        return view('security/v_editsecurity',$data, compact(['dropdown', 'dropdown2']));
     }
 
     public function update($id_security)
@@ -92,12 +97,14 @@ class c_kelola_security extends Controller
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
             'jk' => 'required',
+            'bagian' => 'required',
             'foto_security' => '|mimes:jpg,png,jpeg,bmp|max:1024',
         ], [
             'nama_security.required' => 'Nama security wajib diisi !',
             'tanggal_lahir.required' => 'Tanggal lahir wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
             'jk.required' => 'Jenis Kelamin wajib diisi !',
+            'bagian.required' => 'Bagian wajib diisi !',
         ]);
         //jika validasi tidak ada maka lakukan simpan data
         if (Request()->foto_security  <> "") {
@@ -109,6 +116,9 @@ class c_kelola_security extends Controller
             $fileStatus = Request()->id_security.'.'. $file2->extension();
             $file2->move(public_path('status'),$fileStatus);
             $dropdown = ['Laki-laki','Perempuan'];
+            $dropdown2 = ['Produksi', 'Gudang', 'Pengecekan', 'Logistik'];
+            
+    
             // $datetime = date("Y-m-d");
 
             $data = [
@@ -117,6 +127,7 @@ class c_kelola_security extends Controller
             'tanggal_lahir' => Request()->tanggal_lahir,
             'alamat' => Request()->alamat,
             'jk' => Request()->jk,
+            'bagian' => Request()->bagian,
             'foto_security' => $fileName,
             
             ];
@@ -130,6 +141,7 @@ class c_kelola_security extends Controller
             'tanggal_lahir' => Request()->tanggal_lahir,
             'alamat' => Request()->alamat,
             'jk' => Request()->jk,
+            'bagian' => Request()->bagian,
 
             ];
             $this->m_security->editData($id_security,$data);

@@ -68,7 +68,7 @@ Edit Data User
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Password</label>
-                <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="Masukan Password" value="{{$user->password}}">
+                <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="Masukan Password" value="{{$user->password}}">
                 <div class="text-danger">
                     @error('password')
                         {{ $message}}

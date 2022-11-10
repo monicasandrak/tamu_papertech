@@ -1,71 +1,94 @@
 @section('title')
 Kelola User
 @endsection
-@extends('layout/v_template')
+@extends('layout/v_template3')
 @section('page')
 Kelola User
 @endsection
 @section('content')
-
-<script type="text/javascript" src="{{asset('scripts.js')}}"></script>
-<script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
-
-<br>
-<br>
-<br>
-<div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Kelola User</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <table id="example1" class="table table-bordered table-striped">
-        @if (session('pesan'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5><i class="icon fas fa-check"></i> Success</h5>
-            {{ session('pesan') }}
-        </div>
-        @endif
-        <div align="right">
-            <a href="/user/add" class="btn btn-sm btn-primary">Add Data</a><br>
-            <br>
-        </div>
-        <div class="card-body">
-        <table class="table table-bordered" id="datatablesSimple">
-        <thead>
-        <tr>
-          <th>No</th>
-          <th>ID User</th>
-          <th>Username</th>
-          <th>Level</th>
-          <th>Password</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-        <tbody>
-        <?php $no=1;?>
-        @foreach ($user as $data)  
+<section class="content">
+        <div class="container-fluid">
+            <!-- <div class="block-header">
+                <h2>
+                    JQUERY DATATABLES
+                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
+                </h2>
+            </div> -->
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                KELOLA USER
+                            </h2>
+                            
+                                <table id="example1" class="table table-bordered table-striped">
+                                @if (session('pesan'))
+                                  <div class="alert alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                  <h5><i class="icon fas fa-check"></i> Success</h5>
+                                {{ session('pesan') }}
+                                  </div>
+                                @endif
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        
+                                    </a>
+                                </li>
+                                <div align="right">
+                                    <a href="/user/add" class="btn btn-sm btn-primary">Add Data</a><br>
+                                <br>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>ID User</th>
+                                            <th>Username</th>
+                                            <th>Level</th>
+                                            <th>Password</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>ID User</th>
+                                            <th>Username</th>
+                                            <th>Level</th>
+                                            <th>Password</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <?php $no=1;?>
+                                    @foreach ($user as $data)  
         
-        <tr>
-            <td>{{$no++}}</td>
-            <td>{{$data->id}}</td>
-            <td>{{$data->username}}</td>
-            <td>{{$data->level}}</td>
-            <td>{{$data->password}}</td>
-            <td>
-              <a href="/user/detail/{{$data->id}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
-              <a href="/user/edit/{{$data->id}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
-              <button type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="text-danger">
-              <i class="fa fa-trash">&#xE872;</i>
-              </button>
-          </td>
-        </tr>
-        @endforeach
-        </tbody>
-        </table>
-</div>
-      @foreach ($user as $data)
+                                    <tr>
+                                      <td>{{$no++}}</td>
+                                      <td>{{$data->id}}</td>
+                                      <td>{{$data->username}}</td>
+                                      <td>{{$data->level}}</td>
+                                      <td>{{$data->password}}</td>
+                                      <td>
+                                          <a href="/user/detail/{{$data->id}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
+                                          <a href="/user/edit/{{$data->id}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+                                          <button type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="text-danger">
+                                          <i class="fa fa-trash">&#xE872;</i>
+                                          </button>
+                                      </td>
+                                   </tr>
+                                  @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            @foreach ($user as $data)
       <div class="modal fade" id="delete{{$data->id}}">
         <div class="modal-dialog modal-sm">
           <div class="modal-content bg-danger">
@@ -88,16 +111,14 @@ Kelola User
         <!-- /.modal-dialog -->
       </div>
       @endforeach
-
-     
-      </div>
-      
-
-    </div>
-    <!-- /.card-body -->
-  <!-- </div>
-  <!-- /.card -->
-  
-</div>
-  @endsection
-
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Examples -->
+            <!-- Exportable Table -->
+            
+            <!-- #END# Exportable Table -->
+        </div>
+    </section>
+@endsection

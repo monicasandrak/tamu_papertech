@@ -1,9 +1,9 @@
 @section('title')
-Kelola Data Tamu
+Laporan Data Tamu
 @endsection
 @extends('layout/v_template')
 @section('page')
-Kelola Data Tamu
+Laporan Data Tamu
 @endsection
 @section('content')
 
@@ -85,20 +85,11 @@ Kelola Data Tamu
             <td>{{$data->no_kendaraan}}</td>
             <td>{{$data->jam_masuk}}</td>
             <td>{{$data->status}}</td>
-          
             <td>{{$data->hasil_swab}}</td>
-            
-            <!-- <td>
-              <a href="/tamu/detail/{{$data->id_tamu}}" class="btn btn-sm btn-success">Detail</a>
-              <a href="/tamu/edit/{{$data->id_tamu}}" class="btn btn-sm btn-warning">Edit</a>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$data->id_tamu}}">
-                  Delete
-              </button>
-          </td> -->
         </tr>
         @endforeach
         </tbody>
-        </table>
+        </table> 
 </div>
 </div>
 </div>

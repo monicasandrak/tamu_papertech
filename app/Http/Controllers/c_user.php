@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\m_user;
+use App\Models\m_tamu;
+use App\Models\m_obat;
+use App\Models\m_security;
+use App\Models\m_perawat;
+use App\Models\m_dokter;
 use App\Models\User;
 // use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -61,7 +66,7 @@ class c_user extends Controller
             'id' => Request()->id,
             'username' => Request()->username,
             'level' => Request()->level,
-            'password' => Request()->password,
+            'password' => bcrypt(Request()->password),
         ];
         $this->m_user->addData($data);
         $dropdown3 = ['security','klinik','admin'];
@@ -95,7 +100,7 @@ class c_user extends Controller
             'id' => Request()->id,
             'username' => Request()->username,
             // 'level' => Request()->level,
-            'password' => Request()->password,
+            'password' => bcrypt(Request()->password),
             ];
             $this->m_user->editData($id,$data);
 
@@ -176,7 +181,21 @@ class c_user extends Controller
     }
     public function dashboard()
     {
+        $user = user::count();
+        $tamu = m_tamu::count();
+        $security = m_security::count();
+        $pasien_tamu = m_tamu::count();
+        // $pasien = m_pasien::count();
+        // $obat = m_obat::count();
+        // $perawat = m_perawat::count();
+        // $dokter = m_dokter::count();
+         return view('security/v_dashboard2', compact('user', 'tamu' , 'security', 'pasien_tamu')); 
+    }
 
-         return view('security/v_dashboard'); 
+    public function laporan() 
+    {
+        $data = ['user' => $this->m_user->allData()
+    ];
+    return view('user/v_laporan_user', $data);
     }
 }

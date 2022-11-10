@@ -71,6 +71,11 @@
                                     <a class="js-arrow" href="/kelola_user">
                                         <i class="fas fa-copy"></i>Kelola User</a>
                                 </li>
+
+                                <li class="has-sub">
+                                    <a class="js-arrow" href="/laporan_user">
+                                        <i class="fas fa-copy"></i>Laporan User</a>
+                                </li>
                                 @endif
                             </ul>
                         </li>

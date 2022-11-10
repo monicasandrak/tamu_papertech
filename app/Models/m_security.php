@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\DB;
 class m_security extends Model
 {
     use HasFactory;
+
+    protected $table = 'security';
+    protected $primaryKey = 'id_security';
+
+    protected $fillable = [
+        'nama_security',
+        'tanggal_lahir',
+        'alamat',
+        'jk',
+        'bagian',
+        'foto_security',
+        
+
+    ];
     public function allData()
     {
         return DB::table('security')->get();

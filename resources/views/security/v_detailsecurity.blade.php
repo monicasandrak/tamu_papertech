@@ -46,6 +46,10 @@ Detail Data Security
           {{$security->jk}}
         </div>
         <div class="form-group">
+          <label for="exampleInputFile">Bagian: </label>
+          {{$security->bagian}}
+        </div>
+        <div class="form-group">
             <label for="exampleInputFile">Foto Security : </label>
             <img src="{{url('foto_security/'.$security->foto_security)}}" width="200px">
           </div>

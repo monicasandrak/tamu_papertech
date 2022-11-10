@@ -70,7 +70,7 @@ class c_kelola_tamu extends Controller
         $file = Request()->foto_ktp;
         $fileName = Request()->id_tamu .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
-        $datetime = date("d-M-Y");
+        $datetime = date("d F Y");
         // $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
         $data = [
@@ -142,7 +142,7 @@ class c_kelola_tamu extends Controller
             $fileStatus = Request()->id_tamu.'.'. $file2->extension();
             $file2->move(public_path('status'),$fileStatus);
             $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
-            $datetime = date("d-m-Y");
+            $datetime = date("d F Y");
 
             $data = [
             'id_tamu' => Request()->id_tamu,

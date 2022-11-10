@@ -91,6 +91,21 @@ Tambah Data Security
                     @enderror
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Bagian</label>
+                <select name="bagian" class="form-control">
+            <option disabled selected>--- Pilih ---</option>
+            @foreach ($dropdown2 as $bagian)
+            <option value="{{$bagian}}">{{Str::ucfirst($bagian)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
+                <div class="text-danger">
+                    @error('bagian')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
         
             <div class="form-group">
               <label for="exampleInputFile">Foto Security</label>

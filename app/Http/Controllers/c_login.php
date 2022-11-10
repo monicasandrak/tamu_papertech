@@ -13,7 +13,8 @@ class c_login extends Controller
     public function login()
     {
 
-         return view('login'); //mengarahkan ke view form login
+        $data['title'] = 'Login'; 
+        return view('v_login' ,$data); //mengarahkan ke view form login
     }
 
     public function postlogin(Request $request)
@@ -22,8 +23,8 @@ class c_login extends Controller
             'username' => 'required',
             'password' => 'required',
             ],[
-            'username.required' => 'Username tidak boleh kosong',
-            'password.required' => 'Password tidak boleh kosong',
+            'username.required' => 'Username tidak boleh kosong !',
+            'password.required' => 'Password tidak boleh kosong !',
             ]);
 
         if (Auth::attempt($request-> only ('username', 'password'))){
@@ -31,7 +32,7 @@ class c_login extends Controller
             return redirect()->route('dashboard')->with('success','You are now logged in');
         }
         return back()->withErrors([
-        'password' => 'Username atau Password salah',
+        'password' => 'Username atau Password salah !',
         ]);
         // return redirect ('/login');
     }

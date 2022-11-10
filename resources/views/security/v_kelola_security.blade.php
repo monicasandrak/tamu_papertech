@@ -13,13 +13,17 @@ Kelola Data Security
 <br>
 <br>
 <br>
+
+
 <div class="card">
-    <div class="card-header">
+<div class="card-header">
+
+    
       <h3 class="card-title">Kelola Data Security</h3>
-    </div>
+   
     <!-- /.card-header -->
     <div class="card-body">
-      <table id="example1" class="table table-bordered table-striped">
+      
         @if (session('pesan'))
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -28,8 +32,8 @@ Kelola Data Security
         </div>
         @endif
         <div align="right">
-            <a href="/security/add" class="btn btn-sm btn-primary">Add Data</a><br>
-            <br>
+            <a href="/security/add" class="btn btn-sm btn-primary">Add Data</a>
+        
         </div>
         <div class="card-body">
         <table class="table table-bordered" id="datatablesSimple">
@@ -37,10 +41,11 @@ Kelola Data Security
         <tr>
           <th>No</th>
           <th>ID Security</th>
-          <th>Nama Lengkap</th>
+          <th>Nama Security</th>
           <th>Tanggal Lahir</th>
           <th>Alamat</th>
           <th>Jenis Kelamin</th>
+          <th>Bagian</th>
           <th>Foto Security</th>
           <th>Action</th>
         </tr>
@@ -56,6 +61,7 @@ Kelola Data Security
             <td>{{$data->tanggal_lahir}}</td>
             <td>{{$data->alamat}}</td>
             <td>{{$data->jk}}</td>
+            <td>{{$data->bagian}}</td>
             <td><img src="{{url('foto_security/'.$data->foto_security)}}" width="100px">
             <td>
               <a href="/security/detail/{{$data->id_security}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
@@ -98,6 +104,7 @@ Kelola Data Security
       </div>
       
 
+    </div>
     </div>
     <!-- /.card-body -->
   <!-- </div>

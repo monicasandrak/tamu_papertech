@@ -95,6 +95,7 @@ Route::get('/user/edit/{id_user}', [c_user::class,'edit']);
 Route::put('/user/update/{id_user}', [c_user::class,'update'])->name('update_user');
 Route::get('/user/delete/{id_user}', [c_user::class,'delete']);
 Route::get('/user/detail/{id_user}', [c_user::class,'detail']);
+Route::get('/laporan_user', [c_user::class, 'laporan'])->name('laporan_user');
 
 Route::get('/password', [c_user::class, 'password'])->name('password');
 Route::get('/account', [c_user::class, 'account'])->name('account');
