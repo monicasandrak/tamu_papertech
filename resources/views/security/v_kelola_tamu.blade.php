@@ -33,17 +33,16 @@ Kelola Data Tamu
                                 @endif
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
                                     </a>
                                 </li>
-                                <div align="right">
-                                    <a href="/tamu/add" class="btn btn-sm btn-primary">Add Data</a><br>
-                                <br>
-                                </div>
                             </ul>
                         </div>
                         <div class="body">
+                        <div align="right">
+                                    <a href="/tamu/add" class="btn btn-sm btn-primary">Add Data</a><br>
+                                <br>
+                                </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
