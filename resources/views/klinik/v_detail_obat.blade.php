@@ -1,7 +1,7 @@
 @section('title')
 Obat
 @endsection
-@extends('layout/v_template_pasien')
+@extends('layout/v_template2')
 @section('page')
 Halaman Detail Obat
 @endsection
