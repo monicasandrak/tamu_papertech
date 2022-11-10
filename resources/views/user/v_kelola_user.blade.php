@@ -22,7 +22,6 @@ Kelola User
                             <h2>
                                 KELOLA USER
                             </h2>
-                            
                                 <table id="example1" class="table table-bordered table-striped">
                                 @if (session('pesan'))
                                   <div class="alert alert-success alert-dismissible">
@@ -37,13 +36,14 @@ Kelola User
                                         
                                     </a>
                                 </li>
-                                <div align="right">
-                                    <a href="/user/add" class="btn btn-sm btn-primary">Add Data</a><br>
-                                <br>
-                                </div>
+                                
                             </ul>
                         </div>
                         <div class="body">
+                        <div align="right">
+                                    <a href="/user/add" class="btn btn-sm btn-primary">Add Data</a><br>
+                                <br>
+                                </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
