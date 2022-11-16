@@ -21,6 +21,35 @@ Tambah Data Obat
         <div class="card-header">
           <h3 class="card-title">Form Tambah Data Obat</h3>
         </div>
+        {{-- @section('title')
+Kelola Dokter
+@endsection
+@extends('layout/v_template3')
+@section('page')
+Kelola Dokter
+@endsection
+@section('content')
+<section class="content">
+        <div class="container-fluid">
+            <!-- <div class="block-header">
+                <h2>
+                    JQUERY DATATABLES
+                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
+                </h2>
+            </div> -->
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                TAMBAH DATA PASIEN PEGAWAI
+                            </h2>
+                            
+                                <table id="example1" class="table table-bordered table-striped">
+                                
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> --}}
         <!-- /.card-header -->
         <!-- form start -->
         <form action="{{route('insert_obat')}}" method="POST" enctype="multipart/form-data">
@@ -81,9 +110,9 @@ Tambah Data Obat
             
             <div class="form-group">
                 <label for="exampleInputEmail1">Stok</label>
-                <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah" value="{{ old('jumlah')}}">
+                <input type="text" name="stok" class="form-control" id="exampleInputEmail1" placeholder="Masukan Stok" value="{{ old('stok')}}">
                 <div class="text-danger">
-                    @error('jumlah')
+                    @error('stok')
                         {{ $message}}
                     @enderror
                 </div>

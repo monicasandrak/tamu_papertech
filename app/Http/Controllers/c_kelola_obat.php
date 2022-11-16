@@ -46,12 +46,12 @@ class c_kelola_obat extends Controller
             'nama_obat' => 'required',
             'jenis_obat' => 'required',
             'satuan' => 'required',
-            'jumlah' => 'required', 
+            'stok' => 'required', 
         ],[
             'nama_obat.required' => 'Nama obat wajib diisi !',
             'jenis_obat.required' => 'Jenis obat wajib diisi !',
             'satuan.required' => 'Satuan wajib diisi !',
-            'jumlah.required' => 'Jumlah wajib diisi !',
+            'stok.required' => 'stok wajib diisi !',
         ]);
        
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
@@ -61,7 +61,7 @@ class c_kelola_obat extends Controller
             'nama_obat' => Request()->nama_obat,
             'jenis_obat' => Request()->jenis_obat,
             'satuan' => Request()->satuan,
-            'jumlah' => Request()->jumlah,
+            'stok' => Request()->stok,
         ];
         $this->m_obat->addData($data);
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
@@ -89,19 +89,19 @@ class c_kelola_obat extends Controller
             'nama_obat' => 'required',
             'jenis_obat' => 'required',
             'satuan' => 'required',
-            'jumlah' => 'required',
+            'stok' => 'required',
         ], [
             'nama_obat.required' => 'Nama obat wajib diisi !',
             'jenis_obat.required' => 'Jenis obat wajib diisi !',
             'satuan.required' => 'Satuan wajib diisi !',
-            'jumlah.required' => 'Jumlah wajib diisi !',
+            'stok.required' => 'stok wajib diisi !',
         ]);
             $data = [
             'id_obat' => Request()->id_obat,
             'nama_obat' => Request()->nama_obat,
             'jenis_obat' => Request()->jenis_obat,
             'satuan' => Request()->satuan,
-            'jumlah' => Request()->jumlah,
+            'stok' => Request()->stok,
             ];
             $this->m_obat->editData($id_obat,$data);
         

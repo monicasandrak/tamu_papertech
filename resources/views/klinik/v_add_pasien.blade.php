@@ -1,12 +1,12 @@
 @section('title')
-Tambah Data Pasien
+Tambah Data Obat
 @endsection
 <br>
 <br>
 <br>
 @extends('layout/v_template2')
 @section('page')
-Tambah Data Pasien Pegawai
+Tambah Data Obat
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -19,10 +19,8 @@ Tambah Data Pasien Pegawai
      
      <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Form Tambah Data Pasien Pegawai</h3>
+          <h3 class="card-title">Form Tambah Data Pasien</h3>
         </div>
-        <!-- /.card-header -->
-        <!-- form start -->
         <form action="{{route('insert_pasien')}}" method="POST" enctype="multipart/form-data">
           @csrf
             <div class="card-body">
@@ -132,6 +130,14 @@ Tambah Data Pasien Pegawai
                     @error('obat')
                         {{ $message}}
                     @enderror
+                </div>
+                    <label for="exampleInputEmail1">Jumlah</label>
+                    <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah Obat" value="{{ old('jumlah')}}">
+                    <div class="text-danger">
+                        @error('jumlah')
+                            {{ $message}}
+                        @enderror
+                    </div>
                 </div>
              </div>
             </div>

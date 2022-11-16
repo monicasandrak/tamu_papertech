@@ -107,6 +107,13 @@ class c_kelola_pasien extends Controller
             'diagnosa' => Request()->diagnosa,
             'obat' => Request()->obat,
         ];
+        if($obat->jumlah < $request->obat)
+        {
+            $this->session->set_flashdata('error','Stok Obat Kurang');
+        }
+        else
+        {
+        $obat->jumlah -= $request->obat;}
         $this->m_pasien->addData($data);
         $obat = obat::all();
         $dropdown = [

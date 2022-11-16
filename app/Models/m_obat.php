@@ -8,6 +8,19 @@ use Illuminate\Support\Facades\DB;
 
 class m_obat extends Model
 {
+    use HasFactory;
+
+    protected $table = 'obats';
+    protected $primaryKey = 'id_obat';
+
+    protected $fillable = [
+       'ID Obat',
+        'Nama Obat',
+        'Jenis Obat',
+        'bentuk Sediaan',
+        'stok',
+
+    ];
     public function allData()
     {
         return DB::table('obats')->get();

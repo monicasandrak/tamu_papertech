@@ -9,6 +9,22 @@ use Illuminate\Support\Facades\DB;
 class m_dokter extends Model
 {
     use HasFactory;
+
+    protected $table = 'Dokter';
+    protected $primaryKey = 'id_dokter';
+
+    protected $fillable = [
+       ' ID Dokter',
+        'Nama Lengkap',
+        'Tanggal Lahir',
+        'Jenis Kelamin',
+        'Alamat',
+        'Foto Dokter',
+        'Keahlian',
+    'Jadwal Kerja',
+
+    ];
+    use HasFactory;
     public function allData()
     {
         return DB::table('dokter')->get();

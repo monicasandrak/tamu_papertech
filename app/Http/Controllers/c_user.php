@@ -9,6 +9,7 @@ use App\Models\m_obat;
 use App\Models\m_security;
 use App\Models\m_perawat;
 use App\Models\m_dokter;
+use App\Models\m_pasien;
 use App\Models\User;
 // use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -185,11 +186,11 @@ class c_user extends Controller
         $tamu = m_tamu::count();
         $security = m_security::count();
         $pasien_tamu = m_tamu::count();
-        // $pasien = m_pasien::count();
-        // $obat = m_obat::count();
-        // $perawat = m_perawat::count();
-        // $dokter = m_dokter::count();
-         return view('security/v_dashboard2', compact('user', 'tamu' , 'security', 'pasien_tamu')); 
+        $pasien = m_pasien::count();
+        $obat = m_obat::count();
+        $perawat = m_perawat::count();
+        $dokter = m_dokter::count();
+         return view('security/v_dashboard2', compact('user', 'tamu' , 'security', 'pasien_tamu', 'pasien', 'obat', 'perawat', 'dokter')); 
     }
 
     public function laporan() 

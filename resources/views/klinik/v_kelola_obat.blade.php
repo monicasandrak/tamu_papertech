@@ -1,37 +1,50 @@
 @section('title')
-Kelola Data Obat
+Kelola Obat
 @endsection
-@extends('layout/v_template2')
+@extends('layout/v_template3')
 @section('page')
-Kelola Data Obat
+Kelola Obat
 @endsection
 @section('content')
-
-<script type="text/javascript" src="{{asset('scripts.js')}}"></script>
-<script type="text/javascript" src="{{asset('datatables-simple-demo.js')}}"></script>
-<br>
-<br>
-<br>
-<div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Kelola Data Obat</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <table id="example1" class="table table-bordered table-striped">
-        @if (session('pesan'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5><i class="icon fas fa-check"></i> Success</h5>
-            {{ session('pesan') }}
-        </div>
-        @endif
-        <div align="right">
-            <a href="/obat/add" class="btn btn-sm btn-primary">Add Data</a><br>
-            <br>
-        </div>
-        <div class="card-body">
-          <table class="table table-bordered" id="datatablesSimple">
+<section class="content">
+        <div class="container-fluid">
+            <!-- <div class="block-header">
+                <h2>
+                    JQUERY DATATABLES
+                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
+                </h2>
+            </div> -->
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                KELOLA OBAT
+                            </h2>
+                            
+                                <table id="example1" class="table table-bordered table-striped">
+                                @if (session('pesan'))
+                                  <div class="alert alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                  <h5><i class="icon fas fa-check"></i> Success</h5>
+                                {{ session('pesan') }}
+                                  </div>
+                                @endif
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                        <div align="right">
+                                    <a href="/obat/add" class="btn btn-sm btn-primary">Add Data</a><br>
+                                <br>
+                                </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
         <thead>
         <tr>
           <th>No</th>
@@ -53,13 +66,13 @@ Kelola Data Obat
             <td>{{$data->nama_obat}}</td>
             <td>{{$data->jenis_obat}}</td>
             <td>{{$data->satuan}}</td>
-            <td>{{$data->jumlah}}</td>
+            <td>{{$data->stok}}</td>
             </td>
             <td>
-              <a href="/obat/detail/{{$data->id_obat}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
-              <a href="/obat/edit/{{$data->id_obat}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
+              <a href="/obat/detail/{{$data->id_obat}}" class="text-success"> <i class="material-icons">visibility</i></a>
+              <a href="/obat/edit/{{$data->id_obat}}" class="text-primary"> <i class="material-icons">mode_edit</i></a>
               <button type="button" data-toggle="modal" data-target="#delete{{$data->id_obat}}" class="text-danger">
-              <i class="fa fa-trash">&#xE872;</i>
+                <i class="material-icons">delete</i>
               </button>
           </td>
         </tr>
