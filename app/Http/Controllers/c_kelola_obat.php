@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\m_obat;
+use App\Models\obat;
 
 class c_kelola_obat extends Controller
 {
@@ -118,6 +119,34 @@ class c_kelola_obat extends Controller
         // }
         $this->m_obat->deleteData($id_obat);
         return redirect()->route('obat')->with('pesan', 'Data berhasil dihapus !');
+    }
+    public function addstok()
+    {
+        $id_baruobatmasuk = ['id_baruobatmasuk' => $this->m_obat->id_baruobatmasuk()];
+        $obat = obat::all();
+        return view('klinik.v_add_stok', $id_baruobatmasuk, compact(['obat']));
+    }
+
+    public function insertstok()
+    {
+        Request()->validate([
+            'nama_obat' => 'required',
+            'stok' => 'required', 
+        ],[
+            'nama_obat.required' => 'Nama obat wajib diisi !',
+            'stok.required' => 'stok wajib diisi !',
+        ]);
+        $datetime = date("d-m-Y");
+        $obat = obat::all();
+        $data = [
+            'id_obatmasuk' => Request()->id_obatmasuk,
+            'nama_obat' => Request()->nama_obat,
+            'tanggal' => Request()->tanggal,
+            'stok' => Request()->stok,
+        ];
+        $obat = obat::all();
+        $this->m_obat->addDatastok($data);
+        return redirect()->route('obat')->with('pesan', 'Data berhasil ditambahkan !');
     }
 }
 

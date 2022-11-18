@@ -68,6 +68,7 @@ class c_kelola_pasien extends Controller
             'keluhan' => 'required',
             'diagnosa' => 'required',
             'obat' => 'required', 
+            'jumlah' => 'required', 
         ],[
             // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_pasien.required' => 'Nama pasien wajib diisi !',
@@ -77,6 +78,7 @@ class c_kelola_pasien extends Controller
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
             'obat' => 'Obat wajib diisi !',
+            'jumlah' => 'Jumlah wajib diisi !',
         ]);
         $datetime = date("d-m-Y");
         $obat = obat::all();
@@ -106,14 +108,15 @@ class c_kelola_pasien extends Controller
             'keluhan' => Request()->keluhan,
             'diagnosa' => Request()->diagnosa,
             'obat' => Request()->obat,
+            'jumlah' => Request()->jumlah,
         ];
-        if($obat->jumlah < $request->obat)
-        {
-            $this->session->set_flashdata('error','Stok Obat Kurang');
-        }
-        else
-        {
-        $obat->jumlah -= $request->obat;}
+        // if($obat->jumlah < $request->obat)
+        // {
+        //     $this->session->set_flashdata('error','Stok Obat Kurang');
+        // }
+        // else
+        // {
+        // $obat->jumlah -= $request->obat;}
         $this->m_pasien->addData($data);
         $obat = obat::all();
         $dropdown = [

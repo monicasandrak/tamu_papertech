@@ -9,6 +9,7 @@ use App\Http\Controllers\c_kelola_perawat;
 use App\Http\Controllers\c_kelola_dokter;
 use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
+use App\Http\Controllers\c_kelola_obatmasuk;
 use App\Http\Controllers\c_laporan_tamu;
 use App\Http\Controllers\c_laporan_klinik;
 use App\Http\Controllers\c_laporan_pegawai;
@@ -55,6 +56,8 @@ Route::put('/pasien_tamu/update/{id_tamu}', [c_kelola_tamu2::class,'update'])->n
 Route::get('/pasien_tamu/detail/{id_pasien}', [c_kelola_tamu2::class, 'detail']);
 Route::get('/kelola_obat', [c_kelola_obat::class,'index'])->name('obat');
 Route::get('/obat/add', [c_kelola_obat::class,'add']);
+Route::get('/obat/addstok', [c_kelola_obatmasuk::class,'add']);
+Route::post('/obat/insertstok', [c_kelola_obatmasuk::class,'insert'])->name('insert');
 Route::post('/obat/insert', [c_kelola_obat::class,'insert'])->name('insert_obat');
 Route::get('/obat/delete/{id_obat}', [c_kelola_obat::class, 'delete']);
 Route::get('/obat/detail/{id_obat}', [c_kelola_obat::class, 'detail']);

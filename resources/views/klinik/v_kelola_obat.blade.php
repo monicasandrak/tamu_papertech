@@ -38,10 +38,14 @@ Kelola Obat
                                 </li>
                             </ul>
                         </div>
+                        
                         <div class="body">
-                        <div align="right">
-                                    <a href="/obat/add" class="btn btn-sm btn-primary">Add Data</a><br>
-                                <br>
+                          <div class="card-footer">
+                            
+                          </div>
+                          <div align="right">
+                            <a href="/obat/addstok" class="btn btn-primary">Add Stok</a>
+                        <a href="/obat/add" class="btn btn-primary">Add Data</a>
                                 </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
