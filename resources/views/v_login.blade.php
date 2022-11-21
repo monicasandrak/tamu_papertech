@@ -38,31 +38,45 @@
                 <form action="{{route('postlogin')}}" method="POST">
                     <div class="msg">Login to start your session</div>
                     @csrf
+                    @if(session('success'))
+        <p class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">{{session('success')}} &times;</a></p>
+        @endif
+        @if (session('error'))
+        <div class="alert alert-danger alert-dissmissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>a</strong>{{ session('error') }}</div>
+        @endif
+        @if($errors->any())
+        @foreach($errors->all() as $err)
+        <p class="alert alert-danger">{{ $err }}</p>
+        @endforeach
+        @endif
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="username" placeholder="Username" >
                         </div>
-                        @error('username')
+                        <br> 
+                        
                     <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
+                    <p></p>
                     </span>  
-                    @enderror
+                    
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
-                        @error('password')
+                        <br>
+                        
+                        
                     <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
+                    <p></p>
                     </span>  
-                    @enderror
+                    
                     </div>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
@@ -73,11 +87,7 @@
                             <button class="btn btn-block bg-light-green waves-effect" type="submit">LOGIN</button>
                         </div>
                     </div>
-                    <div class="row m-t-15 m-b--20">
-                        <div class="col-xs-6 align-right">
-                            <a href="{route ('password.request') }}">Forgot Password?</a>
-                        </div>
-                    </div>
+                    
                 </form>
             </div>
         </div>

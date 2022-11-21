@@ -17,8 +17,26 @@ Account
                             <h2>
                                 ACCOUNT
                             </h2>
+                            <br>
+                            <!-- <ol class="breadcrumb breadcrumb-col-teal">
+                                <li><a href="/dashboard"><i class="material-icons">home</i> Dashboard</a></li>
+                                <li><a href="active"><i class="material-icons">library_books</i> Account</a></li> 
+                            </ol> -->
+                            <ol class="breadcrumb breadcrumb-bg-teal">
+                                <li><a href="/dashboard"><i class="material-icons">group</i> Dashboard</a></li>
+                                <li class="active"><i class="material-icons">library_books</i>Account</li>
+                            </ol>
                         </div>
                         
+                            
+                            
+                        
+                        
+                        <div class="body">
+                        <form action="{{ route('account.action') }}" method="post">
+                            @csrf
+                            @method("put")
+                            <div class="card-body">
                             @if(session('success'))
                             <div class="alert bg-green alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -30,55 +48,52 @@ Account
                                 <p class="alert alert-danger">{{ $err }}</p>
                             @endforeach
                             @endif
-                            
-                        <form action="{{ route('account.action') }}" method="post">
-                            @csrf
-                            @method("put")
-                        
-                        <div class="body">
                         <div class="mb-3">
                             <label>ID User</label>
                             <input class="form-control" type="text" value="{{old('id',Auth::user()->id)}}" name="id" readonly />
-                            <div class="text-danger">
+                            <!-- <div class="text-danger">
                             @error('id')
                             {{ $message }}
                             @enderror
-                        </div>
+                        </div> -->
                         <br>
                         <div class="mb-3">
                             <label>Username</label>
                             <input class="form-control" type="text" value="{{old('name',Auth::user()->username)}}" name="username" />
                         </div>
-                        <div class="text-danger">
+                        <!-- <div class="text-danger">
                             @error('username')
                             {{ $message }}
                             @enderror
-                        </div>
+                        </div> -->
                         <br>
                         <div class="mb-3">
                             <label>Level</label>
                             <input class="form-control" type="text" value="{{old('level',Auth::user()->level)}}" name="level" readonly/>
             </div>
-            <div class="text-danger">
+            <!-- <div class="text-danger">
                 @error('level')
                     {{ $message }}
                 @enderror
-            </div>
+            </div> -->
             <br>
             <div class="mb-3">
                 <label>Password</label>
-                <input class="form-control" type="text" value="{{old('password',Auth::user()->password)}}" name="password" readonly/>
+                <input class="form-control" type="password" value="{{old('password',Auth::user()->password)}}" name="password" readonly/>
             </div>
-            <div class="text-danger">
+            <!-- <div class="text-danger">
                 @error('password')
                     {{ $message }}
                 @enderror
-            </div>
+            </div> -->
             <br>
-            <div class="mb-3">
+            <button type="submit" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">save</i>
+                                    <span>UPDATE</span>
+            <!-- <div class="mb-3">
                 <button class="btn btn-primary">Ubah</button>
                 <a class="btn btn-danger" href="{{ route('dashboard') }}">Back</a>
-                </div>
+            </div> -->
             </div>
             <br>
 <br>

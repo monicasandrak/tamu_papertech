@@ -17,61 +17,73 @@ Change Password
                             <h2>
                                 CHANGE PASSWORD
                             </h2>
+                            <br>
+                            <ol class="breadcrumb breadcrumb-bg-teal">
+                                <li><a href="/dashboard"><i class="material-icons">group</i> Dashboard</a></li>
+                                <li class="active"><i class="material-icons">library_books</i> Change Password</li>
+                            </ol>
                         </div>
                         
-                            @if(session('success'))
-                            <div class="alert bg-green alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            {{ session('success') }}
-                            </div>
-                            @endif
-                            @if($errors->any())
-                            @foreach($errors->all() as $err)
-                                <p class="alert alert-danger">{{ $err }}</p>
-                            @endforeach
-                            @endif
-                            
+                        <div class="body">
                         <form action="{{ route('password.action') }}" method="post">
                             @csrf
-                            @method("put")
                         
-                        <div class="body">
+                        <div class="card-body">
+            @if(session('success'))
+        <p class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">{{session('success')}} &times;</a></p>
+        @endif
+        @if (session('error'))
+        <div class="alert alert-danger alert-dissmissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>a</strong>{{ session('error') }}</div>
+        @endif
+        @if($errors->any())
+        @foreach($errors->all() as $err)
+        <p class="alert alert-danger">{{ $err }}</p>
+        @endforeach
+        @endif
+                            
+                        
+                            
+                           
+                        
+                        
                         <div class="mb-3">
                             <label>Password Lama <span class="text-danger">*</span> </label>
                             <input class="form-control" type="password" name="old_password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"/>
                         </div>
-                            <div class="text-danger">
+                            <!-- <div class="text-danger">
                             @error('old_password')
                                 {{ $message }}
-                            @enderror
-                        </div>
+                            @enderror -->
+                        
                         <br>
                         <div class="mb-3">
                             <label>Password Baru <span class="text-danger">*</span></label>
                             <input class="form-control" type="password" name="new_password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"  />
                         </div>
-                        <div class="text-danger">
+                        <!-- <div class="text-danger">
                             @error('new_password')
                                 {{ $message }}
                             @enderror
-                        </div>
+                        </div> -->
                         <br>
                         <div class="mb-3">
                             <label>Konfirmasi Password <span class="text-danger">*</span></label>
                             <input class="form-control" type="password" name="new_password_confirmation" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"/>
                         </div>
-                        <div class="text-danger">
+                        <!-- <div class="text-danger">
                             @error('new_password_confirmation')
                                 {{ $message }}
                             @enderror
-                        </div>
+                        </div> -->
                         <br>
+
+                        <button type="submit" class="btn bg-teal waves-effect">UPDATE</button>
                         
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <button class="btn btn-primary">Ubah</button>
                 <a class="btn btn-danger" href="{{ route('dashboard') }}">Back</a>
                 </div>
-            </div>
+            </div> -->
             <br>
 <br>
 <br>

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\m_security;
-use App\Http\Controllers\Auth;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class c_kelola_security extends Controller
 {
@@ -15,11 +15,17 @@ class c_kelola_security extends Controller
         // $this->middleware('auth');
         $this->m_security = new m_security();
     }
+
     public function index() 
     {
         $data = ['security' => $this->m_security->allData()
     ];
-    return view('security/v_kelola_security', $data);
+    if (Auth::check()) {
+
+        return view('security/v_kelola_security', $data);
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function detail($id_security)
@@ -29,7 +35,17 @@ class c_kelola_security extends Controller
         }
         $data = ['security' => $this->m_security->detailData($id_security)
     ];
+
+    if (Auth::check()) {
+        //check the tamu visibillity
+        if (Auth::user()->level !== 'security')
+        {
+            return back();
+        }
     return view('security/v_detailsecurity',$data);
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function add()
@@ -37,7 +53,16 @@ class c_kelola_security extends Controller
         $id_baru = [ 'id_baru' => $this->m_security->id_baru()];
         $dropdown = ['Laki-laki', 'Perempuan'];
         $dropdown2 = ['Produksi', 'Gudang', 'Pengecekan', 'Logistik'];
-        return view('security/v_addsecurity', $id_baru, compact(['dropdown', 'dropdown2']));
+        
+        if (Auth::check()) {
+            //check the tamu add
+            if (Auth::user()->level !== 'security')
+            {
+                return back();
+            }
+        return view('security/v_addsecurity2', $id_baru, compact(['dropdown', 'dropdown2']));
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function insert()
@@ -87,7 +112,17 @@ class c_kelola_security extends Controller
         $data = ['security' => $this->m_security->detailData($id_security)];
         $dropdown = ['Laki-laki','Perempuan'];
         $dropdown2 = ['Produksi', 'Gudang', 'Pengecekan', 'Logistik'];
-        return view('security/v_editsecurity',$data, compact(['dropdown', 'dropdown2']));
+        
+        if (Auth::check()) {
+            //check the tamu add
+            if (Auth::user()->level !== 'security')
+            {
+                return back();
+            }
+        return view('security/v_editsecurity2',$data, compact(['dropdown', 'dropdown2']));
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function update($id_security)
@@ -112,9 +147,7 @@ class c_kelola_security extends Controller
             $file = Request()->foto_security;
             $fileName = Request()->id_security .'.'. $file->extension();
             $file->move(public_path('foto_security'),$fileName);
-            $file2 = Request()->status;
-            $fileStatus = Request()->id_security.'.'. $file2->extension();
-            $file2->move(public_path('status'),$fileStatus);
+           
             $dropdown = ['Laki-laki','Perempuan'];
             $dropdown2 = ['Produksi', 'Gudang', 'Pengecekan', 'Logistik'];
             

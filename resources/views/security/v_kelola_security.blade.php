@@ -40,7 +40,10 @@ Kelola Data Security
                         </div>
                         <div class="body">
                         <div align="right">
-                                    <a href="/security/add" class="btn btn-sm btn-primary">Add Data</a><br>
+                                    <a href="/security/add" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">add_circle_outline</i>
+                                    <span>ADD DATA</span>
+                                    </a>
                                 <br>
                                 </div>
                             <div class="table-responsive">
@@ -48,8 +51,8 @@ Kelola Data Security
                                     <thead>
                                         <tr>
                                         <th>No</th>
-                                        <th>ID security</th>
-                                        <th>Nama security</th>
+                                        <th>ID Security</th>
+                                        <th>Nama Security</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
                                         <th>Jenis Kelamin</th>
@@ -85,11 +88,11 @@ Kelola Data Security
                                     <td>{{$data->bagian}}</td>
                                     <td><img src="{{url('foto_security/'.$data->foto_security)}}" width="100px">
                                     <td>
-                                        <a href="/security/detail/{{$data->id_security}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
-                                        <a href="/security/edit/{{$data->id_security}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
-                                        <button type="button" data-toggle="modal" data-target="#delete{{$data->id_security}}" class="text-danger">
-                                          <i class="fa fa-trash">&#xE872;</i>
-                                        </button>
+                                        <a href="/security/detail/{{$data->id_security}}" class="text-success"><i class="material-icons">visibility</i></a>
+                                        <a href="/security/edit/{{$data->id_security}}" class="text-primary"><i class="material-icons">edit</i></a>
+                                        <a href="" type="button" data-toggle="modal" data-target="#delete{{$data->id_security}}" class="text-danger">
+                                        <i class="material-icons">delete</i>
+                                        </a>
                                     </td>
                                   </tr>
                                   @endforeach
@@ -107,7 +110,7 @@ Kelola Data Security
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p>Apakah anda ingin menghapus data ini ?</p>
+                                  <p>Apakah anda ingin menghapus data ini?</p>
                                 </div>
                               <div class="modal-footer justify-content-between">
                                   <a href="/security/delete/{{$data->id_security}}" class="btn btn-outline-light">Yes</a>

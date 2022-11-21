@@ -13,12 +13,16 @@ use App\Models\User;
 // use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\Validator;
+use Validator;
+use Illuminate\Validation\Rule;
 use DB;
 
 // use App\User;
 
 class c_user extends Controller
 {
+    protected $users = 'users';
     public function __construct()
     {
         // $this->middleware('auth');
@@ -28,7 +32,12 @@ class c_user extends Controller
     {
         $data = ['user' => $this->m_user->allData()
     ];
-    return view('user/v_kelola_user', $data);
+    if (Auth::check()) 
+    {
+        return view('user/v_kelola_user', $data);
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function detail($id)
@@ -38,26 +47,48 @@ class c_user extends Controller
         }
         $data = ['user' => $this->m_user->detailData($id)
     ];
-    return view('user/v_detail_user',$data);
+    if (Auth::check()) {
+        //check the tamu visibillity
+        if (Auth::user()->level !== 'admin')
+        {
+            return back();
+        }
+        return view('user/v_detail_user',$data);
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function add()
     {
         $id_baru = [ 'id_baru' => $this->m_user->id_baru()];
         $dropdown3 = ['security','klinik','admin'];
+
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'admin')
+            {
+                return back();
+            }
         return view('user/v_add_user', $id_baru, compact(['dropdown3']));
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function insert()
     {
         Request()->validate([
-            'username' => 'required',
+            'username' => 'required||string|min:5|max:100|unique:users,username',
             'level' => 'required',
-            'password' => 'required', 
+            'password' => 'required|min:8', 
         ],[
             'username.required' => 'Username wajib diisi !',
-            'level.required' => 'level wajib diisi !',
-            'password.required' => 'password wajib diisi !',
+            'username.unique' => 'Username sudah ada !',
+            'username.string' => 'Username wajib diisi !',
+            'username.min' => 'Username minimal 3 karakter !',
+            'username.max' => 'Username maksimal 100 karakter !',
+            'level.required' => 'Level wajib diisi !',
+            'password.min' => 'Password minimal 8 karakter !',
+            'password.required' => 'Password wajib diisi !',
         ]);
 
         $dropdown3 = ['security','klinik','admin'];
@@ -81,19 +112,33 @@ class c_user extends Controller
 
         $data = ['user' => $this->m_user->detailData($id)];
         $dropdown3 = ['security','klinik','admin'];
+
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'admin')
+            {
+                return back();
+            }
         return view('user/v_edit_user',$data, compact(['dropdown3']));
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function update(Request $request, $id)
     {
         Request()->validate([
-            'username' => 'required',
+            'username' => 'required||string|min:5|max:100|unique:users,username',
             // 'level' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8',
         ], [
             'username.required' => 'Username wajib diisi !',
+            'username.unique' => 'Username sudah ada !',
+            'username.string' => 'Username wajib diisi !',
+            'username.min' => 'Username minimal 3 karakter !',
+            'username.max' => 'Username maksimal 100 karakter !',
             'level.required' => 'level wajib diisi !',
-            'password.required' => 'password wajib diisi !',
+            'password.min' => 'Password minimal 8 karakter !',
+            'password.required' => 'Password wajib diisi !',
         ]);
 
             $data = [
@@ -136,15 +181,15 @@ class c_user extends Controller
     {
         $request->validate([
             // 'username' => 'string|min:3|max:100',
-            'old_password' => '|current_password',
-            'new_password' => '|confirmed|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+            'old_password' => 'required|current_password',
+            'new_password' => 'required|confirmed|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
             
         ],[
-            'old_password.required' => 'Masukkan Password Lama',
-            'old_password.current_password' => 'Password lama salah',
-            'new_password.required' => 'Password dan Konfirmasi Password wajib diisi',
-            'new_password.confirmed' => 'Password atau Konfirmasi Password salah',
-            'new_password.min' => 'Password atau Konfirmasi Password minimal 8 karakter',
+            'old_password.required' => 'Password Lama wajib diisi !',
+            'old_password.current_password' => 'Password lama salah !',
+            'new_password.required' => 'Password dan Konfirmasi Password wajib diisi !',
+            'new_password.confirmed' => 'Password atau Konfirmasi Password salah !',
+            'new_password.min' => 'Password atau Konfirmasi Password minimal 8 karakter !',
             'new_password.regex' => "Konfirmasi Password gabungan dari huruf A-z, angka 0-9 dan setidaknya memiliki salah satu karakter # ? ! @ $ % ^ & * - _ + = : ; } {  ] [ \ /> < , . | ` ~",
         ]);
         
@@ -171,8 +216,16 @@ class c_user extends Controller
 
     public function account_action(Request $request)
     {
+
         $atribut = $request->validate([
-            'username' => 'string|min:3|max:100',
+            'username' => 'required||string|min:5|max:100|unique:users,username',
+            
+        ],[
+            'username.unique' => 'Username sudah ada !',
+            'username.string' => 'Username wajib diisi !',
+            'username.min' => 'Username minimal 3 karakter !',
+            'username.max' => 'Username maksimal 100 karakter !',
+        
         ]);
 
         auth()->user()->update($atribut);
@@ -196,6 +249,15 @@ class c_user extends Controller
     {
         $data = ['user' => $this->m_user->allData()
     ];
+
+    if (Auth::check()) {
+        //check the tamu visibillity
+        if (Auth::user()->level !== 'admin')
+        {
+            return back();
+        }
     return view('user/v_laporan_user', $data);
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 }

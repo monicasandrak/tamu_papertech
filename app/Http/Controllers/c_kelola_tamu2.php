@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\m_tamu;
+use Illuminate\Support\Facades\Auth;
+use DB;
 
 
 class c_kelola_tamu2 extends Controller
@@ -15,9 +17,17 @@ class c_kelola_tamu2 extends Controller
     }
     public function index() 
     {
-        $data = ['tamu' => $this->m_tamu->allData()
-    ];
-    return view('klinik/v_kelola_pasien_tamu', $data);
+        $tamu = DB::table('tamu')
+        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
+        ->where('status', 'disetujui')
+        ->get();
+        // $data = ['tamu' => $this->m_tamu->allData()];
+    if (Auth::check()) {
+
+        return view('klinik/v_kelola_pasien_tamu2', compact('tamu'));
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function detail($id_tamu)
@@ -27,8 +37,17 @@ class c_kelola_tamu2 extends Controller
         }
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
     ];
+    if (Auth::check()) {
+        //check the tamu visibillity
+        if (Auth::user()->level !== 'klinik')
+        {
+            return back();
+        }
     return view('klinik/v_detail_pasien_tamu',$data);
     }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+    }    
 
     public function add()
     {
@@ -98,7 +117,16 @@ class c_kelola_tamu2 extends Controller
         ];
         $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
         $dropdown2 = ['Negatif','Positif'];
+        if (Auth::check()) {
+            //check the tamu add
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_edit_pasien_tamu',$data, compact(['dropdown', 'dropdown2']));
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function update(Request $request, $id_tamu)

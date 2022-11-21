@@ -39,9 +39,15 @@ Kelola Data Tamu
                             </ul>
                         </div>
                         <div class="body">
+                        <!-- <button type="submit" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">save</i>
+                                    <span>SAVE</span> -->
                         <div align="right">
-                                    <a href="/tamu/add" class="btn btn-sm btn-primary">Add Data</a><br>
-                                <br>
+                                    <a href="/tamu/add" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">add_circle_outline</i>
+                                    <span>ADD DATA</span>
+                                    </a>
+                                
                                 </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -100,15 +106,33 @@ Kelola Data Tamu
                                     <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
                                     <td>{{$data->no_kendaraan}}</td>
                                     <td>{{$data->jam_masuk}}</td>
-                                    <td>{{$data->status}}</td>
-                                    <td>{{$data->hasil_swab}}</td>
+                                    <td>
+                                      @if ($data->status == "Disetujui")
+                                      <h5><span class="badge badge-success">Disetujui<i class="fas fa-check"></i></span></h5>
+                                      @endif
+                                      @if ($data->status == "Tidak Disetujui")
+                                      <h5><span class="badge badge-danger"> Tidak Disetujui<i class="fas fa-times"></i></span></h5>
+                                      @endif
+                                      @if ($data->status == "Belum Disetujui")
+                                      <h5><span class="badge badge-warning"> Sedang Diproses<i class="fas fa-hourglass-half"></i></span></h5>
+                                      @endif
+                                    </td>
+                                    <td>
+                                      @if ($data->hasil_swab == "Positif")
+                                      <h5><span class="badge badge-danger">Positif<i class="fas fa-times"></i></span></h5>
+                                      @endif
+                                      @if ($data->hasil_swab == "Negatif")
+                                      <h5><span class="badge badge-success">Negatif<i class="fas fa-check"></i></span></h5>
+                                      @endif
+                                      
+                                    </td>
             
                                     <td>
-                                        <a href="/tamu/detail/{{$data->id_tamu}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
-                                        <a href="/tamu/edit/{{$data->id_tamu}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
-                                        <button type="button" data-toggle="modal" data-target="#delete{{$data->id_tamu}}" class="text-danger">
-                                          <i class="fa fa-trash">&#xE872;</i>
-                                        </button>
+                                        <a href="/tamu/detail/{{$data->id_tamu}}" class="text-success"><i class="material-icons">visibility</i></a>
+                                        <a href="/tamu/edit/{{$data->id_tamu}}" class="text-primary"><i class="material-icons">edit</i></a>
+                                        <a href="" data-target="#delete{{$data->id_tamu}}" class="text-danger" data-toggle="modal"  >
+                                        <i class="material-icons">delete</i>
+                                        </a>
                                     </td>
                                   </tr>
                                   @endforeach
@@ -118,7 +142,7 @@ Kelola Data Tamu
                             @foreach ($tamu as $data)
                             <div class="modal fade" id="delete{{$data->id_tamu}}">
                               <div class="modal-dialog modal-sm">
-                                <div class="modal-content bg-danger">
+                                <div class="modal-content">
                                   <div class="modal-header">
                                     <h6 class="modal-title">{{$data->nama_tamu}}</h6>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -126,10 +150,15 @@ Kelola Data Tamu
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p>Apakah anda ingin menghapus data ini ?</p>
+                                  <p>Apakah anda ingin menghapus data ini?
+
+                                  </p>
                                 </div>
-                              <div class="modal-footer justify-content-between">
-                                  <a href="/tamu/delete/{{$data->id_tamu}}" class="btn btn-outline-light">Yes</a>
+
+                              <div class="modal-footer  justify-content-between">
+                                  
+                                    <a href="/tamu/delete/{{$data->id_tamu}}" class="btn btn-outline-light"> Yes </a>
+</button>
                                   <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
                               </div>
                             </div>

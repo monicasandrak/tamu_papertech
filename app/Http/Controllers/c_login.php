@@ -32,7 +32,8 @@ class c_login extends Controller
             return redirect()->route('dashboard')->with('success','You are now logged in');
         }
         return back()->withErrors([
-        'password' => 'Username atau Password salah !',
+        
+        'password' => ' Login Gagal, Username atau Password salah !',
         ]);
         // return redirect ('/login');
     }

@@ -413,7 +413,7 @@ $.extend( $.validator, {
 			}
 
 			$( this.currentForm )
-				.on( "focusin.validate focusout.validate keyup.validate",
+				.on ( "focusin.validate focusout.validate keyup.validate",
 					":text, [type='password'], [type='file'], select, textarea, [type='number'], [type='search'], " +
 					"[type='tel'], [type='url'], [type='email'], [type='datetime'], [type='date'], [type='month'], " +
 					"[type='week'], [type='time'], [type='datetime-local'], [type='range'], [type='color'], " +
@@ -424,7 +424,7 @@ $.extend( $.validator, {
 				.on( "click.validate", "select, option, [type='radio'], [type='checkbox']", delegate );
 
 			if ( this.settings.invalidHandler ) {
-				$( this.currentForm ).on( "invalid-form.validate", this.settings.invalidHandler );
+				$( this.currentForm ).$on( "invalid-form.validate", this.settings.invalidHandler );
 			}
 
 			// Add aria-required to any Static/Data/Class required fields before first validation

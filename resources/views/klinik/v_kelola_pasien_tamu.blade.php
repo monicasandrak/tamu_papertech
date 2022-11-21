@@ -37,12 +37,12 @@ Kelola Data Pasien
           <th>No</th>
           <th>Tanggal</th>
           <th>ID Tamu</th>
-          <th>Nama Lengkap</th>
+          <th>Nama Tamu</th>
           <th>Alamat</th>
           <th>Pekerjaan</th>
           <th>Keperluan</th>
           <th>Bertemu Dengan</th>
-          <th>No KTP</th>
+          <th>No KTP/Identitas</th>
           <th>Foto KTP</th>
           <th>Nomor Kendaraan</th>
           <th>Jam Masuk</th>

@@ -41,8 +41,11 @@ Kelola User
                         </div>
                         <div class="body">
                         <div align="right">
-                                    <a href="/user/add" class="btn btn-sm btn-primary">Add Data</a><br>
-                                <br>
+                                    <a href="/user/add" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">add_circle_outline</i>
+                                    <span>ADD DATA</span>
+                                    </a>
+                                
                                 </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -77,11 +80,11 @@ Kelola User
                                       <td>{{$data->level}}</td>
                                       <td>{{$data->password}}</td>
                                       <td>
-                                          <a href="/user/detail/{{$data->id}}" class="text-success"><i class="fas fa-eye">&#xE254;</i></a>
-                                          <a href="/user/edit/{{$data->id}}" class="text-primary"><i class="fas fa-edit">&#xE254;</i></a>
-                                          <button type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="text-danger">
-                                          <i class="fa fa-trash">&#xE872;</i>
-                                          </button>
+                                          <a href="/user/detail/{{$data->id}}" class="text-success"><i class="material-icons">visibility</i></a>
+                                          <a href="/user/edit/{{$data->id}}" class="text-primary"><i class="material-icons">mode_edit</i></a>
+                                          <a href="" type="button" data-toggle="modal" data-target="#delete{{$data->id}}" class="text-danger">
+                                          <i class="material-icons">delete</i>
+                                          </a>
                                       </td>
                                    </tr>
                                   @endforeach
@@ -99,7 +102,7 @@ Kelola User
               </button>
             </div>
             <div class="modal-body">
-              <p>Apakah anda ingin menghapus data ini ?</p>
+              <p>Apakah anda ingin menghapus data ini?</p>
             </div>
             <div class="modal-footer justify-content-between">
                 <a href="/user/delete/{{$data->id}}" class="btn btn-outline-light">Yes</a>

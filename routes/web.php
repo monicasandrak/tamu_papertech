@@ -15,6 +15,7 @@ use App\Http\Controllers\c_laporan_pegawai;
 use App\Http\Controllers\c_laporan_obat;
 use App\Http\Controllers\c_login;
 use App\Http\Controllers\c_tamu;
+use App\Http\Controllers\c_laporan_security;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -81,8 +82,10 @@ Route::put('/dokter/update/{id_dokter}', [c_kelola_dokter::class,'update'])->nam
 Route::get('/dokter/delete/{id_dokter}', [c_kelola_dokter::class,'delete']);
 Route::get('/dokter/detail/{id_dokter}', [c_kelola_dokter::class,'detail']);
 
+Route::get('/ftamu', [c_tamu::class,'index2'])->name('form_tamu');
 Route::get('/', [c_tamu::class,'index'])->name('form_tamu');
 Route::get('/form_tamu/add', [c_tamu::class,'add'])->name('add_form_tamu');
+Route::get('/form_tamu/add2', [c_tamu::class,'add2'])->name('add_form_tamu');
 Route::post('/form_tamu/insert', [c_tamu::class,'insert'])->name('insert_form_tamu');
 
 Route::get('/kelola_tamu', [c_kelola_tamu::class,'index'])->name('tamu');
@@ -92,6 +95,8 @@ Route::get('/tamu/edit/{id_tamu}', [c_kelola_tamu::class,'edit']);
 Route::put('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update_tamu');
 Route::get('/tamu/delete/{id_tamu}', [c_kelola_tamu::class,'delete']);
 Route::get('/tamu/detail/{id_tamu}', [c_kelola_tamu::class,'detail']);
+Route::get('/tamu_masuk', [c_kelola_tamu::class,'tamu_masuk'])->name('tamu_masuk');
+Route::get('/tamu_masuk/detail/{id_tamu}', [c_kelola_tamu::class,'detailtamu']);
 
 Route::get('/kelola_security', [c_kelola_security::class,'index'])->name('security');
 Route::get('/security/add', [c_kelola_security::class,'add']);
@@ -101,8 +106,9 @@ Route::put('/security/update/{id_security}', [c_kelola_security::class,'update']
 Route::get('/security/delete/{id_security}', [c_kelola_security::class,'delete']);
 Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']);
 
-Route::get('/laporan', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
+Route::get('/laporan_tamu', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
 Route::get('/laporan/print_laporan', [c_laporan_tamu::class, 'laporan'])->name('lihat_laporan_tamu');
+Route::get('/laporan_security', [c_laporan_security::class, 'index'])->name('laporan_security');
 Route::get('/login', [c_user::class, 'login'])->name('login');
 Route::post('/login', [c_user::class, 'login_action'])->name('login_action');
 

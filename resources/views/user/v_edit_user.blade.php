@@ -1,95 +1,91 @@
 @section('title')
 Edit Data User
 @endsection
-<br>
-<br>
-<br>
-@extends('layout/v_template2')
+@extends('layout/v_template3')
 @section('page')
 Edit Data User
 @endsection
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-      <!-- left column -->
-      
-      <div class="col-md-6">
-
-     <!-- general form elements -->
-     
-     <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Form User Data User</h3>
-        </div>
-        <!-- /.card-header -->
-        <!-- form start -->
-            <form action="/user/update/{{$user->id}}" method="POST" enctype="multipart/form-data"> 
-           
-          @csrf
-          @method('put')
-          <!-- @method('PUT') -->
-         
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">ID User</label>
-                    <input type="text" name="id" class="form-control" id="exampleInputEmail1"  value="{{$user->id}}" readonly>
-                    <div class="text-danger">
-                          @error('id_user')
-                              {{ $message}}
-                          @enderror
-                    </div>
-                  </div>
-           
-           
-            <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Masukan Username" value="{{$user->username}}">
-                <div class="text-danger">
-                    @error('username')
-                        {{ $message}}
-                    @enderror
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Level</label>
-                <select name="level" class="form-control" value="{{$user->level}}">
-            <option disabled selected>
-            {{$user->level}}
-            </option>
-            @foreach ($dropdown3 as $level)
-            <option value="{{$user->level}}">{{Str::ucfirst($level)}}</option> <!-- php ucfirst() -->
-            @endforeach
-          </select>
-                <div class="text-danger">
-                    @error('level')
-                        {{ $message}}
-                    @enderror
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="Masukan Password" value="{{$user->password}}">
-                <div class="text-danger">
-                    @error('password')
-                        {{ $message}}
-                    @enderror
-                </div>
-            </div>           
-            <div class="card-footer">
-            <a class="btn btn-danger" href="{{ route('user') }}">Back</a>
-            <button type="submit" class="btn btn-primary">Update</button>
+<section class="content">
+        <div class="container-fluid">
             
-          </div>
-        </form>
-      </div>
-          </div>
-        
-          <!-- /.card-body -->
-         
-        
-      <!-- /.card -->
-      </div>
-    </div>
-</div>
-@endsection
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>EDIT DATA USER</h2>
+                            <br>
+                            <ol class="breadcrumb breadcrumb-bg-teal">
+                                <li><a href="/kelola_user"><i class="material-icons">group</i> Kelola User</a></li>
+                                <li class="active"><i class="material-icons">library_books</i> Edit User</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="body">
+                            
+                            <form action="/user/update/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('put')
+                            <div class="card-body">
+                                @if(session('success'))
+                                    <p class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">{{session('success')}} &times;</a></p>
+                                @endif
+                                @if (session('error'))
+                                    <div class="alert alert-danger alert-dissmissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>a</strong>{{ session('error') }}</div>
+                                @endif
+                                @if($errors->any())
+                                    @foreach($errors->all() as $err)
+                                        <p class="alert alert-danger">{{ $err }}</p>
+                                    @endforeach
+                                @endif
 
+                                    <div class="mb-3">
+                                        <label>ID User</label>
+                                        <input type="text" class="form-control" name="id" id="exampleInputEmail1" value="{{ $user->id }}" readonly>
+                                    </div>
+                                    <br>
+                                    <div class="mb-3">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" name="username" value="{{ $user->username}}">
+                                    </div>
+                                    <br>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1">Level</label>
+                                        <select name="level" class="form-control" value="{{$user->level}}">
+                                            <option>
+                                                {{$user->level}}
+                                            </option>
+                                            @foreach ($dropdown3 as $level)
+                                                <option value="{{$user->level}}">{{Str::ucfirst($level)}}</option> <!-- php ucfirst() -->
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <br><br>
+                                    <div class="mb-3">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" name="password" value="{{ $user->password}}" >
+                                    </div>
+                                    <br>
+                                
+                                
+                                
+                            
+                                    <button type="submit" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">save</i>
+                                    <span>UPDATE</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+            <!-- Advanced Validation -->
+           
+            <!-- #END# Advanced Validation -->
+            <!-- Validation Stats -->
+           
+            <!-- #END# Validation Stats -->
+        </div>
+    </section>

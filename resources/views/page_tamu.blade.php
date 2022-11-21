@@ -50,7 +50,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="getstarted scrollto" href="/form_tamu/add">Silahkan Isi Form</a></li>
+          <li><a class="getstarted scrollto" href="/form_tamu/add2">Silahkan Isi Form</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -74,7 +74,7 @@
           <h1>Welcome to Our Website</h1>
           <h2>Website ini diperuntukan untuk tamu yang mempunyai keperluan ke PT. Papertech Indonesia</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="/form_tamu/add" class="btn-get-started scrollto">Silahkan Isi Form</a>
+            <a href="/form_tamu/add2" class="btn-get-started scrollto">Silahkan Isi Form</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">

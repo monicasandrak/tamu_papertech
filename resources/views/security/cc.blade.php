@@ -26,7 +26,7 @@ Laporan Data Tamu
     <!-- <div class="card-header"> -->
     <div id="btnprint" class="container mt-3">
       <h3 class="card-title">Laporan Data Tamu</h3>
-      <p class="text-secondary">Dari Tanggal: {{date('d-M-Y',strtotime($datefrom))}} s/d {{date('d-M-Y',strtotime($datecurrent))}} </p>
+     
     
     <!-- /.card-header -->
     <div class="card-body">

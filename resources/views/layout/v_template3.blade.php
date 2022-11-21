@@ -35,7 +35,7 @@
     <link href="{{asset('template3')}}/css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="theme-light-green">
+<body class="theme-teal">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -112,6 +112,10 @@
 
     <!-- Waves Effect Plugin Js -->
     <script src="{{asset('template3')}}/plugins/node-waves/waves.js"></script>
+    <script src="{{asset('template3')}}/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css"></script>
+    <script src="{{asset('template3')}}/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css"></script>
+    <script src="{{asset('template3')}}/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="{{asset('template3')}}/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
     <!-- Jquery DataTable Plugin Js -->
     <script src="{{asset('template3')}}/plugins/jquery-datatable/jquery.dataTables.js"></script>

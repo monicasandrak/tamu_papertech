@@ -76,11 +76,11 @@ Tambah Data Security
                     @enderror
                 </div>
             </div>
-
+            <br><br>
             <div class="form-group">
                 <label for="exampleInputEmail1">Jenis Kelamin</label>
                 <select name="jk" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
+            <option selected>--- Pilih ---</option>
             @foreach ($dropdown as $jk)
             <option value="{{$jk}}">{{Str::ucfirst($jk)}}</option> <!-- php ucfirst() -->
             @endforeach
@@ -91,11 +91,11 @@ Tambah Data Security
                     @enderror
                 </div>
             </div>
-
+            <br> <br>
             <div class="form-group">
                 <label for="exampleInputEmail1">Bagian</label>
                 <select name="bagian" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
+            <option selected>--- Pilih ---</option>
             @foreach ($dropdown2 as $bagian)
             <option value="{{$bagian}}">{{Str::ucfirst($bagian)}}</option> <!-- php ucfirst() -->
             @endforeach
@@ -106,7 +106,7 @@ Tambah Data Security
                     @enderror
                 </div>
             </div>
-        
+            <br><br>
             <div class="form-group">
               <label for="exampleInputFile">Foto Security</label>
               <div class="input-group">
