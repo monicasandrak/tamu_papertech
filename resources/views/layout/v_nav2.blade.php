@@ -98,12 +98,12 @@
                             <span>Kelola Pasien Pegawai</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="/kelola_obat">
                             <i class="fa-sharp fa-solid fa-people-roof"></i>
                             <span>Kelola Pasien Obat</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="/laporan_klinik">
                             <i class="fa-solid fa-file"></i>
