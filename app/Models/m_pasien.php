@@ -8,6 +8,23 @@ use Illuminate\Support\Facades\DB;
 
 class m_pasien extends Model
 {
+    use HasFactory;
+
+    protected $table = 'pasien';
+    protected $primaryKey = 'id_pasien';
+
+    protected $fillable = [
+       'Tanggal',
+        'ID Pasien',
+        'Nama Lengkap',
+        'Jenis Kelamin',
+        'Umur',
+        'Departement',
+    'Keluhan',
+      'Diagnosa',
+        'Obat',
+
+    ];
     public function allData()
     {
         return DB::table('pasien')->get();

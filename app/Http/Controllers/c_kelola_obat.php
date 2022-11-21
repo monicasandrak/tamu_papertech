@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\m_obat;
+use App\Models\obat;
 
 class c_kelola_obat extends Controller
 {
@@ -46,12 +47,12 @@ class c_kelola_obat extends Controller
             'nama_obat' => 'required',
             'jenis_obat' => 'required',
             'satuan' => 'required',
-            'jumlah' => 'required', 
+            'stok' => 'required', 
         ],[
             'nama_obat.required' => 'Nama obat wajib diisi !',
             'jenis_obat.required' => 'Jenis obat wajib diisi !',
             'satuan.required' => 'Satuan wajib diisi !',
-            'jumlah.required' => 'Jumlah wajib diisi !',
+            'stok.required' => 'stok wajib diisi !',
         ]);
        
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
@@ -61,7 +62,7 @@ class c_kelola_obat extends Controller
             'nama_obat' => Request()->nama_obat,
             'jenis_obat' => Request()->jenis_obat,
             'satuan' => Request()->satuan,
-            'jumlah' => Request()->jumlah,
+            'stok' => Request()->stok,
         ];
         $this->m_obat->addData($data);
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
@@ -89,19 +90,19 @@ class c_kelola_obat extends Controller
             'nama_obat' => 'required',
             'jenis_obat' => 'required',
             'satuan' => 'required',
-            'jumlah' => 'required',
+            'stok' => 'required',
         ], [
             'nama_obat.required' => 'Nama obat wajib diisi !',
             'jenis_obat.required' => 'Jenis obat wajib diisi !',
             'satuan.required' => 'Satuan wajib diisi !',
-            'jumlah.required' => 'Jumlah wajib diisi !',
+            'stok.required' => 'stok wajib diisi !',
         ]);
             $data = [
             'id_obat' => Request()->id_obat,
             'nama_obat' => Request()->nama_obat,
             'jenis_obat' => Request()->jenis_obat,
             'satuan' => Request()->satuan,
-            'jumlah' => Request()->jumlah,
+            'stok' => Request()->stok,
             ];
             $this->m_obat->editData($id_obat,$data);
         
@@ -118,6 +119,34 @@ class c_kelola_obat extends Controller
         // }
         $this->m_obat->deleteData($id_obat);
         return redirect()->route('obat')->with('pesan', 'Data berhasil dihapus !');
+    }
+    public function addstok()
+    {
+        $id_baruobatmasuk = ['id_baruobatmasuk' => $this->m_obat->id_baruobatmasuk()];
+        $obat = obat::all();
+        return view('klinik.v_add_stok', $id_baruobatmasuk, compact(['obat']));
+    }
+
+    public function insertstok()
+    {
+        Request()->validate([
+            'nama_obat' => 'required',
+            'stok' => 'required', 
+        ],[
+            'nama_obat.required' => 'Nama obat wajib diisi !',
+            'stok.required' => 'stok wajib diisi !',
+        ]);
+        $datetime = date("d-m-Y");
+        $obat = obat::all();
+        $data = [
+            'id_obatmasuk' => Request()->id_obatmasuk,
+            'nama_obat' => Request()->nama_obat,
+            'tanggal' => Request()->tanggal,
+            'stok' => Request()->stok,
+        ];
+        $obat = obat::all();
+        $this->m_obat->addDatastok($data);
+        return redirect()->route('obat')->with('pesan', 'Data berhasil ditambahkan !');
     }
 }
 

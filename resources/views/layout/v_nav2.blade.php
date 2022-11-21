@@ -88,55 +88,27 @@
                     </li>
                     <li>
                         <a href="/kelola_pasien_tamu">
-
-                        <i class="material-icons">group</i>
+                            <i class="fa-sharp fa-solid fa-people-roof"></i>
                             <span>Kelola Pasien Tamu</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kelola_pasien">
-                        
-                        <i class="material-icons">group</i>
+                            <i class="fa-sharp fa-solid fa-people-roof"></i>
                             <span>Kelola Pasien Pegawai</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kelola_obat">
-                       
-                        <i class="material-icons">group</i>
+                            <i class="fa-sharp fa-solid fa-people-roof"></i>
                             <span>Kelola Pasien Obat</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                       
-                        <i class="material-icons">group</i>
-                            <span>Kelola Perawat</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                       
-                        <i class="material-icons">group</i>
-                            <span>Kelola Dokter</span>
-                        </a>
-                    </li>
-                    <li class="has-sub">
-                        <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">content_copy</i>
+                        <a href="/laporan_klinik">
+                            <i class="fa-solid fa-file"></i>
                             <span>Laporan Klinik</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="#">Laporan Pasien Tamu</a>
-                            </li>
-                            <li>
-                                <a href="#">Laporan Pasien Pegawai</a>
-                            </li>
-                            <li>
-                                <a href="#">Laporan Obat</a>
-                            </li>
-                        </ul>
                     </li>
                     @endif
 

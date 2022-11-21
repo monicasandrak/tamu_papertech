@@ -33,7 +33,7 @@ Halaman Detail Obat
         
         <div class="form-group">
           <label for="exampleInputFile">Stok : </label>
-          {{$obats->jumlah}}
+          {{$obats->stok}}
         </div>
       </div>
       <!-- /.card-body -->

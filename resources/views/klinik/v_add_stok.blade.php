@@ -52,7 +52,7 @@ Kelola Dokter
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> --}}
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{route('insert_obat')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('insert')}}" method="POST" enctype="multipart/form-data">
           @csrf
             <div class="card-body">
             @if(session('success'))
@@ -66,48 +66,28 @@ Kelola Dokter
         <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
         @endif
-                <div class="form-group">
-                    <label for="exampleInputEmail1">ID Obat</label>
-                    <input type="text" name="id_obat" class="form-control" id="exampleInputEmail1" value="{{ $id_baru }}" readonly>
-                    <div class="text-danger">
-                          @error('id_obat')
-                              {{ $message}}
-                          @enderror
-                    </div>
-                  </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Nama Obat</label>
-                <input type="text" name="nama_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Obat" value="{{ old('nama_obat')}}">
-                <div class="text-danger">
-                    @error('nama_obat')
-                        {{ $message}}
-                    @enderror
-                </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">ID Obat Masuk</label>
+            <input type="text" name="id_obatmasuk" class="form-control" id="exampleInputEmail1" value="{{ $id_baru }}" readonly>
+            <div class="text-danger">
+                  @error('id_obatmasuk')
+                      {{ $message}}
+                  @enderror
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Bentuk Sediaan</label>
-                <select name="satuan" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown as $row)
-            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
-            @endforeach
-          </select>
-                <div class="text-danger">
-                    @error('satuan')
-                        {{ $message}}
-                    @enderror
-                </div>
+          </div>
+        <div class="form-group">
+            <label for="Obat">Nama Obat</label>
+            <select class="form-control" id="position-option" name="nama_obat">
+                <option disabled selected>--- Pilih ---</option>
+               @foreach ($obat as $obat)
+                  <option value="{{ $obat->nama_obat }}"{{ old('obat') == $obat->id_obat ? 'selected' : null }}>{{ $obat->nama_obat }}</option>
+               @endforeach
+            </select>
+            <div class="text-danger">
+                @error('obat')
+                    {{ $message}}
+                @enderror
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Kegunaan Obat</label>
-                <input type="text" name="jenis_obat" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jenis Obat" value="{{ old('jenis_obat')}}">
-                <div class="text-danger">
-                    @error('jenis_obat')
-                        {{ $message}}
-                    @enderror
-                </div>
-            </div>
-            
             <div class="form-group">
                 <label for="exampleInputEmail1">Stok</label>
                 <input type="text" name="stok" class="form-control" id="exampleInputEmail1" placeholder="Masukan Stok" value="{{ old('stok')}}">
@@ -117,15 +97,6 @@ Kelola Dokter
                     @enderror
                 </div>
             </div>
-            <!-- <div class="form-group">
-                <label for="exampleInputEmail1">Hasil Swab</label>
-                <input type="text" name="hasil_swab" class="form-control" id="exampleInputEmail1" placeholder="Masukan Hasil Swab" value="{{ old('hasil_swab')}}" readonly>
-                <div class="text-danger">
-                    @error('hasil_swab')
-                        {{ $message}}
-                    @enderror
-                </div>
-            </div> -->
           </div>
           <!-- /.card-body -->
 

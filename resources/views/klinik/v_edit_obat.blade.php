@@ -75,9 +75,9 @@ Edit Data Obat
             
             <div class="form-group">
                 <label for="exampleInputEmail1">Stok</label>
-                <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah" value="{{$obats->jumlah}}">
+                <input type="text" name="stok" class="form-control" id="exampleInputEmail1" placeholder="Masukan stok" value="{{$obats->stok}}">
                 <div class="text-danger">
-                    @error('jumlah')
+                    @error('stok')
                         {{ $message}}
                     @enderror
                 </div>

@@ -1,28 +1,29 @@
 @section('title')
-Tambah Data Pasien
+Kelola Obat
 @endsection
-<br>
-<br>
-<br>
-@extends('layout/v_template2')
+@extends('layout/v_template3')
 @section('page')
-Tambah Data Pasien Pegawai
+Kelola Obat
 @endsection
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-      <!-- left column -->
-      
-      <div class="col-md-6">
+<section class="content">
+        <div class="container-fluid">
+            <!-- <div class="block-header">
+                <h2>
+                    JQUERY DATATABLES
+                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
+                </h2>
+            </div> -->
+            <!-- Basic Examples -->
+            <div class="row clearfix">
 
-     <!-- general form elements -->
-     
-     <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Form Tambah Data Pasien Pegawai</h3>
-        </div>
-        <!-- /.card-header -->
-        <!-- form start -->
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                KELOLA OBAT
+                            </h2>
+
+
         <form action="{{route('insert_pasien')}}" method="POST" enctype="multipart/form-data">
           @csrf
             <div class="card-body">
@@ -123,7 +124,7 @@ Tambah Data Pasien Pegawai
             <div class="form-group">
                 <label for="Obat">Obat</label>
                 <select class="form-control" id="position-option" name="obat">
-                    <option disabled selected>--- Pilih ---</option>
+                    <option>--- Pilih ---</option>
                    @foreach ($obat as $obat)
                       <option value="{{ $obat->nama_obat }}"{{ old('obat') == $obat->id_obat ? 'selected' : null }}>{{ $obat->nama_obat }}</option>
                    @endforeach
@@ -133,11 +134,19 @@ Tambah Data Pasien Pegawai
                         {{ $message}}
                     @enderror
                 </div>
+                    <label for="exampleInputEmail1">Jumlah</label>
+                    <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah Obat" value="{{ old('jumlah')}}">
+                    <div class="text-danger">
+                        @error('jumlah')
+                            {{ $message}}
+                        @enderror
+                    </div>
+                </div>
              </div>
             </div>
           </div>
           <!-- /.card-body -->
-
+<div>
           <div class="card-footer">
             <a class="btn btn-danger" href="{{ route('pasien') }}">Back</a>
             <button type="submit" class="btn btn-primary">Insert</button>

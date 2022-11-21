@@ -9,6 +9,21 @@ use Illuminate\Support\Facades\DB;
 class m_perawat extends Model
 {
     use HasFactory;
+
+    protected $table = 'perawat';
+    protected $primaryKey = 'id_perawat';
+
+    protected $fillable = [
+       ' ID Perawat',
+        'Nama Lengkap',
+        'Tanggal Lahir',
+        'Jenis Kelamin',
+        'Alamat',
+        'Foto Perawat',
+    'Jadwal Kerja',
+
+    ];
+    use HasFactory;
     public function allData()
     {
         return DB::table('perawat')->get();
