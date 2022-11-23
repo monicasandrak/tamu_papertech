@@ -6,6 +6,7 @@ Laporan Data Tamu
 Laporan Data Tamu
 @endsection
 @section('content')
+
 <section class="content">
         <div class="container-fluid">
             
@@ -29,8 +30,35 @@ Laporan Data Tamu
                                 </li>
                             </ul> -->
                         </div>
+                        
                         <div class="body">
-                            <div class="table-responsive">
+                        <form action="{{route('filter')}}" method="post">
+                            @csrf 
+                            <br>
+                            <div class="container">
+                                <div class="container-fluid">
+                                    <div class="form-group row">
+                                        <label for="date" class="col-form-label col-sm-2"> Dari Tanggal </label>
+                                        <div class="col-sm-3">
+                                            <input type="date" class="form-control input-sm" id="from" name="fromDate" required/>
+                                        </div>
+                                        <label for="date" class="col-form-label col-sm-2"> Sampai Tanggal </label>
+                                        <div class="col-sm-3">
+                                            <input type="date" class="form-control input-sm" id="to" name="toDate" required/>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button type="submit" class="btn" name="search">Filter</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </form>
+                            
+
+
+
+                        <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
@@ -76,7 +104,7 @@ Laporan Data Tamu
         
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{date('d-M-Y', strtotime($data->tanggal))}}</td>
+                                        <td>{{date('Y-m-d', strtotime($data->tanggal))}}</td>
                                         <td>{{$data->id_tamu}}</td>
                                         <td>{{$data->nama_tamu}}</td>
                                         <td>{{$data->alamat}}</td>
@@ -94,6 +122,7 @@ Laporan Data Tamu
                                    
                                     </tbody>
                                 </table>
+                              
                             </div>
                         </div>
                     </div>

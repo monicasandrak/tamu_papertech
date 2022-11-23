@@ -95,7 +95,7 @@ class c_kelola_tamu extends Controller
         $file = Request()->foto_ktp;
         $fileName = Request()->id_tamu .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
-        $datetime = date("d F Y");
+        $datetime = date("Y-m-d");
         // $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 
         $data = [

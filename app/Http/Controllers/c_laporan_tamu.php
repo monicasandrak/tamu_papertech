@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\m_tamu;
 use App\Models\m_tamu2;
+use App\Models\Tamu;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use App\Http\Controllers\Illuminate\Support\Collection;
 
 class c_laporan_tamu extends Controller
 {
@@ -27,6 +29,24 @@ class c_laporan_tamu extends Controller
         }
         else return redirect()->route('login')->with('eror', 'Silahkan login terlebih dahulu');
     
+    }
+
+    public function filter(Request $request)
+    {
+        $fromDate = $request->input('fromDate');
+        $toDate = $request->input('toDate');
+
+        $tamu = DB::table('tamu')
+        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
+        ->where('status', 'disetujui')
+        ->where('tanggal', '>=', $fromDate)
+        ->where('tanggal', '<=', $toDate)
+        ->get();
+
+        // dd($tamu);
+
+        return view('security/v_laporan_tamu',  compact(['tamu']));
+
     }
     public function laporan(Request $request)
     {
@@ -60,5 +80,62 @@ class c_laporan_tamu extends Controller
         //         ->select('id_tamu','nama_tamu','alamat','pekerjaan','keperluan','bertemu_dengan', 'no_ktp','foto_ktp','no_kendaraan','jam_masuk','status','hasil_swab')
         //         ->get();
     return view('security/cc', $tamu,$date);
+    }
+
+    // public function laporantamu ()
+    // {
+    //     $tamu = DB::table('tamu')
+    //     ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
+    //     ->where('status', 'disetujui')
+    //     ->get();
+    //     if (Auth::check()){
+    //         return view('security/v_laporan',  compact(['tamu']));
+    //     }
+    //     else return redirect()->route('login')->with('eror', 'Silahkan login terlebih dahulu');
+    // }
+
+    // public function cetak_tamu(Request $request)
+    // {
+    //     $tamu = DB::table('tamu')
+    //     ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
+    //     ->where('status', 'disetujui')
+    //     ->get();
+    //     if (Auth::check()){
+    //         return view('security/v_cetak_tamu',  compact(['tamu']));
+    //     }
+    //     else return redirect()->route('login')->with('eror', 'Silahkan login terlebih dahulu');
+    
+    // }
+
+    // public function cetak_tamu(Request $request)
+    // {
+    //     $tgl_mulai = $request->tgl_mulai;
+    //     $tgl_selesai = $request->tgl_selesai;
+
+    //     if ($tgl_mulai AND $tgl_selesai){
+    //         $tamu = DB::table('tamu')
+    //                 ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
+    //                 ->where('status', 'disetujui')
+    //                 ->whereBetween('tanggal', [$tgl_mulai, $tgl_selesai])
+    //                 ->get();
+    //     }
+    //         else{
+    //             $tamu = DB::table('tamu')
+    //             ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
+    //             ->where('status', 'disetujui')
+    //             ->get();
+    //     }
+    //     return view ('security/v_cetak_laporan_tamu', compact(['tamu', 'tgl_mulai', 'tgl_selesai']));
+
+    // }
+    public function lihatlaporan ($dari_tanggal, $sampai_tanggal)
+    {
+        // dd (["Dari Tanggal : ".$dari_tanggal, "Sampai Tanggal : ".$sampai_tanggal]);
+
+        $tamu = DB::table('tamu')
+        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
+        ->where('status', 'disetujui')
+        ->whereBetween('tamu.tanggal', [$dari_tanggal, $sampai_tanggal])->get();
+    return view ('security/v_laporan_tamu', compact(['tamu', 'dari_tanggal', 'sampai_tanggal']));
     }
 }

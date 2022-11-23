@@ -74,7 +74,7 @@ class c_tamu extends Controller
         $file = Request()->foto_ktp;
         $fileName = Request()->id_tamu .'.'. $file->extension();
         $file->move(public_path('foto_ktp'),$fileName);
-        $datetime = date("d-M-Y");
+        $datetime = date("Y-m-d");
         $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
         // $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
 

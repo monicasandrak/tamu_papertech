@@ -110,7 +110,14 @@ Route::get('/security/delete/{id_security}', [c_kelola_security::class,'delete']
 Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']);
 
 Route::get('/laporan_tamu', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
+Route::get('/cetak_laporan_tamu', [c_laporan_tamu::class, 'cetak_tamu'])->name('cetak_laporan_tamu');
 Route::get('/laporan/print_laporan', [c_laporan_tamu::class, 'laporan'])->name('lihat_laporan_tamu');
+Route::post('/laporan_laporan', [c_laporan_tamu::class,'filter'])->name('filter');
+
+Route::get('/form-laporan-tamu', [c_laporan_tamu::class, 'laporantamu'])->name('form-laporan-tamu');
+Route::get('/laporan-pertanggal/{dari_tanggal}/{sampai_tanggal}', [c_laporan_tamu::class, 'lihatlaporan'])->name('laporan-pertanggal');
+
+
 Route::get('/laporan_security', [c_laporan_security::class, 'index'])->name('laporan_security');
 Route::get('/login', [c_user::class, 'login'])->name('login');
 Route::post('/login', [c_user::class, 'login_action'])->name('login_action');

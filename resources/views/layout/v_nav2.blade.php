@@ -73,6 +73,7 @@
                             <li>
                                 <a href="/laporan_tamu">Laporan Tamu</a>
                             </li>
+                            
                             <li>
                                 <a href="/laporan_security">Laporan Security</a>
                             </li>
