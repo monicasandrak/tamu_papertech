@@ -162,10 +162,6 @@ Laporan Data Tamu
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Examples -->
-            <!-- Exportable Table -->
-            
-            <!-- #END# Exportable Table -->
         </div>
     </section>
 @endsection
