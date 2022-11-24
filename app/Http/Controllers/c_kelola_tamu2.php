@@ -18,8 +18,8 @@ class c_kelola_tamu2 extends Controller
     public function index() 
     {
         $tamu = DB::table('tamu')
-        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
-        ->where('status', 'disetujui')
+        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'swab', 'hasil_swab')
+        ->where('swab', 'wajib swab')
         ->get();
         // $data = ['tamu' => $this->m_tamu->allData()];
     if (Auth::check()) {
@@ -138,10 +138,10 @@ class c_kelola_tamu2 extends Controller
             'pekerjaan' => 'required',
             'keperluan' => 'required',
             'bertemu_dengan' => 'required',
-            'no_ktp' => 'required',
-            'foto_ktp' => '|mimes:jpg,png,jpeg,bmp|max:1024',
-            'no_kendaraan' => 'required',
-            'jam_masuk' => 'required',  
+            // 'no_ktp' => 'required',
+            // 'foto_ktp' => '|mimes:jpg,png,jpeg,bmp|max:1024',
+            // 'no_kendaraan' => 'required',
+            // 'jam_masuk' => 'required',  
             
         ], [
             'tanggal.required' => 'Tanggal wajib diisi !',
@@ -150,12 +150,12 @@ class c_kelola_tamu2 extends Controller
             'pekerjaan.required' => 'Pekerjaan wajib diisi !',
             'keperluan.required' => 'Keperluan wajib diisi !',
             'bertemu_dengan' => 'Bertemu dengan wajib diisi !',
-            'no_ktp.required' => 'No KTP wajib diisi !',
-            'no_ktp.min' => 'No KTP harus 16 karakter !',
-            'no_ktp.max' => 'No KTP harus 16 karakter !',
+            // 'no_ktp.required' => 'No KTP wajib diisi !',
+            // 'no_ktp.min' => 'No KTP harus 16 karakter !',
+            // 'no_ktp.max' => 'No KTP harus 16 karakter !',
             // 'foto_ktp.required' => 'Foto KTP wajib diisi !',
-            'no_kendaraan.required' => 'No kendaraan wajib diisi !',
-            'jam_masuk.required' => 'Jam masuk wajib diisi !', 
+            // 'no_kendaraan.required' => 'No kendaraan wajib diisi !',
+            // 'jam_masuk.required' => 'Jam masuk wajib diisi !', 
         ]);
         //jika validasi tidak ada maka lakukan simpan data
         if (Request()->foto_ktp <> "") {
@@ -173,10 +173,11 @@ class c_kelola_tamu2 extends Controller
             'pekerjaan' => Request()->pekerjaan,
             'keperluan' => Request()->keperluan,
             'bertemu_dengan' => Request()->bertemu_dengan,
-            'no_ktp' => Request()->no_ktp,
-            'foto_ktp' => $fileName,
-            'no_kendaraan' => Request()->no_kendaraan,
-            'jam_masuk' => Request()->jam_masuk,
+            // 'no_ktp' => Request()->no_ktp,
+            // 'foto_ktp' => $fileName,
+            // 'no_kendaraan' => Request()->no_kendaraan,
+            // 'jam_masuk' => Request()->jam_masuk,
+            'swab' => Request()->swab,
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);
@@ -191,9 +192,10 @@ class c_kelola_tamu2 extends Controller
             'pekerjaan' => Request()->pekerjaan,
             'keperluan' => Request()->keperluan,
             'bertemu_dengan' => Request()->bertemu_dengan,
-            'no_ktp' => Request()->no_ktp,
-            'no_kendaraan' => Request()->no_kendaraan,
-            'jam_masuk' => Request()->jam_masuk,
+            // 'no_ktp' => Request()->no_ktp,
+            // 'no_kendaraan' => Request()->no_kendaraan,
+            // 'jam_masuk' => Request()->jam_masuk,
+            'swab' => Request()->swab,
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);

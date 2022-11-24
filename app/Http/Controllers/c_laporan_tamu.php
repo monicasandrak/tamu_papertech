@@ -21,8 +21,9 @@ class c_laporan_tamu extends Controller
     public function index()
     {
         $tamu = DB::table('tamu')
-        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
-        ->where('status', 'disetujui')
+        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'swab', 'hasil_swab')
+        ->where('swab', 'tidak swab')
+        ->orWhere('hasil_swab', 'negatif')
         ->get();
         if (Auth::check()){
             return view('security/v_laporan_tamu',  compact(['tamu']));
@@ -36,13 +37,48 @@ class c_laporan_tamu extends Controller
         $fromDate = $request->input('fromDate');
         $toDate = $request->input('toDate');
 
-        $tamu = DB::table('tamu')
-        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
-        ->where('status', 'disetujui')
-        ->where('tanggal', '>=', $fromDate)
-        ->where('tanggal', '<=', $toDate)
-        ->get();
+        $hasil_swab = DB::table('tamu')
+           ->whereNull('hasil_swab');
+                
 
+        
+        //    $tamu = DB::table('tamu')
+        // //    ->where('swab', 'tidak wajib swab')
+        //    ->whereNot(function($query){
+        //     $query->where('status', 'tidak disetujui')
+        //         ->orwhere('hasil_swab', 'positif');
+        //    })
+        //    ->whereBetween('tanggal', [$fromDate, $toDate])
+        //    // ->where('tanggal', '>=', $fromDate)
+        //    // ->where('tanggal', '<=', $toDate)
+        //    ->get();
+
+        //    $tamu = DB::table('tamu')
+           
+        //    ->where('swab', 'tidak wajib swab')
+        //    ->orWhere(function($query){
+        //          $query->where('swab', 'wajib swab')
+        //                 ->where('hasil_swab', 'negatif');
+        //    })
+        //    ->whereBetween('tanggal', [$fromDate, $toDate])
+        //    // ->where('tanggal', '>=', $fromDate)
+        //    // ->where('tanggal', '<=', $toDate)
+        //    ->get();
+
+           $tamu = DB::table('tamu')
+           ->where('tanggal', '>=', $fromDate)
+           ->where('tanggal', '<=', $toDate)
+           
+           ->where('status', 'disetujui')
+        //    ->union($hasil_swab)
+        //    ->whereBetween('tanggal', [$fromDate, $toDate])
+           
+           ->get();
+       
+           
+           
+
+          
         // dd($tamu);
 
         return view('security/v_laporan_tamu',  compact(['tamu']));

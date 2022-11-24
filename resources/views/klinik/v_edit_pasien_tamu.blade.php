@@ -111,15 +111,10 @@ Edit Data Pasien Tamu
                             @enderror
                         </div> -->
                         <br>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label>Nomor KTP/Identitas</label>
                             <input class="form-control" type="text" placeholder="Masukan Nomor KTP/Identitas" value="{{$tamu->no_ktp}}" name="no_ktp" readonly />
                         </div>
-                        <!-- <div class="text-danger">
-                            @error('no_ktp')
-                            {{ $message }}
-                            @enderror
-                        </div> -->
                         <br>
 
                         <div class="mb-3">
@@ -132,26 +127,27 @@ Edit Data Pasien Tamu
                             <label>Nomor Kendaraan</label>
                             <input class="form-control" type="text" placeholder="Masukan Kendaraan" value="{{$tamu->no_kendaraan}}" name="no_kendaraan" readonly />
                         </div>
-                        <!-- <div class="text-danger">
-                            @error('no_kendaraan')
-                            {{ $message }}
-                            @enderror
-                        </div> -->
+                        
                         <br>
                         <div class="mb-3">
                             <label>Jam Masuk</label>
                             <input class="form-control" type="text" placeholder="Masukan Jam Masuk" value="{{$tamu->jam_masuk}}" name="jam_masuk" readonly />
                         </div>
-                        <!-- <div class="text-danger">
-                            @error('jam_masuk')
-                            {{ $message }}
-                            @enderror -->
+                       
                         
                         <br>
 
                         <div class="mb-3">
                             <label>Status</label>
                             <input class="form-control" type="text" placeholder="Masukan Jam Masuk" value="{{$tamu->status}}" name="status" readonly />
+                        </div>
+                        
+                        
+                        <br> -->
+
+                        <div class="mb-3">
+                            <label>Test Swab</label>
+                            <input class="form-control" type="text" placeholder="Masukan Test Swab" value="{{$tamu->swab}}" name="swab" readonly />
                         </div>
                         <!-- <div class="text-danger">
                             @error('jam_masuk')

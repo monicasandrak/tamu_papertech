@@ -54,10 +54,7 @@ Laporan Data Tamu
                             </div>
                         
                         </form>
-                            
-
-
-
+                        
                         <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
@@ -75,6 +72,7 @@ Laporan Data Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
+                                        <th>Swab</th>
                                         <th>Hasil Swab</th>
                                             
                                         </tr>
@@ -94,6 +92,7 @@ Laporan Data Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
+                                        <th>Swab</th>
                                         <th>Hasil Swab</th>
                                            
                                         </tr>
@@ -104,7 +103,8 @@ Laporan Data Tamu
         
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{date('Y-m-d', strtotime($data->tanggal))}}</td>
+                                        <td>{{$data->tanggal}}</td>
+                                        <!-- <td>{{date('Y-m-d', strtotime($data->tanggal))}}</td> -->
                                         <td>{{$data->id_tamu}}</td>
                                         <td>{{$data->nama_tamu}}</td>
                                         <td>{{$data->alamat}}</td>
@@ -116,6 +116,7 @@ Laporan Data Tamu
                                         <td>{{$data->no_kendaraan}}</td>
                                         <td>{{$data->jam_masuk}}</td>
                                         <td>{{$data->status}}</td>
+                                        <td>{{$data->swab}}</td>
                                         <td>{{$data->hasil_swab}}</td>
                                     </tr>
                                     @endforeach

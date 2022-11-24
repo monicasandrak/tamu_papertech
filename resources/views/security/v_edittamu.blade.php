@@ -179,6 +179,24 @@ Edit Data Tamu
                         </div>
                         <br>
                         <br>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1">Test Swab</label>
+                            <select name="swab" class="form-control" value="{{$tamu->swab}}">
+                            <option>
+                                {{$tamu->swab}}
+                            </option>
+                            @foreach ($dropdown2 as $swab)
+                                <option value="{{$swab}}">{{Str::ucfirst($swab)}}</option> <!-- php ucfirst() -->
+                            @endforeach
+                            </select>
+                            <!-- <div class="text-danger">
+                            @error('status')
+                                {{ $message}}
+                            @enderror
+                            </div> -->
+                        </div>
+                        <br>
+                        <br>
                         <br>
                         <button type="submit" class="btn bg-teal waves-effect">
                                     <i class="material-icons">save</i>

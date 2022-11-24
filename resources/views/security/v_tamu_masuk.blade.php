@@ -60,6 +60,7 @@ Kelola Data Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
+                                        <th>Swab</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -79,6 +80,7 @@ Kelola Data Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
+                                        <th>Swab</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -103,6 +105,14 @@ Kelola Data Tamu
                                     <td>
                                       @if ($data->status == "Disetujui")
                                       <h5><span class="badge badge-success">Disetujui<i class="fas fa-check"></i></span></h5>
+                                      @endif
+                                    </td>
+                                    <td>
+                                      @if ($data->swab == "Tidak Wajib Swab")
+                                      <h5><span class="badge badge-success">Tidak Wajib Swab<i class="fas fa-check"></i></span></h5>
+                                      @endif
+                                      @if ($data->swab == "Wajib Swab")
+                                      <h5><span class="badge badge-warning">Wajib Swab<i class="fas fa-times"></i></span></h5>
                                       @endif
                                     </td>
 

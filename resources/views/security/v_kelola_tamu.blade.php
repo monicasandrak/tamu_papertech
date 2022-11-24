@@ -66,6 +66,7 @@ Kelola Data Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
+                                        <th>Test Swab</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -85,6 +86,7 @@ Kelola Data Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
+                                        <th>Test Swab</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -95,7 +97,7 @@ Kelola Data Tamu
         
                                   <tr>
                                     <td>{{$no++}}</td>
-                                    <td>{{$data->tanggal}}</td>
+                                    <td>{{date('Y-m-d', strtotime($data->tanggal))}}</td>
                                     <!-- <td>{{date('d F Y',strtotime($data->tanggal))}}</td> -->
                                     <td>{{$data->id_tamu}}</td>
                                     <td>{{$data->nama_tamu}}</td>
@@ -116,6 +118,14 @@ Kelola Data Tamu
                                       @endif
                                       @if ($data->status == "Belum Disetujui")
                                       <h5><span class="badge badge-warning"> Sedang Diproses<i class="fas fa-hourglass-half"></i></span></h5>
+                                      @endif
+                                    </td>
+                                    <td>
+                                      @if ($data->swab == "Wajib Swab")
+                                      <h5><span class="badge badge-warning">Wajib Swab<i class="fas fa-times"></i></span></h5>
+                                      @endif
+                                      @if ($data->swab == "Tidak Swab")
+                                      <h5><span class="badge badge-success">Tidak Swab<i class="fas fa-check"></i></span></h5>
                                       @endif
                                     </td>
                                     <td>

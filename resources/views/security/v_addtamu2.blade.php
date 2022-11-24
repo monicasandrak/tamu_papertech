@@ -178,6 +178,23 @@ Tambah Data Tamu
             </div>
                                 </div>
                             <br><br>
+
+                            <div class="form-group form-float">
+                                <label for="exampleInputEmail1">Test Swab</label>
+                <select name="swab" class="form-control">
+            <option disabled selected>--- Pilih ---</option>
+            @foreach ($dropdown2 as $row)
+            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+            @endforeach
+          </select>
+                <!-- <div class="text-danger">
+                    @error('status')
+                        {{ $message}}
+                    @enderror
+                </div> -->
+            </div>
+                                </div>
+                            <br><br>
                             
                             <button type="submit" class="btn bg-teal waves-effect">
                                     <i class="material-icons">save</i>

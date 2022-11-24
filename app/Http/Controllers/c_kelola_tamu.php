@@ -51,7 +51,7 @@ class c_kelola_tamu extends Controller
     {
         $id_baru = [ 'id_baru' => $this->m_tamu->id_baru()];
         $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
-        $dropdown2 = ['Negatif','Positif'];
+        $dropdown2 = ['Wajib Swab','Tidak Swab'];
         if (Auth::check()) {
             //check the tamu add
             if (Auth::user()->level !== 'security')
@@ -77,6 +77,7 @@ class c_kelola_tamu extends Controller
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
             'status'=>'required',
+            // 'swab' => 'required',
         ],[
             // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
@@ -91,6 +92,7 @@ class c_kelola_tamu extends Controller
             'no_kendaraan.required' => 'No kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
             'status.required' => 'Status wajib diisi !',
+            // 'swab.required' => 'Test Swab wajib diisi !',
         ]);
         $file = Request()->foto_ktp;
         $fileName = Request()->id_tamu .'.'. $file->extension();
@@ -111,6 +113,7 @@ class c_kelola_tamu extends Controller
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
             'status' => Request()->status,
+            'swab' => Request()->swab,
             'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
@@ -126,7 +129,7 @@ class c_kelola_tamu extends Controller
 
         $data = ['tamu' => $this->m_tamu->detailData($id_tamu)];
         $dropdown = ['Disetujui','Belum Disetujui','Tidak Disetujui'];
-        $dropdown2 = ['Negatif','Positif'];
+        $dropdown2 = ['Wajib Swab','Tidak Swab'];
         if (Auth::check()) {
             //check the tamu add
             if (Auth::user()->level !== 'security')
@@ -153,6 +156,7 @@ class c_kelola_tamu extends Controller
             'no_kendaraan' => 'required',
             'jam_masuk' => 'required',  
             'status' => 'required',
+            // 'swab' => 'required',
         ], [
             // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_tamu.required' => 'Nama tamu wajib diisi !',
@@ -165,7 +169,8 @@ class c_kelola_tamu extends Controller
             'no_ktp.max' => 'Nomor KTP atatu Identitas harus 16 karakter !',
             'no_kendaraan.required' => 'Nomor kendaraan wajib diisi !',
             'jam_masuk.required' => 'Jam masuk wajib diisi !', 
-            'status' => 'Status wajib diisi !',
+            'status.required' => 'Status wajib diisi !',
+            // 'swab' => 'Test Swab wajib diisi !',
         ]);
         //jika validasi tidak ada maka lakukan simpan data
         if (Request()->foto_ktp  <> "") {
@@ -189,6 +194,7 @@ class c_kelola_tamu extends Controller
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
             'status' => Request()->status,
+            'swab' => Request()->swab,
             
             ];
             $this->m_tamu->editData($id_tamu,$data);
@@ -206,8 +212,10 @@ class c_kelola_tamu extends Controller
             'no_ktp' => Request()->no_ktp,
             'no_kendaraan' => Request()->no_kendaraan,
             'jam_masuk' => Request()->jam_masuk,
-            'hasil_swab' => Request()->hasil_swab,
             'status' => Request()->status,
+            'swab' => Request()->swab,
+            'hasil_swab' => Request()->hasil_swab,
+
             ];
             $this->m_tamu->editData($id_tamu,$data);
         
@@ -231,8 +239,9 @@ class c_kelola_tamu extends Controller
     public function tamu_masuk() 
     {
         $tamu = DB::table('tamu')
-        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'hasil_swab')
-        ->where('status', 'disetujui')
+        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'swab', 'hasil_swab')
+        ->where('swab', 'tidak wajib swab')
+        ->orWhere('hasil_swab' , 'negatif')
         ->get();
         // $data = ['tamu' => $this->m_tamu->allData()];
     if (Auth::check()) {

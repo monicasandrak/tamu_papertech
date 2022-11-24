@@ -22,6 +22,7 @@ class m_tamu2 extends Model
         'no_kendaraan',
         'jam_masuk',
         'status',
+        'swab',
         'hasil_swab',
 
     ];

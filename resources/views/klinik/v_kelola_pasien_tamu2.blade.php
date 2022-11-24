@@ -55,11 +55,11 @@ Kelola Data Pasien Tamu
                                         <th>Pekerjaan</th>
                                         <th>Keperluan</th>
                                         <th>Bertemu Dengan</th>
-                                        <th>Nomor KTP/Identitas</th>
+                                        <!-- <th>Nomor KTP/Identitas</th>
                                         <th>Foto KTP</th>
                                         <th>Nomor Kendaraan</th>
-                                        <th>Jam Masuk</th>
-                                        <th>Status</th>
+                                        <th>Jam Masuk</th> -->
+                                        <th>Test Swab</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -74,11 +74,11 @@ Kelola Data Pasien Tamu
                                         <th>Pekerjaan</th>
                                         <th>Keperluan</th>
                                         <th>Bertemu Dengan</th>
-                                        <th>Nomor KTP/Identitas</th>
+                                        <!-- <th>Nomor KTP/Identitas</th>
                                         <th>Foto KTP</th>
                                         <th>Nomor Kendaraan</th>
-                                        <th>Jam Masuk</th>
-                                        <th>Status</th>
+                                        <th>Jam Masuk</th> -->
+                                        <th>Test Swab</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -89,20 +89,21 @@ Kelola Data Pasien Tamu
         
                                   <tr>
                                     <td>{{$no++}}</td>
-                                    <td>{{date('d F Y',strtotime($data->tanggal))}}</td>
+                                    <td>{{date('Y-m-d', strtotime($data->tanggal))}}</td>
+                                    <!-- <td>{{date('d F Y',strtotime($data->tanggal))}}</td> -->
                                     <td>{{$data->id_tamu}}</td>
                                     <td>{{$data->nama_tamu}}</td>
                                     <td>{{$data->alamat}}</td>
                                     <td>{{$data->pekerjaan}}</td>
                                     <td>{{$data->keperluan}}</td>
                                     <td>{{$data->bertemu_dengan}}</td>
-                                    <td>{{$data->no_ktp}}</td>
+                                    <!-- <td>{{$data->no_ktp}}</td>
                                     <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
-                                    <td>{{$data->no_kendaraan}}</td>
-                                    <td>{{$data->jam_masuk}}</td>
+                                    <td>{{$data->no_kendaraan}}</td> -->
+                                    <!-- <td>{{$data->jam_masuk}}</td> -->
                                     <td>
-                                      @if ($data->status == "Disetujui")
-                                      <h5><span class="badge badge-success">Disetujui<i class="fas fa-check"></i></span></h5>
+                                      @if ($data->swab == "Wajib Swab")
+                                      <h5><span class="badge badge-warning">Wajib Swab<i class="fas fa-check"></i></span></h5>
                                       @endif
                                     </td>
 
