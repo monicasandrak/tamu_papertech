@@ -68,7 +68,7 @@ Laporan Data Tamu
                                         <th>Keperluan</th>
                                         <th>Bertemu Dengan</th>
                                         <th>No KTP</th>
-                                        <th>Foto KTP</th>
+                                        <!-- <th>Foto KTP</th> -->
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
@@ -88,7 +88,7 @@ Laporan Data Tamu
                                         <th>Keperluan</th>
                                         <th>Bertemu Dengan</th>
                                         <th>No KTP</th>
-                                        <th>Foto KTP</th>
+                                        <!-- <th>Foto KTP</th> -->
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
@@ -112,7 +112,7 @@ Laporan Data Tamu
                                         <td>{{$data->keperluan}}</td>
                                         <td>{{$data->bertemu_dengan}}</td>
                                         <td>{{$data->no_ktp}}</td>
-                                        <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
+                                        <!-- <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px"> -->
                                         <td>{{$data->no_kendaraan}}</td>
                                         <td>{{$data->jam_masuk}}</td>
                                         <td>{{$data->status}}</td>

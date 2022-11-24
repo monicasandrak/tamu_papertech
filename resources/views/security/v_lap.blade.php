@@ -24,22 +24,16 @@ Kelola Data Security
             <div  id="btnprint" class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
+                        <div id="btnprint" class="header">
                             <h2>
-                                KELOLA SECURITY
+                                LAPORAN DATA SECURITY
                             </h2>
-                                
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    </a>
-                                </li>
-                            </ul>
+
                         </div>
                         <div class="body">
                         
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered id="table">
                                     <thead>
                                         <tr>
                                         <th>No</th>
@@ -50,22 +44,10 @@ Kelola Data Security
                                         <th>Jenis Kelamin</th>
                                         <th>Bagian</th>
                                         <th>Foto Security</th>
-                                        <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>No</th>
-                                        <th>ID security</th>
-                                        <th>Nama security</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Bagian</th>
-                                        <th>Foto Security</th>
                                         
                                         </tr>
-                                    </tfoot>
+                                    </thead>
+                                    
                                     <tbody>
                                     <?php $no=1;?>
                                     @foreach ($security as $data)  
@@ -85,18 +67,31 @@ Kelola Data Security
                                 </tbody>
                               </table>
                             </div>
-                            <div class="container mb-1">
-                             <!-- <a href="/invoiceprint" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a> -->
-        <button onclick="printDiv('btnprint')" class="btn btn-outline-primary" ><i class="fas fa-fw fa-print"></i>Print</button> 
-        <a class="btn btn-danger" href="{{ route('laporan_klinik') }}">Back</a>
+                            </div>
+                            
+                    </div>
+                </div>
+                
+            </div>
+           
+
+            <button type="submit" onclick="printDiv('btnprint')" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">print</i>
+                                    <span>PRINT</span>
+            <button>
       </div>
-      <!-- <script>
-        $(#table).ready(function() {
+      <br>
+      <br>
+      <br>
+
+    
+      <script>
+        $(document).ready(function() {
           function print() {
             window.print();
           }
         });
-      </script> -->
+      </script>
       <script>
         function printDiv(btnprint){
 			var printContents = document.getElementById(btnprint).innerHTML;
@@ -109,14 +104,10 @@ Kelola Data Security
 			document.body.innerHTML = originalContents;
 
 		}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Basic Examples -->
-            <!-- Exportable Table -->
-            
-            <!-- #END# Exportable Table -->
-        </div>
+      </script>
+      </body>
+      </html>
+</script>
+                        
     </section>
 @endsection

@@ -22,8 +22,9 @@ class c_laporan_tamu extends Controller
     {
         $tamu = DB::table('tamu')
         ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'swab', 'hasil_swab')
-        ->where('swab', 'tidak swab')
-        ->orWhere('hasil_swab', 'negatif')
+        ->where('status', 'disetujui')
+        // ->where('swab', 'tidak swab')
+        // ->orWhere('hasil_swab', 'negatif')
         ->get();
         if (Auth::check()){
             return view('security/v_laporan_tamu',  compact(['tamu']));
