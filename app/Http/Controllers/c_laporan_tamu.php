@@ -18,16 +18,19 @@ class c_laporan_tamu extends Controller
     //     $this->m_tamu = new m_tamu();
     // }
 
-    public function index()
+    public function index(Request $request)
     {
+        $fromDate = $request->input('fromDate');
+        $toDate = $request->input('toDate');
+
         $tamu = DB::table('tamu')
-        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'swab', 'hasil_swab')
+        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk','pemeriksa_tamu', 'status', 'swab', 'hasil_swab')
         ->where('status', 'disetujui')
         // ->where('swab', 'tidak swab')
         // ->orWhere('hasil_swab', 'negatif')
         ->get();
         if (Auth::check()){
-            return view('security/v_laporan_tamu',  compact(['tamu']));
+            return view('security/v_laporan_tamu',  compact(['tamu', 'fromDate', 'toDate']));
         }
         else return redirect()->route('login')->with('eror', 'Silahkan login terlebih dahulu');
     
@@ -82,7 +85,7 @@ class c_laporan_tamu extends Controller
           
         // dd($tamu);
 
-        return view('security/v_laporan_tamu',  compact(['tamu']));
+        return view('security/v_laporan_tamu',  compact(['tamu','fromDate', 'toDate']));
 
     }
     public function laporan(Request $request)
