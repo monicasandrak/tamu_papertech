@@ -26,6 +26,8 @@ class m_tamu extends Model
         'jam_masuk',
         'status',
         'swab',
+        'pemeriksa_tamu',
+        'pemeriksa_pasien',
         'hasil_swab',
 
     ];

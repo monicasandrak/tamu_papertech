@@ -197,6 +197,10 @@ Edit Data Tamu
                         </div>
                         <br>
                         <br>
+                         <div class="mb-3">
+                            
+                            <input class="form-control" type="hidden" placeholder="Masukan Pemeriksa Tamu" value="{{Auth::user()->username}}" name="pemeriksa_tamu" />
+                        </div>
                         <br>
                         <button type="submit" class="btn bg-teal waves-effect">
                                     <i class="material-icons">save</i>

@@ -18,7 +18,6 @@ class c_kelola_tamu2 extends Controller
     public function index() 
     {
         $tamu = DB::table('tamu')
-        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'swab', 'hasil_swab')
         ->where('swab', 'wajib swab')
         ->get();
         // $data = ['tamu' => $this->m_tamu->allData()];
@@ -178,6 +177,7 @@ class c_kelola_tamu2 extends Controller
             // 'no_kendaraan' => Request()->no_kendaraan,
             // 'jam_masuk' => Request()->jam_masuk,
             'swab' => Request()->swab,
+            'pemeriksa_pasien' => Request()->pemeriksa_pasien,
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);
@@ -196,6 +196,7 @@ class c_kelola_tamu2 extends Controller
             // 'no_kendaraan' => Request()->no_kendaraan,
             // 'jam_masuk' => Request()->jam_masuk,
             'swab' => Request()->swab,
+            'pemeriksa_pasien' => Request()->pemeriksa_pasien,
             'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);

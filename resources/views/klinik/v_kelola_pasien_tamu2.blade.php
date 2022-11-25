@@ -60,6 +60,7 @@ Kelola Data Pasien Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th> -->
                                         <th>Test Swab</th>
+                                        <th>Pemeriksa Pasien</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -79,6 +80,7 @@ Kelola Data Pasien Tamu
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th> -->
                                         <th>Test Swab</th>
+                                        <th>Pemeriksa Pasien</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -106,6 +108,7 @@ Kelola Data Pasien Tamu
                                       <h5><span class="badge badge-warning">Wajib Swab<i class="fas fa-check"></i></span></h5>
                                       @endif
                                     </td>
+                                    <td>{{$data->pemeriksa_pasien}}</td>
 
                                     <td>
                                       @if ($data->hasil_swab == "Positif")

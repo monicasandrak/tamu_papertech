@@ -154,8 +154,18 @@ Edit Data Pasien Tamu
                             {{ $message }}
                             @enderror -->
                         
-                        <br>
+                       
 
+                        <div class="mb-3">
+                            
+                            <input class="form-control" type="hidden" placeholder="Masukan Pemeriksa Pasien" value="{{Auth::user()->username}}" name="pemeriksa_pasien" readonly />
+                        </div>
+                        <!-- <div class="text-danger">
+                            @error('jam_masuk')
+                            {{ $message }}
+                            @enderror -->
+                        
+                        <br>
                         <div class="mb-3">
                             <label for="exampleInputEmail1">Hasil Swab</label>
                             <select name="hasil_swab" class="form-control" value="{{$tamu->hasil_swab}}">

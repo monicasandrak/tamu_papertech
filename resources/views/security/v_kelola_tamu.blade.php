@@ -67,6 +67,7 @@ Kelola Data Tamu
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
                                         <th>Test Swab</th>
+                                        <th>Pemeriksa Tamu</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -87,6 +88,7 @@ Kelola Data Tamu
                                         <th>Jam Masuk</th>
                                         <th>Status</th>
                                         <th>Test Swab</th>
+                                        <th>Pemeriksa Tamu</th>
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -128,6 +130,7 @@ Kelola Data Tamu
                                       <h5><span class="badge badge-success">Tidak Swab<i class="fas fa-check"></i></span></h5>
                                       @endif
                                     </td>
+                                     <td>{{$data->pemeriksa_tamu}}</td>
                                     <td>
                                       @if ($data->hasil_swab == "Positif")
                                       <h5><span class="badge badge-danger">Positif<i class="fas fa-times"></i></span></h5>

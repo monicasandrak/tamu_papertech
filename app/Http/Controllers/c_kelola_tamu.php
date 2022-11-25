@@ -114,6 +114,7 @@ class c_kelola_tamu extends Controller
             'jam_masuk' => Request()->jam_masuk,
             'status' => Request()->status,
             'swab' => Request()->swab,
+            'pemeriksa_tamu' => Request()->pemeriksa_tamu,
             'hasil_swab' => Request()->hasil_swab,
         ];
         $this->m_tamu->addData($data);
@@ -195,7 +196,7 @@ class c_kelola_tamu extends Controller
             'jam_masuk' => Request()->jam_masuk,
             'status' => Request()->status,
             'swab' => Request()->swab,
-            
+            'pemeriksa_tamu' => Request()->pemeriksa_tamu,
             ];
             $this->m_tamu->editData($id_tamu,$data);
         }
@@ -214,7 +215,9 @@ class c_kelola_tamu extends Controller
             'jam_masuk' => Request()->jam_masuk,
             'status' => Request()->status,
             'swab' => Request()->swab,
+            'pemeriksa_tamu' => Request()->pemeriksa_tamu,
             'hasil_swab' => Request()->hasil_swab,
+
 
             ];
             $this->m_tamu->editData($id_tamu,$data);

@@ -176,7 +176,7 @@ Tambah Data Tamu
                     @enderror
                 </div> -->
             </div>
-                                </div>
+                                
                             <br><br>
 
                             <div class="form-group form-float">
@@ -193,9 +193,20 @@ Tambah Data Tamu
                     @enderror
                 </div> -->
             </div>
-                                </div>
+                                
                             <br><br>
-                           
+                            <div class="form-group form-float">
+                                    
+                                    <label></label>
+                                        <input type="hidden" class="form-control" name="pemeriksa_tamu" placeholder="Masukan Pemeriksa Tamu" value="{{Auth::user()->username}}" >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('jam_masuk')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                
                             
                             <button type="submit" class="btn bg-teal waves-effect">
                                     <i class="material-icons">save</i>
