@@ -1,9 +1,9 @@
 @section('title')
-Detail Data Tamu
+Detail Pasien Tamu
 @endsection
 @extends('layout/v_template3')
 @section('page')
-Detail Data Tamu
+Detail Pasien Tamu
 @endsection
 @section('content')
 <section class="content">
@@ -154,6 +154,18 @@ Detail Data Tamu
                                     <div class="form-line">
                                       <label>Jam Masuk</label>
                                         <input type="text" class="form-control" name="jam_masuk" value="{{$tamu->jam_masuk}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('alamat')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Pemeriksa Pasien</label>
+                                        <input type="text" class="form-control" name="pemeriksa_pasien" value="{{$tamu->pemeriksa_pasien}}" readonly >
                                         
                                         <!-- <div class="text-danger">
                                             @error('alamat')

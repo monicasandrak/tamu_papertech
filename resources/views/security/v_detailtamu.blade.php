@@ -164,6 +164,18 @@ Detail Data Tamu
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
+                                      <label>Pemeriksa Tamu</label>
+                                        <input type="text" class="form-control" name="pemeriksa_tamu" value="{{$tamu->pemeriksa_tamu}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('alamat')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                       <label>Status</label>
                                         <input type="text" class="form-control" name="status" value="{{$tamu->status}}" readonly >
                                         

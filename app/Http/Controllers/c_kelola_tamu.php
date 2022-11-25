@@ -197,6 +197,7 @@ class c_kelola_tamu extends Controller
             'status' => Request()->status,
             'swab' => Request()->swab,
             'pemeriksa_tamu' => Request()->pemeriksa_tamu,
+            'hasil_swab' => Request()->hasil_swab,
             ];
             $this->m_tamu->editData($id_tamu,$data);
         }
@@ -242,9 +243,8 @@ class c_kelola_tamu extends Controller
     public function tamu_masuk() 
     {
         $tamu = DB::table('tamu')
-        ->select('id_tamu', 'tanggal', 'nama_tamu', 'alamat', 'pekerjaan', 'keperluan', 'bertemu_dengan', 'no_ktp', 'foto_ktp', 'no_kendaraan','jam_masuk', 'status', 'swab', 'hasil_swab')
-        ->where('swab', 'tidak wajib swab')
-        ->orWhere('hasil_swab' , 'negatif')
+        ->where('status', 'disetujui')
+        // ->orWhere('hasil_swab' , 'negatif')
         ->get();
         // $data = ['tamu' => $this->m_tamu->allData()];
     if (Auth::check()) {
