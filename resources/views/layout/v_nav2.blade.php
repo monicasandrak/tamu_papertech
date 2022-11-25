@@ -99,6 +99,24 @@
                             <span>Kelola Pasien Pegawai</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/kelola_obat">
+                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <span>Kelola Obat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/kelola_perawat">
+                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <span>Kelola Perawat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/kelola_dokter">
+                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <span>Kelola Dokter</span>
+                        </a>
+                    </li>
                     <!-- <li>
                         <a href="/kelola_obat">
                             <i class="fa-sharp fa-solid fa-people-roof"></i>
