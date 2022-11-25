@@ -54,7 +54,7 @@ Laporan Data Tamu
                             </div>
                         
                         </form>
-                        
+                        <!-- <p class="text-secondary">Dari Tanggal : {{date('d F Y',strtotime($fromDate))}} s/d {{date('d F Y',strtotime($toDate))}}  -->
                         <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
@@ -71,8 +71,10 @@ Laporan Data Tamu
                                         <!-- <th>Foto KTP</th> -->
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
+                                        <th>Pemeriksa Tamu</th>
                                         <th>Status</th>
                                         <th>Swab</th>
+                                        
                                         <th>Hasil Swab</th>
                                             
                                         </tr>
@@ -91,6 +93,7 @@ Laporan Data Tamu
                                         <!-- <th>Foto KTP</th> -->
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
+                                        <th>Pemeriksa Tamu</th>
                                         <th>Status</th>
                                         <th>Swab</th>
                                         <th>Hasil Swab</th>
@@ -115,8 +118,10 @@ Laporan Data Tamu
                                         <!-- <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px"> -->
                                         <td>{{$data->no_kendaraan}}</td>
                                         <td>{{$data->jam_masuk}}</td>
+                                        <td>{{$data->pemeriksa_tamu}}</td>
                                         <td>{{$data->status}}</td>
                                         <td>{{$data->swab}}</td>
+
                                         <td>{{$data->hasil_swab}}</td>
                                     </tr>
                                     @endforeach

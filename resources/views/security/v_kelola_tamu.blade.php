@@ -65,9 +65,10 @@ Kelola Data Tamu
                                         <th>Foto KTP</th>
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
+                                        <th>Pemeriksa Tamu</th>
                                         <th>Status</th>
                                         <th>Test Swab</th>
-                                        <th>Pemeriksa Tamu</th>
+                                        
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -86,9 +87,10 @@ Kelola Data Tamu
                                         <th>Foto KTP</th>
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th>
+                                        <th>Pemeriksa Tamu</th>
                                         <th>Status</th>
                                         <th>Test Swab</th>
-                                        <th>Pemeriksa Tamu</th>
+                                        
                                         <th>Hasil Swab</th>
                                         <th>Action</th>
                                         </tr>
@@ -111,6 +113,7 @@ Kelola Data Tamu
                                     <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
                                     <td>{{$data->no_kendaraan}}</td>
                                     <td>{{$data->jam_masuk}}</td>
+                                     <td>{{$data->pemeriksa_tamu}}</td>
                                     <td>
                                       @if ($data->status == "Disetujui")
                                       <h5><span class="badge badge-success">Disetujui<i class="fas fa-check"></i></span></h5>
@@ -130,7 +133,7 @@ Kelola Data Tamu
                                       <h5><span class="badge badge-success">Tidak Swab<i class="fas fa-check"></i></span></h5>
                                       @endif
                                     </td>
-                                     <td>{{$data->pemeriksa_tamu}}</td>
+                                    
                                     <td>
                                       @if ($data->hasil_swab == "Positif")
                                       <h5><span class="badge badge-danger">Positif<i class="fas fa-times"></i></span></h5>

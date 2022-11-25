@@ -161,6 +161,8 @@ Edit Data Tamu
                         </div>
                         <br>
 
+                        
+
                         <div class="mb-3">
                             <label for="exampleInputEmail1">Status</label>
                             <select name="status" class="form-control" value="{{$tamu->status}}">
@@ -197,9 +199,13 @@ Edit Data Tamu
                         </div>
                         <br>
                         <br>
-                         <div class="mb-3">
-                            
+
+                        <div class="mb-3">
                             <input class="form-control" type="hidden" placeholder="Masukan Pemeriksa Tamu" value="{{Auth::user()->username}}" name="pemeriksa_tamu" />
+                        </div>
+                        <br>
+                        <div class="mb-3">
+                            <input class="form-control" type="hidden" placeholder="Masukan Hasil Swab" value="{{$tamu->hasil_swab}}" name="hasil_swab" />
                         </div>
                         <br>
                         <button type="submit" class="btn bg-teal waves-effect">
