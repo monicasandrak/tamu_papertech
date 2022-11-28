@@ -100,6 +100,7 @@ Route::get('/tamu/delete/{id_tamu}', [c_kelola_tamu::class,'delete']);
 Route::get('/tamu/detail/{id_tamu}', [c_kelola_tamu::class,'detail']);
 Route::get('/tamu_masuk', [c_kelola_tamu::class,'tamu_masuk'])->name('tamu_masuk');
 Route::get('/tamu_masuk/detail/{id_tamu}', [c_kelola_tamu::class,'detailtamu']);
+Route::get('/tamu_masuk/cetak_surat/{id_tamu}', [c_kelola_tamu::class,'cetaksurat']);
 
 Route::get('/kelola_security', [c_kelola_security::class,'index'])->name('security');
 Route::get('/security/add', [c_kelola_security::class,'add']);

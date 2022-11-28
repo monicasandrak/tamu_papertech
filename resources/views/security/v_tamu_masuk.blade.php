@@ -1,9 +1,9 @@
 @section('title')
-Kelola Data Tamu
+Tamu Masuk
 @endsection
 @extends('layout/v_template3')
 @section('page')
-Kelola Data Tamu
+Tamu Masuk
 @endsection
 @section('content')
 <section class="content">
@@ -132,6 +132,12 @@ Kelola Data Tamu
             
                                     <td>
                                         <a href="/tamu_masuk/detail/{{$data->id_tamu}}" class="text-success"><i class="material-icons">visibility</i></a>
+                                        <a href="/tamu_masuk/cetak_surat/{{$data->id_tamu}}" class="text-success"><i class="material-icons">print</i></a>
+                                        <!-- <div class ="card-footer text-end bg-danger">
+                                          <a href="" onclick="this.href='/tamu_masuk/cetak_surat/{{$data->id_tamu}}'+document.getElementById('id_tamu').value" role="button">Cetak Surat</a>
+
+                                        </div> -->
+                                        
                                         
                                         <!-- <button type="button" data-toggle="modal" data-target="#delete{{$data->id_tamu}}" class="text-danger">
                                         <i class="material-icons">delete</i> -->

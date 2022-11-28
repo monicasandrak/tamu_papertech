@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\m_tamu;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use PDF;
 
 
 class c_kelola_tamu extends Controller
@@ -272,6 +273,32 @@ class c_kelola_tamu extends Controller
     }
     
     else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+    }
+
+    public function cetaksurat($id_tamu) 
+    {
+        if(!$this->m_tamu->detailData($id_tamu))
+        {abort(404);
+        }
+        $data = ['tamu' => $this->m_tamu->detailData($id_tamu)
+    ];
+    if (Auth::check()) {
+        //check the tamu visibillity
+        if (Auth::user()->level !== 'security')
+        {
+            return back();
+        }
+        return view('security/v_cetak_surat', $data);
+    }
+    
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+        // $tamu = DB::table('tamu')
+        // ->where('status', 'disetujui')
+        // // ->orWhere('hasil_swab' , 'negatif')
+        // ->first();
+        // // $pdf = PDF::loadview('security/v_cetak_surat', ['tamu' => $tamu ]);
+        // // return $pdf->stream('cetak_surat.pdf');
+        // return view('security/v_cetak_surat', compact(['tamu']));
     }
 
 }

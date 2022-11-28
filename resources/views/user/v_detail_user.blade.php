@@ -22,63 +22,83 @@ Detail Data User
                             </ol>
                             
                         </div>
-                        <div class="body">
-                           
+                        <!-- <div class="body">
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                       <label>ID User</label>
                                         <input type="text" class="form-control" name="id" id="exampleInputEmail1" value="{{ $user->id }}" readonly>
-                                        
-                                        <!-- <div class="text-danger">
-                                            @error('id_security')
-                                                {{ $message}}
-                                            @enderror
-                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                       <label>Username</label>
                                         <input type="text" class="form-control" name="username" value="{{ $user->username }}" readonly >
-                                        
-                                        <!-- <div class="text-danger">
-                                            @error('nama_security')
-                                                {{ $message}}
-                                            @enderror
-                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                       <label>Level</label>
                                         <input type="text" class="form-control" name="level" value="{{ $user->level }}" readonly >
-                                        
-                                        <!-- <div class="text-danger">
-                                            @error('tanggal_lahir')
-                                                {{ $message}}
-                                            @enderror
-                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                       <label>Password</label>
                                         <input type="text" class="form-control" name="password" value="{{$user->password}}" readonly >
-                                        
-                                        <!-- <div class="text-danger">
-                                            @error('alamat')
-                                                {{ $message}}
-                                            @enderror
-                                    </div> -->
+                                    </div>
                                 </div>
-                                </div>
-                                
-                                
-                                
                             
-                                <!-- <button type="submit" class="btn bg-teal waves-effect">
-                                    <i class="material-icons">save</i>
-                                    <span>SAVE</span> -->
+                        </div> -->
+                        <div class="body">
+                            <form class="form-horizontal">
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2">ID User</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="email_address_2" class="form-control"  value="{{ $user->id }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="password_2">Username</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="password_2" class="form-control" value="{{ $user->username }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="password_2">Level</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="password_2" class="form-control" value="{{ $user->level }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="password_2">Password</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="password_2" class="form-control" value="{{ $user->password }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>

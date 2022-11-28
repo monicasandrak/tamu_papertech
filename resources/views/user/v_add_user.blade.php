@@ -51,7 +51,7 @@ Tambah Data User
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                     <label>Username</label>
-                                        <input type="text" class="form-control" name="username" value="{{ old('username')}}" >
+                                        <input type="text" class="form-control" name="username" placeholder="Masukan Username" value="{{ old('username')}}" >
                                         
                                         <!-- <div class="text-danger">
                                             @error('username')
@@ -62,7 +62,7 @@ Tambah Data User
                                 </div>
                                 <div class="form-group">
                                 <label for="exampleInputEmail1">Level</label>
-                                        <select name="level" class="form-control">
+                                        <select name="level" class="form-control show-tick">
                                           <option disabled selected>--- Pilih ---</option>
                                         @foreach ($dropdown3 as $row)
                                           <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
@@ -76,11 +76,11 @@ Tambah Data User
                                         
                                     </div>
                                 </div>
-                                <br><br>
+                                
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                     <label>Password</label>
-                                        <input type="password" class="form-control" name="password" value="{{ old('password')}}" >
+                                        <input type="password" class="form-control" name="password" placeholder="Masukan Password" value="{{ old('password')}}" >
                                         
                                         <!-- <div class="text-danger">
                                             @error('password')
