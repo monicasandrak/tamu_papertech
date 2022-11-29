@@ -136,7 +136,8 @@
         <!-- <div style="width: 32%; text-align; right; float; right "> -->
         ({{$tamu->nama_tamu}})
         </div>
-        <p style "color:red;">Note : Kalau sudah selesai, harap surat ini dikembalikan ke bagian keamanan* </p>
+        <!-- <p>Note :</p> -->
+        <p>Note : Kalau sudah selesai, harap surat ini dikembalikan ke bagian keamanan* </p>
             <tr>
                 <td>Jam Masuk</td>
                 <td>:</td>
