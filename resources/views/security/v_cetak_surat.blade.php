@@ -144,12 +144,12 @@
             <td colspan="7"><hr></td>
         </tr>
 
-        <div style="width: 30%; text-align; right; float; right">
+        <div style="width: 80%; text-align; right; float; left">
         Mengetahui<br>
         Security,
         </div>
         <br><br><br><br><br>
-        <div style="width: 32%; text-align; right; float; right ">
+        <div style="width: 82%; text-align; right; float; left ">
         ({{$tamu->pemeriksa_tamu}})
         </div>
 </body>

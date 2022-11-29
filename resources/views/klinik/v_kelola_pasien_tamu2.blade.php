@@ -59,6 +59,7 @@ Kelola Data Pasien Tamu
                                         <th>Foto KTP</th>
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th> -->
+                                        <th>Jam Masuk</th>
                                         <th>Test Swab</th>
                                         <th>Pemeriksa Pasien</th>
                                         <th>Hasil Swab</th>
@@ -79,6 +80,7 @@ Kelola Data Pasien Tamu
                                         <th>Foto KTP</th>
                                         <th>Nomor Kendaraan</th>
                                         <th>Jam Masuk</th> -->
+                                        <th>Jam Masuk</th>
                                         <th>Test Swab</th>
                                         <th>Pemeriksa Pasien</th>
                                         <th>Hasil Swab</th>
@@ -102,7 +104,7 @@ Kelola Data Pasien Tamu
                                     <!-- <td>{{$data->no_ktp}}</td>
                                     <td><img src="{{url('foto_ktp/'.$data->foto_ktp)}}" width="100px">
                                     <td>{{$data->no_kendaraan}}</td> -->
-                                    <!-- <td>{{$data->jam_masuk}}</td> -->
+                                    <td>{{$data->jam_masuk}}</td>
                                     <td>
                                       @if ($data->swab == "Wajib Swab")
                                       <h5><span class="badge badge-warning">Wajib Swab<i class="fas fa-check"></i></span></h5>
