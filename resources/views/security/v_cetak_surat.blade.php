@@ -55,6 +55,7 @@
            </tr>
     
         </table>
+        <br>
         <table width="470">
             <center>
                 <font size ="4"> SURAT TAMU</font>
@@ -135,7 +136,7 @@
         <!-- <div style="width: 32%; text-align; right; float; right "> -->
         ({{$tamu->nama_tamu}})
         </div>
-        <p>Note : *Kalau sudah selesai, harap surat ini dikembalikan ke bagian keamanan* </p>
+        <p style "color:red;">Note : Kalau sudah selesai, harap surat ini dikembalikan ke bagian keamanan* </p>
             <tr>
                 <td>Jam Masuk</td>
                 <td>:</td>
@@ -146,25 +147,27 @@
                 <td>Jam Keluar</td>
                 <td>:</td>
                 <td>...............</td>
+    
             </tr>
-
+        <br><br>
         <tr>
             <td colspan="7"><hr></td>
         </tr>
+        <br>
 
-        <!-- <table width="500"> -->
-        <div id=ttd>
-        <tr>
-        <!-- <div style="width: 80%; text-align; right; float; left"> -->
-        <td> Yang dituju <br>
+        <!-- <table width="500">
+        <tr> -->
+        <div style="width:0%;text-align:right;float:left">
+        Yang dituju <br>
         
         
         <br><br><br><br><br>
          
             <!-- <style="width: 82%; text-align; right; float; left "> -->
         (....................)
-        </td>
-         <td>                                                                                                        </td>
+        
+         <td>    
+    </div>                                                                                                    </td>
         
 
         <td>
@@ -174,7 +177,7 @@
                          Security
         
         
-        <br><br><br><br><br>
+        <br><br><br><br><br><br>
         
             <!-- <style="width: 82%; text-align; right; float; left "> -->
         
@@ -182,9 +185,13 @@
     </div>    
     </td>
     </td>
+    <br><br><br><br><br><br><br><br><br>
     </style>
 </body>
-</html>
- <!-- <script>
+<script>
       window.print()
-  </script> -->
+  </script>
+</html>
+
+
+
