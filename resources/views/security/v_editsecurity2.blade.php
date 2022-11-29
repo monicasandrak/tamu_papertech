@@ -38,28 +38,32 @@ Edit Data Security
                             @endforeach
                             @endif
            
-                                    <div class="mb-3">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <label>ID Security</label>
                                         <input type="text" class="form-control" name="id_security" id="exampleInputEmail1" value="{{ $security->id_security }}" readonly>
                                     </div>
-                                    <br>
-                                    <div class="mb-3">
+                                </div>   
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <label>Nama Security</label>
                                         <input type="text" class="form-control" name="nama_security" value="{{ $security->nama_security}}">
                                     </div>
-                                    <br>
-                                    <div class="mb-3">
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <label>Tanggal Lahir</label>
                                         <input type="date" class="form-control" name="tanggal_lahir" value="{{ $security->tanggal_lahir}}">
                                     </div>
-                                    <br>
-                                    <div class="mb-3">
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <label>Alamat</label>
                                         <input type="text" class="form-control" name="alamat" value="{{ $security->alamat}}" >
                                     </div>
-                                    <br>
+                                </div>
                                 
-                                    <div class="mb-3">
+                                <div class="form-group form-float">
                                         <label for="exampleInputEmail1">Jenis Kelamin</label>
                                         <select name="jk" class="form-control">
                                             <option>{{$security->jk}}</option>
@@ -68,9 +72,9 @@ Edit Data Security
                                                 @endforeach
                                         </select>
                 
-                                    </div>
-                                    <br><br>
-                                    <div class="mb-3">
+                                </div>
+                                    
+                                <div class="form-group form-float">
                                         <label for="exampleInputEmail1">Bagian</label>
                                         <select name="bagian" class="form-control">
                                             <option>{{$security->bagian}}</option>
@@ -79,16 +83,16 @@ Edit Data Security
                                                 @endforeach
                                         </select>
                                     </div>
-                                    <br><br>
                                 
-                                    <div class="mb-3">
+                                
+                                <div class="form-group form-float">
                                         <label class="form-label">Foto Security</label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" name="foto_security" class="custom-file-input" id="exampleInputFile">
                                             </div>
                                         </div>
-                                    </div>
+                                </div>
                                 
                                 
                             

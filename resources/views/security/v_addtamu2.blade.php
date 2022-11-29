@@ -37,6 +37,9 @@ Tambah Data Tamu
         <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
         @endif
+
+                                
+                                    
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                     <label>ID Tamu</label>
@@ -163,40 +166,26 @@ Tambah Data Tamu
                                 </div>
                                 </div>
                                 <div class="form-group form-float">
-                                <label for="exampleInputEmail1">Status</label>
-                <select name="status" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown as $row)
-            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
-            @endforeach
-          </select>
-                <!-- <div class="text-danger">
-                    @error('status')
-                        {{ $message}}
-                    @enderror
-                </div> -->
-            </div>
-                                
-                            <br><br>
-
-                            <div class="form-group form-float">
+                                    <label for="exampleInputEmail1">Status</label>
+                                    <select name="status" class="form-control show-tick">
+                                        <option disabled selected>--- Pilih ---</option>
+                                            @foreach ($dropdown as $row)
+                                                <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+                                            @endforeach
+                                    </select>
+                                </div>
+                            
+                                <div class="form-group form-float">
                                 <label for="exampleInputEmail1">Test Swab</label>
-                <select name="swab" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown2 as $row)
-            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
-            @endforeach
-          </select>
-                <!-- <div class="text-danger">
-                    @error('status')
-                        {{ $message}}
-                    @enderror
-                </div> -->
-            </div>
-                                
-                            <br><br>
-                            <div class="form-group form-float">
-                                    
+                                    <select name="swab" class="form-control show-tick">
+                                    <option disabled selected>--- Pilih ---</option>
+                                        @foreach ($dropdown2 as $row)
+                                            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group form-float">
                                     <label></label>
                                         <input type="hidden" class="form-control" name="pemeriksa_tamu" placeholder="Masukan Pemeriksa Tamu" value="{{Auth::user()->username}}" >
                                         
@@ -208,7 +197,7 @@ Tambah Data Tamu
                                 </div>
                                 
                             
-                            <button type="submit" class="btn bg-teal waves-effect">
+                                <button type="submit" class="btn bg-teal waves-effect">
                                     <i class="material-icons">save</i>
                                     <span>SAVE</span>
                                 </button>

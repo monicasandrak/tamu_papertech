@@ -40,19 +40,21 @@ Edit Data User
                                     @endforeach
                                 @endif
 
-                                    <div class="mb-3">
-                                        <label>ID User</label>
-                                        <input type="text" class="form-control" name="id" id="exampleInputEmail1" value="{{ $user->id }}" readonly>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <label>ID User</label>
+                                            <input type="text" class="form-control" name="id" id="exampleInputEmail1" value="{{ $user->id }}" readonly>
+                                        </div>
                                     </div>
-                                    <br>
-                                    <div class="mb-3">
-                                        <label>Username</label>
-                                        <input type="text" class="form-control" name="username" value="{{ $user->username}}">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <label>Username</label>
+                                            <input type="text" class="form-control" name="username" placeholder="Masukan Username" value="{{ $user->username}}">
+                                        </div>
                                     </div>
-                                    <br>
-                                    <div class="mb-3">
+                                    <div class="form-group form-float">
                                         <label for="exampleInputEmail1">Level</label>
-                                        <select name="level" class="form-control" value="{{$user->level}}">
+                                        <select name="level" class="form-control show-tick" value="{{$user->level}}">
                                             <option>
                                                 {{$user->level}}
                                             </option>
@@ -61,12 +63,14 @@ Edit Data User
                                             @endforeach
                                         </select>
                                     </div>
-                                    <br><br>
-                                    <div class="mb-3">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" name="password" value="{{ $user->password}}" >
+                                    
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control" name="password" placeholder="Masukan Password" value="{{ $user->password}}" >
+                                        </div>
                                     </div>
-                                    <br>
+                                    
                                 
                                 
                                 

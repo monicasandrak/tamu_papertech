@@ -24,6 +24,12 @@
 
     <!-- Animation Css -->
     <link href="{{asset('template3')}}/plugins/animate-css/animate.css" rel="stylesheet" />
+    
+    <!-- Bootstrap Select Css -->
+    <link href="{{asset('template3')}}/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- Dropzone Css -->
+    <link href="{{asset('template3')}}/plugins/dropzone/dropzone.css" rel="stylesheet">
 
     <!-- JQuery DataTable Css -->
     <link href="{{asset('template3')}}/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -111,6 +117,9 @@
 
     <!-- Slimscroll Plugin Js -->
     <script src="{{asset('template3')}}/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="{{asset('template3')}}/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="{{asset('template3')}}/plugins/node-waves/waves.js"></script>

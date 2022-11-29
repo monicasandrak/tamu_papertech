@@ -41,76 +41,97 @@ Edit Data Pasien Tamu
                                 <p class="alert alert-danger">{{ $err }}</p>
                             @endforeach
                         @endif
-                        <div class="mb-3">
-                            <label>Tanggal</label>
-                            <input class="form-control" type="text" value="{{$tamu->tanggal}}" name="tanggal" readonly />
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Tanggal</label>
+                                <input class="form-control" type="text" value="{{$tamu->tanggal}}" name="tanggal" readonly />
+                            </div>
                         </div>
                             <!-- <div class="text-danger">
                             @error('tanggal')
                             {{ $message }}
                             @enderror
                         </div> -->
-                        <br>
-                        <div class="mb-3">
-                            <label>ID Tamu</label>
-                            <input class="form-control" type="text" value="{{$tamu->id_tamu}}" name="id_tamu" readonly />
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>ID Tamu</label>
+                                <input class="form-control" type="text" value="{{$tamu->id_tamu}}" name="id_tamu" readonly />
+                            </div>
                         </div>
                         <!-- <div class="text-danger">
                             @error('id_tamu')
                             {{ $message }}
                             @enderror
                         </div> -->
-                        <br>
-                        <div class="mb-3">
-                            <label>Nama Tamu</label>
-                            <input class="form-control" type="text" placeholder="Masukan Nama Tamu" value="{{$tamu->nama_tamu}}" name="nama_tamu" readonly/>
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Nama Tamu</label>
+                                <input class="form-control" type="text" placeholder="Masukan Nama Tamu" value="{{$tamu->nama_tamu}}" name="nama_tamu" readonly/>
+                            </div>
                         </div>
                         <!-- <div class="text-danger">
                             @error('nama_tamu')
                             {{ $message }}
                             @enderror
                         </div> -->
-                        <br>
-                        <div class="mb-3">
-                            <label>Alamat</label>
-                            <input class="form-control" type="text" placeholder="Masukan Alamat" value="{{$tamu->alamat}}" name="alamat" readonly />
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Alamat</label>
+                                <input class="form-control" type="text" placeholder="Masukan Alamat" value="{{$tamu->alamat}}" name="alamat" readonly />
+                            </div>
                         </div>
                         <!-- <div class="text-danger">
                             @error('alamat')
                             {{ $message }}
                             @enderror
                         </div> -->
-                        <br>
-                        <div class="mb-3">
-                            <label>Pekerjaan</label>
-                            <input class="form-control" type="text" placeholder="Masukan Pekerjaan" value="{{$tamu->pekerjaan}}" name="pekerjaan" readonly />
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Pekerjaan</label>
+                                <input class="form-control" type="text" placeholder="Masukan Pekerjaan" value="{{$tamu->pekerjaan}}" name="pekerjaan" readonly />
+                            </div>
                         </div>
+
                         <!-- <div class="text-danger">
                             @error('pekerjaan')
                             {{ $message }}
                             @enderror
                         </div> -->
-                        <br>
-                        <div class="mb-3">
-                            <label>Keperluan</label>
-                            <input class="form-control" type="text" placeholder="Masukan Keperluan" value="{{$tamu->keperluan}}" name="keperluan" readonly />
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Keperluan</label>
+                                <input class="form-control" type="text" placeholder="Masukan Keperluan" value="{{$tamu->keperluan}}" name="keperluan" readonly />
+                            </div>
                         </div>
                         <!-- <div class="text-danger">
                             @error('keperluan')
                             {{ $message }}
                             @enderror
                         </div> -->
-                        <br>
-                        <div class="mb-3">
-                            <label>Bertemu Dengan </label>
-                            <input class="form-control" type="text" placeholder="Masukan Bertemu Dengan" value="{{$tamu->bertemu_dengan}}" name="bertemu_dengan" readonly />
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Bertemu Dengan </label>
+                                <input class="form-control" type="text" placeholder="Masukan Bertemu Dengan" value="{{$tamu->bertemu_dengan}}" name="bertemu_dengan" readonly />
+                            </div>
                         </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Jam Masuk</label>
+                                <input class="form-control" type="text" placeholder="Masukan Jam Masuk" value="{{$tamu->jam_masuk}}" name="jam_masuk" readonly />
+                            </div>
+                        </div>
+
                         <!-- <div class="text-danger">
                             @error('bertemu_dengan')
                             {{ $message }}
                             @enderror
                         </div> -->
-                        <br>
+                        
                         <!-- <div class="mb-3">
                             <label>Nomor KTP/Identitas</label>
                             <input class="form-control" type="text" placeholder="Masukan Nomor KTP/Identitas" value="{{$tamu->no_ktp}}" name="no_ktp" readonly />
@@ -145,9 +166,11 @@ Edit Data Pasien Tamu
                         
                         <br> -->
 
-                        <div class="mb-3">
-                            <label>Test Swab</label>
-                            <input class="form-control" type="text" placeholder="Masukan Test Swab" value="{{$tamu->swab}}" name="swab" readonly />
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label>Test Swab</label>
+                                <input class="form-control" type="text" placeholder="Masukan Test Swab" value="{{$tamu->swab}}" name="swab" readonly />
+                            </div>
                         </div>
                         <!-- <div class="text-danger">
                             @error('jam_masuk')
@@ -156,35 +179,30 @@ Edit Data Pasien Tamu
                         
                        
 
-                        <div class="mb-3">
-                            
-                            <input class="form-control" type="hidden" placeholder="Masukan Pemeriksa Pasien" value="{{Auth::user()->username}}" name="pemeriksa_pasien" readonly />
+                        <div class="form-group form-float">
+                                
+                                <input class="form-control" type="hidden" placeholder="Masukan Pemeriksa Pasien" value="{{Auth::user()->username}}" name="pemeriksa_pasien" readonly />
                         </div>
+                        
                         <!-- <div class="text-danger">
                             @error('jam_masuk')
                             {{ $message }}
                             @enderror -->
                         
-                        <br>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1">Hasil Swab</label>
-                            <select name="hasil_swab" class="form-control" value="{{$tamu->hasil_swab}}">
-                            <option>
-                            --- Pilih ---
-                            </option>
-                            @foreach ($dropdown2 as $hasil_swab)
-                                <option value="{{$hasil_swab}}">{{Str::ucfirst($hasil_swab)}}</option> <!-- php ucfirst() -->
-                            @endforeach
-                            </select>
-                            <!-- <div class="text-danger">
-                            @error('status')
-                                {{ $message}}
-                            @enderror
-                            </div> -->
+                        
+                        <div class="form-group form-float">
+                             
+                                <label for="exampleInputEmail1">Hasil Swab</label>
+                                <select name="hasil_swab" class="form-control" value="{{$tamu->hasil_swab}}">
+                                    <option disabled selected>
+                                        --- Pilih ---
+                                    </option>
+                                    @foreach ($dropdown2 as $hasil_swab)
+                                        <option value="{{$hasil_swab}}">{{Str::ucfirst($hasil_swab)}}</option> <!-- php ucfirst() -->
+                                    @endforeach
+                                </select>
                         </div>
-                        <br>
-                        <br>
-                        <br>
+                        
                         <button type="submit" class="btn bg-teal waves-effect">
                                     <i class="material-icons">save</i>
                                     <span>UPDATE</span>

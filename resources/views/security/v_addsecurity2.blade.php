@@ -85,43 +85,31 @@ Tambah Data Security
                                     </div> -->
                                 </div>
                                 </div>
-                                <div class="form-group">
-                <label for="exampleInputEmail1">Jenis Kelamin</label>
-                <select name="jk" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown as $jk)
-            <option value="{{$jk}}">{{Str::ucfirst($jk)}}</option> <!-- php ucfirst() -->
-            @endforeach
-          </select>
-                <!-- <div class="text-danger">
-                    @error('jk')
-                        {{ $message}}
-                    @enderror
-                </div> -->
-            </div>
-            <br><br>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Bagian</label>
-                <select name="bagian" class="form-control">
-            <option disabled selected>--- Pilih ---</option>
-            @foreach ($dropdown2 as $bagian)
-            <option value="{{$bagian}}">{{Str::ucfirst($bagian)}}</option> <!-- php ucfirst() -->
-            @endforeach
-          </select>
-                <!-- <div class="text-danger">
-                    @error('bagian')
-                        {{ $message}}
-                    @enderror
-                </div> -->
-            </div>
-        <br><br>
+                                <div class="form-group form-float">
+                                    <label for="exampleInputEmail1">Jenis Kelamin</label>
+                                    <select name="jk" class="form-control">
+                                        <option disabled selected>--- Pilih ---</option>
+                                            @foreach ($dropdown as $jk)
+                                                <option value="{{$jk}}">{{Str::ucfirst($jk)}}</option> <!-- php ucfirst() -->
+                                            @endforeach
+                                    </select>
+                                </div>
+            
+                                <div class="form-group form-float">
+                                    <label for="exampleInputEmail1">Bagian</label>
+                                    <select name="bagian" class="form-control show-tick">
+                                        <option disabled selected>--- Pilih ---</option>
+                                            @foreach ($dropdown2 as $bagian)
+                                                <option value="{{$bagian}}">{{Str::ucfirst($bagian)}}</option> <!-- php ucfirst() -->
+                                            @endforeach
+                                    </select>
+                                </div>
                                 
                                 <div class="form-group form-float">
                                 <label class="form-label">Foto Security</label>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" name="foto_security" class="custom-file-input" id="exampleInputFile">
-                                <br>
                                         <!-- <div class="text-danger">
                                             @error('foto_security')
                                                 {{ $message}}
@@ -130,9 +118,7 @@ Tambah Data Security
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
-                            
+                                <br>
                                 <button type="submit" class="btn bg-teal waves-effect">
                                     <i class="material-icons">save</i>
                                     <span>SAVE</span>

@@ -128,7 +128,7 @@ class c_user extends Controller
     public function update(Request $request, $id)
     {
         Request()->validate([
-            'username' => 'required||string|min:5|max:100|unique:users,username',
+            'username' => 'required||string|min:5|max:100|unique:users,id',
             // 'level' => 'required',
             'password' => 'required|min:8',
         ], [
@@ -219,7 +219,7 @@ class c_user extends Controller
     {
 
         $atribut = $request->validate([
-            'username' => 'required||string|min:5|max:100|unique:users,username',
+            'username' => 'required||string|min:5|max:100|unique:users,id',
             
         ],[
             'username.unique' => 'Username sudah ada !',
