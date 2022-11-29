@@ -1,9 +1,9 @@
 @section('title')
-Kelola Data Security
+Laporan Security
 @endsection
 @extends('layout/v_template3')
 @section('page')
-Kelola Data Security
+Laporan Security
 @endsection
 @section('content')
 
@@ -30,7 +30,16 @@ Kelola Data Security
                             </h2>
 
                         </div>
+                        
                         <div class="body">
+                        <!-- <div align="left">
+                                    <a href="/print_laporan_security" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">print</i>
+                                    <span>PRINT</span>
+                                    </a>
+                                
+                          </div> -->
+                          <br>
                         
                             <div class="table-responsive">
                                 <table class="table table-bordered id="table">
@@ -78,7 +87,9 @@ Kelola Data Security
             <button type="submit" onclick="printDiv('btnprint')" class="btn bg-teal waves-effect">
                                     <i class="material-icons">print</i>
                                     <span>PRINT</span>
-            <button>
+            
+      </div>
+      </div>
       </div>
       <br>
       <br>
