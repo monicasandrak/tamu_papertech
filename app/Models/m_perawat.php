@@ -19,8 +19,9 @@ class m_perawat extends Model
         'Tanggal Lahir',
         'Jenis Kelamin',
         'Alamat',
+        'Jadwal Kerja',
         'Foto Perawat',
-    'Jadwal Kerja',
+   
 
     ];
     use HasFactory;
