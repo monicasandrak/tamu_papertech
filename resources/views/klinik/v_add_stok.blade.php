@@ -1,55 +1,28 @@
 @section('title')
-Tambah Data Obat
-@endsection
-<br>
-<br>
-<br>
-@extends('layout/v_template2')
-@section('page')
-Tambah Data Obat
-@endsection
-@section('content')
-<div class="container-fluid">
-    <div class="row">
-      <!-- left column -->
-      
-      <div class="col-md-6">
-
-     <!-- general form elements -->
-     
-     <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Form Tambah Data Obat</h3>
-        </div>
-        {{-- @section('title')
-Kelola Dokter
+Tambah Data Stok Obat
 @endsection
 @extends('layout/v_template3')
 @section('page')
-Kelola Dokter
+Tambah Data Stok Obat
 @endsection
 @section('content')
 <section class="content">
         <div class="container-fluid">
-            <!-- <div class="block-header">
-                <h2>
-                    JQUERY DATATABLES
-                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
-                </h2>
-            </div> -->
-            <!-- Basic Examples -->
+            
+            <!-- Basic Validation -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                TAMBAH DATA PASIEN PEGAWAI
-                            </h2>
+                            <h2>TAMBAH DATA STOK OBAT</h2>
+                            <br>
+                            <ol class="breadcrumb breadcrumb-bg-teal">
+                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Stok Obat</a></li>
+                                <li class="active"><i class="material-icons">library_books</i> Tambah Data Stok Obat</li>
+                            </ol>
                             
-                                <table id="example1" class="table table-bordered table-striped">
-                                
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> --}}
+                        </div>
+                        <div class="body">
         <!-- /.card-header -->
         <!-- form start -->
         <form action="{{route('insert')}}" method="POST" enctype="multipart/form-data">
@@ -76,15 +49,15 @@ Kelola Dokter
             </div>
           </div>
         <div class="form-group">
-            <label for="Obat">Nama Obat</label>
+            <label for="nama">Nama Obat</label>
             <select class="form-control" id="position-option" name="nama_obat">
                 <option disabled selected>--- Pilih ---</option>
                @foreach ($obat as $obat)
-                  <option value="{{ $obat->nama_obat }}"{{ old('obat') == $obat->id_obat ? 'selected' : null }}>{{ $obat->nama_obat }}</option>
+                  <option value="{{ $obat->nama_obat }}"{{ old('nama_obat') == $obat->id_obat ? 'selected' : null }}>{{ $obat->nama_obat }}</option>
                @endforeach
             </select>
             <div class="text-danger">
-                @error('obat')
+                @error('nama_obat')
                     {{ $message}}
                 @enderror
             </div>

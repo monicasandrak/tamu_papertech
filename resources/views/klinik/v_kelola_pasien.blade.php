@@ -55,6 +55,8 @@ Kelola Data Pasien Pegawai
           <th>Departement</th>
           <th>Keluhan</th>
           <th>Diagnosa</th>
+          <th>Pemeriksa</th>
+          <th>Dokter</th>
           <th>Obat</th>
           <th>Jumlah Obat</th>
           <th>Action</th>
@@ -74,6 +76,8 @@ Kelola Data Pasien Pegawai
             <td>{{$data->departement}}</td>
             <td>{{$data->keluhan}}</td>
             <td>{{$data->diagnosa}}</td>
+            <td>{{$data->pemeriksa}}</td>
+            <td>{{$data->dokter}}</td>
             <td>{{$data->obat}}</td>
             <td>{{$data->jumlah}}</td>
 
@@ -99,6 +103,8 @@ Kelola Data Pasien Pegawai
           <th>Departement</th>
           <th>Keluhan</th>
           <th>Diagnosa</th>
+          <th>Pemeriksa</th>
+          <th>Dokter</th>
           <th>Obat</th>
           <th>Jumlah Obat</th>
           <th>Action</th>

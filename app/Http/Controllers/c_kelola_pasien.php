@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\m_pasien;
 use App\Models\obat;
+use App\Models\dokter;
+use App\Models\m_dokter;
 
 class c_kelola_pasien extends Controller
 {
@@ -38,6 +40,7 @@ class c_kelola_pasien extends Controller
     {
         $id_baru = ['id_baru' => $this->m_pasien->id_baru()];
         $obat = obat::all();
+        $dokter = m_dokter::all();
         $dropdown = [
             'Management',
             'Marketing',
@@ -54,7 +57,7 @@ class c_kelola_pasien extends Controller
         $dropdown1 = [
             'Perempuan','Laki - Laki'
         ];
-        return view('klinik.v_add_pasien', $id_baru, compact(['dropdown','obat', 'dropdown1']));
+        return view('klinik.v_add_pasien', $id_baru, compact(['dropdown','obat', 'dropdown1', 'dokter']));
     }
     
     public function insert()
@@ -67,6 +70,7 @@ class c_kelola_pasien extends Controller
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
+            'dokter' => 'required', 
             'obat' => 'required', 
             'jumlah' => 'required', 
         ],[
@@ -77,10 +81,12 @@ class c_kelola_pasien extends Controller
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
-            'obat' => 'Obat wajib diisi !',
-            'jumlah' => 'Jumlah wajib diisi !',
+            'dokter.required' => 'Dokter pemeriksa wajib diisi !',
+            'obat.required' => 'Obat wajib diisi !',
+            'jumlah.required' => 'Jumlah wajib diisi !',
         ]);
-        $datetime = date("d-m-Y");
+        $datetime = date("d F Y");
+        $dokter = m_dokter::all();
         $obat = obat::all();
         $dropdown = [
             'Management',
@@ -107,18 +113,14 @@ class c_kelola_pasien extends Controller
             'departement' => Request()->departement,
             'keluhan' => Request()->keluhan,
             'diagnosa' => Request()->diagnosa,
+            'pemeriksa' => Request()->pemeriksa,
+            'dokter' => Request()->dokter,
             'obat' => Request()->obat,
             'jumlah' => Request()->jumlah,
         ];
-        // if($obat->jumlah < $request->obat)
-        // {
-        //     $this->session->set_flashdata('error','Stok Obat Kurang');
-        // }
-        // else
-        // {
-        // $obat->jumlah -= $request->obat;}
         $this->m_pasien->addData($data);
         $obat = obat::all();
+        $dokter = m_dokter::all();
         $dropdown = [
             'Management',
             'Marketing',
@@ -149,6 +151,7 @@ class c_kelola_pasien extends Controller
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
         $obat = obat::all();
+        $dokter = m_dokter::all();
         $dropdown = [
             'Management',
             'Marketing',
@@ -165,7 +168,7 @@ class c_kelola_pasien extends Controller
         $dropdown1 = [
             'Perempuan','Laki - Laki'
         ];
-        return view('klinik/v_edit_pasien', $data, compact(['dropdown', 'dropdown1', 'obat']));
+        return view('klinik/v_edit_pasien', $data, compact(['dropdown', 'dropdown1', 'obat', 'dokter']));
     }
 
     public function update(Request $request, $id_pasien)
@@ -178,7 +181,10 @@ class c_kelola_pasien extends Controller
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
+            'dokter' => 'required',
             'obat' => 'required', 
+            'jumlah' => 'required', 
+            
         ], [
             // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_pasien.required' => 'Nama pasien wajib diisi !',
@@ -187,9 +193,11 @@ class c_kelola_pasien extends Controller
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
+            'dokter.required' => 'Dokter pemeriksa wajib diisi !',
             'obat.required' => 'Obat wajib diisi !',
+            'jumlah.required' => 'Jumlah wajib diisi !',
         ]);
-        $datetime = date("Y-m-d");
+        $datetime = date("d F Y");
             $data = [
             'id_pasien' => Request()->id_pasien,
             'tanggal' => $datetime,
@@ -199,7 +207,9 @@ class c_kelola_pasien extends Controller
             'departement' => Request()->departement,
             'keluhan' => Request()->keluhan,
             'diagnosa' => Request()->diagnosa,
+            'pemeriksa' => Request()->pemeriksa,
             'obat' => Request()->obat,
+            'jumlah' => Request()->jumlah,
             ];
             $this->m_pasien->editData($id_pasien,$data);
         

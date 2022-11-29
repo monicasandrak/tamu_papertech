@@ -1,25 +1,28 @@
 @section('title')
 Edit Data Dokter
 @endsection
-<br>
-<br>
-<br>
-@extends('layout/v_template2')
+@extends('layout/v_template3')
 @section('page')
 Edit Data Dokter
 @endsection
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-      <!-- left column -->
-      
-      <div class="col-md-6">
-
-     <!-- general form elements -->
-       <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Form Edit Data Dokter</h3>
-        </div>
+<section class="content">
+        <div class="container-fluid">
+            
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>EDIT DATA DOKTER</h2>
+                            <br>
+                            <ol class="breadcrumb breadcrumb-bg-teal">
+                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Dokter</a></li>
+                                <li class="active"><i class="material-icons">library_books</i> Detail Dokter</li>
+                            </ol>
+                            
+                        </div>
+                        <div class="body">
         <!-- /.card-header -->
         <!-- form start -->
             <form action="/dokter/update/{{$dokter->id_dokter}}" method="POST" enctype="multipart/form-data"> 

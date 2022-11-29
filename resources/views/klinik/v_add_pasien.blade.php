@@ -1,27 +1,28 @@
 @section('title')
-Kelola Obat
+Tambah Data Pasien Pegawai
 @endsection
 @extends('layout/v_template3')
 @section('page')
-Kelola Obat
+Tambah Data Pasien Pegawai
 @endsection
 @section('content')
 <section class="content">
         <div class="container-fluid">
-            <!-- <div class="block-header">
-                <h2>
-                    JQUERY DATATABLES
-                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
-                </h2>
-            </div> -->
-            <!-- Basic Examples -->
+            
+            <!-- Basic Validation -->
             <div class="row clearfix">
-
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                KELOLA OBAT
-                            </h2>
+                            <h2>TAMBAH DATA PASIEN PEGAWAI</h2>
+                            <br>
+                            <ol class="breadcrumb breadcrumb-bg-teal">
+                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Pasien Pegawai</a></li>
+                                <li class="active"><i class="material-icons">library_books</i> Tambah Data Pasien Pegawai</li>
+                            </ol>
+                            
+                        </div>
+                        <div class="body">
 
 
         <form action="{{route('insert_pasien')}}" method="POST" enctype="multipart/form-data">
@@ -121,6 +122,29 @@ Kelola Obat
                     @enderror
                 </div>
             </div>
+            <div class="form-group form-float">                
+                <label></label>
+                    <input type="hidden" class="form-control" name="pemeriksa" placeholder="Masukan Pemeriksa" value="{{Auth::user()->username}}" >
+                    <!-- <div class="text-danger">
+                        @error('pemeriksa')
+                            {{ $message}}
+                        @enderror
+                </div> -->
+            </div>
+            <div class="form-group">
+                <label for="Obat">Dokter Pemeriksa</label>
+                <select class="form-control" id="position-option" name="dokter">
+                    <option>--- Pilih ---</option>
+                   @foreach ($dokter as $dokter)
+                      <option value="{{ $dokter->nama_dokter }}"{{ old('dokter') == $dokter->id_dokter ? 'selected' : null }}>{{ $dokter->nama_dokter }}</option>
+                   @endforeach
+                </select>
+                <div class="text-danger">
+                    @error('dokter')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
             <div class="form-group">
                 <label for="Obat">Obat</label>
                 <select class="form-control" id="position-option" name="obat">
@@ -134,6 +158,8 @@ Kelola Obat
                         {{ $message}}
                     @enderror
                 </div>
+            </div>
+                <div class="form-group">
                     <label for="exampleInputEmail1">Jumlah</label>
                     <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah Obat" value="{{ old('jumlah')}}">
                     <div class="text-danger">

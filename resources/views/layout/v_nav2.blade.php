@@ -89,45 +89,63 @@
                     </li>
                     <li>
                         <a href="/kelola_pasien_tamu">
-                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <i class="material-icons">group</i>
                             <span>Kelola Pasien Tamu</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kelola_pasien">
-                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <i class="material-icons">group</i>
                             <span>Kelola Pasien Pegawai</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kelola_obat">
-                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <i class="material-icons">group</i>
                             <span>Kelola Obat</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kelola_perawat">
-                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <i class="material-icons">group</i>
                             <span>Kelola Perawat</span>
                         </a>
                     </li>
                     <li>
                         <a href="/kelola_dokter">
-                            <i class="fa-sharp fa-solid fa-people-roof"></i>
+                            <i class="material-icons">group</i>
                             <span>Kelola Dokter</span>
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="/kelola_obat">
-                            <i class="fa-sharp fa-solid fa-people-roof"></i>
-                            <span>Kelola Pasien Obat</span>
-                        </a>
-                    </li> -->
                     <li>
-                        <a href="/laporan_klinik">
-                            <i class="fa-solid fa-file"></i>
+                        <li class="has-sub">
+                            <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">content_copy</i>
                             <span>Laporan Klinik</span>
+                         
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="/laporan_tamu">Laporan Tamu</a>
+                            </li>
+                            
+                            <li>
+                                <a href="/laporan_pasien">Laporan Pasien</a>
+                            </li>
+                            <li>
+                                <a href="/laporan_obat">Laporan Obat</a>
+                            </li>
+                            
+                            <li>
+                                <a href="/laporan_perawat">Laporan Perawat</a>
+                            </li>
+                            <li>
+                                <a href="/laporan_dokter">Laporan Dokter</a>
+                            </li>
+                            
+                            
+                        </ul>
+        
                     </li>
                     @endif
 

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\m_dokter;
-use App\Http\Controllers\Auth;
-use DB;
+use App\Models\dokter;
+
 
 class c_kelola_dokter extends Controller
 {

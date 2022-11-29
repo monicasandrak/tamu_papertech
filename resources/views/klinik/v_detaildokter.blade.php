@@ -1,15 +1,28 @@
 @section('title')
-dokter
+Detail Dokter
 @endsection
-@extends('layout/v_template2')
+@extends('layout/v_template3')
 @section('page')
-Halaman Detail Dokter
+Detail Dokter
 @endsection
 @section('content')
-<div class="card card-primary">
-    <div class="card-header">
-      <h3 class="card-title">Quick Example</h3>
-    </div>
+<section class="content">
+        <div class="container-fluid">
+            
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>DETAIL DATA DOKTER</h2>
+                            <br>
+                            <ol class="breadcrumb breadcrumb-bg-teal">
+                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Dokter</a></li>
+                                <li class="active"><i class="material-icons">library_books</i> Detail Dokter</li>
+                            </ol>
+                            
+                        </div>
+                        <div class="body">
     <!-- /.card-header -->
     <!-- form start -->
     <form>

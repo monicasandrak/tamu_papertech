@@ -10,6 +10,7 @@ class m_obat extends Model
 {
     use HasFactory;
 
+   
     protected $table = 'obats';
     protected $primaryKey = 'id_obat';
 
@@ -28,7 +29,7 @@ class m_obat extends Model
 
     public function detailData($id_obat)
     {
-     return DB::table('obats')->where('id_obat', $id_obat)->first();
+     return DB::table('obat')->where('id_obat', $id_obat)->first();
     }
     
     public function addData($data)

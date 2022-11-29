@@ -77,9 +77,9 @@ class c_kelola_obat extends Controller
         }
 
         $data = [
-            'obats' => $this->m_obat->detailData($id_obat)
+            'obat' => $this->m_obat->detailData($id_obat)
         ];
-        $data = ['obats' => $this->m_obat->detailData($id_obat)];
+        $data = ['obat' => $this->m_obat->detailData($id_obat)];
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
         return view('klinik/v_edit_obat', $data, compact(['dropdown']));
     }
@@ -127,39 +127,4 @@ class c_kelola_obat extends Controller
         return view('klinik.v_add_stok', $id_baruobatmasuk, compact(['obat']));
     }
 
-    public function insertstok()
-    {
-        Request()->validate([
-            'nama_obat' => 'required',
-            'stok' => 'required', 
-        ],[
-            'nama_obat.required' => 'Nama obat wajib diisi !',
-            'stok.required' => 'stok wajib diisi !',
-        ]);
-        $datetime = date("d-m-Y");
-        $obat = obat::all();
-        $data = [
-            'id_obatmasuk' => Request()->id_obatmasuk,
-            'nama_obat' => Request()->nama_obat,
-            'tanggal' => Request()->tanggal,
-            'stok' => Request()->stok,
-        ];
-        $obat = obat::all();
-        $this->m_obat->addDatastok($data);
-        return redirect()->route('obat')->with('pesan', 'Data berhasil ditambahkan !');
-    }
 }
-
-//     public function print()
-//     {
-//         //mengambil data dan tampilan dari halaman laporan_pdf
-//         //data di bawah ini bisa kalian ganti nantinya dengan data dari database
-// //         $data = PDF::loadview('v_print', [
-// //             'data' => 'Laporan Data Dosen ' . date('d F Y'),
-// //             'dosen' => $this->M_Dosen->allData()
-// //         ])->setPaper('a4', 'landscape');
-// //         //mendownload laporan.pdf
-// //         return $data->download('laporan.pdf');
-// //     }
-// // }
-//     }}
