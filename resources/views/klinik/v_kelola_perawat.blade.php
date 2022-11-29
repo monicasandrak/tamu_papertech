@@ -53,8 +53,8 @@ Kelola Perawat
           <th>Tanggal Lahir</th>
           <th>Jenis Kelamin</th>
           <th>Alamat</th>
-          <th>Foto Perawat</th>
           <th>Jadwal Kerja</th>
+          <th>Foto Perawat</th>
           <th>Action</th>
         </tr>
       </thead>

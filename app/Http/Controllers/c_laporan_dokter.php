@@ -3,30 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\m_perawat;
+use App\Models\m_dokter;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
-class c_laporan_perawat extends Controller
+class c_laporan_dokter extends Controller
 {
     public function __construct()
     {
         // $this->middleware('auth');
-        $this->m_perawat = new m_perawat();
+        $this->m_dokter = new m_dokter();
     }
     
     public function index()
     {
-        $data = ['perawat' => $this->m_perawat->allData()
+        $data = ['dokter' => $this->m_dokter->allData()
     ];
     if (Auth::check()) {
         if (Auth::user()->level !== 'klinik')
             {
                 return back();
             }
-        return view('klinik/v_laporan_perawat', $data);
+        return view('klinik/v_laporan_dokter', $data);
     
     }
     else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');

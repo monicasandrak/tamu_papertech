@@ -1,9 +1,9 @@
 @section('title')
-Kelola Data Obat
+Kelola Data Dokter
 @endsection
 @extends('layout/v_template3')
 @section('page')
-Kelola Data Obat
+Kelola Data Dokter
 @endsection
 @section('content')
 
@@ -26,7 +26,7 @@ Kelola Data Obat
                     <div class="card">
                         <div id="btnprint" class="header">
                             <h2>
-                                LAPORAN DATA OBAT
+                                LAPORAN DATA DOKTER
                             </h2>
 
                         </div>
@@ -36,27 +36,33 @@ Kelola Data Obat
                                 <table class="table table-bordered id="table">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>ID Obat</th>
-                                            <th>Nama Obat</th>
-                                            <th>Bentuk Sediaan</th>
-                                            <th>Kegunaan Obat</th>
-                                            <th>Stok</th>
+                                          <th>No</th>
+                                          <th>ID Dokter</th>
+                                          <th>Nama Lengkap</th>
+                                          <th>Tanggal Lahir</th>
+                                          <th>Jenis Kelamin</th>
+                                          <th>Alamat</th>
+                                          <th>Keahlian</th>
+                                          <th>Jadwal Kerja</th>
+                                          <th>Foto Dokter</th>
                                         
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
                                     <?php $no=1;?>
-                                    @foreach ($obats as $data)  
+                                    @foreach ($dokter as $data)  
         
                                   <tr>
                                     <td>{{$no++}}</td>
-                                    <td>{{$data->id_obat}}</td>
-                                    <td>{{$data->nama_obat}}</td>
-                                    <td>{{$data->jenis_obat}}</td>
-                                    <td>{{$data->satuan}}</td>
-                                    <td>{{$data->stok}}</td>
+                                    <td>{{$data->id_dokter}}</td>
+                                    <td>{{$data->nama_dokter}}</td>
+                                    <td>{{$data->tanggal_lahir}}</td>
+                                    <td>{{$data->jenis_kelamin}}</td>
+                                    <td>{{$data->alamat}}</td>
+                                    <td>{{$data->keahlian}}</td>
+                                    <td>{{$data->jk}}</td>
+                                    <td><img src="{{url('foto_dokter/'.$data->foto_dokter)}}" width="100px"></td>
                                     
                                   </tr>
                                   @endforeach
@@ -74,7 +80,7 @@ Kelola Data Obat
             <button type="submit" onclick="printDiv('btnprint')" class="btn bg-teal waves-effect">
                                     <i class="material-icons">print</i>
                                     <span>PRINT</span>
-            
+           
       </div>
       <br>
       <br>

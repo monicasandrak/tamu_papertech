@@ -53,9 +53,9 @@ Kelola Dokter
           <th>Tanggal Lahir</th>
           <th>Jenis Kelamin</th>
           <th>Alamat</th>
-          <th>Foto Dokter</th>
           <th>Keahlian</th>
           <th>Jadwal Kerja</th>
+          <th>Foto Dokter</th>
           <th>Action</th>
         </tr>
       </thead>

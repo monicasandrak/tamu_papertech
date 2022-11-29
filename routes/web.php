@@ -15,6 +15,7 @@ use App\Http\Controllers\c_laporan_klinik;
 use App\Http\Controllers\c_laporan_pegawai;
 use App\Http\Controllers\c_laporan_obat;
 use App\Http\Controllers\c_laporan_perawat;
+use App\Http\Controllers\c_laporan_dokter;
 use App\Http\Controllers\c_login;
 use App\Http\Controllers\c_tamu;
 use App\Http\Controllers\c_laporan_security;
@@ -68,6 +69,7 @@ Route::put('/obat/update/{id_obat}', [c_kelola_obat::class,'update'])->name('upd
 Route::get('/laporan_klinik', [c_laporan_klinik::class, 'index'])->name('laporan_klinik');
 Route::get('/laporan_obat', [c_laporan_obat::class, 'index'])->name('laporan_obat');
 Route::get('/laporan_perawat', [c_laporan_perawat::class, 'index'])->name('laporan_perawat');
+Route::get('/laporan_dokter', [c_laporan_dokter::class, 'index'])->name('laporan_dokter');
 
 Route::get('/kelola_perawat', [c_kelola_perawat::class,'index'])->name('perawat');
 Route::get('/perawat/add', [c_kelola_perawat::class,'add']);
