@@ -126,7 +126,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/laporan_tamu">Laporan Tamu</a>
+                                <a href="/laporan_pasien_tamu">Laporan Pasien Tamu</a>
                             </li>
                             
                             <li>

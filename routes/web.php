@@ -11,6 +11,7 @@ use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
 use App\Http\Controllers\c_kelola_obatmasuk;
 use App\Http\Controllers\c_laporan_tamu;
+use App\Http\Controllers\c_laporan_tamu2;
 use App\Http\Controllers\c_laporan_klinik;
 use App\Http\Controllers\c_laporan_pegawai;
 use App\Http\Controllers\c_laporan_obat;
@@ -68,6 +69,8 @@ Route::put('/obat/update/{id_obat}', [c_kelola_obat::class,'update'])->name('upd
 Route::get('/laporan_klinik', [c_laporan_klinik::class, 'index'])->name('laporan_klinik');
 Route::get('/laporan_obat', [c_laporan_obat::class, 'index'])->name('laporan_obat');
 Route::get('/laporan_perawat', [c_laporan_perawat::class, 'index'])->name('laporan_perawat');
+Route::get('/laporan_pasien_tamu', [c_laporan_tamu2::class, 'index'])->name('laporan_pasien_tamu');
+Route::post('/lap_filter_pasien_tamu', [c_laporan_tamu::class,'filter'])->name('filter_pasien_tamu');
 
 Route::get('/kelola_perawat', [c_kelola_perawat::class,'index'])->name('perawat');
 Route::get('/perawat/add', [c_kelola_perawat::class,'add']);
@@ -113,7 +116,7 @@ Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']
 Route::get('/laporan_tamu', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
 Route::get('/cetak_laporan_tamu', [c_laporan_tamu::class, 'cetak_tamu'])->name('cetak_laporan_tamu');
 Route::get('/laporan/print_laporan', [c_laporan_tamu::class, 'laporan'])->name('lihat_laporan_tamu');
-Route::post('/laporan_laporan', [c_laporan_tamu::class,'filter'])->name('filter');
+Route::post('/filter_laporan_tamu', [c_laporan_tamu::class,'filter'])->name('filter');
 
 Route::get('/form-laporan-tamu', [c_laporan_tamu::class, 'laporantamu'])->name('form-laporan-tamu');
 Route::get('/laporan-pertanggal/{dari_tanggal}/{sampai_tanggal}', [c_laporan_tamu::class, 'lihatlaporan'])->name('laporan-pertanggal');
