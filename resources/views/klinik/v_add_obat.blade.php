@@ -17,7 +17,7 @@ Tambah Data Obat
                             <h2>TAMBAH DATA OBAT</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Obat</a></li>
+                                <li><a href="/kelola_obat"><i class="material-icons">group</i> Kelola Obat</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Tambah Data Obat</li>
                             </ol>
                             

@@ -77,9 +77,9 @@ class c_kelola_obat extends Controller
         }
 
         $data = [
-            'obat' => $this->m_obat->detailData($id_obat)
+            'obats' => $this->m_obat->detailData($id_obat)
         ];
-        $data = ['obat' => $this->m_obat->detailData($id_obat)];
+        $data = ['obats' => $this->m_obat->detailData($id_obat)];
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
         return view('klinik/v_edit_obat', $data, compact(['dropdown']));
     }
@@ -118,7 +118,7 @@ class c_kelola_obat extends Controller
         //     unlink(public_path('foto_dosen') . '/' . $dosen->foto_dosen);
         // }
         $this->m_obat->deleteData($id_obat);
-        return redirect()->route('obat')->with('pesan', 'Data berhasil dihapus !');
+        return redirect()->route('obats')->with('pesan', 'Data berhasil dihapus !');
     }
     public function addstok()
     {

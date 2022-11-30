@@ -17,7 +17,7 @@ Edit Data Pasien Pegawai
                             <h2>EDIT DATA PASIEN PEGAWAI</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Pasien Pegawai</a></li>
+                                <li><a href="/kelola_pasien"><i class="material-icons">group</i> Kelola Pasien Pegawai</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Pasien Pegawai</li>
                             </ol>
                             
@@ -29,9 +29,18 @@ Edit Data Pasien Pegawai
             <!-- <form action="{{route('update_pasien', $pasien->id_pasien)}}" method="post" enctype="multipart/form-data"> -->
           @csrf
           @method('put')
-          <!-- @method('PUT') -->
-         
             <div class="card-body">
+                @if(session('success'))
+                <p class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">{{session('success')}} &times;</a></p>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger alert-dissmissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>a</strong>{{ session('error') }}</div>
+            @endif
+            @if($errors->any())
+                @foreach($errors->all() as $err)
+                    <p class="alert alert-danger">{{ $err }}</p>
+                @endforeach
+            @endif
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID Pasien</label>
                     <input type="text" name="id_pasien" class="form-control" id="exampleInputEmail1"  value="{{$pasien->id_pasien}}" readonly>
@@ -116,6 +125,29 @@ Edit Data Pasien Pegawai
                 </div>
             </div>
             <div class="form-group">
+                <label for="exampleInputEmail1">Pemeriksa</label>
+                <input type="text" name="pemeriksa" class="form-control" id="exampleInputEmail1" placeholder="Masukan Pemeriksa" value="{{$pasien->pemeriksa}}" readonly>
+                <div class="text-danger">
+                    @error('pemeriksa')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Obat">Dokter</label>
+                <select class="form-control" id="position-option" name="dokter">
+                    <option>{{$pasien->dokter}}</option>
+                   @foreach ($dokter as $dokter)
+                      <option value="{{ $dokter->nama_dokter }}"{{ old('dokter') == $dokter->id_dokter ? 'selected' : null }}>{{ $dokter->nama_dokter }}</option>
+                   @endforeach
+                </select>
+                <div class="text-danger">
+                    @error('dokter')
+                        {{ $message}}
+                    @enderror
+                </div>
+             </div>
+            <div class="form-group">
                 <label for="Obat">Obat</label>
                 <select class="form-control" id="position-option" name="obat">
                     <option>{{$pasien->obat}}</option>
@@ -129,9 +161,18 @@ Edit Data Pasien Pegawai
                     @enderror
                 </div>
              </div>
+             <div class="form-group">
+                <label for="exampleInputEmail1">Jumlah Obat</label>
+                <input type="text" name="jumlah" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jumlah Obat" value="{{$pasien->jumlah}}">
+                <div class="text-danger">
+                    @error('jumlah')
+                        {{ $message}}
+                    @enderror
+                </div>
+            </div>
             <div class="card-footer">
             <a class="btn btn-danger" href="{{ route('pasien') }}">Back</a>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit"  class="btn btn-primary">Update</button>
             
           </div>
         </form>

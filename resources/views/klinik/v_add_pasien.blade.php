@@ -17,7 +17,7 @@ Tambah Data Pasien Pegawai
                             <h2>TAMBAH DATA PASIEN PEGAWAI</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Pasien Pegawai</a></li>
+                                <li><a href="/kelola_pasien"><i class="material-icons">group</i> Kelola Pasien Pegawai</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Tambah Data Pasien Pegawai</li>
                             </ol>
                             

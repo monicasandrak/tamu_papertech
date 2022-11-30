@@ -17,7 +17,7 @@ Tambah Data Dokter
                             <h2>TAMBAH DATA DOKTER</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Dokter</a></li>
+                                <li><a href="/kelola_dokter"><i class="material-icons">group</i> Kelola Dokter</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Tambah Data Dokter</li>
                             </ol>
                             

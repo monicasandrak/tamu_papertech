@@ -17,7 +17,7 @@ Detail Perawat
                             <h2>DETAIL DATA PERAWAT</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Perawat</a></li>
+                                <li><a href="/kelola_perawat"><i class="material-icons">group</i> Kelola Perawat</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Perawat</li>
                             </ol>
                             
@@ -25,43 +25,103 @@ Detail Perawat
                         <div class="body">
     <!-- /.card-header -->
     <!-- form start -->
-    <form>
-      <div class="card-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">ID Perawat : </label>
-          {{$perawat->id_perawat}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nama Perawat : </label>
-          {{$perawat->nama_perawat}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Tanggal Lahir : </label>
-          {{$perawat->tanggal_lahir}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Jenis Kelamin : </label>
-          {{$perawat->jenis_kelamin}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Alamat : </label>
-          {{$perawat->alamat}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Foto Perawat : </label>
-          <img src="{{url('foto_perawat/'.$perawat->foto_perawat)}}" width="200px">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Jadwal Kerja : </label>
-          {{$perawat->jk}}
-        </div>
+    <div class="form-group form-float">
+      <div class="form-line">
+        <label>ID Perawat</label>
+          <input type="text" class="form-control" name="id_perawat" id="exampleInputEmail1" value="{{ $perawat->id_perawat }}" readonly>
+          
+          <!-- <div class="text-danger">
+              @error('id_perawat')
+                  {{ $message}}
+              @enderror
+          </div> -->
       </div>
-      <!-- /.card-body -->
-
-      <div class="card-footer">
-        <a href="/kelola_perawat"><button type="button" class="btn btn-primary">Kembali</button></a>
-      </div>
-    </form>
   </div>
-@endsection
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Nama Perawat</label>
+          <input type="text" class="form-control" name="nama_perawat" value="{{ $perawat->nama_perawat }}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('nama_perawat')
+                  {{ $message}}
+              @enderror
+          </div> -->
+      </div>
+  </div>
+  
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Tanggal Lahir</label>
+          <input type="text" class="form-control" name="tanggal_lahir" value="{{$perawat->tanggal_lahir}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('tanggal_lahir')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+  </div>
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Jenis Kelamin</label>
+          <input type="text" class="form-control" name="jenis_kelamin" value="{{ $perawat->jenis_kelamin }}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('jenis_kelamin')
+                  {{ $message}}
+              @enderror
+          </div> -->
+      </div>
+  </div>
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Alamat</label>
+          <input type="text" class="form-control" name="alamat" value="{{$perawat->alamat}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('alamat')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+  </div>
+<div class="form-group form-float">
+  <div class="form-line">
+    <label>Jadwal Kerja</label>
+      <input type="text" class="form-control" name="jk" value="{{$perawat->jk}}" readonly >
+      
+      <!-- <div class="text-danger">
+          @error('jk')
+              {{ $message}}
+          @enderror
+  </div> -->
+</div>
+</div>
+ 
+  
+  <div class="form-group form-float">
+      <!-- <div class="form-line"> -->
+         <label>Foto Perawat</label>
+         <br> <br>
+          <img src="{{url('foto_perawat/'.$perawat->foto_perawat)}}" width="200px">
+          
+         
+          <!-- <div class="text-danger">
+              @error('foto_perawat')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  <!-- </div> -->
+  </div>
+  
+  
 
+  <!-- <button type="submit" class="btn bg-teal waves-effect">
+      <i class="material-icons">save</i>
+      <span>SAVE</span> -->
+</form>
+</div>
+</div>
+</div>
+</div>

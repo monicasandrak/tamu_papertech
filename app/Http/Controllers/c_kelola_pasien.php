@@ -7,6 +7,7 @@ use App\Models\m_pasien;
 use App\Models\obat;
 use App\Models\dokter;
 use App\Models\m_dokter;
+use Illuminate\Support\Facades\Auth;
 
 class c_kelola_pasien extends Controller
 {
@@ -70,6 +71,7 @@ class c_kelola_pasien extends Controller
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
+            'pemeriksa' => 'required', 
             'dokter' => 'required', 
             'obat' => 'required', 
             'jumlah' => 'required', 
@@ -81,11 +83,12 @@ class c_kelola_pasien extends Controller
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
+            'pemeriksa.required' => 'Pemeriksa wajib diisi !',
             'dokter.required' => 'Dokter pemeriksa wajib diisi !',
             'obat.required' => 'Obat wajib diisi !',
             'jumlah.required' => 'Jumlah wajib diisi !',
         ]);
-        $datetime = date("d F Y");
+        $datetime = date("Y-m-d");
         $dokter = m_dokter::all();
         $obat = obat::all();
         $dropdown = [
@@ -150,6 +153,7 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
+        $data = ['pasien' => $this->m_pasien->detailData($id_pasien)];
         $obat = obat::all();
         $dokter = m_dokter::all();
         $dropdown = [
@@ -168,48 +172,47 @@ class c_kelola_pasien extends Controller
         $dropdown1 = [
             'Perempuan','Laki - Laki'
         ];
-        return view('klinik/v_edit_pasien', $data, compact(['dropdown', 'dropdown1', 'obat', 'dokter']));
+        return view('klinik/v_edit_pasien', $data, compact(['dropdown', 'dropdown1', 'dokter', 'obat']));
     }
 
     public function update(Request $request, $id_pasien)
     {
         Request()->validate([
-            // 'tanggal' => 'required',
             'nama_pasien' => 'required',
             'jenis_kelamin' => 'required',
             'umur' => 'required',
             'departement' => 'required',
             'keluhan' => 'required',
             'diagnosa' => 'required',
-            'dokter' => 'required',
+            'pemeriksa' => 'required', 
+            'dokter' => 'required', 
             'obat' => 'required', 
             'jumlah' => 'required', 
-            
         ], [
-            // 'tanggal.required' => 'Tanggal wajib diisi !',
             'nama_pasien.required' => 'Nama pasien wajib diisi !',
             'jenis_kelamin.required' => 'Jenis kelamin wajib diisi !',
             'umur.required' => 'Umur wajib diisi !',
             'departement.required' => 'Departement wajib diisi !',
             'keluhan.required' => 'Keluhan wajib diisi !',
             'diagnosa.required' => 'Diagnosa wajib diisi !',
+            'pemeriksa.required' => 'Pemeriksa wajib diisi !',
             'dokter.required' => 'Dokter pemeriksa wajib diisi !',
             'obat.required' => 'Obat wajib diisi !',
             'jumlah.required' => 'Jumlah wajib diisi !',
         ]);
-        $datetime = date("d F Y");
             $data = [
-            'id_pasien' => Request()->id_pasien,
-            'tanggal' => $datetime,
-            'nama_pasien' => Request()->nama_pasien,
-            'jenis_kelamin' => Request()->jenis_kelamin,
-            'umur' => Request()->umur,
-            'departement' => Request()->departement,
-            'keluhan' => Request()->keluhan,
-            'diagnosa' => Request()->diagnosa,
-            'pemeriksa' => Request()->pemeriksa,
-            'obat' => Request()->obat,
-            'jumlah' => Request()->jumlah,
+                'id_pasien' => Request()->id_pasien,
+                // 'tanggal' => $datetime,
+                'nama_pasien' => Request()->nama_pasien,
+                'jenis_kelamin' => Request()->jenis_kelamin,
+                'umur' => Request()->umur,
+                'departement' => Request()->departement,
+                'keluhan' => Request()->keluhan,
+                'diagnosa' => Request()->diagnosa,
+                'pemeriksa' => Request()->pemeriksa,
+                'dokter' => Request()->dokter,
+                'obat' => Request()->obat,
+                'jumlah' => Request()->jumlah,
             ];
             $this->m_pasien->editData($id_pasien,$data);
         

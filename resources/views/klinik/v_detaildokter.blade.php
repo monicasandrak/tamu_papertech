@@ -17,7 +17,7 @@ Detail Dokter
                             <h2>DETAIL DATA DOKTER</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Dokter</a></li>
+                                <li><a href="/kelola_dokter"><i class="material-icons">group</i> Kelola Dokter</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Dokter</li>
                             </ol>
                             
@@ -25,47 +25,117 @@ Detail Dokter
                         <div class="body">
     <!-- /.card-header -->
     <!-- form start -->
-    <form>
-      <div class="card-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">ID Dokter : </label>
-          {{$dokter->id_dokter}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nama Dokter : </label>
-          {{$dokter->nama_dokter}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Tanggal Lahir : </label>
-          {{$dokter->tanggal_lahir}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Jenis Kelamin : </label>
-          {{$dokter->jenis_kelamin}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Alamat : </label>
-          {{$dokter->alamat}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Foto Dokter : </label>
-          <img src="{{url('foto_dokter/'.$dokter->foto_dokter)}}" width="200px">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Keahlian : </label>
-          {{$dokter->keahlian}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Jadwal Kerja : </label>
-          {{$dokter->jk}}
-        </div>
-      </div>
-      <!-- /.card-body -->
 
-      <div class="card-footer">
-        <a href="/kelola_dokter"><button type="button" class="btn btn-primary">Kembali</button></a>
+
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>ID Dokter</label>
+          <input type="text" class="form-control" name="id_dokter" id="exampleInputEmail1" value="{{ $dokter->id_dokter }}" readonly>
+          
+          <!-- <div class="text-danger">
+              @error('id_dokter')
+                  {{ $message}}
+              @enderror
+          </div> -->
       </div>
-    </form>
   </div>
-@endsection
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Nama Dokter</label>
+          <input type="text" class="form-control" name="nama_dokter" value="{{ $dokter->nama_dokter }}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('nama_dokter')
+                  {{ $message}}
+              @enderror
+          </div> -->
+      </div>
+  </div>
+  
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Tanggal Lahir</label>
+          <input type="text" class="form-control" name="tanggal_lahir" value="{{$dokter->tanggal_lahir}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('tanggal_lahir')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+  </div>
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Jenis Kelamin</label>
+          <input type="text" class="form-control" name="jenis_kelamin" value="{{ $dokter->jenis_kelamin }}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('jenis_kelamin')
+                  {{ $message}}
+              @enderror
+          </div> -->
+      </div>
+  </div>
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Alamat</label>
+          <input type="text" class="form-control" name="alamat" value="{{$dokter->alamat}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('alamat')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+  </div>
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Keahlian</label>
+          <input type="text" class="form-control" name="keahlian" value="{{$dokter->keahlian}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('keahlian')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+</div>
+<div class="form-group form-float">
+  <div class="form-line">
+    <label>Jadwal Kerja</label>
+      <input type="text" class="form-control" name="jk" value="{{$dokter->jk}}" readonly >
+      
+      <!-- <div class="text-danger">
+          @error('jk')
+              {{ $message}}
+          @enderror
+  </div> -->
+</div>
+</div>
+ 
+  
+  <div class="form-group form-float">
+      <!-- <div class="form-line"> -->
+         <label>Foto Dokter</label>
+         <br> <br>
+          <img src="{{url('foto_dokter/'.$dokter->foto_dokter)}}" width="200px">
+          
+         
+          <!-- <div class="text-danger">
+              @error('foto_dokter')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  <!-- </div> -->
+  </div>
+  
+  
 
+  <!-- <button type="submit" class="btn bg-teal waves-effect">
+      <i class="material-icons">save</i>
+      <span>SAVE</span> -->
+</form>
+</div>
+</div>
+</div>
+</div>

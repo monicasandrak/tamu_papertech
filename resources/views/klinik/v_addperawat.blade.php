@@ -17,7 +17,7 @@ Tambah Data Perawat
                             <h2>TAMBAH DATA PERAWAT</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Perawat</a></li>
+                                <li><a href="/kelola_perawat"><i class="material-icons">group</i> Kelola Perawat</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Tambah Data Perawat</li>
                             </ol>
                             

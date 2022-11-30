@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\m_perawat;
-use App\Http\Controllers\Auth;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class c_kelola_perawat extends Controller
 {
@@ -85,7 +85,18 @@ class c_kelola_perawat extends Controller
 
         $data = ['perawat' => $this->m_perawat->detailData($id_perawat)];
         $dropdown = ['Laki-laki','Perempuan'];
+      
+        
+        if (Auth::check()) {
+            //check the tamu add
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_editperawat',$data, compact(['dropdown']));
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function update($id_perawat)
@@ -95,13 +106,15 @@ class c_kelola_perawat extends Controller
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
-            'foto_perawat' => '|mimes:jpg,png,jpeg,bmp|max:1024',
+           
             'jk' => 'required',
+            'foto_perawat' => '|mimes:jpg,png,jpeg,bmp|max:1024',
         ], [
             'nama_perawat.required' => 'Nama perawat wajib diisi !',
             'tanggal_lahir.required' => 'Tanggal lahir wajib diisi !',
             'jenis_kelamin.required' => 'Jenis Kelamin wajib diisi !',
             'alamat.required' => 'Alamat wajib diisi !',
+           
             'jk.required' => 'Jadwal Kerja wajib diisi !',
         ]);
         //jika validasi tidak ada maka lakukan simpan data
@@ -110,11 +123,9 @@ class c_kelola_perawat extends Controller
             $file = Request()->foto_perawat;
             $fileName = Request()->id_perawat .'.'. $file->extension();
             $file->move(public_path('foto_perawat'),$fileName);
-            $file2 = Request()->status;
-            $fileStatus = Request()->id_perawat.'.'. $file2->extension();
-            $file2->move(public_path('status'),$fileStatus);
+           
             $dropdown = ['Laki-laki','Perempuan'];
-            // $datetime = date("Y-m-d");
+
 
             $data = [
             'id_perawat' => Request()->id_perawat,
@@ -122,8 +133,9 @@ class c_kelola_perawat extends Controller
             'tanggal_lahir' => Request()->tanggal_lahir,
             'jenis_kelamin' => Request()->jenis_kelamin,
             'alamat' => Request()->alamat,
-            'foto_perawat' => $fileName,
+          
             'jk' => Request()->jk,
+            'foto_perawat' => $fileName,
             
             ];
             $this->m_perawat->editData($id_perawat,$data);
@@ -131,12 +143,14 @@ class c_kelola_perawat extends Controller
         else {
             //jika tidak ganti gambar/foto
             $data = [
-            'id_perawat' => Request()->id_perawat,
-            'nama_perawat' => Request()->nama_perawat,
-            'tanggal_lahir' => Request()->tanggal_lahir,
-            'jenis_kelamin' => Request()->jenis_kelamin,
-            'alamat' => Request()->alamat,
-            'jk' => Request()->jk,
+                'id_perawat' => Request()->id_perawat,
+                'nama_perawat' => Request()->nama_perawat,
+                'tanggal_lahir' => Request()->tanggal_lahir,
+                'jenis_kelamin' => Request()->jenis_kelamin,
+                'alamat' => Request()->alamat,
+                
+                'jk' => Request()->jk,
+
             ];
             $this->m_perawat->editData($id_perawat,$data);
         

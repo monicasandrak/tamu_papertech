@@ -13,7 +13,7 @@ use App\Http\Controllers\c_kelola_obatmasuk;
 use App\Http\Controllers\c_laporan_tamu;
 use App\Http\Controllers\c_laporan_tamu2;
 use App\Http\Controllers\c_laporan_klinik;
-use App\Http\Controllers\c_laporan_pegawai;
+use App\Http\Controllers\c_laporan_pasien;
 use App\Http\Controllers\c_laporan_obat;
 use App\Http\Controllers\c_laporan_perawat;
 use App\Http\Controllers\c_laporan_dokter;
@@ -70,12 +70,14 @@ Route::put('/obat/update/{id_obat}', [c_kelola_obat::class,'update'])->name('upd
 Route::get('/laporan_klinik', [c_laporan_klinik::class, 'index'])->name('laporan_klinik');
 Route::get('/laporan_obat', [c_laporan_obat::class, 'index'])->name('laporan_obat');
 Route::get('/laporan_perawat', [c_laporan_perawat::class, 'index'])->name('laporan_perawat');
-<<<<<<< HEAD
+
 Route::get('/laporan_dokter', [c_laporan_dokter::class, 'index'])->name('laporan_dokter');
-=======
+
 Route::get('/laporan_pasien_tamu', [c_laporan_tamu2::class, 'index'])->name('laporan_pasien_tamu');
 Route::post('/lap_filter_pasien_tamu', [c_laporan_tamu::class,'filter'])->name('filter_pasien_tamu');
->>>>>>> 2a418835ac36539c4c8b38d0ee5f9ebd81f247b0
+Route::get('/laporan_pasien', [c_laporan_pasien::class, 'index'])->name('laporan_pasien');
+Route::post('/lap_filter_pasien', [c_laporan_pasien::class,'filter'])->name('filter_pasien');
+
 
 Route::get('/kelola_perawat', [c_kelola_perawat::class,'index'])->name('perawat');
 Route::get('/perawat/add', [c_kelola_perawat::class,'add']);
