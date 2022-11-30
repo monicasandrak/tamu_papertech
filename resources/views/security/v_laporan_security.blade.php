@@ -29,6 +29,13 @@ Laporan Data Security
                                 </li>
                             </ul> -->
                         </div>
+                        <div align="left">
+                                    <a href="/tamu/add" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">add_circle_outline</i>
+                                    <span>ADD DATA</span>
+                                    </a>
+                                
+                                </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">

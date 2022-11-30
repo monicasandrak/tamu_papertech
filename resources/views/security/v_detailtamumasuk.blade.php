@@ -17,7 +17,7 @@ Tamu Masuk
                             <h2>TAMU MASUK</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/tamu_masuk"><i class="material-icons">group</i> Tamu</a></li>
+                                <li><a href="/tamu_masuk"><i class="material-icons">group</i> Tamu Masuk</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Tamu Masuk</li>
                             </ol>
                             

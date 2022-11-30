@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <title>Surat Tamu</title>
-    <style>
+    <style type="text/css">
         /* @page {
             size : 8in 7.5in;
         } */
@@ -18,7 +20,7 @@
             width : auto;
             height: auto;
             position: absolute;
-            border: 1px solid;
+            border: 1.5px solid;
             padding-top: 30px;
             padding-left :30px;
             padding-right: 30px;
@@ -27,11 +29,17 @@
             .table{
                 display:inline;
             }
+            #ttd {
+                margin-bottom: 20px;
+            }
+
+            
 
         }
     </style>
 </head>
 <body>
+    
     <div id=halaman>
         <table>
             <tr>
@@ -47,6 +55,7 @@
            </tr>
     
         </table>
+        <br>
         <table width="470">
             <center>
                 <font size ="4"> SURAT TAMU</font>
@@ -119,15 +128,16 @@
 
             
 
-        <div style="width: 30%; text-align; left; float; right">
+        <div align="right">
         Subang, {{$tamu->tanggal}} <br>
         Yang Bertanda Tangan,
-        </div>
+        
         <br><br><br><br><br>
-        <div style="width: 32%; text-align; left; float; right ">
+        <!-- <div style="width: 32%; text-align; right; float; right "> -->
         ({{$tamu->nama_tamu}})
         </div>
-        <p>Note : *Kalau sudah, selesai, harap surat ini dikembalikan ke bagian keamanan* </p>
+        <!-- <p>Note :</p> -->
+        <p>Note : Kalau sudah selesai, harap surat ini dikembalikan ke bagian keamanan* </p>
             <tr>
                 <td>Jam Masuk</td>
                 <td>:</td>
@@ -138,22 +148,51 @@
                 <td>Jam Keluar</td>
                 <td>:</td>
                 <td>...............</td>
+    
             </tr>
-
+        <br><br>
         <tr>
             <td colspan="7"><hr></td>
         </tr>
+        <br>
 
-        <div style="width: 80%; text-align; right; float; left">
-        Mengetahui<br>
-        Security,
-        </div>
+        <!-- <table width="500">
+        <tr> -->
+        <div style="width:0%;text-align:right;float:left">
+        Yang dituju <br>
+        
+        
         <br><br><br><br><br>
-        <div style="width: 82%; text-align; right; float; left ">
+         
+            <!-- <style="width: 82%; text-align; right; float; left "> -->
+        (....................)
+        
+         <td>    
+    </div>                                                                                                    </td>
+        
+
+        <td>
+        <div align="right">
+        <div style="width: 80%; text-align; right; float; left">
+                         Mengetahui,<br>
+                         Security
+        
+        
+        <br><br><br><br><br><br>
+        
+            <!-- <style="width: 82%; text-align; right; float; left "> -->
+        
         ({{$tamu->pemeriksa_tamu}})
-        </div>
+    </div>    
+    </td>
+    </td>
+    <br><br><br><br><br><br><br><br><br>
+    </style>
 </body>
-</html>
- <script>
+<script>
       window.print()
   </script>
+</html>
+
+
+

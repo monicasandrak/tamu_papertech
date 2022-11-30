@@ -70,14 +70,12 @@ Route::put('/obat/update/{id_obat}', [c_kelola_obat::class,'update'])->name('upd
 Route::get('/laporan_klinik', [c_laporan_klinik::class, 'index'])->name('laporan_klinik');
 Route::get('/laporan_obat', [c_laporan_obat::class, 'index'])->name('laporan_obat');
 Route::get('/laporan_perawat', [c_laporan_perawat::class, 'index'])->name('laporan_perawat');
-
+<<<<<<< HEAD
 Route::get('/laporan_dokter', [c_laporan_dokter::class, 'index'])->name('laporan_dokter');
-
+=======
 Route::get('/laporan_pasien_tamu', [c_laporan_tamu2::class, 'index'])->name('laporan_pasien_tamu');
 Route::post('/lap_filter_pasien_tamu', [c_laporan_tamu::class,'filter'])->name('filter_pasien_tamu');
-Route::get('/laporan_pasien', [c_laporan_pasien::class, 'index'])->name('laporan_pasien');
-Route::post('/lap_filter_pasien', [c_laporan_pasien::class,'filter'])->name('filter_pasien');
-
+>>>>>>> 2a418835ac36539c4c8b38d0ee5f9ebd81f247b0
 
 Route::get('/kelola_perawat', [c_kelola_perawat::class,'index'])->name('perawat');
 Route::get('/perawat/add', [c_kelola_perawat::class,'add']);
@@ -119,6 +117,8 @@ Route::get('/security/edit/{id_security}', [c_kelola_security::class,'edit']);
 Route::put('/security/update/{id_security}', [c_kelola_security::class,'update'])->name('update_security');
 Route::get('/security/delete/{id_security}', [c_kelola_security::class,'delete']);
 Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']);
+Route::get('/laporan_security', [c_laporan_security::class, 'index'])->name('laporan_security');
+Route::get('/print_laporan_security', [c_laporan_security::class, 'print'])->name('print_laporan_security');
 
 Route::get('/laporan_tamu', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
 Route::get('/cetak_laporan_tamu', [c_laporan_tamu::class, 'cetak_tamu'])->name('cetak_laporan_tamu');
@@ -129,7 +129,7 @@ Route::get('/form-laporan-tamu', [c_laporan_tamu::class, 'laporantamu'])->name('
 Route::get('/laporan-pertanggal/{dari_tanggal}/{sampai_tanggal}', [c_laporan_tamu::class, 'lihatlaporan'])->name('laporan-pertanggal');
 
 
-Route::get('/laporan_security', [c_laporan_security::class, 'index'])->name('laporan_security');
+
 Route::get('/login', [c_user::class, 'login'])->name('login');
 Route::post('/login', [c_user::class, 'login_action'])->name('login_action');
 

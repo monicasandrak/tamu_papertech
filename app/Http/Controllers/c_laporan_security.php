@@ -31,4 +31,19 @@ class c_laporan_security extends Controller
     }
     else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
+
+    public function print()
+    {
+        $data = ['security' => $this->m_security->allData()
+    ];
+    if (Auth::check()) {
+        if (Auth::user()->level !== 'security')
+            {
+                return back();
+            }
+        return view('security/v_print_lap_security', $data);
+    
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+    }
 }
