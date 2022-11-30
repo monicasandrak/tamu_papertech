@@ -75,7 +75,8 @@ Route::get('/laporan_dokter', [c_laporan_dokter::class, 'index'])->name('laporan
 
 Route::get('/laporan_pasien_tamu', [c_laporan_tamu2::class, 'index'])->name('laporan_pasien_tamu');
 Route::post('/lap_filter_pasien_tamu', [c_laporan_tamu::class,'filter'])->name('filter_pasien_tamu');
-
+Route::get('/laporan_pasien', [c_laporan_tamu2::class, 'index'])->name('laporan_pasien');
+Route::post('/lap_filter_pasien', [c_laporan_tamu::class,'filter'])->name('filter_pasien');
 
 Route::get('/kelola_perawat', [c_kelola_perawat::class,'index'])->name('perawat');
 Route::get('/perawat/add', [c_kelola_perawat::class,'add']);

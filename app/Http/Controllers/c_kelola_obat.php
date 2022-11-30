@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\m_obat;
 use App\Models\obat;
+use Illuminate\Support\Facades\Auth;
 
 class c_kelola_obat extends Controller
 {
@@ -20,8 +21,11 @@ class c_kelola_obat extends Controller
         $data = [
             'obats' => $this->m_obat->allData()
         ];
+        if (Auth::check()) {
         return view('klinik/v_kelola_obat', $data);
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+}
 
     public function detail($id_obat)
     {
@@ -31,14 +35,30 @@ class c_kelola_obat extends Controller
         $data = [
             'obats' => $this->m_obat->detailData($id_obat)
         ];
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_detail_obat', $data);
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function add()
     {
         $id_baru = ['id_baru' => $this->m_obat->id_baru()];
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik.v_add_obat', $id_baru, compact(['dropdown']));
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function insert()
@@ -81,7 +101,15 @@ class c_kelola_obat extends Controller
         ];
         $data = ['obats' => $this->m_obat->detailData($id_obat)];
         $dropdown = ['Kapsul','Tablet','Sirup', 'Injeksi', 'Drops (Serbuk Kering)'];
+        if (Auth::check()) {
+            //check the tamu add
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_edit_obat', $data, compact(['dropdown']));
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function update(Request $request, $id_obat)

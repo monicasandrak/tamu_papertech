@@ -19,8 +19,11 @@ class c_kelola_perawat extends Controller
     {
         $data = ['perawat' => $this->m_perawat->allData()
     ];
+    if (Auth::check()) {
     return view('klinik/v_kelola_perawat', $data);
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+}
 
     public function detail($id_perawat)
     {
@@ -29,15 +32,32 @@ class c_kelola_perawat extends Controller
         }
         $data = ['perawat' => $this->m_perawat->detailData($id_perawat)
     ];
+    if (Auth::check()) {
+        //check the tamu visibillity
+        if (Auth::user()->level !== 'klinik')
+        {
+            return back();
+        }
     return view('klinik/v_detailperawat',$data);
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function add()
     {
         $id_baru = [ 'id_baru' => $this->m_perawat->id_baru()];
         $dropdown = ['Laki-laki', 'Perempuan'];
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_addperawat', $id_baru, compact(['dropdown']));
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+}
+
 
     public function insert()
     {

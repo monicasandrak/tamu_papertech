@@ -23,8 +23,11 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->allData()
         ];
+        if (Auth::check()) {
         return view('klinik/v_kelola_pasien', $data);
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+}
 
     public function detail($id_pasien)
     {
@@ -34,7 +37,15 @@ class c_kelola_pasien extends Controller
         $data = [
             'pasien' => $this->m_pasien->detailData($id_pasien)
         ];
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_detail_pasien', $data);
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function add()
@@ -58,7 +69,15 @@ class c_kelola_pasien extends Controller
         $dropdown1 = [
             'Perempuan','Laki - Laki'
         ];
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik.v_add_pasien', $id_baru, compact(['dropdown','obat', 'dropdown1', 'dokter']));
+    }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
     
     public function insert()
@@ -172,8 +191,16 @@ class c_kelola_pasien extends Controller
         $dropdown1 = [
             'Perempuan','Laki - Laki'
         ];
+        if (Auth::check()) {
+            //check the tamu add
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_edit_pasien', $data, compact(['dropdown', 'dropdown1', 'dokter', 'obat']));
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+}
 
     public function update(Request $request, $id_pasien)
     {

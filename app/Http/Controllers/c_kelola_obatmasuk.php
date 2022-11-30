@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\m_obatmasuk;
 use App\Models\obat;
+use Illuminate\Support\Facades\Auth;
 
 class c_kelola_obatmasuk extends Controller
 {
@@ -19,8 +20,16 @@ class c_kelola_obatmasuk extends Controller
     {
         $id_baru = ['id_baru' => $this->m_obatmasuk->id_baru()];
         $obat = obat::all();
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik.v_add_stok', $id_baru, compact(['obat']));
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+}
 
     public function insert()
     {
