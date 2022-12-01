@@ -17,7 +17,7 @@ Edit Data Obat
                             <h2>EDIT DATA OBAT</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Obat</a></li>
+                                <li><a href="/kelola_obat"><i class="material-icons">group</i> Kelola Obat</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Obat</li>
                             </ol>
                             

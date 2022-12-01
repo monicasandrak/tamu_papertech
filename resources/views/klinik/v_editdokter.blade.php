@@ -17,7 +17,7 @@ Edit Data Dokter
                             <h2>EDIT DATA DOKTER</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Dokter</a></li>
+                                <li><a href="/kelola_dokter"><i class="material-icons">group</i> Kelola Dokter</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Dokter</li>
                             </ol>
                             
@@ -73,24 +73,15 @@ Edit Data Dokter
                 @enderror
             </div>
         </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Foto Dokter</label>
-          <div class="input-group">
-            <div class="custom-file">
-              <input type="file" name="foto_dokter" class="custom-file-input" id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-            </div>
-            <div class="input-group-append">
-              <span class="input-group-text">Upload</span>
-            </div>
-            <br>
-            <div class="text-danger">
-                @error('foto_dokter')
-                    {{ $message}}
-                @enderror
+        <div class="form-group form-float">
+            <label class="form-label">Foto Dokter</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" name="foto_dokter" class="custom-file-input" id="exampleInputFile">
                 </div>
-          </div>
-        </div>
+            </div>
+    </div>
+    
         <div class="form-group">
           <label for="exampleInputEmail1">Keahlian</label>
           <input type="text" name="keahlian" class="form-control" id="exampleInputEmail1"  value="{{$dokter->keahlian}}">

@@ -17,7 +17,7 @@ Edit Data Perawat
                             <h2>EDIT DATA PERAWAT</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Perawat</a></li>
+                                <li><a href="/kelola_perawat"><i class="material-icons">group</i> Kelola Perawat</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Perawat</li>
                             </ol>
                             
@@ -73,24 +73,14 @@ Edit Data Perawat
                 @enderror
             </div>
         </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Foto Perawat</label>
-          <div class="input-group">
-            <div class="custom-file">
-              <input type="file" name="foto_perawat" class="custom-file-input" id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-            </div>
-            <div class="input-group-append">
-              <span class="input-group-text">Upload</span>
-            </div>
-            <br>
-            <div class="text-danger">
-                @error('foto_perawat')
-                    {{ $message}}
-                @enderror
+        <div class="form-group form-float">
+            <label class="form-label">Foto Perawat</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" name="foto_perawat" class="custom-file-input" id="exampleInputFile">
                 </div>
-          </div>
-        </div>
+            </div>
+    </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Jadwal Kerja</label>
           <input type="text" name="jk" class="form-control" id="exampleInputEmail1"  value="{{$perawat->jk}}">

@@ -1,9 +1,9 @@
 @section('title')
-Detail Pasien Pegawai
+Detail Pasien
 @endsection
 @extends('layout/v_template3')
 @section('page')
-Detail Pasien Pegawai
+Detail Pasien
 @endsection
 @section('content')
 <section class="content">
@@ -14,50 +14,183 @@ Detail Pasien Pegawai
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>DETAIL DATA PASIEN PEGAWAI</h2>
+                            <h2>DETAIL DATA PASIEN</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Pasien Pegawai</a></li>
-                                <li class="active"><i class="material-icons">library_books</i> Detail Pasien Pegawai</li>
+                                <li><a href="/kelola_pasien"><i class="material-icons">group</i> Kelola Pasien Pegawai</a></li>
+                                <li class="active"><i class="material-icons">library_books</i> Detail Pasien</li>
                             </ol>
                             
                         </div>
                         <div class="body">
-    <!-- /.card-header -->
-    <!-- form start -->
-    <form>
-      <div class="card-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">ID Pasien : </label>
-          {{$pasien->id_pasien}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nama Pasien : </label>
-          {{$pasien->nama_pasien}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Departement : </label>
-          {{$pasien->departement}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Keluhan : </label>
-          {{$pasien->keluhan}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Diagnosa : </label>
-          {{$pasien->diagnosa}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Obat : </label>
-          {{$pasien->obat}}
-        </div>
-      </div>
-      <!-- /.card-body -->
 
-      <div class="card-footer">
-        <a href="/kelola_pasien"><button type="button" class="btn btn-primary">Kembali</button></a>
-      </div>
-    </form>
-  </div>
-@endsection
-
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Tanggal</label>
+                                        <input type="text" class="form-control" name="tanggal" id="exampleInputEmail1" value="{{ $pasien->tanggal }}" readonly>
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('id_security')
+                                                {{ $message}}
+                                            @enderror
+                                        </div> -->
+                                    </div>
+                                </div>
+                           
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>ID Pasien</label>
+                                        <input type="text" class="form-control" name="id_pasien" id="exampleInputEmail1" value="{{ $pasien->id_pasien }}" readonly>
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('id_pasien')
+                                                {{ $message}}
+                                            @enderror
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Nama Pasien</label>
+                                        <input type="text" class="form-control" name="nama_pasien" value="{{ $pasien->nama_pasien }}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('nama_pasien')
+                                                {{ $message}}
+                                            @enderror
+                                        </div> -->
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Jenis Kelamin</label>
+                                        <input type="text" class="form-control" name="jenis_kelamin" value="{{$pasien->jenis_kelamin}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('jenis_kelamin')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Umur</label>
+                                        <input type="text" class="form-control" name="umur" value="{{ $pasien->umur }}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('umur')
+                                                {{ $message}}
+                                            @enderror
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Departement</label>
+                                        <input type="text" class="form-control" name="departement" value="{{$pasien->departement}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('departement')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Keluhan</label>
+                                        <input type="text" class="form-control" name="keluhan" value="{{$pasien->keluhan}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('keluhan')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Diagnosa</label>
+                                        <input type="text" class="form-control" name="diagnosa" value="{{$pasien->diagnosa}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('diagnosa')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                               
+            
+                             
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Pemeriksa</label>
+                                        <input type="text" class="form-control" name="pemeriksa" value="{{$pasien->pemeriksa}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('pemeriksa]')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Dokter</label>
+                                        <input type="text" class="form-control" name="dokter" value="{{$pasien->dokter}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('dokter')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Obat</label>
+                                        <input type="text" class="form-control" name="obat" value="{{$pasien->obat}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('obat')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <label>Jumlah Obat</label>
+                                        <input type="text" class="form-control" name="jumlah" value="{{$pasien->jumlah}}" readonly >
+                                        
+                                        <!-- <div class="text-danger">
+                                            @error('jumlah')
+                                                {{ $message}}
+                                            @enderror
+                                    </div> -->
+                                </div>
+                                </div>
+                                
+                                
+                                
+                            
+                                <!-- <button type="submit" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">save</i>
+                                    <span>SAVE</span> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+            <!-- Advanced Validation -->
+           
+            <!-- #END# Advanced Validation -->
+            <!-- Validation Stats -->
+           
+            <!-- #END# Validation Stats -->
+        </div>
+    </section>

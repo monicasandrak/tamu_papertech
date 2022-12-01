@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\m_dokter;
 use App\Models\dokter;
+use Illuminate\Support\Facades\Auth;
 
 
 class c_kelola_dokter extends Controller
@@ -18,8 +19,12 @@ class c_kelola_dokter extends Controller
     {
         $data = ['dokter' => $this->m_dokter->allData()
     ];
+    if (Auth::check()) {
     return view('klinik/v_kelola_dokter', $data);
     }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+}
 
     public function detail($id_dokter)
     {
@@ -28,15 +33,34 @@ class c_kelola_dokter extends Controller
         }
         $data = ['dokter' => $this->m_dokter->detailData($id_dokter)
     ];
+    if (Auth::check()) {
+        //check the tamu visibillity
+        if (Auth::user()->level !== 'klinik')
+        {
+            return back();
+        }
     return view('klinik/v_detaildokter',$data);
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+    }
+
 
     public function add()
     {
         $id_baru = [ 'id_baru' => $this->m_dokter->id_baru()];
         $dropdown = ['Laki-laki', 'Perempuan'];
+        if (Auth::check()) {
+            //check the tamu visibillity
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_adddokter', $id_baru, compact(['dropdown']));
     }
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+    }
+
+
 
     public function insert()
     {
@@ -87,7 +111,18 @@ class c_kelola_dokter extends Controller
 
         $data = ['dokter' => $this->m_dokter->detailData($id_dokter)];
         $dropdown = ['Laki-laki','Perempuan'];
+      
+        
+        if (Auth::check()) {
+            //check the tamu add
+            if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
         return view('klinik/v_editdokter',$data, compact(['dropdown']));
+    }
+
+    else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
 
     public function update($id_dokter)
@@ -97,9 +132,9 @@ class c_kelola_dokter extends Controller
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
-            'foto_dokter' => '|mimes:jpg,png,jpeg,bmp|max:1024',
             'keahlian' => 'required',
             'jk' => 'required',
+            'foto_dokter' => '|mimes:jpg,png,jpeg,bmp|max:1024',
         ], [
             'nama_dokter.required' => 'Nama dokter wajib diisi !',
             'tanggal_lahir.required' => 'Tanggal lahir wajib diisi !',
@@ -114,27 +149,10 @@ class c_kelola_dokter extends Controller
             $file = Request()->foto_dokter;
             $fileName = Request()->id_dokter .'.'. $file->extension();
             $file->move(public_path('foto_dokter'),$fileName);
-            $file2 = Request()->status;
-            $fileStatus = Request()->id_dokter.'.'. $file2->extension();
-            $file2->move(public_path('status'),$fileStatus);
+           
             $dropdown = ['Laki-laki','Perempuan'];
-            // $datetime = date("Y-m-d");
 
-            $data = [
-            'id_dokter' => Request()->id_dokter,
-            'nama_dokter' => Request()->nama_dokter,
-            'tanggal_lahir' => Request()->tanggal_lahir,
-            'jenis_kelamin' => Request()->jenis_kelamin,
-            'alamat' => Request()->alamat,
-            'foto_dokter' => $fileName,
-            'keahlian' => Request()->keahlian,
-            'jk' => Request()->keahlian,
-            
-            ];
-            $this->m_dokter->editData($id_dokter,$data);
-        }
-        else {
-            //jika tidak ganti gambar/foto
+
             $data = [
             'id_dokter' => Request()->id_dokter,
             'nama_dokter' => Request()->nama_dokter,
@@ -143,6 +161,22 @@ class c_kelola_dokter extends Controller
             'alamat' => Request()->alamat,
             'keahlian' => Request()->keahlian,
             'jk' => Request()->jk,
+            'foto_dokter' => $fileName,
+            
+            ];
+            $this->m_dokter->editData($id_dokter,$data);
+        }
+        else {
+            //jika tidak ganti gambar/foto
+            $data = [
+                'id_dokter' => Request()->id_dokter,
+                'nama_dokter' => Request()->nama_dokter,
+                'tanggal_lahir' => Request()->tanggal_lahir,
+                'jenis_kelamin' => Request()->jenis_kelamin,
+                'alamat' => Request()->alamat,
+                'keahlian' => Request()->keahlian,
+                'jk' => Request()->jk,
+
             ];
             $this->m_dokter->editData($id_dokter,$data);
         

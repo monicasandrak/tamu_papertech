@@ -130,7 +130,7 @@
                             </li>
                             
                             <li>
-                                <a href="/laporan_pasien">Laporan Pasien</a>
+                                <a href="/laporan_pasien">Laporan Pasien Pegawai</a>
                             </li>
                             <li>
                                 <a href="/laporan_obat">Laporan Obat</a>

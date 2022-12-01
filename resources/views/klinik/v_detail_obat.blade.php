@@ -17,7 +17,7 @@ Detail Obat
                             <h2>DETAIL DATA OBAT</h2>
                             <br>
                             <ol class="breadcrumb breadcrumb-bg-teal">
-                                <li><a href="/kelola_pasien_tamu"><i class="material-icons">group</i> Kelola Obat</a></li>
+                                <li><a href="/kelola_obat"><i class="material-icons">group</i> Kelola Obat</a></li>
                                 <li class="active"><i class="material-icons">library_books</i> Detail Obat</li>
                             </ol>
                             
@@ -25,36 +25,77 @@ Detail Obat
                         <div class="body">
     <!-- /.card-header -->
     <!-- form start -->
-    <form>
-      <div class="card-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">ID Obat : </label>
-          {{$obats->id_obat}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nama Obat : </label>
-          {{$obats->nama_obat}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Bentuk Sediaan : </label>
-          {{$obats->satuan}}
-        </div>
-        <div class="form-group">
-          <label for="exampleInputFile">Kegunaan Obat : </label>
-          {{$obats->jenis_obat}}
-        </div>
-        
-        <div class="form-group">
-          <label for="exampleInputFile">Stok : </label>
-          {{$obats->stok}}
-        </div>
+    <div class="form-group form-float">
+      <div class="form-line">
+        <label>ID Obat</label>
+          <input type="text" class="form-control" name="id_obat" id="exampleInputEmail1" value="{{ $obats->id_obat }}" readonly>
+          
+          <!-- <div class="text-danger">
+              @error('id_obat')
+                  {{ $message}}
+              @enderror
+          </div> -->
       </div>
-      <!-- /.card-body -->
-
-      <div class="card-footer">
-        <a href="/kelola_obat"><button type="button" class="btn btn-primary">Kembali</button></a>
-      </div>
-    </form>
   </div>
-@endsection
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Nama Obat</label>
+          <input type="text" class="form-control" name="nama_obat" value="{{ $obats->nama_obat }}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('nama_obat')
+                  {{ $message}}
+              @enderror
+          </div> -->
+      </div>
+  </div>
+  
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Jenis Obat</label>
+          <input type="text" class="form-control" name="jenis_obat" value="{{$obats->jenis_obat}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('jenis_obat')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+  </div>
 
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Satuan</label>
+          <input type="text" class="form-control" name="satuan" value="{{$obats->satuan}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('satuan')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+  </div>
+  <div class="form-group form-float">
+      <div class="form-line">
+        <label>Stok</label>
+          <input type="text" class="form-control" name="stok" value="{{$obats->stok}}" readonly >
+          
+          <!-- <div class="text-danger">
+              @error('stok')
+                  {{ $message}}
+              @enderror
+      </div> -->
+  </div>
+</div>
+
+  
+  
+
+  <!-- <button type="submit" class="btn bg-teal waves-effect">
+      <i class="material-icons">save</i>
+      <span>SAVE</span> -->
+</form>
+</div>
+</div>
+</div>
+</div>
