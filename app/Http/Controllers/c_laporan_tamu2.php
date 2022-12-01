@@ -39,61 +39,30 @@ class c_laporan_tamu2 extends Controller
         $fromDate = $request->input('fromDate');
         $toDate = $request->input('toDate');
 
-        $hasil_swab = DB::table('tamu')
-           ->whereNull('hasil_swab');
-                
+        $tamu = DB::table('tamu')
+        ->where('tanggal', '>=', $fromDate)
+        ->where('tanggal', '<=', $toDate)
+        ->where('swab', 'wajib swab')
+        ->get();
+        
+        if (Auth::check()) 
+        {
+            //check the filter tamu
+        if (Auth::user()->level !== 'klinik')
+            {
+                return back();
+            }
+            return view('klinik/v_laporan_pasien_tamu',  compact(['tamu','fromDate', 'toDate']));
+        }
+        
+        else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+    }
 
         
-        //    $tamu = DB::table('tamu')
-        // //    ->where('swab', 'tidak wajib swab')
-        //    ->whereNot(function($query){
-        //     $query->where('status', 'tidak disetujui')
-        //         ->orwhere('hasil_swab', 'positif');
-        //    })
-        //    ->whereBetween('tanggal', [$fromDate, $toDate])
-        //    // ->where('tanggal', '>=', $fromDate)
-        //    // ->where('tanggal', '<=', $toDate)
-        //    ->get();
 
-        //    $tamu = DB::table('tamu')
-           
-        //    ->where('swab', 'tidak wajib swab')
-        //    ->orWhere(function($query){
-        //          $query->where('swab', 'wajib swab')
-        //                 ->where('hasil_swab', 'negatif');
-        //    })
-        //    ->whereBetween('tanggal', [$fromDate, $toDate])
-        //    // ->where('tanggal', '>=', $fromDate)
-        //    // ->where('tanggal', '<=', $toDate)
-        //    ->get();
 
-           $tamu = DB::table('tamu')
-           ->where('tanggal', '>=', $fromDate)
-           ->where('tanggal', '<=', $toDate)
-           
-           ->where('swab', 'wajib swab')
-        //    ->union($hasil_swab)
-        //    ->whereBetween('tanggal', [$fromDate, $toDate])
-           
-           ->get();
-       
-           
-           
-
-          
-        // dd($tamu);
-
-        return view('klinik/v_laporan_pasien_tamu',  compact(['tamu','fromDate', 'toDate']));
-
-    }
     public function laporan(Request $request)
     {
-    //      $data = ['tamu' => $this->m_tamu->allData()
-    // ];
-        // $this->m_tamu2 = new m_tamu2();
-        // $data['id_tamu'] = DB::table('tamu')->get('id_tamu');
-        // $dari_tanggal= $request->dari_tanggal;
-        // $sampai_tanggal= $request->sampai_tanggal;
 
 
         $date['datefrom'] = ($request->dari_tanggal. ' 00:00:00');
