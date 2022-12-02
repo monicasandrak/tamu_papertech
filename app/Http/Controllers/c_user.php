@@ -219,9 +219,10 @@ class c_user extends Controller
     {
 
         $atribut = $request->validate([
-            'username' => 'required||string|min:5|max:100|unique:users,id',
+            'username' => 'required|string|min:5|max:100|unique:users,id',
             
         ],[
+            'username.required' => 'Username wajib diisi !',
             'username.unique' => 'Username sudah ada !',
             'username.string' => 'Username wajib diisi !',
             'username.min' => 'Username minimal 3 karakter !',

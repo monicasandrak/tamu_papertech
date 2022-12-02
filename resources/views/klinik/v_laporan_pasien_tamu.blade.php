@@ -32,7 +32,7 @@ Laporan Pasien Tamu
                         </div>
                         
                         <div class="body">
-                        <form action="{{route('filter')}}" method="post">
+                        <form action="{{route('filter_pasien_tamu')}}" method="post">
                             @csrf 
                             <br>
                             <div class="container">

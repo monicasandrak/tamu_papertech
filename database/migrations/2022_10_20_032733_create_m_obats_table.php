@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_obat');
             $table->string('jenis_obat');
             $table->string('satuan');
-            $table->integer('jumlah');
+            $table->integer('stok');
             $table->timestamps();
         });
     }

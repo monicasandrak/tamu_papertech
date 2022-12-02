@@ -62,7 +62,7 @@ Route::post('/login', [c_user::class, 'login_action'])->name('login_action');
 
 // untuk login
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('tamu', App\Http\Controllers\c_kelola_tamu::class);
+// Route::resource('tamu', App\Http\Controllers\c_kelola_tamu::class);
 
 Route::get('/login', [c_login::class, 'login'])->name('login');
 Route::post('/postlogin', [c_login::class, 'postlogin'])->name('postlogin');
@@ -103,8 +103,11 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
 Route::group(['middleware' => ['auth', 'ceklevel:security']], function(){
 
     // kelola tamu
+    
     Route::get('/kelola_tamu', [c_kelola_tamu::class,'index'])->name('tamu');
-    Route::get('/tamu/add', [c_kelola_tamu::class,'add']);
+    
+    Route::get('/tamu/add', [c_kelola_tamu::class,'add'])->name('add_tamu');
+    
     Route::post('/tamu/insert', [c_kelola_tamu::class,'insert'])->name('insert_tamu');
     Route::get('/tamu/edit/{id_tamu}', [c_kelola_tamu::class,'edit']);
     Route::put('/tamu/update/{id_tamu}', [c_kelola_tamu::class,'update'])->name('update_tamu');
@@ -116,7 +119,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:security']], function(){
     Route::get('/tamu_masuk/detail/{id_tamu}', [c_kelola_tamu::class,'detailtamu']);
     Route::get('/tamu_masuk/cetak_surat/{id_tamu}', [c_kelola_tamu::class,'cetaksurat']);
     Route::get('/laporan_tamu', [c_laporan_tamu::class, 'index'])->name('laporan_tamu');
-    Route::post('/filter_laporan_tamu', [c_laporan_tamu::class,'filter'])->name('filter');
+    Route::post('/filter_laporan_tamu', [c_laporan_tamu::class,'filter'])->name('filter_tamu');
 
     // kelola security
     Route::get('/kelola_security', [c_kelola_security::class,'index'])->name('security');
@@ -147,8 +150,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:klinik']], function(){
     Route::get('/pasien/delete/{id_pasien}', [c_kelola_pasien::class, 'delete']);
     Route::get('/pasien/detail/{id_pasien}', [c_kelola_pasien::class, 'detail']);
     Route::get('/pasien/edit/{id_pasien}', [c_kelola_pasien::class, 'edit']);
-    Route::get('/laporan_pasien', [c_laporan_tamu2::class, 'index'])->name('laporan_pasien');
-    Route::post('/lap_filter_pasien', [c_laporan_tamu::class,'filter'])->name('filter_pasien');
+    Route::get('/laporan_pasien', [c_laporan_pasien::class, 'index'])->name('laporan_pasien');
+    Route::post('/lap_filter_pasien', [c_laporan_pasien::class,'filter'])->name('filter_pasien');
 
 
     // pasien tamu
@@ -158,7 +161,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:klinik']], function(){
     Route::put('/pasien_tamu/update/{id_tamu}', [c_kelola_tamu2::class,'update'])->name('update_tamu');
     Route::get('/pasien_tamu/detail/{id_pasien}', [c_kelola_tamu2::class, 'detail']);
     Route::get('/laporan_pasien_tamu', [c_laporan_tamu2::class, 'index'])->name('laporan_pasien_tamu');
-    Route::post('/lap_filter_pasien_tamu', [c_laporan_tamu::class,'filter'])->name('filter_pasien_tamu');
+    Route::post('/lap_filter_pasien_tamu', [c_laporan_tamu2::class,'filter'])->name('filter_pasien_tamu');
 
     // obat
     Route::get('/kelola_obat', [c_kelola_obat::class,'index'])->name('obat');

@@ -132,7 +132,7 @@
         Subang, {{$tamu->tanggal}} <br>
         Yang Bertanda Tangan,
         
-        <br><br><br><br><br>
+        <br><br><br><br><br><br>
         <!-- <div style="width: 32%; text-align; right; float; right "> -->
         ({{$tamu->nama_tamu}})
         </div>
@@ -186,7 +186,7 @@
     </div>    
     </td>
     </td>
-    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
     </style>
 </body>
 <script>

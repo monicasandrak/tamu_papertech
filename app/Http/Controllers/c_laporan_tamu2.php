@@ -34,6 +34,7 @@ class c_laporan_tamu2 extends Controller
     
         else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
         }
+        
     public function filter(Request $request)
     {
         $fromDate = $request->input('fromDate');
@@ -45,17 +46,9 @@ class c_laporan_tamu2 extends Controller
         ->where('swab', 'wajib swab')
         ->get();
         
-        if (Auth::check()) 
-        {
-            //check the filter tamu
-        if (Auth::user()->level !== 'klinik')
-            {
-                return back();
-            }
-            return view('klinik/v_laporan_pasien_tamu',  compact(['tamu','fromDate', 'toDate']));
-        }
-        
-        else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
+
+        return view('klinik/v_laporan_pasien_tamu',  compact(['tamu','fromDate', 'toDate']));
+      
     }
 
         
