@@ -32,7 +32,7 @@ Laporan Data Tamu
                         </div>
                         
                         <div class="body">
-                        <form action="{{route('filter')}}" method="post">
+                        <form action="{{route('filter_tamu')}}" method="post">
                             @csrf 
                             <br>
                             <div class="container">

@@ -59,7 +59,7 @@ class c_kelola_tamu extends Controller
             {
                 return back();
             }
-        return view('security/v_addtamu2', $id_baru, compact(['dropdown',['dropdown2']]));
+        return view('security/v_addtamu2', $id_baru, compact(['dropdown','dropdown2']));
     }
     else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
@@ -292,13 +292,7 @@ class c_kelola_tamu extends Controller
     }
     
     else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
-        // $tamu = DB::table('tamu')
-        // ->where('status', 'disetujui')
-        // // ->orWhere('hasil_swab' , 'negatif')
-        // ->first();
-        // // $pdf = PDF::loadview('security/v_cetak_surat', ['tamu' => $tamu ]);
-        // // return $pdf->stream('cetak_surat.pdf');
-        // return view('security/v_cetak_surat', compact(['tamu']));
+       
     }
 
 }
