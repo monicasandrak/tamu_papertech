@@ -54,8 +54,8 @@ Kelola Data Obat
                                     <td>{{$no++}}</td>
                                     <td>{{$data->id_obat}}</td>
                                     <td>{{$data->nama_obat}}</td>
-                                    <td>{{$data->jenis_obat}}</td>
                                     <td>{{$data->satuan}}</td>
+                                    <td>{{$data->jenis_obat}}</td>
                                     <td>{{$data->stok}}</td>
                                     
                                   </tr>
