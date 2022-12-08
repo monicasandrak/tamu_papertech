@@ -125,11 +125,11 @@ Tambah Data Pasien Pegawai
             <div class="form-group form-float">                
                 <label></label>
                     <input type="hidden" class="form-control" name="pemeriksa" placeholder="Masukan Pemeriksa" value="{{Auth::user()->username}}" >
-                    <!-- <div class="text-danger">
+                    <div class="text-danger">
                         @error('pemeriksa')
                             {{ $message}}
                         @enderror
-                </div> -->
+                    </div>
             </div>
             <div class="form-group">
                 <label for="Obat">Dokter Pemeriksa</label>
