@@ -12,6 +12,7 @@ use App\Http\Controllers\c_kelola_pasien;
 use App\Http\Controllers\c_kelola_obat;
 use App\Http\Controllers\c_kelola_obatmasuk;
 use App\Http\Controllers\c_laporan_tamu;
+use App\Http\Controllers\c_laporan_kendaraan;
 use App\Http\Controllers\c_laporan_tamu2;
 use App\Http\Controllers\c_laporan_klinik;
 use App\Http\Controllers\c_laporan_pasien;

@@ -22,7 +22,6 @@ Kelola Kendaraan
                             <h2>
                                 KELOLA KENDARAAN
                             </h2>
-                            
                                 <table id="example1" class="table table-bordered table-striped">
                                 @if (session('pesan'))
                                   <div class="alert alert-success alert-dismissible">
@@ -31,23 +30,21 @@ Kelola Kendaraan
                                 {{ session('pesan') }}
                                   </div>
                                 @endif
+                                </table>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="body">
-                        <!-- <button type="submit" class="btn bg-teal waves-effect">
-                                    <i class="material-icons">save</i>
-                                    <span>SAVE</span> -->
                         <div align="right">
                                     <a href="/kendaraan/add" class="btn bg-teal waves-effect">
                                     <i class="material-icons">add_circle_outline</i>
                                     <span>ADD DATA</span>
                                     </a>
-                                
+                                <br>
                                 </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -85,47 +82,51 @@ Kelola Kendaraan
                                     <?php $no=1;?>
                                     @foreach ($kendaraan as $data)  
         
-                                  <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$data->id_pengendara}}</td>
-                                    <td>{{$data->nama_pengendara}}</td>
-                                    <td>{{$data->posisi}}</td>
-                                    <td>{{$data->departement}}</td>
-                                    <td>{{$data->no_kendaraan}}</td>
-                                    <td>{{$data->pemeriksa_kendaraan}}</td>
-                                    <td>
-                                      @if ($data->status_pajak == "Tidak Aktif")
-                                      <h5><span class="badge badge-danger">Tidak Aktif<i class="fas fa-times"></i></span></h5>
-                                      @endif
-                                      @if ($data->status_pajak == "Aktif")
-                                      <h5><span class="badge badge-success">Aktif<i class="fas fa-check"></i></span></h5>
-                                      @endif
-                                    </td>
-                                    
-                                    <td>
-                                      @if ($data->status_sim == "Tidak Aktif")
-                                      <h5><span class="badge badge-danger">Tidak Aktif<i class="fas fa-times"></i></span></h5>
-                                      @endif
-                                      @if ($data->status_sim == "Aktif")
-                                      <h5><span class="badge badge-success">Aktif<i class="fas fa-check"></i></span></h5>
-                                      @endif
-                                      
-                                    </td>
-                                    <td>
-                                      @if ($data->status_pajak == "Aktif" && $data->status_sim == "Aktif")
-                                      <h5><span class="badge badge-success">Success<i class="fas fa-check"></i></span></h5>
-                                      @endif
-                                      @if ($data->status_pajak == "Tidak Aktif" && $data->status_sim == "Aktif")
-                                      <h5><span class="badge badge-danger"> Failed<i class="fas fa-times"></i></span></h5>
-                                      @endif
-                                      @if ($data->status_pajak == "Aktif" && $data->status_sim == "Tidak Aktif")
-                                      <h5><span class="badge badge-warning"> Failed<i class="fas fa-hourglass-half"></i></span></h5>
-                                      @endif
-                                    </td>
+        <tr>
+          <td>{{$no++}}</td>
+          <td>{{$data->id_pengendara}}</td>
+          <td>{{$data->nama_pengendara}}</td>
+          <td>{{$data->posisi}}</td>
+          <td>{{$data->departement}}</td>
+          <td>{{$data->no_kendaraan}}</td>
+          <td>{{$data->pemeriksa_kendaraan}}</td>
+          <td>
+            @if ($data->tanggal_pajak <= 2022)
+            <h5><span class="badge badge-danger">Tidak Aktif<i class="fas fa-times"></i></span></h5>
+            @endif
+            
+            @if ($data->tanggal_pajak > 2022)
+            <h5><span class="badge badge-success">Aktif<i class="fas fa-check"></i></span></h5>
+            @endif
+          </td>
+          
+          <td>
+            @if ($data->status_sim == "Tidak Aktif")
+            <h5><span class="badge badge-danger">Tidak Aktif<i class="fas fa-times"></i></span></h5>
+            @endif
+            @if ($data->status_sim == "Aktif")
+            <h5><span class="badge badge-success">Aktif<i class="fas fa-check"></i></span></h5>
+            @endif
+            
+          </td>
+          <td>
+            @if ($data->tanggal_pajak > 2022 && $data->status_sim == "Aktif")
+            <h5><span class="badge badge-success">Success<i class="fas fa-check"></i></span></h5>
+            @endif
+            @if ($data->tanggal_pajak <= 2022 && $data->status_sim == "Aktif")
+            <h5><span class="badge badge-danger"> Failed<i class="fas fa-times"></i></span></h5>
+            @endif
+            @if ($data->tanggal_pajak > 2022 && $data->status_sim == "Tidak Aktif")
+            <h5><span class="badge badge-danger"> Failed<i class="fas fa-hourglass-half"></i></span></h5>
+            @endif
+            @if ($data->tanggal_pajak <= 2022 && $data->status_sim == "Tidak Aktif")
+            <h5><span class="badge badge-danger"> Failed<i class="fas fa-hourglass-half"></i></span></h5>
+            @endif
+          </td>
                                     <td>
                                         <a href="/kendaraan/detail/{{$data->id_pengendara}}" class="text-success"><i class="material-icons">visibility</i></a>
                                         <a href="/kendaraan/edit/{{$data->id_pengendara}}" class="text-primary"><i class="material-icons">edit</i></a>
-                                        <a href="" data-target="#delete{{$data->id_pengendara}}" class="text-danger" data-toggle="modal"  >
+                                        <a href="" type="button" data-toggle="modal" data-target="#delete{{$data->id_pengendara}}" class="text-danger">
                                         <i class="material-icons">delete</i>
                                         </a>
                                     </td>
@@ -137,7 +138,7 @@ Kelola Kendaraan
                             @foreach ($kendaraan as $data)
                             <div class="modal fade" id="delete{{$data->id_pengendara}}">
                               <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
+                                <div class="modal-content bg-danger">
                                   <div class="modal-header">
                                     <h6 class="modal-title">{{$data->nama_pengendara}}</h6>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -145,15 +146,10 @@ Kelola Kendaraan
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p>Apakah anda ingin menghapus data ini?
-
-                                  </p>
+                                  <p>Apakah anda ingin menghapus data ini?</p>
                                 </div>
-
-                              <div class="modal-footer  justify-content-between">
-                                  
-                                    <a href="/kendaraan/delete/{{$data->id_pengendara}}" class="btn btn-outline-light"> Yes </a>
-</button>
+                              <div class="modal-footer justify-content-between">
+                                  <a href="/kendaraan/delete/{{$data->id_pengendara}}" class="btn btn-outline-light">Yes</a>
                                   <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
                               </div>
                             </div>

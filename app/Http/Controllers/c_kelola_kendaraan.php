@@ -66,13 +66,14 @@ class c_kelola_kendaraan extends Controller
             'Lainnya'
         ];
         $dropdown3 = ['Aktif','Tidak Aktif'];
+        $dropdown4 = ['2016', '2017','2018','2019', '2020','2021','2022', '2023', '2024','2025', '2026', '2027', '2028', '2029', '2030'];
         if (Auth::check()) {
             //check the kendaraan add
             if (Auth::user()->level !== 'security')
             {
                 return back();
             }
-        return view('security/v_addkendaraan', $id_baru, compact(['dropdown','dropdown2', 'dropdown3']));
+        return view('security/v_addkendaraan', $id_baru, compact(['dropdown','dropdown2', 'dropdown3', 'dropdown4']));
     }
     else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
@@ -108,7 +109,10 @@ class c_kelola_kendaraan extends Controller
             'no_kendaraan' => Request()->no_kendaraan,
             'pemeriksa_kendaraan' => Request()->pemeriksa_kendaraan,
             'tanggal_pajak' => Request()->tanggal_pajak,
+           
             'status_pajak' => Request()->status_pajak,
+            
+
             'status_sim' => Request()->status_sim,
             'status_akhir' => Request()->status_akhir,
         ];
@@ -139,13 +143,14 @@ class c_kelola_kendaraan extends Controller
             'Lainnya'
         ];
         $dropdown3 = ['Aktif','Tidak Aktif'];
+        $dropdown4 = ['2016', '2017','2018','2019', '2020','2021','2022', '2023', '2024','2025', '2026', '2027', '2028', '2029', '2030'];
         if (Auth::check()) {
             //check the kendaraan add
             if (Auth::user()->level !== 'security')
             {
                 return back();
             }
-        return view('security/v_editkendaraan',$data, compact(['dropdown','dropdown2', 'dropdown3']));
+        return view('security/v_editkendaraan',$data, compact(['dropdown','dropdown2', 'dropdown3', 'dropdown4']));
     }
      else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }

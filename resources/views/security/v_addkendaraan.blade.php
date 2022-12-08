@@ -89,41 +89,24 @@ Tambah Data Kendaraan
                                     <div class="form-line">
                                     <label>Nomor Kendaraan</label>
                                         <input type="text" class="form-control" name="no_kendaraan" placeholder="Masukan Nomor Kendaraan" value="{{ old('no_kendaraan')}}" >
-                                        
-                                        <!-- <div class="text-danger">
-                                            @error('nama_tamu')
-                                                {{ $message}}
-                                            @enderror
-                                        </div> -->
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
-                                    <label></label>
+
                                         <input type="hidden" class="form-control" name="pemeriksa_kendaraan" placeholder="Masukan Pemeriksa Kendaraan" value="{{Auth::user()->username}}" >
-                                        
-                                        <!-- <div class="text-danger">
-                                            @error('jam_masuk')
-                                                {{ $message}}
-                                            @enderror
-                                    </div> -->
                                 </div>
                                 <div class="form-group form-float">
-                                    <div class="form-line">
-                                    <label>Tanggal Pajak</label>
-                                        <input type="date" class="form-control" name="tanggal_pajak" placeholder="Masukan Tanggal Pajak" value="{{ old('tanggal_pajak')}}" >
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                <label for="exampleInputEmail1">Status Pajak</label>
-                                    <select name="status_pajak" class="form-control show-tick">
+                                <label for="exampleInputEmail1">Tahun Pajak</label>
+                                    <select name="tanggal_pajak" class="form-control show-tick">
                                     <option disabled selected>--- Pilih ---</option>
-                                        @foreach ($dropdown3 as $row)
+                                        @foreach ($dropdown4 as $row)
                                             <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
                                         @endforeach
                                     </select>
                                 </div>
+
+                                
 
                                 <div class="form-group form-float">
                                 <label for="exampleInputEmail1">Status SIM</label>
@@ -135,12 +118,12 @@ Tambah Data Kendaraan
                                     </select>
                                 </div>
 
-                                <div class="form-group form-float">
+                                <!-- <div class="form-group form-float">
                                     <div class="form-line">
                                     <label>Status Akhir</label>
                                         <input type="text" class="form-control" name="status_akhir" placeholder="Masukan Status Akhir" value="{{ old('tanggal_pajak')}}" >
                                     </div>
-                                </div>
+                                </div> -->
                                 
                             
                                 <button type="submit" class="btn bg-teal waves-effect">

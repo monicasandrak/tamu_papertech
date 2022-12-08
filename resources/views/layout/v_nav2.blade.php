@@ -85,7 +85,7 @@
                             </li>
 
                             <li>
-                                <a href="/laporan_security">Laporan Kendaraan Masuk</a>
+                                <a href="/laporan_kendaraan">Laporan Kendaraan Masuk</a>
                             </li>
                         </ul>
                     </li>
