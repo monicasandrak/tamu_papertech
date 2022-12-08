@@ -128,7 +128,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:security']], function(){
     Route::get('/security/edit/{id_security}', [c_kelola_security::class,'edit']);
     Route::put('/security/update/{id_security}', [c_kelola_security::class,'update'])->name('update_security');
     Route::get('/security/delete/{id_security}', [c_kelola_security::class,'delete']);
-    Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']);
+    Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']);  
     Route::get('/laporan_security', [c_laporan_security::class, 'index'])->name('laporan_security');
     Route::get('/print_laporan_security', [c_laporan_security::class, 'print'])->name('print_laporan_security');
 
