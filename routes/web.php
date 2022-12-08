@@ -5,6 +5,7 @@ use App\Http\Controllers\c_kelola_tamu;
 use App\Http\Controllers\c_kelola_tamu2;
 use App\Http\Controllers\c_user;
 use App\Http\Controllers\c_kelola_security;
+use App\Http\Controllers\c_kelola_kendaraan;
 use App\Http\Controllers\c_kelola_perawat;
 use App\Http\Controllers\c_kelola_dokter;
 use App\Http\Controllers\c_kelola_pasien;
@@ -131,6 +132,17 @@ Route::group(['middleware' => ['auth', 'ceklevel:security']], function(){
     Route::get('/security/detail/{id_security}', [c_kelola_security::class,'detail']);  
     Route::get('/laporan_security', [c_laporan_security::class, 'index'])->name('laporan_security');
     Route::get('/print_laporan_security', [c_laporan_security::class, 'print'])->name('print_laporan_security');
+
+    // kelola kendaraan
+    Route::get('/kelola_kendaraan', [c_kelola_kendaraan::class,'index'])->name('kendaraan');
+    Route::get('/kendaraan/add', [c_kelola_kendaraan::class,'add']);
+    Route::post('/kendaraan/insert', [c_kelola_kendaraan::class,'insert'])->name('insert_kendaraan');
+    Route::get('/kendaraan/edit/{id_pengendara}', [c_kelola_kendaraan::class,'edit']);
+    Route::put('/kendaraan/update/{id_pengendara}', [c_kelola_kendaraan::class,'update'])->name('update_kendaraan');
+    Route::get('/kendaraan/delete/{id_pengendara}', [c_kelola_kendaraan::class,'delete']);
+    Route::get('/kendaraan/detail/{id_pengendara}', [c_kelola_kendaraan::class,'detail']);  
+    Route::get('/laporan_kendaraan', [c_laporan_kendaraan::class, 'index'])->name('laporan_kendaraan');
+    
 
     //sepertinya route ini tidak terpakai
     Route::get('/cetak_laporan_tamu', [c_laporan_tamu::class, 'cetak_tamu'])->name('cetak_laporan_tamu');

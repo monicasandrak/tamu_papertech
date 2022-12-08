@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class m_kendaraan extends Model
 {
@@ -17,6 +18,7 @@ class m_kendaraan extends Model
         'posisi',
         'departement',
         'no_kendaraan',
+        'pemeriksa_kendaraan',
         'tanggal_pajak',
         'status_pajak',
         'status_sim',

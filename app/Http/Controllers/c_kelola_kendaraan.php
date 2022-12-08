@@ -84,7 +84,7 @@ class c_kelola_kendaraan extends Controller
             'posisi' => 'required',
             // 'departement' => 'required',
             'no_kendaraan' => 'required',
-            'tanggal_pajak' => 'required',  
+            // 'tanggal_pajak' => 'required',  
             // 'status_pajak'=>'required',
             'status_sim'=>'required',
             // 'status_akhir'=>'required',
@@ -94,7 +94,7 @@ class c_kelola_kendaraan extends Controller
             'posisi.required' => 'Posisi wajib diisi !',
             // 'departement.required' => 'Departement wajib diisi !',
             'no_kendaraan.required' => 'Nomor Kendaraan wajib diisi !',
-            'tanggal_pajak' => 'Tanggal pajak wajib diisi !',
+            // 'tanggal_pajak' => 'Tanggal pajak wajib diisi !',
             'status_sim.required' => 'Status SIM wajib diisi !',
             
         ]);
@@ -106,6 +106,7 @@ class c_kelola_kendaraan extends Controller
             'posisi' => Request()->posisi,
             'departement' => Request()->departement,
             'no_kendaraan' => Request()->no_kendaraan,
+            'pemeriksa_kendaraan' => Request()->pemeriksa_kendaraan,
             'tanggal_pajak' => Request()->tanggal_pajak,
             'status_pajak' => Request()->status_pajak,
             'status_sim' => Request()->status_sim,
@@ -193,15 +194,11 @@ class c_kelola_kendaraan extends Controller
     public function delete($id_pengendara)
     {
         //hapus atau delete foto
-        $kendaraan = $this->m_kendaraan->detailData($id_pengendara);
-        
+    
         $this->m_kendaraan->deleteData($id_pengendara);
         return redirect()->route('kendaraan')->with('pesan','Data berhasil dihapus !');
+       
     }
-
-   
-
-    
 
 }
 

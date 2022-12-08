@@ -64,6 +64,12 @@
                             <span>Kelola Security</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/kelola_kendaraan">
+                        <i class="material-icons">group</i>
+                            <span>Kelola Kendaraan Masuk</span>
+                        </a>
+                    </li>
                     <li class="has-sub">
                         <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">content_copy</i>
@@ -76,6 +82,10 @@
                             
                             <li>
                                 <a href="/laporan_security">Laporan Security</a>
+                            </li>
+
+                            <li>
+                                <a href="/laporan_security">Laporan Kendaraan Masuk</a>
                             </li>
                         </ul>
                     </li>
