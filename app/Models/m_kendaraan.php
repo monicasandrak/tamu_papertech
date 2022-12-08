@@ -17,6 +17,7 @@ class m_kendaraan extends Model
         'nama_pengendara',
         'posisi',
         'departement',
+        'jenis_kendaraan',
         'no_kendaraan',
         'pemeriksa_kendaraan',
         'tanggal_pajak',

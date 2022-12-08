@@ -79,6 +79,20 @@ Edit Data Kendaraan
                   @enderror
               </div>
           </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Jenis kendaraan</label>
+            <select name="jenis_kendaraan" class="form-control">
+        <option>{{$kendaraan->jenis_kendaraan}}</option>
+        @foreach ($dropdown5 as $row)
+        <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+        @endforeach
+      </select>
+            <div class="text-danger">
+                @error('jenis_kendaraan')
+                    {{ $message}}
+                @enderror
+            </div>
+        </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">No. Kendaraan</label>
                 <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan No Kendaraan" value="{{$kendaraan->no_kendaraan}}">

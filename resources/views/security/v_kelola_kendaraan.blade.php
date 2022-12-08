@@ -55,6 +55,7 @@ Kelola Kendaraan
                                         <th>Nama Pengendara</th>
                                         <th>Posisi</th>
                                         <th>Departement</th>
+                                        <th>Jenis Kendaraan</th>
                                         <th>Nomor Kendaraan</th>
                                         <th>Pemeriksa Kendaraan</th>
                                         <th>Status Pajak</th>
@@ -70,6 +71,7 @@ Kelola Kendaraan
                                         <th>Nama Pengendara</th>
                                         <th>Posisi</th>
                                         <th>Departement</th>
+                                        <th>Jenis Kendaraan</th>
                                         <th>Nomor Kendaraan</th>
                                         <th>Pemeriksa Kendaraan</th>
                                         <th>Status Pajak</th>
@@ -88,6 +90,7 @@ Kelola Kendaraan
           <td>{{$data->nama_pengendara}}</td>
           <td>{{$data->posisi}}</td>
           <td>{{$data->departement}}</td>
+          <td>{{$data->jenis_kendaraan}}</td>
           <td>{{$data->no_kendaraan}}</td>
           <td>{{$data->pemeriksa_kendaraan}}</td>
           <td>

@@ -76,6 +76,18 @@ Detail Kendaraan
   </div>
   </div>
   <div class="form-group form-float">
+    <div class="form-line">
+      <label>Jenis Kendaraan</label>
+        <input type="text" class="form-control" name="jenis_kendaraan" value="{{$kendaraan->jenis_kendaraan}}" readonly >
+        
+        <!-- <div class="text-danger">
+            @error('jenis_kendaraan')
+                {{ $message}}
+            @enderror
+    </div> -->
+</div>
+</div>
+  <div class="form-group form-float">
       <div class="form-line">
         <label>No. Kendaraan</label>
           <input type="text" class="form-control" name="no_kendaraan" value="{{$kendaraan->no_kendaraan}}" readonly >
@@ -116,8 +128,7 @@ Detail Kendaraan
       <label>Status Pajak</label>
         <input type="text" class="form-control" name="status_pajak" 
         value="@if ($kendaraan->tanggal_pajak > '2022') Aktif
-            @endif
-            @if ($kendaraan->tanggal_pajak <= '2022') Tidak Aktif
+            @endif @if ($kendaraan->tanggal_pajak <= '2022') Tidak Aktif
             @endif"
             
             readonly >
@@ -142,13 +153,9 @@ Detail Kendaraan
       <label>Status Akhir</label>
         <input type="text" class="form-control" name="status_akhir" 
         value=" @if ($kendaraan->tanggal_pajak > '2022' && $kendaraan->status_sim == 'Aktif') Success
-        @endif
-            @if ($kendaraan->tanggal_pajak <= '2022' && $kendaraan->status_sim == 'Aktif') Failed
-            @endif
-            @if ($kendaraan->tanggal_pajak > '2022' && $kendaraan->status_sim == 'Tidak Aktif') Failed
-            @endif
-            @if ($kendaraan->tanggal_pajak <= '2022' && $kendaraan->status_sim == 'Tidak Aktif') Failed
-            @endif" readonly >
+        @endif @if ($kendaraan->tanggal_pajak <= '2022' && $kendaraan->status_sim == 'Aktif') Failed
+        @endif @if ($kendaraan->tanggal_pajak > '2022' && $kendaraan->status_sim == 'Tidak Aktif') Failed
+        @endif @if ($kendaraan->tanggal_pajak <= '2022' && $kendaraan->status_sim == 'Tidak Aktif') Failed @endif" readonly >
         
         
 </div>

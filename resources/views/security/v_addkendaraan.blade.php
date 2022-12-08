@@ -84,7 +84,15 @@ Tambah Data Kendaraan
                                         @endforeach
                                     </select>
                                 </div>
-
+                                <div class="form-group form-float">
+                                    <label for="exampleInputEmail1">Jenis Kendaraan</label>
+                                        <select name="jenis_kendaraan" class="form-control show-tick">
+                                        <option disabled selected>--- Pilih ---</option>
+                                            @foreach ($dropdown5 as $row)
+                                                <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                     <label>Nomor Kendaraan</label>

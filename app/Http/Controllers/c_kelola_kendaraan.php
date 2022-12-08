@@ -67,13 +67,14 @@ class c_kelola_kendaraan extends Controller
         ];
         $dropdown3 = ['Aktif','Tidak Aktif'];
         $dropdown4 = ['2016', '2017','2018','2019', '2020','2021','2022', '2023', '2024','2025', '2026', '2027', '2028', '2029', '2030'];
+        $dropdown5 = ['Mobil','Motor'];
         if (Auth::check()) {
             //check the kendaraan add
             if (Auth::user()->level !== 'security')
             {
                 return back();
             }
-        return view('security/v_addkendaraan', $id_baru, compact(['dropdown','dropdown2', 'dropdown3', 'dropdown4']));
+        return view('security/v_addkendaraan', $id_baru, compact(['dropdown','dropdown2', 'dropdown3', 'dropdown4', 'dropdown5']));
     }
     else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
@@ -84,6 +85,7 @@ class c_kelola_kendaraan extends Controller
             'nama_pengendara' => 'required',
             'posisi' => 'required',
             // 'departement' => 'required',
+            'jenis_kendaraan' => 'required',
             'no_kendaraan' => 'required',
             // 'tanggal_pajak' => 'required',  
             // 'status_pajak'=>'required',
@@ -94,6 +96,7 @@ class c_kelola_kendaraan extends Controller
             'nama_pengendara.required' => 'Nama pengendara wajib diisi !',
             'posisi.required' => 'Posisi wajib diisi !',
             // 'departement.required' => 'Departement wajib diisi !',
+            'jenis_kendaraan.required' => 'Jenis Kendaraan wajib diisi !',
             'no_kendaraan.required' => 'Nomor Kendaraan wajib diisi !',
             // 'tanggal_pajak' => 'Tanggal pajak wajib diisi !',
             'status_sim.required' => 'Status SIM wajib diisi !',
@@ -106,6 +109,7 @@ class c_kelola_kendaraan extends Controller
             'nama_pengendara' => Request()->nama_pengendara,
             'posisi' => Request()->posisi,
             'departement' => Request()->departement,
+            'jenis_kendaraan' => Request()->jenis_kendaraan,
             'no_kendaraan' => Request()->no_kendaraan,
             'pemeriksa_kendaraan' => Request()->pemeriksa_kendaraan,
             'tanggal_pajak' => Request()->tanggal_pajak,
@@ -144,13 +148,14 @@ class c_kelola_kendaraan extends Controller
         ];
         $dropdown3 = ['Aktif','Tidak Aktif'];
         $dropdown4 = ['2016', '2017','2018','2019', '2020','2021','2022', '2023', '2024','2025', '2026', '2027', '2028', '2029', '2030'];
+        $dropdown5 = ['Mobil','Motor'];
         if (Auth::check()) {
             //check the kendaraan add
             if (Auth::user()->level !== 'security')
             {
                 return back();
             }
-        return view('security/v_editkendaraan',$data, compact(['dropdown','dropdown2', 'dropdown3', 'dropdown4']));
+        return view('security/v_editkendaraan',$data, compact(['dropdown','dropdown2', 'dropdown3', 'dropdown4', 'dropdown5']));
     }
      else return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
     }
@@ -163,6 +168,7 @@ class c_kelola_kendaraan extends Controller
             'posisi' => 'required',
             // 'departement' => 'required',
             'no_kendaraan' => 'required',
+            'jenis_kendaraan' => 'required',
             'tanggal_pajak' => 'required',  
             // 'status_pajak'=>'required',
             'status_sim'=>'required',
@@ -172,6 +178,7 @@ class c_kelola_kendaraan extends Controller
             'nama_pengendara.required' => 'Nama pengendara wajib diisi !',
             'posisi.required' => 'Posisi wajib diisi !',
             // 'departement.required' => 'Departement wajib diisi !',
+            'jenis_kendaraan.required' => 'Jenis Kendaraan wajib diisi !',
             'no_kendaraan.required' => 'Nomor Kendaraan wajib diisi !',
             'tanggal_pajak' => 'Tanggal pajak wajib diisi !',
             'status_sim.required' => 'Status SIM wajib diisi !',
@@ -183,6 +190,7 @@ class c_kelola_kendaraan extends Controller
                 'nama_pengendara' => Request()->nama_pengendara,
                 'posisi' => Request()->posisi,
                 'departement' => Request()->departement,
+                'jenis_kendaraan' => Request()->jenis_kendaraan,
                 'no_kendaraan' => Request()->no_kendaraan,
                 'tanggal_pajak' => Request()->tanggal_pajak,
                 'status_pajak' => Request()->status_pajak,
