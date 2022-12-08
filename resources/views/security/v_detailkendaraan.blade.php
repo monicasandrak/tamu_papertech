@@ -114,13 +114,15 @@ Detail Kendaraan
 <div class="form-group form-float">
     <div class="form-line">
       <label>Status Pajak</label>
-        <input type="text" class="form-control" name="status_pajak" value="{{$kendaraan->status_pajak}}" readonly >
+        <input type="text" class="form-control" name="status_pajak" 
+        value="@if ($kendaraan->tanggal_pajak > '2022') Aktif
+            @endif
+            @if ($kendaraan->tanggal_pajak <= '2022') Tidak Aktif
+            @endif"
+            
+            readonly >
         
-        <!-- <div class="text-danger">
-            @error('status_pajak')
-                {{ $message}}
-            @enderror
-    </div> -->
+        
 </div>
 </div>
 <div class="form-group form-float">
@@ -138,13 +140,17 @@ Detail Kendaraan
 <div class="form-group form-float">
     <div class="form-line">
       <label>Status Akhir</label>
-        <input type="text" class="form-control" name="status_akhir" value="{{$kendaraan->status_akhir}}" readonly >
+        <input type="text" class="form-control" name="status_akhir" 
+        value=" @if ($kendaraan->tanggal_pajak > '2022' && $kendaraan->status_sim == 'Aktif') Success
+        @endif
+            @if ($kendaraan->tanggal_pajak <= '2022' && $kendaraan->status_sim == 'Aktif') Failed
+            @endif
+            @if ($kendaraan->tanggal_pajak > '2022' && $kendaraan->status_sim == 'Tidak Aktif') Failed
+            @endif
+            @if ($kendaraan->tanggal_pajak <= '2022' && $kendaraan->status_sim == 'Tidak Aktif') Failed
+            @endif" readonly >
         
-        <!-- <div class="text-danger">
-            @error('status_akhir')
-                {{ $message}}
-            @enderror
-    </div> -->
+        
 </div>
 </div>
 
