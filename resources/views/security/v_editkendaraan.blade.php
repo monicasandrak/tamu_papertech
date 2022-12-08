@@ -29,29 +29,44 @@ Edit Data Kendaraan
             <!-- <form action="{{route('update_kendaraan', $kendaraan->id_pengendara)}}" method="post" enctype="multipart/form-data"> -->
           @csrf
           @method('put')
-          <!-- @method('PUT') -->
+          <div class="card-body">
+                            @if(session('success'))
+                                <p class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">{{session('success')}} &times;</a></p>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger alert-dissmissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>a</strong>{{ session('error') }}</div>
+                            @endif
+                            @if($errors->any())
+                            @foreach($errors->all() as $err)
+                                <p class="alert alert-danger">{{ $err }}</p>
+                            @endforeach
+                            @endif
          
             <div class="card-body">
-                <div class="form-group">
+                <div class="form-group form-float">
+                    <div class="form-line">
                     <label for="exampleInputEmail1">ID Pengendara</label>
                     <input type="text" name="id_pengendara" class="form-control" id="exampleInputEmail1"  value="{{$kendaraan->id_pengendara}}" readonly>
-                    <div class="text-danger">
+                    <!-- <div class="text-danger">
                           @error('id_pengendara')
                               {{ $message}}
                           @enderror
-                    </div>
+                    </div> -->
+                  </div>
                   </div>
            
-            <div class="form-group">
+            <div class="form-group form-float">
+            <div class="form-line">
               <label for="exampleInputEmail1">Nama Pengendara</label>
               <input type="text" name="nama_pengendara" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Pengendara" value="{{$kendaraan->nama_pengendara}}">
-              <div class="text-danger">
+              <!-- <div class="text-danger">
                     @error('nama_pengendara')
                         {{ $message}}
                     @enderror
-              </div>
+              </div> -->
             </div>
-            <div class="form-group">
+            </div>
+            <div class="form-group form-float">
                 <label for="exampleInputEmail1">Posisi</label>
                 <select name="posisi" class="form-control">
             <option>{{$kendaraan->posisi}}</option>
@@ -59,13 +74,13 @@ Edit Data Kendaraan
             <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
             @endforeach
           </select>
-                <div class="text-danger">
+                <!-- <div class="text-danger">
                     @error('posisi')
                         {{ $message}}
                     @enderror
-                </div>
+                </div> -->
             </div>
-            <div class="form-group">
+            <div class="form-group form-float">
               <label for="exampleInputEmail1">Departement</label>
               <select name="departement" class="form-control">
           <option>{{$kendaraan->departement}}</option>
@@ -73,13 +88,13 @@ Edit Data Kendaraan
           <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
           @endforeach
         </select>
-              <div class="text-danger">
+              <!-- <div class="text-danger">
                   @error('departement')
                       {{ $message}}
                   @enderror
-              </div>
+              </div> -->
           </div>
-          <div class="form-group">
+          <div class="form-group form-float">
             <label for="exampleInputEmail1">Jenis kendaraan</label>
             <select name="jenis_kendaraan" class="form-control">
         <option>{{$kendaraan->jenis_kendaraan}}</option>
@@ -87,22 +102,27 @@ Edit Data Kendaraan
         <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
         @endforeach
       </select>
-            <div class="text-danger">
+            <!-- <div class="text-danger">
                 @error('jenis_kendaraan')
                     {{ $message}}
                 @enderror
-            </div>
+            </div> -->
         </div>
-            <div class="form-group">
+        <div class="form-group form-float">
+            <div class="form-line">
                 <label for="exampleInputEmail1">No. Kendaraan</label>
                 <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan No Kendaraan" value="{{$kendaraan->no_kendaraan}}">
-                <div class="text-danger">
+                <!-- <div class="text-danger">
                     @error('no_kendaraan')
                         {{ $message}}
                     @enderror
-                </div>
+                </div> -->
             </div>
-            <div class="form-group">
+            </div>
+            <div class="form-group form-float">
+                <input type="hidden" class="form-control" name="pemeriksa_kendaraan" placeholder="Masukan Pemeriksa Kendaraan" value="{{Auth::user()->username}}" >
+            </div>
+            <div class="form-group form-float">
               <label for="exampleInputEmail1">Tahun Pajak</label>
               <select name="tanggal_pajak" class="form-control">
           <option>{{$kendaraan->tanggal_pajak}}</option>
@@ -110,13 +130,13 @@ Edit Data Kendaraan
           <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
           @endforeach
         </select>
-              <div class="text-danger">
+              <!-- <div class="text-danger">
                   @error('tanggal_pajak')
                       {{ $message}}
                   @enderror
-              </div>
+              </div> -->
           </div>
-          <div class="form-group">
+          <div class="form-group form-float">
             <label for="exampleInputEmail1">Status SIM</label>
             <select name="status_sim" class="form-control">
         <option>{{$kendaraan->status_sim}}</option>
@@ -124,17 +144,19 @@ Edit Data Kendaraan
         <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
         @endforeach
       </select>
-            <div class="text-danger">
+            <!-- <div class="text-danger">
                 @error('status_sim')
                     {{ $message}}
                 @enderror
-            </div>
+            </div> -->
         </div>
           
             <div class="card-footer">
-            <a class="btn btn-danger" href="{{ route('kendaraan') }}">Back</a>
-            <button type="submit" class="btn btn-primary">Update</button>
-            
+            <!-- <a class="btn btn-danger" href="{{ route('kendaraan') }}">Back</a> -->
+            <!-- <button type="submit" class="btn btn-primary">Update</button> -->
+            <button type="submit" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">save</i>
+                                    <span>UPDATE</span>
           </div>
         </form>
       </div>
