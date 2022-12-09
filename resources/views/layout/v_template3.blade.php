@@ -81,7 +81,18 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="{{asset('template3')}}/index.html">SISTEM INFORMASI VISITOR DAN KLINIK PT PAPERTECH INDONESIA</a>
+                <a class="navbar-brand" href="{{asset('template3')}}/index.html">
+                @if(Auth::user()->level == 'security')
+                SISTEM INFORMASI VISITOR DAN PENGELOLAAN DATA DI SECURITY PT. PAPERTECH INDONESIA       
+                @endif 
+                @if(Auth::user()->level == 'klinik')
+                SISTEM INFORMASI PENCATATAN PASIEN KLINIK PT. PAPERTECH INDONESIA       
+                @endif 
+                @if(Auth::user()->level == 'admin')
+                PT. PAPERTECH INDONESIA       
+                @endif 
+                </a>
+                <!-- SISTEM INFORMASI VISITOR DAN KLINIK PT PAPERTECH INDONESIA</a> -->
                 
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
