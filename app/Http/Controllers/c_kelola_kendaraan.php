@@ -51,7 +51,7 @@ class c_kelola_kendaraan extends Controller
     public function add()
     {
         $id_baru = [ 'id_baru' => $this->m_kendaraan->id_baru()];
-        $dropdown = ['Karyawan','Kontraktor','PKL', 'Lainnya'];
+        $dropdown = ['Pegawai','Kontraktor','PKL', 'Lainnya'];
         $dropdown2 = [
             'Management',
             'Marketing',
@@ -87,7 +87,8 @@ class c_kelola_kendaraan extends Controller
             // 'departement' => 'required',
             'jenis_kendaraan' => 'required',
             'no_kendaraan' => 'required',
-            // 'tanggal_pajak' => 'required',  
+            // 'tanggal_pajak' => 'required|min:4|max:4|regex:/^(?=.*?[0-9])$/', 
+            'tanggal_pajak' => 'required|digits:4|numeric',  
             // 'status_pajak'=>'required',
             'status_sim'=>'required',
             // 'status_akhir'=>'required',
@@ -98,7 +99,13 @@ class c_kelola_kendaraan extends Controller
             // 'departement.required' => 'Departement wajib diisi !',
             'jenis_kendaraan.required' => 'Jenis Kendaraan wajib diisi !',
             'no_kendaraan.required' => 'Nomor Kendaraan wajib diisi !',
-            // 'tanggal_pajak' => 'Tanggal pajak wajib diisi !',
+            'tanggal_pajak.required' => 'Tahun pajak wajib diisi !',
+            'tanggal_pajak.digits' => 'Tahun pajak harus 4 digit !',
+            // 'tanggal_pajak.min' => 'Tahun pajak minimal 4 angka !',
+            // 'tanggal_pajak.max' => 'Tahun pajak maksimal 4 angka !',
+            'tanggal_pajak.numeric' => 'Tahun pajak diisi dengan tahun menggunakan format angka !',
+
+
             'status_sim.required' => 'Status SIM wajib diisi !',
             
         ]);
@@ -132,7 +139,7 @@ class c_kelola_kendaraan extends Controller
         }
 
         $data = ['kendaraan' => $this->m_kendaraan->detailData($id_pengendara)];
-        $dropdown = ['Karyawan','Kontraktor','PKL', 'Lainnya'];
+        $dropdown = ['Pegawai','Kontraktor','PKL', 'Lainnya'];
         $dropdown2 = [
             'Management',
             'Marketing',
@@ -168,8 +175,8 @@ class c_kelola_kendaraan extends Controller
             'posisi' => 'required',
             // 'departement' => 'required',
             'no_kendaraan' => 'required',
-            'jenis_kendaraan' => 'required',
-            'tanggal_pajak' => 'required',  
+            'jenis_kendaraan' => 'required',  
+            'tanggal_pajak' => 'required|digits:4|numeric', 
             // 'status_pajak'=>'required',
             'status_sim'=>'required',
             // 'status_akhir'=>'required',
@@ -180,7 +187,11 @@ class c_kelola_kendaraan extends Controller
             // 'departement.required' => 'Departement wajib diisi !',
             'jenis_kendaraan.required' => 'Jenis Kendaraan wajib diisi !',
             'no_kendaraan.required' => 'Nomor Kendaraan wajib diisi !',
-            'tanggal_pajak' => 'Tanggal pajak wajib diisi !',
+            'tanggal_pajak.required' => 'Tahun pajak wajib diisi !',
+            'tanggal_pajak.digits' => 'Tahun pajak harus 4 digit !',
+            // 'tanggal_pajak.min' => 'Tahun pajak minimal 4 angka !',
+            // 'tanggal_pajak.max' => 'Tahun pajak maksimal 4 angka !',
+            'tanggal_pajak.numeric' => 'Tahun pajak diisi dengan tahun menggunakan format angka !',
             'status_sim.required' => 'Status SIM wajib diisi !',
             
         ]);

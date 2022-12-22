@@ -29,7 +29,7 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="{{route('password')}}"><i class="material-icons">vpn_key</i>Change Password</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{route('logout')}}"><i class="material-icons">input</i>Logout</a></li>
+                            <li><a href="{{route('logout')}}" onclick="return confirm('Apakah anda yakin ingin Logout?')"><i class="material-icons">input</i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     <li>
                         <a href="/kelola_kendaraan">
                         <i class="material-icons">group</i>
-                            <span>Kelola Kendaraan Masuk</span>
+                            <span>Kelola Kendaraan </span>
                         </a>
                     </li>
                     <li class="has-sub">
@@ -85,7 +85,7 @@
                             </li>
 
                             <li>
-                                <a href="/laporan_kendaraan">Laporan Kendaraan Masuk</a>
+                                <a href="/laporan_kendaraan">Laporan Kendaraan</a>
                             </li>
                         </ul>
                     </li>
@@ -198,7 +198,16 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy;  @php echo date("Y"); @endphp <a href="javascript:void(0);">Monica & Rissa</a>.
+                    @if (auth()->user()->level == "security")
+                    &copy;  @php echo date("Y"); @endphp <a href="javascript:void(0);">Rissa Sri Agrianti</a>.
+                    @endif
+                    @if (auth()->user()->level == "klinik")
+                    &copy;  @php echo date("Y"); @endphp <a href="javascript:void(0);">Minica Sandra Komara</a>.
+                    @endif
+                    @if (auth()->user()->level == "admin")
+                    &copy;  @php echo date("Y"); @endphp <a href="javascript:void(0);">Rissa Sri Agrianti</a>.
+                    @endif
+
                 </div>
                 <div class="version">
                     <b> Politeknik Negeri Subang </b> 

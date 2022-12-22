@@ -82,19 +82,21 @@ Change Password
                         </div> -->
                         <br>
 
-                        <button type="submit" class="btn bg-teal waves-effect">UPDATE</button>
+                        <!-- <button type="submit" class="btn bg-teal waves-effect">UPDATE</button> -->
+
+                        <button type="submit" class="btn bg-teal waves-effect">
+                                    <i class="material-icons">save</i>
+                                    <span>UPDATE</span>
                         
             <!-- <div class="mb-3">
                 <button class="btn btn-primary">Ubah</button>
                 <a class="btn btn-danger" href="{{ route('dashboard') }}">Back</a>
                 </div>
             </div> -->
+            </div>
             <br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
             </div>
             
 <br>

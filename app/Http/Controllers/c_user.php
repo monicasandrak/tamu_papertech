@@ -79,13 +79,13 @@ class c_user extends Controller
     public function insert()
     {
         Request()->validate([
-            'username' => 'required||string|min:5|max:100|unique:users,username',
+            'username' => 'required|alpha_num|min:5|max:100|unique:users,username',
             'level' => 'required',
             'password' => 'required|min:8', 
         ],[
             'username.required' => 'Username wajib diisi !',
             'username.unique' => 'Username sudah ada !',
-            'username.string' => 'Username wajib diisi !',
+            'username.alpha_num' => 'Username hanya boleh diisi alfanumerik a-z, A-Z, 0-9 !',
             'username.min' => 'Username minimal 3 karakter !',
             'username.max' => 'Username maksimal 100 karakter !',
             'level.required' => 'Level wajib diisi !',
@@ -127,15 +127,16 @@ class c_user extends Controller
     }
 
     public function update(Request $request, $id)
-    {
+    {   
+        $users= User::find($id);
         Request()->validate([
-            'username' => 'required||string|min:5|max:100|unique:users,id',
+            'username' => 'required||alpha_num|min:5|max:100|unique:users,username,'.$id,
             // 'level' => 'required',
             'password' => 'required|min:8',
         ], [
             'username.required' => 'Username wajib diisi !',
             'username.unique' => 'Username sudah ada !',
-            'username.string' => 'Username wajib diisi !',
+            'username.alpha_num' => 'Username hanya boleh diisi alfanumerik a-z, A-Z, 0-9 !',
             'username.min' => 'Username minimal 3 karakter !',
             'username.max' => 'Username maksimal 100 karakter !',
             'level.required' => 'level wajib diisi !',
@@ -149,7 +150,7 @@ class c_user extends Controller
             // 'level' => Request()->level,
             'password' => bcrypt(Request()->password),
             ];
-            $this->m_user->editData($id,$data);
+            $this->m_user->editData($id,$data,$users);
 
         return redirect()->route('user')->with('pesan', 'Data berhasil diupdate !');
 
@@ -189,10 +190,10 @@ class c_user extends Controller
         ],[
             'old_password.required' => 'Password Lama wajib diisi !',
             'old_password.current_password' => 'Password lama salah !',
-            'new_password.required' => 'Password dan Konfirmasi Password wajib diisi !',
-            'new_password.confirmed' => 'Password atau Konfirmasi Password salah !',
-            'new_password.min' => 'Password atau Konfirmasi Password minimal 8 karakter !',
-            'new_password.regex' => "Konfirmasi Password gabungan dari huruf A-z, angka 0-9 dan setidaknya memiliki salah satu karakter # ? ! @ $ % ^ & * - _ + = : ; } {  ] [ \ /> < , . | ` ~",
+            'new_password.required' => 'Password baru dan Konfirmasi Password wajib diisi !',
+            'new_password.confirmed' => 'Password baru atau Konfirmasi Password salah !',
+            'new_password.min' => 'Password baru atau Konfirmasi Password minimal 8 karakter !',
+            'new_password.regex' => "Password Baru dan Konfirmasi Password gabungan dari huruf A-z, angka 0-9 dan setidaknya memiliki salah satu karakter # ? ! @ $ % ^ & * - _ + = : ; } {  ] [ \ /> < , . | ` ~",
         ]);
         
         $user = User::find(Auth::id());
@@ -218,19 +219,20 @@ class c_user extends Controller
 
     public function account_action(Request $request)
     {
-
+        // $user = User::find($id);
         $atribut = $request->validate([
-            'username' => 'required|string|min:5|max:100|unique:users,id',
+            'username' => 'required|alpha_num|min:5|max:100|unique:users',
             
         ],[
             'username.required' => 'Username wajib diisi !',
             'username.unique' => 'Username sudah ada !',
-            'username.string' => 'Username wajib diisi !',
+            'username.alpha_num' => 'Username hanya boleh diisi alfanumerik a-z, A-Z, 0-9 !',
             'username.min' => 'Username minimal 3 karakter !',
             'username.max' => 'Username maksimal 100 karakter !',
         
         ]);
-
+        
+        $data = 
         auth()->user()->update($atribut);
         return back()->with('success', 'Account berhasil diubah');
 

@@ -110,8 +110,8 @@ Edit Data Kendaraan
         </div>
         <div class="form-group form-float">
             <div class="form-line">
-                <label for="exampleInputEmail1">No. Kendaraan</label>
-                <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan No Kendaraan" value="{{$kendaraan->no_kendaraan}}">
+                <label for="exampleInputEmail1">Nomor Kendaraan</label>
+                <input type="text" name="no_kendaraan" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nomor Kendaraan" value="{{$kendaraan->no_kendaraan}}">
                 <!-- <div class="text-danger">
                     @error('no_kendaraan')
                         {{ $message}}
@@ -122,20 +122,27 @@ Edit Data Kendaraan
             <div class="form-group form-float">
                 <input type="hidden" class="form-control" name="pemeriksa_kendaraan" placeholder="Masukan Pemeriksa Kendaraan" value="{{Auth::user()->username}}" >
             </div>
-            <div class="form-group form-float">
+            <!-- <div class="form-group form-float">
               <label for="exampleInputEmail1">Tahun Pajak</label>
               <select name="tanggal_pajak" class="form-control">
           <option>{{$kendaraan->tanggal_pajak}}</option>
           @foreach ($dropdown4 as $row)
-          <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+          <option value="{{$row}}">{{Str::ucfirst($row)}}</option> 
           @endforeach
         </select>
-              <!-- <div class="text-danger">
-                  @error('tanggal_pajak')
-                      {{ $message}}
-                  @enderror
-              </div> -->
-          </div>
+          </div> -->
+
+          <div class="form-group form-float">
+            <div class="form-line">
+                <label for="exampleInputEmail1">Tahun Pajak</label>
+                <input type="text" name="tanggal_pajak" class="form-control" id="exampleInputEmail1" placeholder="Masukan Tahun Pajak" value="{{$kendaraan->tanggal_pajak}}">
+                <!-- <div class="text-danger">
+                    @error('no_kendaraan')
+                        {{ $message}}
+                    @enderror
+                </div> -->
+            </div>
+            </div>
           <div class="form-group form-float">
             <label for="exampleInputEmail1">Status SIM</label>
             <select name="status_sim" class="form-control">

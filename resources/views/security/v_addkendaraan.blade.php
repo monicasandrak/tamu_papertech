@@ -104,15 +104,22 @@ Tambah Data Kendaraan
 
                                         <input type="hidden" class="form-control" name="pemeriksa_kendaraan" placeholder="Masukan Pemeriksa Kendaraan" value="{{Auth::user()->username}}" >
                                 </div>
+
                                 <div class="form-group form-float">
+                                    <div class="form-line">
+                                    <label>Tahun Pajak</label>
+                                        <input type="text" class="form-control" name="tanggal_pajak" placeholder="Masukan Tanggal Pajak" value="{{ old('tanggal_pajak')}}" >
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group form-float">
                                 <label for="exampleInputEmail1">Tahun Pajak</label>
                                     <select name="tanggal_pajak" class="form-control show-tick">
                                     <option disabled selected>--- Pilih ---</option>
                                         @foreach ($dropdown4 as $row)
-                                            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> <!-- php ucfirst() -->
+                                            <option value="{{$row}}">{{Str::ucfirst($row)}}</option> 
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> -->
 
                                 
 

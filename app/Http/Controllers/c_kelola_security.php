@@ -83,6 +83,8 @@ class c_kelola_security extends Controller
             'jk.required' => 'Jenis Kelamin wajib diisi !',
             'bagian' => 'Bagian wajib diisi !',
             'foto_security.required' => 'Foto wajib diisi !',
+            'foto_security.mimes' => 'Foto Security harus diisi dengan format jpg,png,jpeg dan bmp !',
+            'foto_security.max' => 'Foto Security maksimal diisi dengan ukuran file 1024 kb !',
         ]);
         $file = Request()->foto_security;
         $fileName = Request()->id_security .'.'. $file->extension();
@@ -140,6 +142,8 @@ class c_kelola_security extends Controller
             'alamat.required' => 'Alamat wajib diisi !',
             'jk.required' => 'Jenis Kelamin wajib diisi !',
             'bagian.required' => 'Bagian wajib diisi !',
+            'foto_security.mimes' => 'Foto Security harus diisi dengan format jpg,png,jpeg dan bmp !',
+            'foto_security.max' => 'Foto Security maksimal diisi dengan ukuran file 1024 kb !',
         ]);
         //jika validasi tidak ada maka lakukan simpan data
         if (Request()->foto_security  <> "") {

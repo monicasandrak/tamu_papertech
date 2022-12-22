@@ -55,6 +55,8 @@ class c_tamu extends Controller
             'no_ktp' => 'required|min:16|max:16',
             'foto_ktp' => 'required|mimes:jpg,png,jpeg,bmp|max:1024',
             'no_kendaraan' => 'required',
+            'jam_masuk' => 'required',
+
            
               
         ],[
@@ -68,7 +70,10 @@ class c_tamu extends Controller
             'no_ktp.min' => 'Nomor KTP/Identitas harus 16 karakter !',
             'no_ktp.max' => 'Nomor KTP/Identitas harus 16 karakter !',
             'foto_ktp.required' => 'Foto KTP wajib diisi !',
-            'no_kendaraan.required' => 'No kendaraan wajib diisi !',
+            'foto_ktp.mimes' => 'Foto KTP harus diisi dengan format jpg,png,jpeg dan bmp !',
+            'foto_ktp.max' => 'Foto KTP maksimal diisi dengan ukuran file 1024 kb !',
+            'no_kendaraan.required' => 'Nomor kendaraan wajib diisi !',
+            'jam_masuk.required' => 'Jam Masuk wajib diisi !',
             
         ]);
         $file = Request()->foto_ktp;

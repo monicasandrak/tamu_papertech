@@ -81,9 +81,9 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="{{asset('template3')}}/index.html">
+                <a class="navbar-brand">
                 @if(Auth::user()->level == 'security')
-                SISTEM INFORMASI VISITOR DAN PENGELOLAAN DATA DI SECURITY PT. PAPERTECH INDONESIA       
+                SISTEM INFORMASI VISITOR DAN MANAJEMEN DATA PADA SECURITY PT. PAPERTECH INDONESIA       
                 @endif 
                 @if(Auth::user()->level == 'klinik')
                 SISTEM INFORMASI PENCATATAN PASIEN KLINIK PT. PAPERTECH INDONESIA       

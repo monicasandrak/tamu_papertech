@@ -220,7 +220,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Keberlangusungan</h2>
+          <h2>Keberlangsungan</h2>
           <p>Berfokus pada Keberlangusungan PT. Papertech Indonesia</p>
         </div>
 
